@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{7446224a-13b7-4e6f-8019-02a2a3dbee3a}">
+		<property name="name">
+			<value>BGM Parameter</value>
+		</property>
+		<relationship name="folder">
+			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{1c52adf0-c336-44c3-a4e1-02c0faf90fb5}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{1c52adf0-c336-44c3-a4e1-02c0faf90fb5}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>bruh</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
