@@ -699,10 +699,6 @@
       <Project>{9FC4FD90-0A25-4F51-E8FD-4875ABB39744}</Project>
       <Name>Unity.Services.Core.Environments.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
-      <Project>{7258C746-6776-0BA0-FC5B-9B0603D551AB}</Project>
-      <Name>Unity.VisualScripting.State.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="FMODUnity.Player.csproj">
       <Project>{8C421AEC-E83C-FF4D-0720-D65ADA1C0A0A}</Project>
       <Name>FMODUnity.Player</Name>
@@ -710,6 +706,10 @@
     <ProjectReference Include="FMODUnityResonance.Player.csproj">
       <Project>{82A849AB-89CB-D1AE-66F7-1FCB88DAEBDE}</Project>
       <Name>FMODUnityResonance.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
+      <Project>{7258C746-6776-0BA0-FC5B-9B0603D551AB}</Project>
+      <Name>Unity.VisualScripting.State.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
