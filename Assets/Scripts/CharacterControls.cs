@@ -23,30 +23,6 @@ public class CharacterControls : MonoBehaviour
         pitch -= Input.GetAxisRaw("Mouse Y") * sensitivity;
         transform.Rotate(0, Input.GetAxisRaw("Mouse X") * sensitivity, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
-                {
-                    Debug.Log("Object Name: " + hit.transform.gameObject.name);
-                }
-
-                if(hit.rigidbody == null)
-                {
-                    hit.collider.gameObject.AddComponent<Rigidbody>();
-                    hit.collider.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                    hit.collider.gameObject.GetComponent<Rigidbody>().useGravity = true;
-                }
-
-               
-            }
-        }
     }
 
     void Movement()
@@ -65,7 +41,20 @@ public class CharacterControls : MonoBehaviour
     void Update()
     {
         Look();
-        
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
+                {
+                    //Debug.Log("Object Name: " + hit.transform.gameObject.name);
+                }
+            }
+        }
     }
 
     private void FixedUpdate()

@@ -57,6 +57,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\CharacterControls.cs" />
+    <Compile Include="Assets\Scripts\ColorControl.cs" />
+    <Compile Include="Assets\Scripts\WaterBehaviour.cs" />
+    <Compile Include="Assets\Scripts\RockBehaviour.cs" />
+    <Compile Include="Assets\Scripts\CloudBehaviour.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pas Splatoon\Metadata\SnapshotGroup\{3e4abf81-0c8a-4331-98dc-ff8573ddbdfb}.xml" />
