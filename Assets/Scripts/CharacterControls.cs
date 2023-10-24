@@ -51,7 +51,7 @@ public class CharacterControls : MonoBehaviour
             {
                 if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
                 {
-                    Debug.Log("Object Name: " + hit.transform.gameObject.name);
+                    //Debug.Log("Object Name: " + hit.transform.gameObject.name);
                 }
             }
         }
