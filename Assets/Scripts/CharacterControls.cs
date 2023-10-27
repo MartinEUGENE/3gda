@@ -38,10 +38,8 @@ public class CharacterControls : MonoBehaviour
         rb.velocity = ThatDirection;
     }
 
-    void Update()
+    void PaintWorld()
     {
-        Look();
-
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -55,6 +53,20 @@ public class CharacterControls : MonoBehaviour
                 }
             }
         }
+    }
+
+    void Update()
+    {
+        Look();
+
+        PaintWorld();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
+        Gizmos.DrawRay(transform.position, direction);
     }
 
     private void FixedUpdate()
