@@ -38,7 +38,7 @@ public class CharacterControls : MonoBehaviour
         rb.velocity = ThatDirection;
     }
 
-    void PaintWorld()
+    /*void PaintWorld()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -53,13 +53,13 @@ public class CharacterControls : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
 
     void Update()
     {
         Look();
 
-        PaintWorld();
+        //PaintWorld();
     }
 
     private void OnDrawGizmos()

@@ -5,20 +5,19 @@ using UnityEngine.Events;
 
 public class ColorControl : MonoBehaviour
 {
-    //public float pitch = 0f;
-    // ce qu'ils on tous en commun
-    private bool painted = false;
+    private bool isActive = false;
     public Rigidbody rb;
     public UnityEvent startUp;
-    public delegate void OnRaycastHitAction();
-    public static event OnRaycastHitAction OnRaycastHit;
+  //  public Renderer objectRenderer; // Reference to the object's renderer
+
+    private Color originalColor; // Store the original color
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        //originalColor = objectRenderer.material.color; // Store the original color
     }
 
-    // 
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -30,67 +29,30 @@ public class ColorControl : MonoBehaviour
             {
                 if (hit.transform == transform)
                 {
-                    
-                    OnRaycastHit?.Invoke(); // Invoke the event
+                    ToggleActivation();
                 }
             }
         }
-        // when cliked on trigger paint
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    if (painted == false)
-        //    {
-        //        //active la couleur et le script lié? active gravité?
-        //        Debug.Log("painted");
-        //        painted = true;
-        //        rb.useGravity = true; //rajout un truc qui active/toggle un script pour water et autre
-        //    }
-        //    else { Debug.Log("NO paint"); painted = false; rb.useGravity = false; }
-
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
-        //        {
-                   
-
-        //        }
-        //    }
-        //}
     }
 
-    private void HandleRaycastHit()
+    void ToggleActivation()
     {
-        //Debug.Log("oui");
+        isActive = !isActive;
 
-        if (painted == false)
+        if (isActive)
         {
-            startUp?.Invoke(); //comment trigger wateret autre en séparé
-            //ils s'activent tous en meme temps , comment l'empéché
+            startUp.Invoke(); // Trigger the startUp event for this specific object
             Debug.Log("painted");
-            painted = true;
-            rb.useGravity = true; //
-
+            rb.useGravity = true;
+            rb.isKinematic = false; 
+           // objectRenderer.material.color = Color.blue; // Change the color to blue when activated
         }
-        else { Debug.Log("NO paint"); painted = false; 
-            //rb.useGravity = false; 
+        else
+        {
+            Debug.Log("NO paint");
+            rb.useGravity = false;
+            rb.isKinematic = true;
+            //objectRenderer.material.color = originalColor; // Restore the original color when deactivated
         }
-
-        
     }
-
-    private void OnEnable()
-    {
-        OnRaycastHit += HandleRaycastHit;
-        
-    }
-
-    private void OnDisable()
-    {
-        OnRaycastHit -= HandleRaycastHit;
-    }
-
-
 }

@@ -12,7 +12,7 @@ public class WaterBehaviour : ColorControl
         if (rb != null || active == true)
         {
             //Debug.Log("Object Name: ");
-            rb.AddForce(transform.forward * conveyorForce, ForceMode.Force);
+            rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
         }
     }
     // le forward c'est Z

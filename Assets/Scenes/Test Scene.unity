@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 83175308}
   - component: {fileID: 83175307}
   - component: {fileID: 83175306}
+  - component: {fileID: 83175312}
   m_Layer: 0
   m_Name: rock (1)
   m_TagString: Untagged
@@ -266,6 +267,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &83175312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83175304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4390dc2c83a32843a578f5a23e5b922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  startUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &235401702
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +295,8 @@ GameObject:
   - component: {fileID: 235401705}
   - component: {fileID: 235401704}
   - component: {fileID: 235401703}
+  - component: {fileID: 235401707}
+  - component: {fileID: 235401708}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -363,6 +382,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &235401707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235401702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4390dc2c83a32843a578f5a23e5b922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  startUp:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!54 &235401708
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235401702}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &394867049
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,8 +428,6 @@ GameObject:
   - component: {fileID: 394867051}
   - component: {fileID: 394867050}
   - component: {fileID: 394867055}
-  - component: {fileID: 394867056}
-  - component: {fileID: 394867057}
   m_Layer: 0
   m_Name: false player
   m_TagString: Player
@@ -497,50 +546,6 @@ MonoBehaviour:
   pitch: 0
   walkspeed: 5
   sensitivity: 2
---- !u!114 &394867056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394867049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attenuationObject: {fileID: 0}
---- !u!114 &394867057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394867049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  AllowNonRigidbodyDoppler: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,6 +801,7 @@ GameObject:
   - component: {fileID: 953443163}
   - component: {fileID: 953443162}
   - component: {fileID: 953443161}
+  - component: {fileID: 953443166}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -814,7 +820,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -890,13 +896,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953443160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.91, y: 1.24, z: 7.29}
+  m_LocalPosition: {x: 6.91, y: 2.22, z: 7.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953443166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953443160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4390dc2c83a32843a578f5a23e5b922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  startUp:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,6 +1105,7 @@ GameObject:
   - component: {fileID: 1571982390}
   - component: {fileID: 1571982389}
   - component: {fileID: 1571982393}
+  - component: {fileID: 1571982394}
   m_Layer: 0
   m_Name: cloud
   m_TagString: Untagged
@@ -1180,10 +1203,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a3add17252d4e439e40d44cc0ad78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 1571982394}
   startUp:
     m_PersistentCalls:
       m_Calls: []
+  cloud: {fileID: 0}
+  active: 1
+--- !u!54 &1571982394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1571982388}
+  serializedVersion: 2
+  m_Mass: 500
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1865298915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,6 +1239,7 @@ GameObject:
   - component: {fileID: 1865298917}
   - component: {fileID: 1865298916}
   - component: {fileID: 1865298921}
+  - component: {fileID: 1865298922}
   m_Layer: 0
   m_Name: river
   m_TagString: Untagged
@@ -1292,7 +1334,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1865298915}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.81, y: 0.58, z: 7.8}
+  m_LocalPosition: {x: 5.81, y: -0.02, z: 7.8}
   m_LocalScale: {x: 3.1628973, y: 0.45693, z: 6.938884}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1340,4 +1382,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   conveyorForce: 500
-  activer: 0
+  active: 0
+--- !u!114 &1865298922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865298915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4390dc2c83a32843a578f5a23e5b922, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  startUp:
+    m_PersistentCalls:
+      m_Calls: []

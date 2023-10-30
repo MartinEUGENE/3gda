@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CloudBehaviour : ColorControl
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public SphereCollider cloud;
+    public bool active = true;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
+        cloud = GetComponent<SphereCollider>();
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(cloud != null && active == true)
+        {
+            cloud.enabled = false;
+            active = false; 
+        }
         
     }
 }
