@@ -8,14 +8,14 @@ public class ColorControl : MonoBehaviour
     private bool isActive = false;
     public Rigidbody rb;
     public UnityEvent startUp;
-  //  public Renderer objectRenderer; // Reference to the object's renderer
+    public Renderer objectRenderer; // Reference to the object's renderer
 
     private Color originalColor; // Store the original color
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        //originalColor = objectRenderer.material.color; // Store the original color
+        originalColor = objectRenderer.material.color; // Store the original color
     }
 
     void Update()
@@ -45,14 +45,16 @@ public class ColorControl : MonoBehaviour
             Debug.Log("painted");
             rb.useGravity = true;
             rb.isKinematic = false; 
-           // objectRenderer.material.color = Color.blue; // Change the color to blue when activated
+            objectRenderer.material.color = Color.green; // Change the color to blue when activated
         }
+
+        
         else
         {
             Debug.Log("NO paint");
             rb.useGravity = false;
             rb.isKinematic = true;
-            //objectRenderer.material.color = originalColor; // Restore the original color when deactivated
+            objectRenderer.material.color = originalColor; // Restore the original color when deactivated
         }
     }
 }
