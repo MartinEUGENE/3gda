@@ -15,15 +15,14 @@ public class WaterBehaviour : ColorControl
             rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
         }
     }
-    // le forward c'est Z
-    /*void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    /*private void OnTriggerEnter(Collider other)
     {
-        
+        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+        if (rb != null || active == true)
+        {
+            rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
+        }
+
     }*/
 }
