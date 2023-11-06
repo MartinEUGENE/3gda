@@ -3,58 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ColorControl : MonoBehaviour
+public class ColorControl : BroColor
 {
-    private bool isActive = false;
-    public Rigidbody rb;
-    public UnityEvent startUp;
-    public Renderer objectRenderer; // Reference to the object's renderer
+    private BroColor bro;
 
-    private Color originalColor; // Store the original color
-
-    void Start()
+    private void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        originalColor = objectRenderer.material.color; // Store the original color
+        bro = GetComponent<BroColor>();
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
+        if (Input.GetButtonDown("Fire1"))
+        {            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
+                
                 if (hit.transform == transform)
                 {
-                    ToggleActivation();
+                    bro.ToggleActivation();
                 }
             }
         }
     }
-
-    void ToggleActivation()
-    {
-        isActive = !isActive;
-
-        if (isActive)
-        {
-            startUp.Invoke(); // Trigger the startUp event for this specific object
-            Debug.Log("painted");
-            rb.useGravity = true;
-            rb.isKinematic = false; 
-            objectRenderer.material.color = Color.green; // Change the color to blue when activated
-        }
-
-        
-        else
-        {
-            Debug.Log("NO paint");
-            rb.useGravity = false;
-            rb.isKinematic = true;
-            objectRenderer.material.color = originalColor; // Restore the original color when deactivated
-        }
-    }
+    
 }

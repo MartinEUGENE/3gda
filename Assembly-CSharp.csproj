@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\WaterBehaviour.cs" />
+    <Compile Include="Assets\Scripts\BroColor.cs" />
     <Compile Include="Assets\Scripts\CloudBehaviour.cs" />
     <Compile Include="Assets\Scripts\CharacterControls.cs" />
     <Compile Include="Assets\Scripts\ColorControl.cs" />

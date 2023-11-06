@@ -4,15 +4,7 @@ using UnityEngine;
 
 public class RockBehaviour : ColorControl
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ColorControl colorCont;
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
