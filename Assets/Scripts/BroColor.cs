@@ -20,9 +20,40 @@ public class BroColor : MonoBehaviour
         //rb = GetComponent<Rigidbody>();
     }
 
+    void Update()
+    {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
+            {
+
+                if (hit.transform == transform)
+                {
+                    ToggleActivation();
+                }
+            }
+        }
+    }
+
+    protected virtual void CustomActivation()
+    {
+
+    }
+
+    protected virtual void CustomDeactivation()
+    {
+
+    }
+
     public void ToggleActivation()
     {
-        if(gameObject.CompareTag("Rock") && isActive == false)
+        bool prevActiveState = isActive;
+        isActive = !isActive;
+
+        /*if(gameObject.CompareTag("Rock") && isActive == false)
         {
             isActive = true;
 
@@ -40,7 +71,7 @@ public class BroColor : MonoBehaviour
             rb.useGravity = false;
             rb.isKinematic = true;
             //objectRenderer.material.color = originalColor; // Restore the original color when deactivated
-        }
+        }*/
         
         
         if(gameObject.CompareTag("Cloud") && isActive == false)
@@ -57,6 +88,16 @@ public class BroColor : MonoBehaviour
             Debug.Log("NO paint");
             isActive = false;
             GetComponent<SphereCollider>().enabled = false;
+        }
+
+        if (!prevActiveState && isActive)
+        {
+            CustomActivation();
+            GetComponent<Renderer>().material.color = Color.red;
+        }else if(prevActiveState && !isActive)
+        {
+            CustomDeactivation();
+            GetComponent<Renderer>().material.color = Color.white;
         }
 
     }

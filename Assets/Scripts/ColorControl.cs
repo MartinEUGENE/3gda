@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class ColorControl : BroColor
 {
-    private BroColor bro;
+    /*private BroColor bro;
 
     private void Start()
     {
@@ -28,6 +28,6 @@ public class ColorControl : BroColor
                 }
             }
         }
-    }
+    }*/
     
 }
