@@ -11,6 +11,7 @@ TagManager:
   - Metal
   - Generator
   - Sand
+  - Fog
   layers:
   - Default
   - TransparentFX

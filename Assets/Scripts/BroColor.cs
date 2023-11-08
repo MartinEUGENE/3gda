@@ -5,13 +5,12 @@ using UnityEngine.Events;
 
 public class BroColor : MonoBehaviour
 {
-    public ColorControl colorControl;
     
     private Renderer objectRenderer; // Reference to the object's renderer
     private Color originalColor; // Store the original color
 
     public Rigidbody rb;
-    private bool isActive = false; 
+    public bool isActive = false; 
 
 
     private void Start()
@@ -74,7 +73,7 @@ public class BroColor : MonoBehaviour
         }*/
         
         
-        if(gameObject.CompareTag("Cloud") && isActive == false)
+        /*if(gameObject.CompareTag("Cloud") && isActive == false)
         {
             Debug.Log("painted");
             isActive = true;
@@ -88,13 +87,15 @@ public class BroColor : MonoBehaviour
             Debug.Log("NO paint");
             isActive = false;
             GetComponent<SphereCollider>().enabled = false;
-        }
+        }*/
 
         if (!prevActiveState && isActive)
         {
             CustomActivation();
             GetComponent<Renderer>().material.color = Color.red;
-        }else if(prevActiveState && !isActive)
+        }
+        
+        else if(prevActiveState && !isActive)
         {
             CustomDeactivation();
             GetComponent<Renderer>().material.color = Color.white;

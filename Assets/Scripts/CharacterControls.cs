@@ -6,7 +6,7 @@ public class CharacterControls : MonoBehaviour
 {
     public float pitch = 0f;
     public float walkspeed = 5.0f;
-    public float sensitivity = 2.0f;
+    public float sensitivity = 3.0f;
 
     private Rigidbody rb;
 
