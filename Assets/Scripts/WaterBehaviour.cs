@@ -6,7 +6,14 @@ public class WaterBehaviour : BroColor
 {
     public float conveyorForce = 10.0f;
     public bool active = false;
-    
+    private BoxCollider woter;
+
+    private void Start()
+    {
+        woter = GetComponent<BoxCollider>();
+        woter.isTrigger = false;
+    }
+
     /* private void OnCollisionEnter(Collision collision)
      {
          Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
@@ -20,18 +27,20 @@ public class WaterBehaviour : BroColor
     protected override void CustomActivation()
     {
         active = true;
+        woter.isTrigger = true;
     }
 
     protected override void CustomDeactivation()
     {
         active = false;
-
+        woter.isTrigger = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(active == true)
         {
+
             Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
@@ -39,6 +48,13 @@ public class WaterBehaviour : BroColor
             }
         }
 
+    }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f);
+        }
     }
 }

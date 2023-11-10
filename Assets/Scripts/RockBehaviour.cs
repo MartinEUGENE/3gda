@@ -27,6 +27,11 @@ public class RockBehaviour : BroColor
         rocking.start();
         rocking.setParameterByName("RockParameter", count);
 
+        if(rb.mass >= 50)
+        {
+            rb.AddForce(transform.up * -1000f, ForceMode.Acceleration);
+        }
+
      
     }
 
