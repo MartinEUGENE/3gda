@@ -19,16 +19,26 @@ public class WaterBehaviour : BroColor
 
     protected override void CustomActivation()
     {
+        active = true;
+    }
+
+    protected override void CustomDeactivation()
+    {
+        active = false;
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-        if (rb != null || active == true)
+        if(active == true)
         {
-            rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
+            }
         }
+
 
     }
 }

@@ -93,6 +93,12 @@ public class BroColor : MonoBehaviour
         {
             CustomActivation();
             GetComponent<Renderer>().material.color = Color.red;
+
+            if(gameObject.CompareTag("River"))
+            {
+                GetComponent<Renderer>().material.color = Color.blue;
+
+            }
         }
         
         else if(prevActiveState && !isActive)
