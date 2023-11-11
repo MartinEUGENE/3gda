@@ -10,19 +10,23 @@ public class BroColor : MonoBehaviour
     private Color originalColor; // Store the original color
 
     public Rigidbody rb;
-    public bool isActive = false; 
+    public bool isActive = false;
+
+    private FMOD.Studio.EventInstance paint;
+
 
 
     private void Start()
     {
         //originalColor = objectRenderer.material.color; // Store the original color
         //rb = GetComponent<Rigidbody>();
+        paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");        
     }
 
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
-        {
+        {            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
@@ -31,7 +35,8 @@ public class BroColor : MonoBehaviour
 
                 if (hit.transform == transform)
                 {
-                    ToggleActivation();
+                    ToggleActivation();                    
+                    FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Paint");
                 }
             }
         }
@@ -52,52 +57,20 @@ public class BroColor : MonoBehaviour
         bool prevActiveState = isActive;
         isActive = !isActive;
 
-        /*if(gameObject.CompareTag("Rock") && isActive == false)
-        {
-            isActive = true;
-
-            //startUp.Invoke(); // Trigger the startUp event for this specific object
-            Debug.Log("painted");
-            rb.useGravity = true;
-            rb.isKinematic = false;
-           // objectRenderer.material.color = Color.green; // Change the color to blue when activated
-        }
-
-        else
-        {
-            isActive = false; 
-            Debug.Log("NO paint");
-            rb.useGravity = false;
-            rb.isKinematic = true;
-            //objectRenderer.material.color = originalColor; // Restore the original color when deactivated
-        }*/
         
         
-        /*if(gameObject.CompareTag("Cloud") && isActive == false)
-        {
-            Debug.Log("painted");
-            isActive = true;
-            GetComponent<SphereCollider>().enabled = true;
-            GetComponent<SphereCollider>().isTrigger = true; 
-
-        }
-
-        if (gameObject.CompareTag("Cloud") && isActive == true)
-        {
-            Debug.Log("NO paint");
-            isActive = false;
-            GetComponent<SphereCollider>().enabled = false;
-        }*/
 
         if (!prevActiveState && isActive)
         {
             CustomActivation();
             GetComponent<Renderer>().material.color = Color.red;
 
-            if(gameObject.CompareTag("River"))
+            //paint.setParameterByNameWithLabel("Activation", "Active");
+
+            if (gameObject.CompareTag("River"))
             {
                 GetComponent<Renderer>().material.color = Color.blue;
-
+                
             }
         }
         
@@ -105,12 +78,51 @@ public class BroColor : MonoBehaviour
         {
             CustomDeactivation();
             GetComponent<Renderer>().material.color = Color.white;
+            //paint.setParameterByNameWithLabel("Activation", "Desactivation");
+
         }
 
     }
 
 }
 
+
+/*if(gameObject.CompareTag("Rock") && isActive == false)
+{
+    isActive = true;
+
+    //startUp.Invoke(); // Trigger the startUp event for this specific object
+    Debug.Log("painted");
+    rb.useGravity = true;
+    rb.isKinematic = false;
+   // objectRenderer.material.color = Color.green; // Change the color to blue when activated
+}
+
+else
+{
+    isActive = false; 
+    Debug.Log("NO paint");
+    rb.useGravity = false;
+    rb.isKinematic = true;
+    //objectRenderer.material.color = originalColor; // Restore the original color when deactivated
+}*/
+
+
+/*if(gameObject.CompareTag("Cloud") && isActive == false)
+{
+    Debug.Log("painted");
+    isActive = true;
+    GetComponent<SphereCollider>().enabled = true;
+    GetComponent<SphereCollider>().isTrigger = true; 
+
+}
+
+if (gameObject.CompareTag("Cloud") && isActive == true)
+{
+    Debug.Log("NO paint");
+    isActive = false;
+    GetComponent<SphereCollider>().enabled = false;
+}*/
 
 
 
