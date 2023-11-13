@@ -15,7 +15,7 @@ public class CloudBehaviour : BroColor
 
     private void FixedUpdate()
     {
-        if(isActive == true && gameObject.CompareTag("Fog"))
+        if(isActive == true && !gameObject.CompareTag("Fog"))
         {
             rb.AddForce(transform.up * 0.2f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
         }

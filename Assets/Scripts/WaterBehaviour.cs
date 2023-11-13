@@ -42,19 +42,6 @@ public class WaterBehaviour : BroColor
         wa.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(active == true)
-        {
-
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
-            }
-        }
-
-    }
 
     private void OnTriggerStay(Collider other)
     {
