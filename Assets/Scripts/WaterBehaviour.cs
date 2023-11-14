@@ -41,6 +41,24 @@ public class WaterBehaviour : BroColor
         woter.isTrigger = false;
         //wa.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+
+    protected override void PlaySound()
+    {
+        if (isActive && count <= 0)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/BGM/BGM");
+            //B.start();
+            count = 1;
+            B.setParameterByName("BGM", count);
+        }
+
+        /*if (!isActive && count >= 0)
+        {
+            count--;
+            B.setParameterByName("BGM", count);
+        }*/
+    }
+
     /*private void OnTriggerEnter(Collider other)
     {
         if (active == true)
