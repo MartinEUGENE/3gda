@@ -82,6 +82,13 @@ public class BroColor : MonoBehaviour
                 GetComponent<Renderer>().material.color = Color.blue;
                 
             }
+
+
+            if (gameObject.CompareTag("Sand"))
+            {
+                GetComponent<Renderer>().material.color = Color.yellow;
+
+            }
         }
         
         else if(prevActiveState && !isActive)
