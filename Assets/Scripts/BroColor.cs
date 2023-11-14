@@ -12,7 +12,7 @@ public class BroColor : MonoBehaviour
     public Rigidbody rb;
     public bool isActive = false;
 
-    private FMOD.Studio.EventInstance paint;
+    public FMOD.Studio.EventInstance paint;
     public FMOD.Studio.EventInstance B;
 
 
@@ -40,13 +40,14 @@ public class BroColor : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
+                
+                paint.start();
+                
 
                 if (hit.transform == transform)
                 {
                     ToggleActivation();
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/BGM/BGM");
 
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Paint");
                 }
             }
         }
@@ -62,11 +63,6 @@ public class BroColor : MonoBehaviour
         
     }
 
-    protected virtual void PlaySound()
-    {
-        
-    }
-
     public void ToggleActivation()
     {
         bool prevActiveState = isActive;
@@ -74,13 +70,10 @@ public class BroColor : MonoBehaviour
 
         if (!prevActiveState && isActive)
         {
-            CustomActivation();
-            PlaySound();
-            count++;
-            
+            CustomActivation();                       
             GetComponent<Renderer>().material.color = Color.red;
 
-            //paint.setParameterByNameWithLabel("Activation", "Active");
+            paint.setParameterByNameWithLabel("Activation", "Active");
 
             if (gameObject.CompareTag("River"))
             {
@@ -92,11 +85,10 @@ public class BroColor : MonoBehaviour
         else if(prevActiveState && !isActive)
         {
             CustomDeactivation();
-            PlaySound();
-            
             B.setParameterByName("BGM", count);
             GetComponent<Renderer>().material.color = Color.white;
-            //paint.setParameterByNameWithLabel("Activation", "Desactivation");
+            paint.setParameterByNameWithLabel("Activation", "Desactivation");
+            
 
         }
 

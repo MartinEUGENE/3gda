@@ -19,13 +19,13 @@ public class RockBehaviour : BroColor
   
     protected override void CustomActivation()
     {
-        //count += 1f; 
+        count += 1; 
         Debug.Log("rock is painted");
         rb.useGravity = true;
         rb.isKinematic = false;
 
-        //rocking.start();
-       // rocking.setParameterByName("RockParameter", count);
+        rocking.start();
+        rocking.setParameterByName("RockParameter", count);
 
         if(rb.mass >= 50)
         {
