@@ -12,6 +12,7 @@ TagManager:
   - Generator
   - Sand
   - Fog
+  - Ground
   layers:
   - Default
   - TransparentFX

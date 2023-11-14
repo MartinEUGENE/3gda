@@ -13,6 +13,10 @@ public class BroColor : MonoBehaviour
     public bool isActive = false;
 
     private FMOD.Studio.EventInstance paint;
+    private FMOD.Studio.EventInstance B;
+
+
+    public int count = 0;
 
 
 
@@ -20,7 +24,9 @@ public class BroColor : MonoBehaviour
     {
         //originalColor = objectRenderer.material.color; // Store the original color
         //rb = GetComponent<Rigidbody>();
-        paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");        
+        paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");
+        B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM");
+
     }
 
     void Update()
@@ -57,12 +63,16 @@ public class BroColor : MonoBehaviour
         bool prevActiveState = isActive;
         isActive = !isActive;
 
+        B.start();
+
         
         
 
         if (!prevActiveState && isActive)
         {
             CustomActivation();
+            count++;
+            B.setParameterByName("BGM", count);
             GetComponent<Renderer>().material.color = Color.red;
 
             //paint.setParameterByNameWithLabel("Activation", "Active");
@@ -77,6 +87,8 @@ public class BroColor : MonoBehaviour
         else if(prevActiveState && !isActive)
         {
             CustomDeactivation();
+            count--;
+            B.setParameterByName("BGM", count);
             GetComponent<Renderer>().material.color = Color.white;
             //paint.setParameterByNameWithLabel("Activation", "Desactivation");
 

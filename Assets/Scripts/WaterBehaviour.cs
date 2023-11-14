@@ -14,13 +14,13 @@ public class WaterBehaviour : BroColor
     {
         woter = GetComponent<BoxCollider>();
         woter.isTrigger = false;
-        wa = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Water");
+        //wa = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Water");
     }
 
-    /* private void OnCollisionEnter(Collision collision)
+     /*private void OnCollisionEnter(Collision collision)
      {
          Rigidbody rb = collision.gameObject.GetComponent<Rigidbody>();
-         if (rb != null || active == true)
+         if (rb != null && active == true && !collision.gameObject.CompareTag("Player"))
          {
              //Debug.Log("Object Name: ");
              rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
@@ -31,31 +31,42 @@ public class WaterBehaviour : BroColor
     {
         active = true;
         woter.isTrigger = true;
-        wa.start();
-        wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        //wa.start();
+        //wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
     protected override void CustomDeactivation()
     {
         active = false;
         woter.isTrigger = false;
-        wa.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        //wa.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
+    /*private void OnTriggerEnter(Collider other)
+    {
+        if (active == true)
+        {
 
+            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
+            }
+        }
+
+    }*/
 
     private void OnTriggerStay(Collider other)
     {
-        if(active == true)
+        if (active == true && other.CompareTag("Player"))
         {
-            if (other.CompareTag("Player"))
-            {
-                other.GetComponent<Rigidbody>().AddForce(transform.forward * 30f);
-            }
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * 12.5f, ForceMode.Force);
+        }
 
-            if (rb != null)
-            {
-                other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f);
-            }
+        if(active == true && !other.CompareTag("Player") && !other.CompareTag("Ground"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Acceleration);
+
         }
     }
 }
+
