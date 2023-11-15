@@ -5,6 +5,8 @@ using UnityEngine;
 public class RockBehaviour : BroColor
 {
     private FMOD.Studio.EventInstance rocking;
+    private FMOD.Studio.EventInstance fally;
+
     //public float count = 0f;
 
 
@@ -12,6 +14,8 @@ public class RockBehaviour : BroColor
     {
         GetComponent<Rigidbody>();
         rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Rock");
+        fally = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/RockyFall");
+
         rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
     }
@@ -42,5 +46,17 @@ public class RockBehaviour : BroColor
         rb.isKinematic = true;
         rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        bool afall = false;
+
+        if(afall == false && isActive == true)
+        {
+            fally.start();
+            afall = true;
+        }
+
     }
 }

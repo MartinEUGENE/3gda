@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{35f8cfc6-6019-41c0-991d-b392ba61bf9c}">
+		<property name="assetPath">
+			<value>Ambience, Underground, Cave, Water, Dripping, Flowing 01 SND46592.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.734375</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d56e1613-a998-492e-b41c-8088f254bc9a}</destination>
+		</relationship>
+	</object>
+</objects>
