@@ -36,6 +36,7 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
+
     }
 
     /*void PaintWorld()
