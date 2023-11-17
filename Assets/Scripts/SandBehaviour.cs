@@ -34,7 +34,10 @@ public class SandBehaviour : BroColor
 
     private void OnTriggerExit(Collider other)
     {
-        chara.walkspeed += 3f;
+        if(isActive && other.CompareTag("Player"))
+        {
+            chara.walkspeed += 3f; 
+        }
     }
 
 }

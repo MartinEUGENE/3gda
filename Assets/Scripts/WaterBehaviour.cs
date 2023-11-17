@@ -62,11 +62,18 @@ public class WaterBehaviour : BroColor
             other.GetComponent<Rigidbody>().AddForce(transform.forward * 12.5f, ForceMode.Force);
         }
 
-        if(active == true && !other.CompareTag("Player") && !other.CompareTag("Ground"))
+       /* if(active == true && !other.CompareTag("Player") && !other.CompareTag("Ground"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Acceleration);
 
+        }*/
+
+        if (active == true && other.CompareTag("Rock") && !other.CompareTag("Cloud") && !other.CompareTag("Fog") && !other.CompareTag("Ground"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.Acceleration);
+
         }
+
     }
 }
 

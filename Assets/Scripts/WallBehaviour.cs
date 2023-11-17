@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WallBehaviour : BroColor 
 {
-    Collider wally; 
+    Collider wally;
+    MeshRenderer rendo; 
 
     void Start()
     {
         wally = GetComponent<Collider>();
         wally.isTrigger = false;
+
+        rendo = GetComponent<MeshRenderer>();
     }
 
     protected override void CustomActivation()
@@ -21,6 +24,8 @@ public class WallBehaviour : BroColor
     {
         isActive = false; 
         wally.isTrigger = false;
+
+        rendo.enabled = true; 
     }
 
 
@@ -28,7 +33,8 @@ public class WallBehaviour : BroColor
     {
         if(isActive && collision.collider.CompareTag("Rock"))
         {
-            wally.isTrigger = true; 
+            wally.isTrigger = true;
+            rendo.enabled = false; 
         }
     }
 
