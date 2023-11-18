@@ -17,7 +17,6 @@ public class RockBehaviour : BroColor
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/RockyFall");
 
         rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-
     }
 
   
@@ -34,9 +33,7 @@ public class RockBehaviour : BroColor
         if(rb.mass >= 50)
         {
             rb.AddForce(transform.up * -1000f, ForceMode.Acceleration);
-        }
-
-     
+        }     
     }
 
     protected override void CustomDeactivation()
@@ -44,8 +41,17 @@ public class RockBehaviour : BroColor
         Debug.Log("rock is clean now");
         rb.useGravity = false;
         rb.isKinematic = true;
-        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        
+        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        bool walter = true; 
+
+        if(walter && isActive && other.CompareTag("Wall"))
+        {
+            Debug.Log("The wall was breached"); 
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -57,6 +63,5 @@ public class RockBehaviour : BroColor
             fally.start();
             afall = true;
         }
-
     }
 }

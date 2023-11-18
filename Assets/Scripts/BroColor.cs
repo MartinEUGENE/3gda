@@ -40,9 +40,9 @@ public class BroColor : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                
-                paint.start();
-                
+
+                //paint.start();
+                FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Paint");
 
                 if (hit.transform == transform)
                 {
