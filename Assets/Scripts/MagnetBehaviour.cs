@@ -3,18 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MagnetBehaviour : BroColor
-{
-<<<<<<< Updated upstream
+{    
+    public float raycastDistance = 10f;
+    public float moveSpeed = 10f;
+    public bool attract = false;
 
     private void Start()
     {
         GetComponent<Rigidbody>();
 
-=======
-    // Start is called before the first frame update
-    public float raycastDistance = 10f;
-    public float moveSpeed = 10f;
-    public bool attract = false;
+    }
+
+
+
     void Update()
     {
         // Cast a ray upward from the current position
@@ -40,32 +41,28 @@ public class MagnetBehaviour : BroColor
                 // Do something with the metal object, e.g., apply a special effect
             }
         }
->>>>>>> Stashed changes
+
     }
 
     protected override void CustomActivation()
     {
-<<<<<<< Updated upstream
+
         //count += 1f; 
         Debug.Log("magnet is gay, good for them");
         rb.useGravity = true;
         rb.isKinematic = false;
-=======
+
         attract = true;
         Debug.Log("colo ");
         //rb.useGravity = true;
         //rb.isKinematic = false;
->>>>>>> Stashed changes
+
     }
 
     protected override void CustomDeactivation()
     {
-<<<<<<< Updated upstream
-        Debug.Log("magnet is still gay");
-        rb.useGravity = false;
-        rb.isKinematic = true;
-       
-=======
+
+
         attract = false;
         Debug.Log("NO colo ");
         //rb.useGravity = false;
@@ -79,7 +76,7 @@ public class MagnetBehaviour : BroColor
 
         // Move the metal object towards the object with this script
         metalObject.transform.Translate(direction * moveSpeed * Time.deltaTime);
->>>>>>> Stashed changes
+
     }
 
 }
