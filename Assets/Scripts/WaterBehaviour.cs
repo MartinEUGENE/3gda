@@ -7,14 +7,16 @@ public class WaterBehaviour : BroColor
     public float conveyorForce = 10.0f;
     public bool active = false;
     private BoxCollider woter;
-    private FMOD.Studio.EventInstance wa;
+    public FMOD.Studio.EventInstance wa;
 
 
     private void Start()
     {
         woter = GetComponent<BoxCollider>();
         woter.isTrigger = false;
-        //wa = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Water");
+        wa = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Water");
+
+        wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
      /*private void OnCollisionEnter(Collision collision)
@@ -31,28 +33,29 @@ public class WaterBehaviour : BroColor
     {
         active = true;
         woter.isTrigger = true;
-        //wa.start();
-        //wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+       /* paint.start();
+        paint.setParameterByNameWithLabel("Activation", "Active");*/
+        wa.start();
+        
     }
 
     protected override void CustomDeactivation()
     {
         active = false;
         woter.isTrigger = false;
-        //wa.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+       /* paint.start();
+        paint.setParameterByNameWithLabel("Activation", "Active");*/
+        wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-    /*private void OnTriggerEnter(Collider other)
+
+    
+   /* private void OnTriggerEnter(Collider other)
     {
-        if (active == true)
+        if (active == true && other.CompareTag("Player"))
         {
-
-            Rigidbody rb = other.gameObject.GetComponent<Rigidbody>();
-            if (rb != null)
-            {
-                rb.AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
-            }
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * conveyorForce);
         }
-
+            
     }*/
 
     private void OnTriggerStay(Collider other)
@@ -62,6 +65,7 @@ public class WaterBehaviour : BroColor
             other.GetComponent<Rigidbody>().AddForce(transform.forward * 12.5f, ForceMode.Force);
         }
 
+<<<<<<< HEAD
        /* if(active == true && !other.CompareTag("Player") && !other.CompareTag("Ground"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Acceleration);
@@ -72,6 +76,11 @@ public class WaterBehaviour : BroColor
         {
             other.GetComponent<Rigidbody>().AddForce(transform.forward * 15f, ForceMode.Acceleration);
 
+=======
+        if(active == true && !other.CompareTag("Player") && !other.CompareTag("Ground") && !other.CompareTag("Cloud"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(transform.forward * 10f, ForceMode.Acceleration);
+>>>>>>> SoundDesign
         }
 
     }

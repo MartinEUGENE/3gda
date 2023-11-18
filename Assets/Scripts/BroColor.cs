@@ -12,11 +12,12 @@ public class BroColor : MonoBehaviour
     public Rigidbody rb;
     public bool isActive = false;
 
-    private FMOD.Studio.EventInstance paint;
-    private FMOD.Studio.EventInstance B;
+    public FMOD.Studio.EventInstance paint;
+    public FMOD.Studio.EventInstance B;
 
 
     public int count = 0;
+    public int maxCount = 10; 
 
 
 
@@ -32,17 +33,21 @@ public class BroColor : MonoBehaviour
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))
-        {            
+        {
+            
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
             if (Physics.Raycast(ray, out hit))
             {
+                
+                paint.start();
+                
 
                 if (hit.transform == transform)
                 {
-                    ToggleActivation();                    
-                    FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Paint");
+                    ToggleActivation();
+
                 }
             }
         }
@@ -50,12 +55,12 @@ public class BroColor : MonoBehaviour
 
     protected virtual void CustomActivation()
     {
-
+        
     }
 
     protected virtual void CustomDeactivation()
     {
-
+        
     }
 
     public void ToggleActivation()
@@ -63,19 +68,12 @@ public class BroColor : MonoBehaviour
         bool prevActiveState = isActive;
         isActive = !isActive;
 
-        B.start();
-
-        
-        
-
         if (!prevActiveState && isActive)
         {
-            CustomActivation();
-            count++;
-            B.setParameterByName("BGM", count);
+            CustomActivation();                       
             GetComponent<Renderer>().material.color = Color.red;
 
-            //paint.setParameterByNameWithLabel("Activation", "Active");
+            paint.setParameterByNameWithLabel("Activation", "Active");
 
             if (gameObject.CompareTag("River"))
             {
@@ -94,10 +92,10 @@ public class BroColor : MonoBehaviour
         else if(prevActiveState && !isActive)
         {
             CustomDeactivation();
-            count--;
             B.setParameterByName("BGM", count);
             GetComponent<Renderer>().material.color = Color.white;
-            //paint.setParameterByNameWithLabel("Activation", "Desactivation");
+            paint.setParameterByNameWithLabel("Activation", "Desactivation");
+            
 
         }
 

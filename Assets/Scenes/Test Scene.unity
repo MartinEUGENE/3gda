@@ -259,6 +259,7 @@ MonoBehaviour:
   rb: {fileID: 83175307}
   isActive: 0
   count: 0
+  maxCount: 10
 --- !u!1 &235401702
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,6 +375,10 @@ MonoBehaviour:
   rb: {fileID: 235401708}
   isActive: 0
   count: 0
+<<<<<<< HEAD
+=======
+  maxCount: 10
+>>>>>>> SoundDesign
 --- !u!54 &235401708
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -405,6 +410,7 @@ MonoBehaviour:
   rb: {fileID: 235401708}
   isActive: 0
   count: 0
+  maxCount: 10
 --- !u!1 &484720398
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +542,7 @@ MonoBehaviour:
   rb: {fileID: 484720400}
   isActive: 0
   count: 0
+  maxCount: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +778,7 @@ MonoBehaviour:
   rb: {fileID: 953443161}
   isActive: 0
   count: 0
+  maxCount: 10
 --- !u!1 &1082750420
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,7 +898,11 @@ GameObject:
   - component: {fileID: 1407527982}
   - component: {fileID: 1407527981}
   m_Layer: 0
+<<<<<<< HEAD
   m_Name: ground
+=======
+  m_Name: Cube (1)
+>>>>>>> SoundDesign
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
