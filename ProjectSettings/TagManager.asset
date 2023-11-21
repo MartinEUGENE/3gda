@@ -14,6 +14,7 @@ TagManager:
   - Fog
   - Ground
   - Wall
+  - wind
   layers:
   - Default
   - TransparentFX
