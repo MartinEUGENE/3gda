@@ -32,7 +32,7 @@ public class WindBehav : BroColor
 
     private void OnTriggerStay(Collider other)
     {
-        if(isActive == true && other.CompareTag("Cloud"))
+        if(isActive == true && other.CompareTag("Cloud") && other.CompareTag("Fog"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.up * windForce, ForceMode.Acceleration);
         }
