@@ -9,6 +9,9 @@ public class BroColor : MonoBehaviour
     private Renderer objectRenderer; // Reference to the object's renderer
     private Color originalColor; // Store the original color
 
+    public Material originalMat;
+    public Material compColor;
+
     public Rigidbody rb;
     public bool isActive = false;
 
@@ -81,11 +84,20 @@ public class BroColor : MonoBehaviour
                 
             }
 
+            if(gameObject.CompareTag("wind"))
+            {
+                GetComponent<Renderer>().material.color = Color.gray;
+
+            }
 
             if (gameObject.CompareTag("Sand"))
             {
                 GetComponent<Renderer>().material.color = Color.yellow;
+            }
 
+            if (gameObject.CompareTag("Ice"))
+            {
+                GetComponent<Renderer>().material.color = Color.cyan;
             }
         }
         

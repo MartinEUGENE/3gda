@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - Wall
   - wind
+  - Ice
   layers:
   - Default
   - TransparentFX
