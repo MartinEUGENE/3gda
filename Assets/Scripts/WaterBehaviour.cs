@@ -16,8 +16,8 @@ public class WaterBehaviour : BroColor
     {
         woter = GetComponent<BoxCollider>();
         woter.isTrigger = false;
-        wa = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Water");
-        so = FMODUnity.RuntimeManager.CreateInstance("event:/WaterIn"); 
+        wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
+        so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water"); 
 
         wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }

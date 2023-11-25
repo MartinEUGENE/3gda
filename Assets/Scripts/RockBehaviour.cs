@@ -13,8 +13,8 @@ public class RockBehaviour : BroColor
     private void Start()
     {
         GetComponent<Rigidbody>();
-        rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/Rock");
-        fally = FMODUnity.RuntimeManager.CreateInstance("event:/Mechanics/RockyFall");
+        rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
+        fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
 
         rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
