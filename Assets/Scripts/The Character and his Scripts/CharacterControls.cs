@@ -13,8 +13,7 @@ public class CharacterControls : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
-        
+        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component        
     }
 
     void Look()
@@ -63,12 +62,12 @@ public class CharacterControls : MonoBehaviour
         //PaintWorld();
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
         Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
         Gizmos.DrawRay(transform.position, direction);
-    }
+    }*/
 
     private void FixedUpdate()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class WaterBehaviour : BroColor
 {
@@ -13,19 +14,17 @@ public class WaterBehaviour : BroColor
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
 
-
-    private string CurrentScene;
-
+    public LevelManagement level;
+    public GameObject chara; 
 
     private void Start()
     {
         woter = GetComponent<BoxCollider>();
         woter.isTrigger = false;
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
-        so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water"); 
+        so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
 
         wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
-        CurrentScene = SceneManager.GetActiveScene().name;
     }
 
 
@@ -79,7 +78,10 @@ public class WaterBehaviour : BroColor
     {
         if (isActive == true && other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(CurrentScene);
+            wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            level.ButtonStart();
+            chara.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
         }
 
         if (isActive == true && other.CompareTag("Rock") && !other.CompareTag("Cloud") && !other.CompareTag("Fog") && !other.CompareTag("Ground"))

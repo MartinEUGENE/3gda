@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManagement : MonoBehaviour
 {
-    private string CurrentScene;
+    [SerializeField] GameObject button;
+    [SerializeField] string CurrentScene;
+
     void Start()
     {
         CurrentScene = SceneManager.GetActiveScene().name;
@@ -22,8 +24,13 @@ public class LevelManagement : MonoBehaviour
     }
 
 
-    void Dying()
+    public void Restart()
     {
+        SceneManager.LoadScene(CurrentScene);
+    }
 
+    public void ButtonStart()
+    {
+        button.SetActive(true);
     }
 }
