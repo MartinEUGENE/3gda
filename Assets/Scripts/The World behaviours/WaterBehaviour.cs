@@ -15,7 +15,7 @@ public class WaterBehaviour : BroColor
     public FMOD.Studio.EventInstance so;
 
     public LevelManagement level;
-    public GameObject chara; 
+    public CharacterControls chara; 
 
     private void Start()
     {
@@ -80,7 +80,7 @@ public class WaterBehaviour : BroColor
         {
             wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             level.ButtonStart();
-            chara.SetActive(false);
+            chara.enabled = false; 
             Cursor.lockState = CursorLockMode.None;
         }
 
