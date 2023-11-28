@@ -5,6 +5,7 @@ using UnityEngine;
 public class CloudBehaviour : BroColor
 {
     private SphereCollider sp;
+    public float maxSpeed = 2.5f; 
 
     void Start()
     {
@@ -15,9 +16,12 @@ public class CloudBehaviour : BroColor
 
     private void FixedUpdate()
     {
-        if(isActive == true && !gameObject.CompareTag("Fog"))
+         //Vector3 regularSpeed = new Vector3( 0f, maxSpeed, 0f) ;
+
+        if(isActive == true && !gameObject.CompareTag("Fog") && rb.velocity.y <= maxSpeed)
         {
-            rb.AddForce(transform.up * 0.5f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
+            rb.AddForce(transform.up * 0.25f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
+            Debug.Log(rb.velocity.y);
         }
     }
 

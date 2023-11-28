@@ -19,31 +19,30 @@ public class WindBehav : BroColor
 
     protected override void CustomActivation()
     {
-        isActive = true;
        // windo.isTrigger = true;
     }
 
     protected override void CustomDeactivation()
     {
-        isActive = false;
+       
         //windo.isTrigger = false;
 
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if(isActive == true && other.CompareTag("Cloud") && other.CompareTag("Fog"))
+        if(other.CompareTag("Cloud") && other.CompareTag("Fog"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.up * windForce, ForceMode.Acceleration);
         }
 
-        if (isActive == true && other.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.up * smallForce, ForceMode.Force);
             Debug.Log("Yo");
         }
 
-        if (isActive == true && !other.CompareTag("Cloud"))
+        if (!other.CompareTag("Cloud"))
         {
             other.GetComponent<Rigidbody>().AddForce(transform.up * small, ForceMode.Force);
         }

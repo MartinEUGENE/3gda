@@ -15,7 +15,10 @@ public class WaterBehaviour : BroColor
     public FMOD.Studio.EventInstance so;
 
     public LevelManagement level;
-    public CharacterControls chara; 
+    [SerializeField] BroColor col; 
+    public CharacterControls chara;
+
+    [SerializeField] Texture waterTexture; 
 
     private void Start()
     {
@@ -24,6 +27,7 @@ public class WaterBehaviour : BroColor
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
 
+        col = GetComponent<BroColor>();
         wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
@@ -32,7 +36,9 @@ public class WaterBehaviour : BroColor
     {
         isActive = true; 
         woter.isTrigger = true;       
-        wa.start();        
+        wa.start();
+
+        //GetComponent<Material>().SetTexture("WaterActivate", waterTexture);
     }
 
     protected override void CustomDeactivation()
@@ -80,7 +86,8 @@ public class WaterBehaviour : BroColor
         {
             wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
             level.ButtonStart();
-            chara.enabled = false; 
+            chara.enabled = false;
+            col.enabled = false;
             Cursor.lockState = CursorLockMode.None;
         }
 

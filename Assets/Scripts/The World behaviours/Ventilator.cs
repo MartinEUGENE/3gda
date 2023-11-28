@@ -5,22 +5,24 @@ using UnityEngine;
 public class Ventilator : BroColor
 {
     public GameObject Wind;
-    private WindBehav wond;
+
+    //private WindBehav wond;
 
 
     private void Start()
     {
-        wond = GetComponent<WindBehav>();
+        //wond = GetComponent<WindBehav>();
+       // Wind = GetComponent<GameObject>();
     }
 
     protected override void CustomActivation()
     {
-        WindBehav clony = Instantiate(wond, transform.position + transform.up*2f, transform.rotation);
+        GameObject clony = Instantiate(Wind, transform.position + transform.up*1f, transform.rotation);
     }
 
     protected override void CustomDeactivation()
     {
-        wond.isActive = false; 
+       // wond.isActive = false; 
     }
 
 }

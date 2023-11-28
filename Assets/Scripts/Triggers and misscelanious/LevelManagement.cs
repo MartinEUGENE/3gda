@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelManagement : MonoBehaviour
 {
     [SerializeField] GameObject button;
+    [SerializeField] GameObject crossair;
     [SerializeField] string CurrentScene;
 
     void Start()
@@ -31,6 +32,7 @@ public class LevelManagement : MonoBehaviour
 
     public void ButtonStart()
     {
+        crossair.SetActive(false);
         button.SetActive(true);
     }
 }
