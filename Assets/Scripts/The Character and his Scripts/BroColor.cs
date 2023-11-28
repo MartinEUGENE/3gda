@@ -100,6 +100,12 @@ public class BroColor : MonoBehaviour
             {
                 GetComponent<Renderer>().material.color = Color.cyan;
             }
+
+            if (gameObject.CompareTag("Magnet"))
+            {
+                GetComponent<Renderer>().material.color = Color.black;
+
+            }
         }
         
         else if(prevActiveState && !isActive)
