@@ -5,6 +5,7 @@ using UnityEngine;
 public class MagnetBehaviour : BroColor
 {    
     public float raycastDistance = 10f;
+    public float castRadius = 1.0f;
     public float moveSpeed = 10f;
     public bool attract = false;
 
@@ -18,13 +19,11 @@ public class MagnetBehaviour : BroColor
 
     void Update()
     {
-        // Cast a ray upward from the current position
-        Ray ray = new Ray(transform.position, transform.forward);
-        //Ray ray = new Ray(transform.position, Vector3.up);
-        RaycastHit[] hits = Physics.RaycastAll(ray, raycastDistance);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, castRadius, transform.forward, raycastDistance);
 
-        // Draw the ray for visualization
-        Debug.DrawRay(ray.origin, ray.direction * raycastDistance, Color.blue);
+        // Draw the cast for visualization
+        Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.blue);
+
 
         // Check each object hit by the raycast
         foreach (RaycastHit hit in hits)
@@ -53,7 +52,7 @@ public class MagnetBehaviour : BroColor
         rb.isKinematic = false;
 
         attract = true;
-        Debug.Log("colo ");
+        //Debug.Log("colo ");
         //rb.useGravity = true;
         //rb.isKinematic = false;
 
@@ -74,9 +73,12 @@ public class MagnetBehaviour : BroColor
         // Calculate the direction from the metal object to the object with this script
         Vector3 direction = (transform.position - metalObject.transform.position).normalized;
 
-        // Move the metal object towards the object with this script
-        metalObject.transform.Translate(direction * moveSpeed * Time.deltaTime);
+        // Calculate the distance to the magnet
+        float distanceToMagnet = Vector3.Distance(transform.position, metalObject.transform.position);
 
+        // Move the metal object towards the object with this script with a force proportional to the distance
+        metalObject.GetComponent<Rigidbody>().AddForce(direction * moveSpeed * distanceToMagnet);
     }
+
 
 }
