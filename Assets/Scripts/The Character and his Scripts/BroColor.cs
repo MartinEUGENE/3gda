@@ -83,13 +83,7 @@ public class BroColor : MonoBehaviour
             {
                 GetComponent<Renderer>().material.color = Color.blue;
                 
-            }
-
-            if(gameObject.CompareTag("wind"))
-            {
-                GetComponent<Renderer>().material.color = Color.gray;
-
-            }
+            }             
 
             if (gameObject.CompareTag("Sand"))
             {

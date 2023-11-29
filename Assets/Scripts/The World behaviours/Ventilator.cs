@@ -5,6 +5,7 @@ using UnityEngine;
 public class Ventilator : BroColor
 {
     public GameObject Wind;
+    GameObject storeWind; 
 
     //private WindBehav wond;
 
@@ -18,11 +19,12 @@ public class Ventilator : BroColor
     protected override void CustomActivation()
     {
         GameObject clony = Instantiate(Wind, transform.position + transform.up*1f, transform.rotation);
+        storeWind = clony;
     }
 
     protected override void CustomDeactivation()
     {
-       // wond.isActive = false; 
+        Destroy(storeWind);
     }
 
 }

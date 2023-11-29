@@ -2,31 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WindBehav : BroColor
+public class WindBehav : MonoBehaviour
 {
     public float windForce = 25f;
     public float smallForce = 15f;
     public float small = 5f;
-
-
 
     private Collider windo; 
     void Start()
     {
         windo = GetComponent<Collider>();
         windo.isTrigger = true; 
-    }
-
-    protected override void CustomActivation()
-    {
-       // windo.isTrigger = true;
-    }
-
-    protected override void CustomDeactivation()
-    {
-       
-        //windo.isTrigger = false;
-
     }
 
     private void OnTriggerStay(Collider other)
