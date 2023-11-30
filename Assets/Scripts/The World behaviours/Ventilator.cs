@@ -5,13 +5,13 @@ using UnityEngine;
 public class Ventilator : BroColor
 {
     public GameObject Wind;
-    GameObject storeWind; 
-
-    //private WindBehav wond;
-
+    GameObject storeWind;
+        
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+        
         //wond = GetComponent<WindBehav>();
        // Wind = GetComponent<GameObject>();
     }

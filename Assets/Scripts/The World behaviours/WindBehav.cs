@@ -33,6 +33,11 @@ public class WindBehav : MonoBehaviour
             other.GetComponent<Rigidbody>().AddForce(transform.up * small, ForceMode.Force);
         }
 
+        if(other.CompareTag("Ventilator"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(transform.up * 0);
+        }
+
     }
 
 }

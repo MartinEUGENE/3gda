@@ -2023,7 +2023,7 @@ GameObject:
   - component: {fileID: 1063433772}
   m_Layer: 0
   m_Name: VentActivator
-  m_TagString: Untagged
+  m_TagString: Ventilator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3752,9 +3752,10 @@ GameObject:
   - component: {fileID: 1850744123}
   - component: {fileID: 1850744122}
   - component: {fileID: 1850744121}
+  - component: {fileID: 1850744126}
   m_Layer: 0
   m_Name: VentActivator (1)
-  m_TagString: Untagged
+  m_TagString: Ventilator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3856,6 +3857,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1850744126
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850744120}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &1884658437
 PrefabInstance:
   m_ObjectHideFlags: 0
