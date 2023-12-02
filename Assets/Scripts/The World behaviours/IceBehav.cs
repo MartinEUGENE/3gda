@@ -10,7 +10,7 @@ public class IceBehav : BroColor
 
     void Start()
     {
-        ice.isTrigger = true;
+      //  ice.isTrigger = true;
     }
 
     protected override void CustomActivation()
@@ -20,7 +20,7 @@ public class IceBehav : BroColor
 
     protected override void CustomDeactivation()
     {
-        //ice.isTrigger = false;
+        ice.isTrigger = false;
     }
 
     private void OnTriggerEnter(Collider other)
