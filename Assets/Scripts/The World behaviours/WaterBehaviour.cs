@@ -6,8 +6,7 @@ using UnityEngine.UI;
 
 public class WaterBehaviour : BroColor
 {
-    public float conveyorForce = 15.0f;     //Pour les cailloux
-    public float smallForce = 12.5f;      //Pour le joueur
+    public float conveyorForce;    //Pour les cailloux
 
     //Variable pour le vecteur de force
     public Vector3 waterVar; 
@@ -20,7 +19,7 @@ public class WaterBehaviour : BroColor
     [SerializeField] BroColor col; 
     public CharacterControls chara;
 
-    [SerializeField] Texture waterTexture; 
+    [SerializeField] Renderer water; 
 
     private void Start()
     {
