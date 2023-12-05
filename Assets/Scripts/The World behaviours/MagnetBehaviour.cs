@@ -48,7 +48,7 @@ public class MagnetBehaviour : BroColor
 
     }
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         isActive = true; 
         //MoveMetalObject();
@@ -56,7 +56,7 @@ public class MagnetBehaviour : BroColor
         Debug.Log("magnet");    
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         //isActive = false; 
         Debug.Log("NO colo ");

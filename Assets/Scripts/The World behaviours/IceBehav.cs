@@ -13,12 +13,12 @@ public class IceBehav : BroColor
       //  ice.isTrigger = true;
     }
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         ice.isTrigger = true;
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         ice.isTrigger = false;
     }

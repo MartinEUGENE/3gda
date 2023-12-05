@@ -15,12 +15,12 @@ public class WallBehaviour : BroColor
         rendo = GetComponent<MeshRenderer>();
     }
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         isActive = true;       
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         isActive = false; 
         wally.isTrigger = false;

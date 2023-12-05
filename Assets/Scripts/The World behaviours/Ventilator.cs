@@ -16,15 +16,19 @@ public class Ventilator : BroColor
        // Wind = GetComponent<GameObject>();
     }
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
+        isActive = true;
+
         GameObject clony = Instantiate(Wind, transform.position + transform.up*1f, transform.rotation);
         storeWind = clony;
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         Destroy(storeWind);
+        isActive = false;
+
     }
 
 }

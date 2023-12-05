@@ -32,7 +32,7 @@ public class WaterBehaviour : BroColor
     }
 
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         isActive = true; 
         woter.isTrigger = true;       
@@ -41,7 +41,7 @@ public class WaterBehaviour : BroColor
         //GetComponent<Material>().SetTexture("WaterActivate", waterTexture);
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         isActive = false; 
         woter.isTrigger = false;

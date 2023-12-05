@@ -7,7 +7,7 @@ public class RockBehaviour : BroColor
     private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
 
-    //public float count = 0f;
+    public int count = 0;
 
 
     private void Start()
@@ -20,10 +20,13 @@ public class RockBehaviour : BroColor
     }
 
   
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         count += 1; 
         Debug.Log("rock is painted");
+
+        isActive = true;
+
         rb.useGravity = true;
         rb.isKinematic = false;
 
@@ -36,9 +39,10 @@ public class RockBehaviour : BroColor
         }     
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         Debug.Log("rock is clean now");
+        isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
         rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        

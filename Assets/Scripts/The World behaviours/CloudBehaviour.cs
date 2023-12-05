@@ -26,15 +26,18 @@ public class CloudBehaviour : BroColor
     }
 
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         Debug.Log("IT IS PAINTED");
         sp.isTrigger = true;
         rb.isKinematic = false; 
+        isActive = true;
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
+        isActive = false;
+
         Debug.Log("DO NOT paint");
         sp.isTrigger = false;
         rb.isKinematic = true; 
