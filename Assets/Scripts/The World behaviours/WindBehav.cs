@@ -12,10 +12,10 @@ public class WindBehav : MonoBehaviour
     //Variable pour le vecteur de force
     public Vector3 windVar;
 
-    private MeshCollider windo; 
+    private Collider windo; 
     void Start()
     {
-        windo = GetComponent<MeshCollider>();
+        windo = GetComponent<Collider>();
         windo.isTrigger = true; 
     }
 
