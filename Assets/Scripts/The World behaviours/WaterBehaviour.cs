@@ -9,8 +9,10 @@ public class WaterBehaviour : BroColor
     public float conveyorForce = 15.0f;     //Pour les cailloux
     public float smallForce = 12.5f;      //Pour le joueur
 
+    //Variable pour le vecteur de force
+    public Vector3 waterVar; 
 
-    private BoxCollider woter;
+    private MeshCollider woter;
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
 
@@ -22,7 +24,7 @@ public class WaterBehaviour : BroColor
 
     private void Start()
     {
-        woter = GetComponent<BoxCollider>();
+        woter = GetComponent<MeshCollider>();
         woter.isTrigger = false;
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
@@ -32,33 +34,20 @@ public class WaterBehaviour : BroColor
     }
 
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         isActive = true; 
         woter.isTrigger = true;       
         wa.start();
-
-        //GetComponent<Material>().SetTexture("WaterActivate", waterTexture);
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         isActive = false; 
         woter.isTrigger = false;
-       /* paint.start();
-        paint.setParameterByNameWithLabel("Activation", "Active");*/
         wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
 
-
-    /* private void OnTriggerEnter(Collider other)
-     {
-         if (active == true && other.CompareTag("Player"))
-         {
-             other.GetComponent<Rigidbody>().AddForce(transform.forward * conveyorForce);
-         }
-
-     }*/
 
     private void OnTriggerEnter(Collider other)
     {
@@ -75,7 +64,6 @@ public class WaterBehaviour : BroColor
         if(isActive && inside && other.CompareTag("Rock"))
         {
             inside = false;
-            //so.start();
             Debug.Log("gruuuuuuuuuuuuuuuuu");
         }
     }
@@ -93,7 +81,7 @@ public class WaterBehaviour : BroColor
 
         if (isActive == true && other.CompareTag("Rock") && !other.CompareTag("Cloud") && !other.CompareTag("Fog") && !other.CompareTag("Ground"))
         {
-            other.GetComponent<Rigidbody>().AddForce(transform.forward * conveyorForce, ForceMode.Acceleration);
+            other.GetComponent<Rigidbody>().AddForce(waterVar * conveyorForce, ForceMode.Acceleration);
         }
 
     }

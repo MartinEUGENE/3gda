@@ -16,13 +16,13 @@ public class SandBehaviour : BroColor
         sandy.isTrigger = false;
     }
 
-    protected override void CustomActivation()
+    public override void CustomActivation()
     {
         sandy.isTrigger = true;
         isActive = true; 
     }
 
-    protected override void CustomDeactivation()
+    public override void CustomDeactivation()
     {
         sandy.isTrigger = false;
         isActive = false; 

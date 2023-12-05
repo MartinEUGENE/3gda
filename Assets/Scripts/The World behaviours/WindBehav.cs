@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class WindBehav : MonoBehaviour
 {
-    public float windForce = 25f;
-    public float smallForce = 15f;
-    public float small = 5f;
+    public float windForce;
+    public float smallForce;
+    public float small;
 
-    private Collider windo; 
+
+    //Variable pour le vecteur de force
+    public Vector3 windVar;
+
+    private MeshCollider windo; 
     void Start()
     {
-        windo = GetComponent<Collider>();
+        windo = GetComponent<MeshCollider>();
         windo.isTrigger = true; 
     }
 
@@ -19,18 +23,22 @@ public class WindBehav : MonoBehaviour
     {
         if(other.CompareTag("Cloud") && other.CompareTag("Fog"))
         {
-            other.GetComponent<Rigidbody>().AddForce(transform.up * windForce, ForceMode.Acceleration);
+            other.GetComponent<Rigidbody>().AddForce(windVar * windForce, ForceMode.Acceleration);
         }
 
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(transform.up * smallForce, ForceMode.Force);
-            Debug.Log("Yo");
+            other.GetComponent<Rigidbody>().AddForce(windVar * smallForce, ForceMode.Force);
         }
 
         if (!other.CompareTag("Cloud"))
         {
-            other.GetComponent<Rigidbody>().AddForce(transform.up * small, ForceMode.Force);
+            other.GetComponent<Rigidbody>().AddForce(windVar * small, ForceMode.Force);
+        }
+
+        if(other.CompareTag("Ventilator"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(windVar * 0);
         }
 
     }

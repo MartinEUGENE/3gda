@@ -16,6 +16,7 @@ TagManager:
   - Wall
   - wind
   - Ice
+  - Ventilator
   layers:
   - Default
   - TransparentFX
