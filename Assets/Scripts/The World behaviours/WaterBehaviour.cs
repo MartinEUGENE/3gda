@@ -12,7 +12,7 @@ public class WaterBehaviour : BroColor
     //Variable pour le vecteur de force
     public Vector3 waterVar; 
 
-    private MeshCollider woter;
+    private Collider woter;
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
 
@@ -24,7 +24,7 @@ public class WaterBehaviour : BroColor
 
     private void Start()
     {
-        woter = GetComponent<MeshCollider>();
+        woter = GetComponent<Collider>();
         woter.isTrigger = false;
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
