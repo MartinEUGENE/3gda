@@ -19,7 +19,7 @@ public class WaterBehaviour : BroColor
     [SerializeField] BroColor col; 
     public CharacterControls chara;
 
-    [SerializeField] Renderer water; 
+    //[SerializeField] Renderer water; 
 
     private void Start()
     {
