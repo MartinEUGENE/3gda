@@ -9,9 +9,10 @@ public class WaterBehaviour : BroColor
     public float conveyorForce = 15.0f;     //Pour les cailloux
     public float smallForce = 12.5f;      //Pour le joueur
 
+    //Variable pour le vecteur de force
     public Vector3 waterVar; 
 
-    private BoxCollider woter;
+    private MeshCollider woter;
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
 
@@ -23,7 +24,7 @@ public class WaterBehaviour : BroColor
 
     private void Start()
     {
-        woter = GetComponent<BoxCollider>();
+        woter = GetComponent<MeshCollider>();
         woter.isTrigger = false;
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
@@ -63,7 +64,6 @@ public class WaterBehaviour : BroColor
         if(isActive && inside && other.CompareTag("Rock"))
         {
             inside = false;
-            //so.start();
             Debug.Log("gruuuuuuuuuuuuuuuuu");
         }
     }
