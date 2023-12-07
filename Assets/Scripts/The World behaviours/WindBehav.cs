@@ -5,8 +5,8 @@ using UnityEngine;
 public class WindBehav : MonoBehaviour
 {
     public float windForce;
-    public float smallForce;
-    public float small;
+    public float playerForce;
+    public float objForce;
 
 
     //Variable pour le vecteur de force
@@ -28,12 +28,12 @@ public class WindBehav : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windVar * smallForce, ForceMode.Force);
+            other.GetComponent<Rigidbody>().AddForce(windVar * playerForce, ForceMode.Force);
         }
 
         if (!other.CompareTag("Cloud"))
         {
-            other.GetComponent<Rigidbody>().AddForce(windVar * small, ForceMode.Force);
+            other.GetComponent<Rigidbody>().AddForce(windVar * objForce, ForceMode.Force);
         }
 
         if(other.CompareTag("Ventilator"))
