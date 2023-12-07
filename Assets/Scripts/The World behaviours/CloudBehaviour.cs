@@ -21,7 +21,6 @@ public class CloudBehaviour : BroColor
         if(isActive == true && !gameObject.CompareTag("Fog") && rb.velocity.y <= maxSpeed)
         {
             rb.AddForce(transform.up * 0.25f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
-            Debug.Log(rb.velocity.y);
         }
     }
 

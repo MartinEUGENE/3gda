@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ActivateObject : MonoBehaviour
 {
-    [SerializeField] int activateObj;
+    [SerializeField] float activateObj;
 
     public FMOD.Studio.EventInstance paint;
     public FMOD.Studio.EventInstance B;
@@ -15,7 +15,9 @@ public class ActivateObject : MonoBehaviour
         //originalColor = objectRenderer.material.color; // Store the original color
         //rb = GetComponent<Rigidbody>();
         paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");
-        B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM");
+        B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM_");
+
+        B.start();
 
     }
 
@@ -30,11 +32,12 @@ public class ActivateObject : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
 
-                //paint.start();
-                FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Paint");
+                paint.start();
+                Debug.Log(B.isValid());
 
                 if (hit.collider.GetComponent<BroColor>())
                 {
+                    
                     ToggleActivation(hit.collider.gameObject);
                     Debug.Log(activateObj);
                 }
@@ -51,9 +54,11 @@ public class ActivateObject : MonoBehaviour
 
         if (!prevActiveState && isActive)
         {
-            activateObj++;
+            activateObj +=1f;
             obj.GetComponent<BroColor>().CustomActivation();
             obj.GetComponent<Renderer>().material.color = Color.red;
+            B.setParameterByName("BGM_Para", activateObj);
+
 
             paint.setParameterByNameWithLabel("Activation", "Active");
 
@@ -83,7 +88,7 @@ public class ActivateObject : MonoBehaviour
         {
             activateObj--;
             obj.GetComponent<BroColor>().CustomDeactivation();
-            B.setParameterByName("BGM", activateObj);
+            B.setParameterByName("BGM_Para", activateObj);
             obj.GetComponent<Renderer>().material.color = Color.white;
             paint.setParameterByNameWithLabel("Activation", "Desactivation");
 
