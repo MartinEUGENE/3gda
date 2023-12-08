@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8412168462926554018
 Transform:
   m_ObjectHideFlags: 0
@@ -111,6 +111,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   windForce: 2.5
-  smallForce: 5
-  small: 15
+  playerForce: 0
+  objForce: 0
   windVar: {x: 0, y: 0, z: 0}

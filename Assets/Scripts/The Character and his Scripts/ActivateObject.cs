@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivateObject : MonoBehaviour
-{
-    [SerializeField] float activateObj;
+{ 
+    
+    public float activateObj;
 
     public FMOD.Studio.EventInstance paint;
     public FMOD.Studio.EventInstance B;
@@ -36,8 +37,7 @@ public class ActivateObject : MonoBehaviour
                 Debug.Log(B.isValid());
 
                 if (hit.collider.GetComponent<BroColor>())
-                {
-                    
+                {                    
                     ToggleActivation(hit.collider.gameObject);
                     Debug.Log(activateObj);
                 }

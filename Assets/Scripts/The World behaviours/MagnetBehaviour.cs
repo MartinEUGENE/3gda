@@ -17,7 +17,6 @@ public class MagnetBehaviour : BroColor
         if (isActive == true)
         {
             MoveMetalObject(metal);
-            Debug.Log("Yes it works");       
         }
 
 
