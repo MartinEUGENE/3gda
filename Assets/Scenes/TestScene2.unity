@@ -754,7 +754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: field of view
-      value: 75
+      value: 93
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_BackGroundColor.a
@@ -762,15 +762,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.26486292
+      value: 0.75488544
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.3773585
+      value: 0.764151
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.34801182
+      value: 0.60122824
       objectReference: {fileID: 0}
     - target: {fileID: 6655237446242231200, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_Name
@@ -2939,7 +2939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8090615666086186618, guid: f55a21dcaa30f5747975cbbba09de95a, type: 3}
       propertyPath: m_Mass
-      value: 25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8090615666086186618, guid: f55a21dcaa30f5747975cbbba09de95a, type: 3}
       propertyPath: m_Constraints
@@ -3150,6 +3150,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5664156195521514893, guid: dce49aa19e2ba4840b893c2a18ddf76d, type: 3}
+      propertyPath: act
+      value: 
+      objectReference: {fileID: 1749105679}
     - target: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d, type: 3}
       propertyPath: m_Name
       value: a Wall

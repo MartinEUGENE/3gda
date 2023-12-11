@@ -9,16 +9,16 @@ public class MagnetBehaviour : BroColor
     public float magnetSpeed = .01f;
     //public bool attract = false;
 
-    [SerializeField] GameObject metal;
-    [SerializeField] GameObject magnet;
+    [SerializeField] GameObject metalObj; 
+    [SerializeField] GameObject magnet; 
+    
 
-    void Update()
+    void FixedUpdate()
     {
         if (isActive == true)
         {
-            MoveMetalObject(metal);
+            MoveMetalObject(metalObj);
         }
-
 
     }
 
@@ -46,7 +46,7 @@ public class MagnetBehaviour : BroColor
             float distanceToMagnet = Vector3.Distance(transform.position, magnetized.transform.position);
 
             // Move the metal object towards the object with this script with a force proportional to the distance
-            magnetized.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed /* distanceToMagnet*/); 
+            magnetized.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed * distanceToMagnet); 
         }
     }
 

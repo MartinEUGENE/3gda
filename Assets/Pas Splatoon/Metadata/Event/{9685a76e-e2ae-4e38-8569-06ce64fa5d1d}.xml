@@ -123,7 +123,7 @@
 	</object>
 	<object class="SingleSound" id="{0ed2ba5f-21f8-4cd8-9ced-db7cda2c9d63}">
 		<property name="length">
-			<value>1.75</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{cb44d78e-7583-4a13-a01d-bd2b085048c1}</destination>
@@ -153,7 +153,7 @@
 	</object>
 	<object class="SingleSound" id="{d8a1cb8a-2bf0-464c-bca4-3b3a452b13e4}">
 		<property name="length">
-			<value>1.75</value>
+			<value>0.5</value>
 		</property>
 		<relationship name="audioFile">
 			<destination>{7f724539-adfc-480b-b07a-980081b1a65d}</destination>
