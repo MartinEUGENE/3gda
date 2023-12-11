@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{492031e0-59b7-45a0-958d-58bfc3334c13}">
+		<property name="assetPath">
+			<value>Objects, Misc, Water Balloon, Impact, Layered, Splash 03 SND92561.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>192</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.48666666666666669</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{d56e1613-a998-492e-b41c-8088f254bc9a}</destination>
+		</relationship>
+	</object>
+</objects>

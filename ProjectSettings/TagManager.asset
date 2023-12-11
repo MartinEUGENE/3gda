@@ -13,6 +13,11 @@ TagManager:
   - Sand
   - Fog
   - Ground
+  - Wall
+  - wind
+  - Ice
+  - Ventilator
+  - Key
   layers:
   - Default
   - TransparentFX
