@@ -8,12 +8,17 @@ public class CharacterControls : MonoBehaviour
     public float walkspeed = 5.0f;
     public float sensitivity = 3.0f;
 
+    Vector3 noSpeed; 
+
     private Rigidbody rb;
+    private FMOD.Studio.EventInstance steps;
+
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component        
+        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
+        steps = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Walk"); 
     }
 
     void Look()
@@ -35,43 +40,48 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
+        
 
     }
-
-    /*void PaintWorld()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
-                {
-                    //Debug.Log("Object Name: " + hit.transform.gameObject.name);
-                }
-            }
-        }
-    }*/
 
     void Update()
     {
         Look();
 
-        //PaintWorld();
+        /*if (rb.velocity.magnitude >= 0.75f)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk"); 
+        }*/
     }
-
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(transform.position, direction);
-    }*/
 
     private void FixedUpdate()
     {
         Movement();
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Sand"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Sand");
+        }
+
+        if(other.CompareTag("Ice"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Ice");
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        steps.setParameterByNameWithLabel("Enviro","Normal");
+    }
+
+    void PlayThisSound()
+    {
+        // steps.start();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
     }
 }
 

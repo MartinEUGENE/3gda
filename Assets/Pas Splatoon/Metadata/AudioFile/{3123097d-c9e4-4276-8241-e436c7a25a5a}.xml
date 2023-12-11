@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{3123097d-c9e4-4276-8241-e436c7a25a5a}">
 		<property name="assetPath">
-			<value>wotar.wav</value>
+			<value>Music/wotar.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>

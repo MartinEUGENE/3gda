@@ -5,8 +5,7 @@ using UnityEngine;
 public class SandBehaviour : BroColor 
 {
 
-    public BoxCollider sandy;
-    
+    public BoxCollider sandy;    
     public CharacterControls chara;
 
     GameObject storeInside;
