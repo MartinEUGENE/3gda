@@ -82,6 +82,16 @@ public class ActivateObject : MonoBehaviour
                 obj.GetComponent<Renderer>().material.color = Color.black;
 
             }
+
+            if(obj.gameObject.CompareTag("Key"))
+            {
+                obj.GetComponent<Renderer>().material.color = Color.green;
+            }
+
+            if (obj.gameObject.CompareTag("Wall"))
+            {
+                obj.GetComponent<Renderer>().material.color = Color.magenta;
+            }
         }
 
         else if (prevActiveState && !isActive)
