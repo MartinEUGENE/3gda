@@ -135,7 +135,7 @@
 			<value>0.23999999999999999</value>
 		</property>
 		<property name="volume">
-			<value>-13</value>
+			<value>-6.5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{a6e871e3-4b20-464c-8fa4-f706fff985de}</destination>
@@ -353,7 +353,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-80</value>
+			<value>0</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{7c8fa9cb-2fa8-4724-93b8-f8c73ec98dde}">

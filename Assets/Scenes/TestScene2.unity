@@ -631,6 +631,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8412168462926554029, guid: d3f023c3906b99040841d07462b67eff, type: 3}
   m_PrefabInstance: {fileID: 1982818038}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &616689172 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8412168462926554030, guid: d3f023c3906b99040841d07462b67eff, type: 3}
+  m_PrefabInstance: {fileID: 1982818038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616689171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f50f1683bf3d94ba24e4e477d185ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &836414243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2403,6 +2414,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   isActive: 0
   Wind: {fileID: 8412168462926554029, guid: d3f023c3906b99040841d07462b67eff, type: 3}
+  windSound: {fileID: 616689172}
 --- !u!65 &1850744122
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3635,5 +3647,9 @@ PrefabInstance:
       propertyPath: Wind
       value: 
       objectReference: {fileID: 616689171}
+    - target: {fileID: 7855792607664970197, guid: ce92dccefac8a754cb3904d0c2c2eb10, type: 3}
+      propertyPath: windSound
+      value: 
+      objectReference: {fileID: 616689172}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce92dccefac8a754cb3904d0c2c2eb10, type: 3}
