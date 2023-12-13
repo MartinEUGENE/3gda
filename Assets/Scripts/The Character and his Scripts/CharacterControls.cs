@@ -10,7 +10,9 @@ public class CharacterControls : MonoBehaviour
     public float grabRange = 5.0f;
     public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
-    Vector3 noSpeed; 
+    Vector3 noSpeed;
+    private FMOD.Studio.EventInstance steps;
+
 
     private Rigidbody rb;
     private GameObject grabbedObject;
@@ -19,8 +21,8 @@ public class CharacterControls : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
         rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
+        steps = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Walk");
 
     }
 
@@ -34,10 +36,9 @@ public class CharacterControls : MonoBehaviour
 
     void Movement()
     {
-<<<<<<< HEAD
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-=======
+
         Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -47,8 +48,7 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
-        
->>>>>>> SoundDesign
+
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         Vector3 rotatedDirection = transform.TransformDirection(direction);
@@ -56,7 +56,6 @@ public class CharacterControls : MonoBehaviour
         rb.MovePosition(transform.position + rotatedDirection * walkspeed * Time.deltaTime);
     }
 
-<<<<<<< HEAD
     void GrabObject()
     {
         if (Input.GetMouseButtonDown(1) && grabbedObject == null) // Right mouse button and no object grabbed
@@ -101,15 +100,37 @@ public class CharacterControls : MonoBehaviour
     {
         Look();
         GrabObject();
-=======
-    void Update()
-    {
-        Look();
+
     }
 
     private void FixedUpdate()
     {
         Movement();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sand"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Sand");
+        }
+
+        if (other.CompareTag("Ice"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Ice");
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        steps.setParameterByNameWithLabel("Enviro", "Normal");
+    }
+
+    void PlayThisSound()
+    {
+        // steps.start();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
+    }
+
 }
 
