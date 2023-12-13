@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{fb737dea-58b6-4e4c-8f24-2f2c6fe5b375}">
 		<property name="assetPath">
-			<value>Rocks, Crash &amp; Debris, Medium Size, Rubble SND30254 1.wav</value>
+			<value>Environnement/Rocks, Crash &amp; Debris, Medium Size, Rubble SND30254 1.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

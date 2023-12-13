@@ -10,13 +10,18 @@ public class CharacterControls : MonoBehaviour
     public float grabRange = 5.0f;
     public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
+    Vector3 noSpeed; 
+
     private Rigidbody rb;
     private GameObject grabbedObject;
+
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
+
     }
 
     void Look()
@@ -29,8 +34,21 @@ public class CharacterControls : MonoBehaviour
 
     void Movement()
     {
+<<<<<<< HEAD
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+=======
+        Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+        Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
+        rb.velocity = ThatDirection;
+        
+>>>>>>> SoundDesign
 
         Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
         Vector3 rotatedDirection = transform.TransformDirection(direction);
@@ -38,6 +56,7 @@ public class CharacterControls : MonoBehaviour
         rb.MovePosition(transform.position + rotatedDirection * walkspeed * Time.deltaTime);
     }
 
+<<<<<<< HEAD
     void GrabObject()
     {
         if (Input.GetMouseButtonDown(1) && grabbedObject == null) // Right mouse button and no object grabbed
@@ -82,6 +101,10 @@ public class CharacterControls : MonoBehaviour
     {
         Look();
         GrabObject();
+=======
+    void Update()
+    {
+        Look();
     }
 
     private void FixedUpdate()
@@ -90,29 +113,3 @@ public class CharacterControls : MonoBehaviour
     }
 }
 
-
-
-
-/*void PaintWorld()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
-                {
-                    //Debug.Log("Object Name: " + hit.transform.gameObject.name);
-                }
-            }
-        }
-    }*/
-
-/*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(transform.position, direction);
-    }*/

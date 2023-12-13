@@ -576,6 +576,8 @@
 	<object class="MixerBusEffectChain" id="{ddd12626-1d92-44bd-a3db-879595bbe0c2}">
 		<relationship name="effects">
 			<destination>{eb39fa70-37de-456e-b01a-361271767058}</destination>
+			<destination>{895ff523-8065-44be-be05-d2d44b77990c}</destination>
+			<destination>{97372a9f-8bc6-4009-ad9e-406eea8b0827}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{5387a716-b13a-4b20-9bec-677f5199e797}" />
@@ -598,6 +600,7 @@
 	<object class="MixerBusEffectChain" id="{21088a6c-4138-41fa-b6f9-868ee5708145}">
 		<relationship name="effects">
 			<destination>{27bd58e7-8b36-4244-aba6-8d0349281696}</destination>
+			<destination>{4e057789-66b2-4da1-a287-c31d00d8bd7a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{1bcef376-5b41-4f1f-889a-2be71f85963b}" />
@@ -803,6 +806,19 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{eb39fa70-37de-456e-b01a-361271767058}" />
+	<object class="SFXReverbEffect" id="{895ff523-8065-44be-be05-d2d44b77990c}">
+		<property name="bypass">
+			<value>true</value>
+		</property>
+	</object>
+	<object class="MultibandEqEffect" id="{97372a9f-8bc6-4009-ad9e-406eea8b0827}">
+		<property name="frequencyA">
+			<value>5158.79541</value>
+		</property>
+		<property name="qualityA">
+			<value>0.1627931</value>
+		</property>
+	</object>
 	<object class="AutomationPoint" id="{6c742dfa-54ef-4dd0-be4e-7718061ee02e}">
 		<property name="position">
 			<value>0</value>
@@ -841,6 +857,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{27bd58e7-8b36-4244-aba6-8d0349281696}" />
+	<object class="MultibandEqEffect" id="{4e057789-66b2-4da1-a287-c31d00d8bd7a}">
+		<property name="frequencyA">
+			<value>4748.48975</value>
+		</property>
+		<property name="qualityA">
+			<value>0.100000001</value>
+		</property>
+	</object>
 	<object class="AutomationCurve" id="{a10398da-eb6e-491f-b391-62f3f83dc83c}">
 		<relationship name="parameter">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
