@@ -809,11 +809,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6655237446242231206, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: sensitivity
-<<<<<<< HEAD
       value: 100
-=======
       value: 2.5
->>>>>>> SoundDesign
       objectReference: {fileID: 0}
     - target: {fileID: 6655237446242231207, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_RootOrder
