@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{dfbc45c2-28ba-4221-b0ec-6b479039c3e4}">
+		<property name="name">
+			<value>InactiveWater</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{1f4cff74-e876-4207-9499-7b57ee5a2739}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{25a34b49-afb8-44f0-b329-f6031f144b49}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{1f4cff74-e876-4207-9499-7b57ee5a2739}">
+		<relationship name="effects">
+			<destination>{25d805e5-6ff3-4d86-8462-e35d25910caf}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{25a34b49-afb8-44f0-b329-f6031f144b49}" />
+	<object class="MixerBusFader" id="{25d805e5-6ff3-4d86-8462-e35d25910caf}" />
+</objects>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{9dffeb20-280c-48a3-b2de-36d82bce7a26}">
+		<property name="name">
+			<value>InactiveRock</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{34b018d9-c56b-4987-b5b7-13f199ed9080}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{76f2e0dc-05af-4bb7-8321-7314923fb24f}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{34b018d9-c56b-4987-b5b7-13f199ed9080}">
+		<relationship name="effects">
+			<destination>{fc7eddf2-f045-42c6-b252-dd67a926cce2}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{76f2e0dc-05af-4bb7-8321-7314923fb24f}" />
+	<object class="MixerBusFader" id="{fc7eddf2-f045-42c6-b252-dd67a926cce2}" />
+</objects>
