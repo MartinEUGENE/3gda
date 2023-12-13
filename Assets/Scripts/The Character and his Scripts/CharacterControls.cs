@@ -36,9 +36,6 @@ public class CharacterControls : MonoBehaviour
 
     void Movement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
         Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -48,12 +45,6 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
-
-
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-        Vector3 rotatedDirection = transform.TransformDirection(direction);
-
-        rb.MovePosition(transform.position + rotatedDirection * walkspeed * Time.deltaTime);
     }
 
     void GrabObject()
