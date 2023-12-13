@@ -29,8 +29,8 @@ public class CharacterControls : MonoBehaviour
     void Look()
     {
         pitch = Mathf.Clamp(pitch, -90.0f, 90.0f);
-        pitch -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
-        transform.Rotate(0, Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime, 0);
+        pitch -= Input.GetAxisRaw("Mouse Y") * sensitivity;
+        transform.Rotate(0, Input.GetAxisRaw("Mouse X") * sensitivity, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
     }
 
@@ -73,7 +73,7 @@ public class CharacterControls : MonoBehaviour
                     {
                         // Grab the object
                         grabbedObject = hit.transform.gameObject;
-                        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                        grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
                         grabbedObject.transform.SetParent(transform);
                     }
                 }
@@ -100,7 +100,6 @@ public class CharacterControls : MonoBehaviour
     {
         Look();
         GrabObject();
-
     }
 
     private void FixedUpdate()
