@@ -64,7 +64,7 @@ public class CharacterControls : MonoBehaviour
                     {
                         // Grab the object
                         grabbedObject = hit.transform.gameObject;
-                        grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+                        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
                         grabbedObject.transform.SetParent(transform);
                     }
                 }

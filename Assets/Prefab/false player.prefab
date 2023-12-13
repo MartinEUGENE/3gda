@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6655237446242231206}
   - component: {fileID: 5252001105778013543}
   - component: {fileID: 894379651798725495}
+  - component: {fileID: 6445076344002881016}
   m_Layer: 0
   m_Name: false player
   m_TagString: Player
@@ -135,6 +136,8 @@ MonoBehaviour:
   pitch: 0
   walkspeed: 5
   sensitivity: 2
+  grabRange: 5
+  liftSpeed: 2
 --- !u!114 &5252001105778013543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,12 +150,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f8098e113828a488b21a754cd837cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateObj: 0
   originalMat: {fileID: 0}
   compColor: {fileID: 0}
   rb: {fileID: 6655237446242231203}
   isActive: 0
-  count: 0
-  maxCount: 10
 --- !u!114 &894379651798725495
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +170,19 @@ MonoBehaviour:
   button: {fileID: 0}
   crossair: {fileID: 0}
   CurrentScene: 
+--- !u!114 &6445076344002881016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6655237446242231200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0f3a0d983a60f5479c12a1022ebc482, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activateObj: 0
 --- !u!1 &7367292869622872889
 GameObject:
   m_ObjectHideFlags: 0
