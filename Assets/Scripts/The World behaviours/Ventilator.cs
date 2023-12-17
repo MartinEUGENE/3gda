@@ -39,8 +39,7 @@ public class Ventilator : BroColor
         ventilation.start();
 
         windSound.wind.start();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/ActiveMixing");
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/ActiveMix/ActiveMixing");
     }
 
     public override void CustomDeactivation()
@@ -52,8 +51,7 @@ public class Ventilator : BroColor
         ventilation.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         windSound.wind.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/InactiveMixing");
-
+        FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/InactiveMix/InactiveMixing");
     }
 
 }
