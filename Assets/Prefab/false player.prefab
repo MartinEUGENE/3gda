@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6655237446242231206}
   - component: {fileID: 5252001105778013543}
   - component: {fileID: 894379651798725495}
-  - component: {fileID: 6445076344002881016}
+  - component: {fileID: 6813909350164498295}
   m_Layer: 0
   m_Name: false player
   m_TagString: Player
@@ -170,7 +170,7 @@ MonoBehaviour:
   button: {fileID: 0}
   crossair: {fileID: 0}
   CurrentScene: 
---- !u!114 &6445076344002881016
+--- !u!114 &6813909350164498295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
