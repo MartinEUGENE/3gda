@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RockBehaviour : BroColor
 {
-    //private FMOD.Studio.EventInstance rocking;
+    private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
 
     public int count = 0;
@@ -13,16 +13,16 @@ public class RockBehaviour : BroColor
     private void Start()
     {
         GetComponent<Rigidbody>();
-       // rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
+        rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
 
-       // rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+       rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
   
     public override void CustomActivation()
     {
-        //count += 1; 
+        count += 1; 
         Debug.Log("rock is painted");
 
         isActive = true;
@@ -30,8 +30,12 @@ public class RockBehaviour : BroColor
         rb.useGravity = true;
         rb.isKinematic = false;
 
-        //rocking.start();
-       //rocking.setParameterByName("RockParameter", count);
+        if(gameObject.CompareTag("Rock"))
+        {
+            rocking.start();
+            rocking.setParameterByName("RockParameter", count);
+        }
+      
 
         if(rb.mass >= 50)
         {
@@ -45,7 +49,7 @@ public class RockBehaviour : BroColor
         isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
-        //rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
+        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
     }
 
     private void OnTriggerEnter(Collider other)
