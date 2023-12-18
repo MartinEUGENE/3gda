@@ -8633,15 +8633,15 @@ PrefabInstance:
       objectReference: {fileID: 1247321942}
     - target: {fileID: 1154162338647863050, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: waterVar.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1154162338647863050, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: waterVar.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1154162338647863050, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: conveyorForce
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1154162338647863051, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: m_RootOrder
