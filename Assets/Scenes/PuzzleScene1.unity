@@ -787,7 +787,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412168462926554030, guid: d3f023c3906b99040841d07462b67eff, type: 3}
       propertyPath: objForce
-      value: 150
+      value: 7500
       objectReference: {fileID: 0}
     - target: {fileID: 8412168462926554030, guid: d3f023c3906b99040841d07462b67eff, type: 3}
       propertyPath: windForce
@@ -3338,6 +3338,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8412168462926554029, guid: d3f023c3906b99040841d07462b67eff, type: 3}
   m_PrefabInstance: {fileID: 817719357}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &713483230 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8412168462926554030, guid: d3f023c3906b99040841d07462b67eff, type: 3}
+  m_PrefabInstance: {fileID: 817719357}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713483228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f50f1683bf3d94ba24e4e477d185ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &714242855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4221,7 +4232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8412168462926554030, guid: d3f023c3906b99040841d07462b67eff, type: 3}
       propertyPath: playerForce
-      value: 2.5
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3f023c3906b99040841d07462b67eff, type: 3}
@@ -6336,7 +6347,7 @@ PrefabInstance:
       objectReference: {fileID: 1247321942}
     - target: {fileID: 1154162338647863050, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: waterVar.x
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1154162338647863050, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
       propertyPath: waterVar.y
@@ -7369,6 +7380,10 @@ PrefabInstance:
       propertyPath: Wind
       value: 
       objectReference: {fileID: 713483228}
+    - target: {fileID: 7855792607664970197, guid: ce92dccefac8a754cb3904d0c2c2eb10, type: 3}
+      propertyPath: windSound
+      value: 
+      objectReference: {fileID: 713483230}
     - target: {fileID: 7855792607664970197, guid: ce92dccefac8a754cb3904d0c2c2eb10, type: 3}
       propertyPath: activateObj
       value: 1000

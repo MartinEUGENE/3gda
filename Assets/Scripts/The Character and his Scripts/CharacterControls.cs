@@ -91,6 +91,11 @@ public class CharacterControls : MonoBehaviour
     {
         Look();
         GrabObject();
+
+        if(Input.GetKey(KeyCode.V))
+        {
+            Application.Quit();
+        }
     }
 
     private void FixedUpdate()
