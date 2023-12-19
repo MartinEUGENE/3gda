@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{d6b8bcc0-d55e-4e01-83da-b05f619d5b65}">
+		<property name="name">
+			<value>InactiveFog&amp;Cloud</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{6c5fe0b6-33a7-45f8-adaa-14561c276a54}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{291bf81d-e29b-458d-9a02-0600c8f1bd3c}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{6c5fe0b6-33a7-45f8-adaa-14561c276a54}">
+		<relationship name="effects">
+			<destination>{9f85728e-f488-43a5-9bee-74ab6ba24267}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{291bf81d-e29b-458d-9a02-0600c8f1bd3c}" />
+	<object class="MixerBusFader" id="{9f85728e-f488-43a5-9bee-74ab6ba24267}" />
+</objects>

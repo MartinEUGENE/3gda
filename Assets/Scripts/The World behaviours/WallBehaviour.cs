@@ -5,7 +5,8 @@ using UnityEngine;
 public class WallBehaviour : BroColor 
 {
     Collider wally;
-    MeshRenderer rendo; 
+    MeshRenderer rendo;
+    [SerializeField] ActivateObject act; 
 
     void Start()
     {
@@ -31,10 +32,12 @@ public class WallBehaviour : BroColor
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(isActive && collision.collider.CompareTag("Rock"))
+        if(isActive && collision.collider.CompareTag("Key"))
         {
-            wally.isTrigger = true;
-            rendo.enabled = false; 
+            act.activateObj -= 2f; 
+            act.B.setParameterByName("BGM_Para", act.activateObj);
+            Destroy(gameObject);
+            Destroy(collision.gameObject);
         }
     }
 

@@ -16,7 +16,7 @@ public class RockBehaviour : BroColor
         rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
 
-        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+       rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
   
@@ -30,13 +30,12 @@ public class RockBehaviour : BroColor
         rb.useGravity = true;
         rb.isKinematic = false;
 
-        rocking.start();
-        rocking.setParameterByName("RockParameter", count);
-
-        if(rb.mass >= 50)
+        if(gameObject.CompareTag("Rock"))
         {
-            rb.AddForce(transform.up * -1000f, ForceMode.Acceleration);
-        }     
+            rocking.start();
+            rocking.setParameterByName("RockParameter", count);
+        }
+     
     }
 
     public override void CustomDeactivation()

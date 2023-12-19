@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{492031e0-59b7-45a0-958d-58bfc3334c13}">
 		<property name="assetPath">
-			<value>Objects, Misc, Water Balloon, Impact, Layered, Splash 03 SND92561.wav</value>
+			<value>Environnement/Objects, Misc, Water Balloon, Impact, Layered, Splash 03 SND92561.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>192</value>
