@@ -41,6 +41,14 @@ public class ActivateObject : MonoBehaviour
                     ToggleActivation(hit.collider.gameObject);
                     Debug.Log(activateObj);
                 }
+                else
+                {
+                    BroColor brocol = hit.transform.GetComponentInParent<BroColor>();
+                    if (brocol != null)
+                    {
+                        ToggleActivation(brocol.gameObject);
+                    }
+                }
             }
         }
     }
