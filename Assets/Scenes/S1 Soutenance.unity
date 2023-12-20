@@ -6222,6 +6222,30 @@ PrefabInstance:
       propertyPath: m_PlaneDistance
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519590, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519590, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1787
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519590, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.0068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519590, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.0068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519590, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.0068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7367619029278519591, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_Texture
+      value: 
+      objectReference: {fileID: 2800000, guid: d21c302b95cd7d3468caec58d491c706, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
 --- !u!114 &1183118710 stripped
