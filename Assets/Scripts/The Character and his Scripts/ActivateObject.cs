@@ -88,12 +88,11 @@ public class ActivateObject : MonoBehaviour
             if (obj.gameObject.CompareTag("Magnet"))
             {
                 obj.GetComponent<Renderer>().material.color = Color.black;
-
             }
 
             if (obj.gameObject.CompareTag("Cloud"))
             {
-                obj.GetComponent<Renderer>().material.color = Color.white;
+                obj.GetComponent<Renderer>().material.color = Color.grey; 
             }
 
             if (obj.gameObject.CompareTag("Key"))
