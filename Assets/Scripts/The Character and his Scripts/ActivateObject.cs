@@ -93,7 +93,7 @@ public class ActivateObject : MonoBehaviour
 
             if (obj.gameObject.CompareTag("Cloud"))
             {
-                obj.GetComponent<Renderer>().material.color = Color.gray;
+                obj.GetComponent<Renderer>().material.color = Color.white;
             }
 
             if (obj.gameObject.CompareTag("Key"))
