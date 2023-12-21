@@ -5,13 +5,15 @@ using UnityEngine;
 public class CloudBehaviour : BroColor
 {
     private Collider sp;
-    public float maxSpeed = 2.5f;
+    public float maxSpeed;
     public Vector3 nuage; 
 
     void Start()
     {
         sp = GetComponent<Collider>();
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
+
+        rb.isKinematic = true; 
     }
 
 
@@ -19,9 +21,9 @@ public class CloudBehaviour : BroColor
     {
          //Vector3 regularSpeed = new Vector3( 0f, maxSpeed, 0f) ;
 
-        if(isActive == true && !gameObject.CompareTag("Fog") && rb.velocity.y <= maxSpeed)
+        if(isActive == true && !gameObject.CompareTag("Fog"))
         {
-            rb.AddForce(nuage * 0.25f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
+            rb.AddForce(nuage * maxSpeed); //Faire en sorte à ce que ce soit controlé par des tags aussi
         }
     }
 
