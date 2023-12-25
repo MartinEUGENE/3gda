@@ -41,6 +41,14 @@ public class ActivateObject : MonoBehaviour
                     ToggleActivation(hit.collider.gameObject);
                     Debug.Log(activateObj);
                 }
+                else
+                {
+                    BroColor brocol = hit.transform.GetComponentInParent<BroColor>();
+                    if (brocol != null)
+                    {
+                        ToggleActivation(brocol.gameObject);
+                    }
+                }
             }
         }
     }
@@ -80,10 +88,14 @@ public class ActivateObject : MonoBehaviour
             if (obj.gameObject.CompareTag("Magnet"))
             {
                 obj.GetComponent<Renderer>().material.color = Color.black;
-
             }
 
-            if(obj.gameObject.CompareTag("Key"))
+            if (obj.gameObject.CompareTag("Cloud"))
+            {
+                obj.GetComponent<Renderer>().material.color = Color.grey; 
+            }
+
+            if (obj.gameObject.CompareTag("Key"))
             {
                 obj.GetComponent<Renderer>().material.color = Color.green;
             }

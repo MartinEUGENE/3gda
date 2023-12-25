@@ -22,10 +22,11 @@ public class Ventilator : BroColor
 
         FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/InactiveMixing");
 
+        ventilator.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         ventilator.start();
     }
 
-    private void Update()
+     void Update()
     {
         ventilator.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }

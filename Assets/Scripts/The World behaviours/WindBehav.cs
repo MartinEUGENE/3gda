@@ -29,9 +29,14 @@ public class WindBehav : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.CompareTag("Cloud") && other.CompareTag("Fog"))
+        if(other.CompareTag("Fog"))
         {
             other.GetComponent<Rigidbody>().AddForce(windVar * windForce, ForceMode.Acceleration);
+        }
+
+        if(other.CompareTag("Cloud"))
+        {
+            other.GetComponent<Rigidbody>().AddForce(windVar * windForce, ForceMode.Force);
         }
 
         if (other.CompareTag("Player"))
@@ -39,14 +44,9 @@ public class WindBehav : MonoBehaviour
             other.GetComponent<Rigidbody>().AddForce(windVar * playerForce, ForceMode.Force);
         }
 
-        if (!other.CompareTag("Cloud"))
+        if (other.CompareTag("Rock") && other.CompareTag("Key"))
         {
             other.GetComponent<Rigidbody>().AddForce(windVar * objForce, ForceMode.Force);
-        }
-
-        if(other.CompareTag("Ventilator"))
-        {
-            other.GetComponent<Rigidbody>().AddForce(windVar * 0);
         }
     }
 
