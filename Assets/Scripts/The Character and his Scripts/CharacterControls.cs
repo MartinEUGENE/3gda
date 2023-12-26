@@ -96,6 +96,15 @@ public class CharacterControls : MonoBehaviour
         {
             Application.Quit();
         }
+        if(Input.GetKey(KeyCode.K))
+        {
+            StopAllPlayerEvents();
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            PlayThisSound();
+        }
     }
 
     private void FixedUpdate()
@@ -121,10 +130,18 @@ public class CharacterControls : MonoBehaviour
         steps.setParameterByNameWithLabel("Enviro", "Normal");
     }
 
+    void StopAllPlayerEvents()
+    {
+        FMODUnity.RuntimeManager.MuteAllEvents(true);
+    }
+
+
     void PlayThisSound()
     {
+        FMODUnity.RuntimeManager.MuteAllEvents(false);
+
         // steps.start();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
     }
 
 }
