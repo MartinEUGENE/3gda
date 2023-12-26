@@ -44,7 +44,7 @@ public class WindBehav : MonoBehaviour
             other.GetComponent<Rigidbody>().AddForce(windVar * playerForce, ForceMode.Force);
         }
 
-        if (other.CompareTag("Rock") && other.CompareTag("Key"))
+        if (other.CompareTag("Rock") /*&& other.CompareTag("Key")*/)
         {
             other.GetComponent<Rigidbody>().AddForce(windVar * objForce, ForceMode.Force);
         }
