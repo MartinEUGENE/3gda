@@ -6,6 +6,8 @@ public class RockBehaviour : BroColor
 {
     private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
+    private FMOD.Studio.EventInstance inactEvent;
+
 
     public int count = 0;
 
@@ -21,7 +23,13 @@ public class RockBehaviour : BroColor
        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
-  
+
+    private void Update()
+    {
+        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+    }
+
+
     public override void CustomActivation()
     {
         count += 1; 
@@ -35,7 +43,7 @@ public class RockBehaviour : BroColor
         if(gameObject.CompareTag("Rock"))
         {
             rocking.start();
-            rocking.setParameterByName("RockParameter", count);
+            rocking.setParameterByName("ActivationParameter", count);
         }
      
     }

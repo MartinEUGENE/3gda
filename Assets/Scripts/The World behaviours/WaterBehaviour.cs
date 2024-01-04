@@ -68,6 +68,7 @@ public class WaterBehaviour : BroColor
         {
             inside = false;
             so.start();
+
             Debug.Log("Ah, shinda");
         }
 

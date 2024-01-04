@@ -13,6 +13,7 @@ public class WindBehav : MonoBehaviour
 
     private Collider windo;
     public FMOD.Studio.EventInstance wind;
+    private FMOD.Studio.EventInstance inactEvent;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class WindBehav : MonoBehaviour
         windo.isTrigger = true; 
 
         wind = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Wind");
+        wind.start();
     }
 
     private void Update()

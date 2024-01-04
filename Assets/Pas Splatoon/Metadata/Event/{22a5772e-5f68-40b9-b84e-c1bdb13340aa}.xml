@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{22a5772e-5f68-40b9-b84e-c1bdb13340aa}">
 		<property name="name">
-			<value>InactiveWaterMix</value>
+			<value>InactiveObjM</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

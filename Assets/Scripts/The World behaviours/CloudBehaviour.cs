@@ -5,13 +5,25 @@ using UnityEngine;
 public class CloudBehaviour : BroColor
 {
     private Collider sp;
+
     public float maxSpeed;
     public Vector3 nuage; 
+
+    public FMOD.Studio.EventInstance Cloud;
+    public FMOD.Studio.EventInstance Fog;
+
+    private FMOD.Studio.EventInstance inactEvent;
+
 
     void Start()
     {
         sp = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
+        //obj = GetComponent<GameObject>();
+
+
+        Cloud = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Cloud"); 
+        Fog = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Fog");
 
         rb.isKinematic = true; 
     }
@@ -34,6 +46,18 @@ public class CloudBehaviour : BroColor
         sp.isTrigger = true;
         rb.isKinematic = false; 
         isActive = true;
+
+        if(gameObject.CompareTag("Cloud"))
+        {
+
+        }
+
+        if (gameObject.CompareTag("Fog"))
+        {
+
+        }
+
+
     }
 
     public override void CustomDeactivation()

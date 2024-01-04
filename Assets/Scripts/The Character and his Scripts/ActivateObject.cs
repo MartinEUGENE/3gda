@@ -13,8 +13,6 @@ public class ActivateObject : MonoBehaviour
 
     private void Start()
     {
-        //originalColor = objectRenderer.material.color; // Store the original color
-        //rb = GetComponent<Rigidbody>();
         paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");
         B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM_");
 
@@ -104,6 +102,13 @@ public class ActivateObject : MonoBehaviour
             {
                 obj.GetComponent<Renderer>().material.color = Color.magenta;
             }
+
+            if (obj.gameObject.CompareTag("Rock"))
+            {
+                obj.GetComponent<Renderer>().material.color = Color.magenta;
+                obj.GetComponent<RockBehaviour>().count += 1;
+                Debug.Log("do it");
+            }
         }
 
         else if (prevActiveState && !isActive)
@@ -113,6 +118,13 @@ public class ActivateObject : MonoBehaviour
             B.setParameterByName("BGM_Para", activateObj);
             obj.GetComponent<Renderer>().material.color = Color.white;
             paint.setParameterByNameWithLabel("Activation", "Desactivation");
+
+
+            if (obj.gameObject.CompareTag("Rock"))
+            {
+                obj.GetComponent<RockBehaviour>().count -= 1;
+                Debug.Log("do it");
+            }
 
         }
 

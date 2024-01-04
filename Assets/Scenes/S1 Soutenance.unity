@@ -615,8 +615,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -2990,8 +2988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -4405,8 +4401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -4477,8 +4471,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -4695,8 +4687,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -4947,8 +4937,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   maxSpeed: 1
@@ -6296,8 +6284,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -6424,8 +6410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -7147,8 +7131,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -7314,8 +7296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -7377,8 +7357,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -7760,8 +7738,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: field of view
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.84311694
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378380881428553156, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.5398718
       objectReference: {fileID: 0}
     - target: {fileID: 6655237446242231200, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
       propertyPath: m_Name
@@ -8570,8 +8564,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -8917,8 +8909,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -9114,8 +9104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -10599,8 +10587,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -12636,8 +12622,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
@@ -15278,8 +15262,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   count: 0
