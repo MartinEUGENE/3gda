@@ -10,11 +10,14 @@ public class RockBehaviour : BroColor
 
 
     public int count = 0;
+    [SerializeField] Renderer rockRenderer;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rockRenderer = GetComponent<Renderer>();
+
         rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
 
@@ -34,6 +37,7 @@ public class RockBehaviour : BroColor
     {
         count += 1; 
         Debug.Log("rock is painted");
+        rockRenderer.material.color = Color.magenta;
 
         isActive = true;
 
@@ -51,12 +55,17 @@ public class RockBehaviour : BroColor
     public override void CustomDeactivation()
     {
         Debug.Log("rock is clean now");
+        rockRenderer.material.color = Color.white;
+
+
         isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
+
         rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
     }
 
+ 
     private void OnTriggerEnter(Collider other)
     {
         bool walter = true; 

@@ -19,11 +19,12 @@ public class WaterBehaviour : BroColor
     [SerializeField] BroColor col; 
     public CharacterControls chara;
 
-    //[SerializeField] Renderer water; 
+    [SerializeField] Renderer waterRenderer; 
 
     private void Start()
     {
         woter = GetComponentsInChildren<Collider>();
+        waterRenderer = GetComponent<Renderer>(); 
 
         foreach (var item in woter)
         {
@@ -39,7 +40,8 @@ public class WaterBehaviour : BroColor
 
     public override void CustomActivation()
     {
-        isActive = true; 
+        isActive = true;
+        waterRenderer.material.color = Color.blue; 
         foreach (var item in woter)
         {
             item.isTrigger = true;
@@ -50,6 +52,8 @@ public class WaterBehaviour : BroColor
     public override void CustomDeactivation()
     {
         isActive = false;
+        waterRenderer.material.color = Color.white;
+
         //woter.isTrigger = false;
         Collider[] cols = GetComponentsInChildren<Collider>();
         foreach (var item in woter)
@@ -58,7 +62,6 @@ public class WaterBehaviour : BroColor
         }
         wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {

@@ -12,7 +12,6 @@ public class CloudBehaviour : BroColor
     public FMOD.Studio.EventInstance Cloud;
     public FMOD.Studio.EventInstance Fog;
 
-    private FMOD.Studio.EventInstance inactEvent;
 
 
     void Start()
@@ -20,7 +19,6 @@ public class CloudBehaviour : BroColor
         sp = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
         //obj = GetComponent<GameObject>();
-
 
         Cloud = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Cloud"); 
         Fog = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Fog");
@@ -56,8 +54,6 @@ public class CloudBehaviour : BroColor
         {
 
         }
-
-
     }
 
     public override void CustomDeactivation()

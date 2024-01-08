@@ -9,6 +9,7 @@ public class Ventilator : BroColor
     private FMOD.Studio.EventInstance ventilation;
     private FMOD.Studio.EventInstance inactEvent;
 
+    [SerializeField] Renderer ventRenderer;
 
     public WindBehav windSound; 
 
@@ -22,7 +23,8 @@ public class Ventilator : BroColor
         ventilator = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Ventilator");
         ventilation = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Ventilator");
         inactEvent = FMODUnity.RuntimeManager.CreateInstance("event:/AllMixerEvents/InactiveMix/InactiveObjM");
-        
+
+        ventRenderer = GetComponent<Renderer>();
 
         ventilator.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         ventilation.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
@@ -42,6 +44,8 @@ public class Ventilator : BroColor
         isActive = true;
         Wind.SetActive(true);
 
+        ventRenderer.material.color = Color.green; 
+
         ventilator.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         ventilation.start();
 
@@ -54,11 +58,15 @@ public class Ventilator : BroColor
         Wind.SetActive(false);  
         isActive = false;
 
+        ventRenderer.material.color = Color.white;
+
         ventilator.start();
         ventilation.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
         windSound.wind.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/InactiveMix/InactiveMixing");
     }
+
+
 
 }
