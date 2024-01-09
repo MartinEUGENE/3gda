@@ -37,7 +37,7 @@ public class RockBehaviour : BroColor
     {
         count += 1; 
         Debug.Log("rock is painted");
-        rockRenderer.material.color = Color.magenta;
+        rockRenderer.material.color = Color.red;
 
         isActive = true;
 
