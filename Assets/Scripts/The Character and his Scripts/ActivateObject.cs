@@ -72,6 +72,22 @@ public class ActivateObject : MonoBehaviour
     }
 
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Teleporter"))
+        {
+            foreach (GameObject playObject in stockedObjects)
+            {
+                activateObj = 1;
+                B.setParameterByName("BGM_Para", activateObj);
+                playObject.GetComponent<BroColor>().CustomDeactivation();
+            }
+
+            stockedObjects.RemoveRange(0, stockedObjects.Count);
+        }
+    }
+
+
     public void ToggleActivation(GameObject obj)
     {
         bool isActive = obj.GetComponent<BroColor>().isActive;
