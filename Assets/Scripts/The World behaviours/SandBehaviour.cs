@@ -5,9 +5,11 @@ using UnityEngine;
 public class SandBehaviour : BroColor 
 {
 
-    public BoxCollider sandy;
-    
+    public BoxCollider sandy;    
     public CharacterControls chara;
+
+    [SerializeField] Renderer sandRenderer;
+
 
     GameObject storeInside;
 
@@ -19,13 +21,18 @@ public class SandBehaviour : BroColor
     public override void CustomActivation()
     {
         sandy.isTrigger = true;
+        sandRenderer.material.color = Color.yellow;
+
         isActive = true; 
     }
 
     public override void CustomDeactivation()
     {
         sandy.isTrigger = false;
-        isActive = false; 
+        isActive = false;
+
+        sandRenderer.material.color = Color.yellow;
+
         if (storeInside != null)
         {
             chara.walkspeed += 3f;

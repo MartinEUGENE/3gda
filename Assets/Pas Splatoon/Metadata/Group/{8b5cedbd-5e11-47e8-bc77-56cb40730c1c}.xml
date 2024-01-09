@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{8b5cedbd-5e11-47e8-bc77-56cb40730c1c}">
+		<property name="name">
+			<value>InactiveWall</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{2632260b-8253-4e1f-8335-d6d3d04fcf96}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{6bf91033-fbca-4d8c-859e-2c8c2b7de900}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{2632260b-8253-4e1f-8335-d6d3d04fcf96}">
+		<relationship name="effects">
+			<destination>{77273cc5-fbfd-4c2e-a65d-5a3737bfd634}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{6bf91033-fbca-4d8c-859e-2c8c2b7de900}" />
+	<object class="MixerBusFader" id="{77273cc5-fbfd-4c2e-a65d-5a3737bfd634}" />
+</objects>

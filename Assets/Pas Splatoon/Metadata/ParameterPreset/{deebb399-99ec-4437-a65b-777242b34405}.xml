@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="ParameterPreset" id="{deebb399-99ec-4437-a65b-777242b34405}">
 		<property name="name">
-			<value>RockParameter</value>
+			<value>ActivationParameter</value>
 		</property>
 		<relationship name="folder">
 			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>

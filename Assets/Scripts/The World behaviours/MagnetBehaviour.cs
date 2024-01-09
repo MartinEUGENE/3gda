@@ -12,19 +12,26 @@ public class MagnetBehaviour : BroColor
     [SerializeField] GameObject metal;
     [SerializeField] GameObject magnet;
 
+    [SerializeField] Renderer magnetRenderer;
+
+
+    private void Start()
+    {
+        magnetRenderer = GetComponent<Renderer>();
+    }
+
     void Update()
     {
         if (isActive == true)
         {
             MoveMetalObject(metal);
         }
-
-
     }
 
     public override void CustomActivation()
     {
         isActive = true;
+        magnetRenderer.material.color = Color.black;
         //MoveMetalObject();
         //count += 1f; 
         Debug.Log("magnet");
@@ -32,8 +39,9 @@ public class MagnetBehaviour : BroColor
 
     public override void CustomDeactivation()
     {
+        magnetRenderer.material.color = Color.white;
         isActive = false;
-        Debug.Log("NO colo ");
+        Debug.Log("NO colo");
     }
 
     void MoveMetalObject(GameObject magnetized)

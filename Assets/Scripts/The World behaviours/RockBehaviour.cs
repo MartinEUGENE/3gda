@@ -4,50 +4,68 @@ using UnityEngine;
 
 public class RockBehaviour : BroColor
 {
-    //private FMOD.Studio.EventInstance rocking;
+    private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
+    private FMOD.Studio.EventInstance inactEvent;
+
 
     public int count = 0;
+    [SerializeField] Renderer rockRenderer;
 
 
     private void Start()
     {
-        GetComponent<Rigidbody>();
-       // rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
+        rb = GetComponent<Rigidbody>();
+        rockRenderer = GetComponent<Renderer>();
+
+        rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
 
-       // rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        rb.isKinematic = true; 
+
+       rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
-  
+
+    private void Update()
+    {
+        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+    }
+
+
     public override void CustomActivation()
     {
-        //count += 1; 
+        count += 1; 
         Debug.Log("rock is painted");
+        rockRenderer.material.color = Color.magenta;
 
         isActive = true;
 
         rb.useGravity = true;
         rb.isKinematic = false;
 
-        //rocking.start();
-       //rocking.setParameterByName("RockParameter", count);
-
-        if(rb.mass >= 50)
+        if(gameObject.CompareTag("Rock"))
         {
-            rb.AddForce(transform.up * -1000f, ForceMode.Acceleration);
-        }     
+            rocking.start();
+            rocking.setParameterByName("ActivationParameter", count);
+        }
+     
     }
 
     public override void CustomDeactivation()
     {
         Debug.Log("rock is clean now");
+        rockRenderer.material.color = Color.white;
+
+
         isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
-        //rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
+
+        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
     }
 
+ 
     private void OnTriggerEnter(Collider other)
     {
         bool walter = true; 

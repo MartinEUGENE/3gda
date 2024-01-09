@@ -11,7 +11,7 @@ public class WaterBehaviour : BroColor
     //Variable pour le vecteur de force
     public Vector3 waterVar; 
 
-    private Collider woter;
+    private Collider [] woter;
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
 
@@ -19,12 +19,17 @@ public class WaterBehaviour : BroColor
     [SerializeField] BroColor col; 
     public CharacterControls chara;
 
-    //[SerializeField] Renderer water; 
+    [SerializeField] Renderer waterRenderer; 
 
     private void Start()
     {
-        woter = GetComponent<Collider>();
-        woter.isTrigger = false;
+        woter = GetComponentsInChildren<Collider>();
+        waterRenderer = GetComponent<Renderer>(); 
+
+        foreach (var item in woter)
+        {
+            item.isTrigger = false;
+        }
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
 
@@ -35,18 +40,28 @@ public class WaterBehaviour : BroColor
 
     public override void CustomActivation()
     {
-        isActive = true; 
-        woter.isTrigger = true;       
+        isActive = true;
+        waterRenderer.material.color = Color.blue; 
+        foreach (var item in woter)
+        {
+            item.isTrigger = true;
+        }
         wa.start();
     }
 
     public override void CustomDeactivation()
     {
-        isActive = false; 
-        woter.isTrigger = false;
+        isActive = false;
+        waterRenderer.material.color = Color.white;
+
+        //woter.isTrigger = false;
+        Collider[] cols = GetComponentsInChildren<Collider>();
+        foreach (var item in woter)
+        {
+            item.isTrigger = false;
+        }
         wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -56,6 +71,7 @@ public class WaterBehaviour : BroColor
         {
             inside = false;
             so.start();
+
             Debug.Log("Ah, shinda");
         }
 
@@ -81,6 +97,8 @@ public class WaterBehaviour : BroColor
         if (isActive == true && other.CompareTag("Rock") && !other.CompareTag("Cloud") && !other.CompareTag("Fog") && !other.CompareTag("Ground"))
         {
             other.GetComponent<Rigidbody>().AddForce(waterVar * conveyorForce, ForceMode.Acceleration);
+            /*if(other.GetComponent<Rigidbody>().velocity )*/
+
         }
 
     }

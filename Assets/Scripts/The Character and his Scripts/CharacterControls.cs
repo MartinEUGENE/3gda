@@ -10,32 +10,41 @@ public class CharacterControls : MonoBehaviour
     public float grabRange = 5.0f;
     public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
+    Vector3 noSpeed;
+    private FMOD.Studio.EventInstance steps;
+
+
     private Rigidbody rb;
     private GameObject grabbedObject;
+
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
+        steps = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Walk");
+
     }
 
     void Look()
     {
         pitch = Mathf.Clamp(pitch, -90.0f, 90.0f);
-        pitch -= Input.GetAxisRaw("Mouse Y") * sensitivity * Time.deltaTime;
-        transform.Rotate(0, Input.GetAxisRaw("Mouse X") * sensitivity * Time.deltaTime, 0);
+        pitch -= Input.GetAxisRaw("Mouse Y") * sensitivity;
+        transform.Rotate(0, Input.GetAxisRaw("Mouse X") * sensitivity, 0);
         Camera.main.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
     }
 
     void Movement()
     {
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-        Vector3 direction = new Vector3(horizontal, 0, vertical).normalized;
-        Vector3 rotatedDirection = transform.TransformDirection(direction);
-
-        rb.MovePosition(transform.position + rotatedDirection * walkspeed * Time.deltaTime);
+        Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
+        Vector3 forward = Camera.main.transform.forward;
+        Vector3 right = Camera.main.transform.right;
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+        Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
+        rb.velocity = ThatDirection;
     }
 
     void GrabObject()
@@ -82,37 +91,58 @@ public class CharacterControls : MonoBehaviour
     {
         Look();
         GrabObject();
+
+        if(Input.GetKey(KeyCode.V))
+        {
+            Application.Quit();
+        }
+        if(Input.GetKey(KeyCode.K))
+        {
+            StopAllPlayerEvents();
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            PlayThisSound();
+        }
     }
 
     private void FixedUpdate()
     {
         Movement();
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Sand"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Sand");
+        }
+
+        if (other.CompareTag("Ice"))
+        {
+            steps.setParameterByNameWithLabel("Enviro", "Ice");
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        steps.setParameterByNameWithLabel("Enviro", "Normal");
+    }
+
+    void StopAllPlayerEvents()
+    {
+        FMODUnity.RuntimeManager.MuteAllEvents(true);
+    }
+
+
+    void PlayThisSound()
+    {
+        FMODUnity.RuntimeManager.MuteAllEvents(false);
+
+        // steps.start();
+        //FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
+    }
+
 }
 
-
-
-
-/*void PaintWorld()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (!string.IsNullOrEmpty(hit.transform.gameObject.name))
-                {
-                    //Debug.Log("Object Name: " + hit.transform.gameObject.name);
-                }
-            }
-        }
-    }*/
-
-/*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.green;
-        Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
-        Gizmos.DrawRay(transform.position, direction);
-    }*/
