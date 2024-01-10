@@ -12111,6 +12111,28 @@ MonoBehaviour:
   - {fileID: 254707950}
   - {fileID: 1560754110}
   - {fileID: 107357905}
+--- !u!114 &1612110588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772405804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b92ad7fbd71ad458c41463a861b83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footsteps:
+    Guid:
+      Data1: 1195409644
+      Data2: 1333776771
+      Data3: 640765623
+      Data4: 730840911
+    Path: event:/Character/Character_Walk
+  player: {fileID: 772405804}
+  character: {fileID: 1183118710}
+  rate: 0.75
 --- !u!1001 &1652768745
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,8 +11,7 @@ public class CharacterControls : MonoBehaviour
     public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
     Vector3 noSpeed;
-    private FMOD.Studio.EventInstance steps;
-
+    public bool isMoving = false;
 
     private Rigidbody rb;
     private GameObject grabbedObject;
@@ -22,7 +21,6 @@ public class CharacterControls : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
-        steps = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Walk");
 
     }
 
@@ -34,8 +32,23 @@ public class CharacterControls : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
     }
 
-    void Movement()
+    public void Movement()
     {
+
+
+        if(rb.velocity.magnitude >= 0.09f)
+        {
+             isMoving = true;
+
+            //Debug.Log(isMoving);
+        }
+
+        else
+        {
+            isMoving = false;
+            //Debug.Log(isMoving);
+        }
+
         Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -112,7 +125,7 @@ public class CharacterControls : MonoBehaviour
         Movement();
     }
 
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Sand"))
         {
@@ -128,7 +141,7 @@ public class CharacterControls : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         steps.setParameterByNameWithLabel("Enviro", "Normal");
-    }
+    }*/
 
     void StopAllPlayerEvents()
     {

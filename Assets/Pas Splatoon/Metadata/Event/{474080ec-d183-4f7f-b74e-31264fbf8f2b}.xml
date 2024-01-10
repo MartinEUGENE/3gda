@@ -131,11 +131,14 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{781a62af-05b2-40e0-a565-c335ec88499a}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>0.23999999999999999</value>
 		</property>
 		<property name="volume">
-			<value>-6.5</value>
+			<value>7.5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{a6e871e3-4b20-464c-8fa4-f706fff985de}</destination>
