@@ -24,6 +24,7 @@
 		</relationship>
 		<relationship name="markerTracks">
 			<destination>{373234cf-337a-44b6-90cd-525823798614}</destination>
+			<destination>{f9c06015-e5eb-4dfe-b9cb-3a68e86a94d5}</destination>
 		</relationship>
 		<relationship name="groupTracks">
 			<destination>{85c0ce51-9aa0-4bf5-b225-e09f746da5c1}</destination>
@@ -63,7 +64,7 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{221fb7f6-5459-4599-9d81-40a120834552}">
 		<property name="maxVoices">
-			<value>10</value>
+			<value>1</value>
 		</property>
 		<property name="voiceStealing">
 			<value>4</value>
@@ -72,10 +73,11 @@
 			<value>0</value>
 		</property>
 		<property name="maximumDistance">
-			<value>8.60000038</value>
+			<value>15</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{373234cf-337a-44b6-90cd-525823798614}" />
+	<object class="MarkerTrack" id="{f9c06015-e5eb-4dfe-b9cb-3a68e86a94d5}" />
 	<object class="GroupTrack" id="{85c0ce51-9aa0-4bf5-b225-e09f746da5c1}">
 		<relationship name="automationTracks">
 			<destination>{b39428e1-de87-4d36-b1bd-773b1b8a008b}</destination>
@@ -117,6 +119,7 @@
 		</relationship>
 		<relationship name="markers">
 			<destination>{b981dfa7-af4f-4645-8218-8e119a6ebdcf}</destination>
+			<destination>{01f17656-9a12-4067-8c99-81da8979bc9f}</destination>
 		</relationship>
 	</object>
 	<object class="ParameterProxy" id="{f1593d1f-d855-41d1-85a8-a08224a5f1d1}">
@@ -245,6 +248,20 @@
 			<destination>{373234cf-337a-44b6-90cd-525823798614}</destination>
 		</relationship>
 	</object>
+	<object class="TempoMarker" id="{01f17656-9a12-4067-8c99-81da8979bc9f}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="tempo">
+			<value>96</value>
+		</property>
+		<relationship name="timeline">
+			<destination>{5bdea54f-3e4c-488b-91d1-3e4cc987bb24}</destination>
+		</relationship>
+		<relationship name="markerTrack">
+			<destination>{f9c06015-e5eb-4dfe-b9cb-3a68e86a94d5}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{97126c7f-570b-4f81-aea4-70f6143d5317}">
 		<relationship name="effects">
 			<destination>{af3dfb5e-dddf-4d60-a872-27b19f913861}</destination>
@@ -301,7 +318,7 @@
 			<value>0</value>
 		</property>
 		<property name="maximumDistance">
-			<value>8.60000038</value>
+			<value>15</value>
 		</property>
 	</object>
 	<object class="AutomationCurve" id="{83c89bbe-799a-4471-a776-afd2f9ab01b2}">

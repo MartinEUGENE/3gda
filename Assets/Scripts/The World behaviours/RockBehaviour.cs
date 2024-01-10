@@ -6,7 +6,7 @@ public class RockBehaviour : BroColor
 {
     private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
-    private FMOD.Studio.EventInstance inactEvent;
+    private FMOD.Studio.EventInstance inactiveRock;
 
 
     public int count = 0;
@@ -20,9 +20,11 @@ public class RockBehaviour : BroColor
 
         rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
         fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
+        inactiveRock = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Rock");
 
-        rb.isKinematic = true; 
 
+        rb.isKinematic = true;
+        inactiveRock.start();
        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
@@ -30,6 +32,8 @@ public class RockBehaviour : BroColor
     private void Update()
     {
         rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        inactiveRock.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
     }
 
 
@@ -49,7 +53,8 @@ public class RockBehaviour : BroColor
             rocking.start();
             rocking.setParameterByName("ActivationParameter", count);
         }
-     
+
+        inactiveRock.setPaused(true);
     }
 
     public override void CustomDeactivation()
@@ -57,13 +62,14 @@ public class RockBehaviour : BroColor
         Debug.Log("rock is clean now");
         rockRenderer.material.color = Color.white;
 
+        inactiveRock.setPaused(false);
 
         isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
 
-        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
-    }
+        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    }
+
 
  
     private void OnTriggerEnter(Collider other)
@@ -80,7 +86,7 @@ public class RockBehaviour : BroColor
     {
         bool afall = false;
 
-        if(afall == false && isActive == true)
+        if(afall == false && isActive == true && collision.gameObject.CompareTag("Rock"))
         {
             fally.start();
             afall = true;

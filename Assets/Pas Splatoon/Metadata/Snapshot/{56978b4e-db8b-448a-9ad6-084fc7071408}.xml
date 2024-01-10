@@ -43,7 +43,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>-2</value>
+			<value>0</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
@@ -54,7 +54,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>0</value>
+			<value>-3.5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{a129002c-42e9-4b20-b66a-992210f51ea6}</destination>
@@ -65,7 +65,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>4</value>
+			<value>-1.5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{6e573354-ca03-4a9b-8996-8e11d11141d4}</destination>
@@ -76,7 +76,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>-2.5</value>
+			<value>-0.5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{65efebde-5a26-4db7-ba86-516919625a1e}</destination>
@@ -87,7 +87,7 @@
 			<value>volume</value>
 		</property>
 		<property name="value">
-			<value>-3</value>
+			<value>-3.5</value>
 		</property>
 		<relationship name="automatableObject">
 			<destination>{ed9da9ab-0395-469c-a461-dfab488415ff}</destination>
