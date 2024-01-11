@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{edfff478-a6ec-4eeb-afa4-e9aff066f030}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{7a48f53e-c49e-4db0-a00d-3c89da100a53}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{d2c4ca10-1a1f-4482-aca4-13bf185fd092}</destination>
 		</relationship>
@@ -48,6 +51,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{4fb08d66-8399-4db5-8c57-3e0612230e20}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{369efcfa-c13a-4cb9-98d9-403173fff62e}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -198,6 +204,14 @@
 		<relationship name="preset">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{369efcfa-c13a-4cb9-98d9-403173fff62e}">
+		<property name="key">
+			<value>Le</value>
+		</property>
+		<property name="value">
+			<value>paramètre évolue à chaque fois que le joueur active un objet dans le monde.</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{2e63eca2-d1b5-4763-9aad-9b2d6628de26}">
 		<property name="volume">

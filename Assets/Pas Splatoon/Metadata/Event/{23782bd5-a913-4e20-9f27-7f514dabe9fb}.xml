@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{5f710b09-492b-4032-9bb5-006fee58636b}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{f64d911a-d615-423e-8f8d-19b35ff21d6b}</destination>
 		</relationship>
@@ -36,6 +39,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{f1593d1f-d855-41d1-85a8-a08224a5f1d1}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{b45ef176-7049-4ce2-9377-f60b5f27a9f9}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -126,6 +132,14 @@
 		<relationship name="preset">
 			<destination>{9c283e7b-90fb-4d1f-9a44-457942738c0a}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{b45ef176-7049-4ce2-9377-f60b5f27a9f9}">
+		<property name="key">
+			<value>Boucle</value>
+		</property>
+		<property name="value">
+			<value>d'un rythme de batterie simple réenregistré chez moi avec ma batterie</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{29281317-8791-49c0-a871-faa100292a48}">
 		<relationship name="effectChain">

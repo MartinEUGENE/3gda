@@ -34,8 +34,6 @@ public class CharacterControls : MonoBehaviour
 
     public void Movement()
     {
-
-
         if(rb.velocity.magnitude >= 0.09f)
         {
              isMoving = true;

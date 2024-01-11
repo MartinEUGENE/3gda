@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{dff1c81f-7627-46ce-9fd4-a9dfeb0cee44}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{eec19a96-c250-4cb9-9970-576719222fa9}</destination>
 		</relationship>
@@ -32,6 +35,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{8b0677ce-e097-4132-9539-739ab5d1723b}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{bd3a767f-fab3-4cbb-bc51-cc6d31ebf667}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -122,6 +128,14 @@
 			<destination>{6cc15fe2-235b-4dfb-a56d-3d31304bfe0e}</destination>
 			<destination>{30444d95-1e51-46ba-b2ee-ca29b5861235}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{bd3a767f-fab3-4cbb-bc51-cc6d31ebf667}">
+		<property name="key">
+			<value>Son</value>
+		</property>
+		<property name="value">
+			<value>du vent en boucle avec une flute l'accompagnant</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{60e6668d-d6fa-4a86-95d3-4cefa7ac301a}">
 		<relationship name="effectChain">

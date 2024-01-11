@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{4291d204-cc64-4b57-bca5-0d428e8dda36}">
+		<property name="note">
+			<value>Il n'y a que la musique de présente car un brouillard n'évoque que peu de sons audibles naturels.</value>
+		</property>
 		<property name="name">
 			<value>Fog</value>
 		</property>
@@ -36,6 +39,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{05781348-72c2-40a2-bc0f-db53c7447caa}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{e913fc14-2868-4c6e-a9e8-4ea3ca89d267}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -97,6 +103,14 @@
 			<destination>{65259f39-2b03-42b8-aaa6-66b88d89255f}</destination>
 			<destination>{3d89879d-3adb-4dc1-b497-6efde477a1e3}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{e913fc14-2868-4c6e-a9e8-4ea3ca89d267}">
+		<property name="key">
+			<value>Brouillard</value>
+		</property>
+		<property name="value">
+			<value>immobile tant que le vent ne le bouge pas  </value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{d75e6448-46a1-4709-b189-900d934af2e3}">
 		<relationship name="effectChain">

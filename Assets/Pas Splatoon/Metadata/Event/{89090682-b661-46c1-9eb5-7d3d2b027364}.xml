@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{1c61e0f7-dcd7-4b55-b6ff-852b41da3c91}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{8c26ed04-b98c-4623-a3ea-186c823c0acb}</destination>
 		</relationship>
@@ -31,6 +34,10 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{844cf4a1-8363-4fd9-bfaa-305fe7cd2a2f}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{fe6f7793-3103-4141-92c5-7073bc08128f}</destination>
+			<destination>{96a285df-8e81-49bb-8247-825c0713e938}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -98,6 +105,22 @@
 		<relationship name="markers">
 			<destination>{93ac5a78-a4cb-49e8-a574-c18d99c3c8a3}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{fe6f7793-3103-4141-92c5-7073bc08128f}">
+		<property name="key">
+			<value>Boucle</value>
+		</property>
+		<property name="value">
+			<value>d'une rivière</value>
+		</property>
+	</object>
+	<object class="UserProperty" id="{96a285df-8e81-49bb-8247-825c0713e938}">
+		<property name="key">
+			<value>l'instrument</value>
+		</property>
+		<property name="value">
+			<value>associé à l'eau est difficile à trouver</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{19a7f949-113e-4c49-8d97-c1ed265dd7e7}">
 		<relationship name="effectChain">

@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{12c9a97d-a942-4ee6-8d2c-07f519caff9b}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{7f586453-d4b2-4d7f-b4f5-67a74fb2173d}</destination>
 		</relationship>
@@ -32,6 +35,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{e7932ff6-5d17-45ea-834e-7d03d6d8af1d}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{51021fb4-50dc-4f48-a48a-24a249ff8811}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -85,6 +91,14 @@
 		<relationship name="markers">
 			<destination>{8b37e691-2076-451d-84f4-6cd75235c26f}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{51021fb4-50dc-4f48-a48a-24a249ff8811}">
+		<property name="key">
+			<value>Nuage</value>
+		</property>
+		<property name="value">
+			<value>s'élevant</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{458e840d-1375-490d-a767-58f29e5b1eb2}">
 		<relationship name="effectChain">

@@ -11,7 +11,7 @@
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
 		<relationship name="tags">
-			<destination>{04b46d1b-4629-4cc8-901d-136c4c1468a1}</destination>
+			<destination>{acdf1db6-3ac6-4404-8b80-c983303a4da9}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{1bbeb78f-eb52-4d64-af0d-4b02b92a6474}</destination>
@@ -35,6 +35,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{119aa26d-49f2-4935-bf37-26b5585a75f1}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{49cc1da1-cceb-4cc3-a9c2-90c0eab77875}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -79,6 +82,14 @@
 		</relationship>
 	</object>
 	<object class="Timeline" id="{119aa26d-49f2-4935-bf37-26b5585a75f1}" />
+	<object class="UserProperty" id="{49cc1da1-cceb-4cc3-a9c2-90c0eab77875}">
+		<property name="key">
+			<value>L'objet</value>
+		</property>
+		<property name="value">
+			<value>est trop peu stable pour l'intégrer pouyr l'instant</value>
+		</property>
+	</object>
 	<object class="EventMixerMaster" id="{23a7a56c-b383-4f5e-a29f-a321c4b05565}">
 		<relationship name="effectChain">
 			<destination>{b05a2f1f-4141-44df-ac2d-2941d00dc1b8}</destination>
