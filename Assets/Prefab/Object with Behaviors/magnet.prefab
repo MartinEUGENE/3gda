@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3245280969104602510}
   - component: {fileID: 3245280969104602509}
   - component: {fileID: 3245280969104603762}
-  - component: {fileID: 3245280969104603763}
   - component: {fileID: 3245280969104603764}
   m_Layer: 0
   m_Name: magnet
@@ -116,18 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &3245280969104603763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3245280969104602507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac5977cdb239ed84faba96f7df691dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &3245280969104603764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,10 +128,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateObj: 0
-  originalMat: {fileID: 0}
-  compColor: {fileID: 0}
   rb: {fileID: 0}
   isActive: 0
   magnetSpeed: 5
-  metal: {fileID: 0}
-  magnet: {fileID: 3245280969104602507}
+  metal:
+  - {fileID: 0}
+  magnetRenderer: {fileID: 0}

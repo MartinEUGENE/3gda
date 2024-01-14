@@ -9,9 +9,7 @@ public class MagnetBehaviour : BroColor
     public float magnetSpeed = .01f;
     //public bool attract = false;
 
-    [SerializeField] GameObject metal;
-    [SerializeField] GameObject magnet;
-
+    [SerializeField] List<GameObject> metal;
     [SerializeField] Renderer magnetRenderer;
 
 
@@ -32,8 +30,6 @@ public class MagnetBehaviour : BroColor
     {
         isActive = true;
         magnetRenderer.material.color = Color.black;
-        //MoveMetalObject();
-        //count += 1f; 
         Debug.Log("magnet");
     }
 
@@ -44,17 +40,23 @@ public class MagnetBehaviour : BroColor
         Debug.Log("NO colo");
     }
 
-    void MoveMetalObject(GameObject magnetized)
+    void MoveMetalObject(List<GameObject> magnetized)
     {
-        if (magnetized.GetComponent<BroColor>().isActive == true)
+        foreach(GameObject magnetizedObj in magnetized)
         {
-            Vector3 direction = (transform.position - magnetized.transform.position).normalized;
+            if (magnetizedObj.GetComponent<BroColor>().isActive == true)
+            {
+                Vector3 direction = (transform.position - magnetizedObj.transform.position).normalized;
 
-            // Calculate the distance to the magnet
-            float distanceToMagnet = Vector3.Distance(transform.position, magnetized.transform.position);
+                // Calculate the distance to the magnet
+                float distanceToMagnet = Vector3.Distance(transform.position, magnetizedObj.transform.position);
+                if(distanceToMagnet <= 15f)
+                {
+                    // Move the metal object towards the object with this script with a force proportional to the distance
+                    magnetizedObj.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed /* distanceToMagnet*/);
+                }
 
-            // Move the metal object towards the object with this script with a force proportional to the distance
-            magnetized.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed /* distanceToMagnet*/);
+            }
         }
     }
 

@@ -86,9 +86,10 @@ public class RockBehaviour : BroColor
     {
         bool afall = false;
 
-        if(afall == false && isActive == true && collision.gameObject.CompareTag("Rock"))
+        if(afall == false && isActive == true)
         {
             fally.start();
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/InteractiveEnvironement/Rock_Fall");
             afall = true;
         }
     }

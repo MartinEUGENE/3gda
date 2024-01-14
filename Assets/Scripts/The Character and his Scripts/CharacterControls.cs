@@ -10,6 +10,11 @@ public class CharacterControls : MonoBehaviour
     public float grabRange = 5.0f;
     public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
+
+    [SerializeField] ActivateObject playerInteract;
+    [SerializeField] LevelManagement level;
+    CharacterControls chara; 
+
     Vector3 noSpeed;
     public bool isMoving = false;
 
@@ -20,8 +25,10 @@ public class CharacterControls : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerInteract = GetComponent<ActivateObject>();
+        level = GetComponent<LevelManagement>(); 
         rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
-
+        chara = GetComponent<CharacterControls>();
     }
 
     void Look()
@@ -56,6 +63,17 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
+    }
+
+
+    public void Death()
+    {
+        //playerInteract.UnactivateWorld();
+        playerInteract.enabled = false; 
+        level.ButtonStart();
+        Cursor.lockState = CursorLockMode.None;
+        chara.enabled = false; 
+        //GetComponentInChildren<Camera>().enabled = true; 
     }
 
     void GrabObject()
@@ -123,24 +141,6 @@ public class CharacterControls : MonoBehaviour
         Movement();
     }
 
-   /* private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Sand"))
-        {
-            steps.setParameterByNameWithLabel("Enviro", "Sand");
-        }
-
-        if (other.CompareTag("Ice"))
-        {
-            steps.setParameterByNameWithLabel("Enviro", "Ice");
-
-        }
-    }
-    private void OnTriggerExit(Collider other)
-    {
-        steps.setParameterByNameWithLabel("Enviro", "Normal");
-    }*/
-
     void StopAllPlayerEvents()
     {
         FMODUnity.RuntimeManager.MuteAllEvents(true);
@@ -150,9 +150,6 @@ public class CharacterControls : MonoBehaviour
     void PlayThisSound()
     {
         FMODUnity.RuntimeManager.MuteAllEvents(false);
-
-        // steps.start();
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
     }
 
 }

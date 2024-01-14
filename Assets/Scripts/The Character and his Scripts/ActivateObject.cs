@@ -2,8 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*[System.Serializable]
+public class MonContainer
+{
+    //list 1
+    public List<GameObject> malist1 = new List<GameObject>();
+    //list 2
+    public List<GameObject> malist2 = new List<GameObject>();
+    //list 3
+    public List<GameObject> malist3 = new List<GameObject>();
+}*/
+
 public class ActivateObject : MonoBehaviour
-{ 
+{
+    //public MonContainer ListDividers; 
     
     public float activateObj;
 
@@ -20,7 +32,6 @@ public class ActivateObject : MonoBehaviour
         B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM_");
 
         B.start();
-
     }
 
     void Update()
@@ -59,18 +70,9 @@ public class ActivateObject : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            foreach(GameObject playObject in stockedObjects)
-            {
-                activateObj = 0;
-                B.setParameterByName("BGM_Para", activateObj);
-                playObject.GetComponent<BroColor>().CustomDeactivation(); 
-            }
-
-            stockedObjects.RemoveRange(0, stockedObjects.Count);
-            //bro.TrueDesactivation();    
+            UnactivateWorld();
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -87,6 +89,17 @@ public class ActivateObject : MonoBehaviour
         }
     }
 
+    public void UnactivateWorld()
+    {
+        foreach (GameObject playObject in stockedObjects)
+        {
+            activateObj = 0;
+            B.setParameterByName("BGM_Para", activateObj);
+            playObject.GetComponent<BroColor>().CustomDeactivation();
+        }
+
+        stockedObjects.RemoveRange(0, stockedObjects.Count);
+    }
 
     public void ToggleActivation(GameObject obj)
     {
@@ -126,13 +139,6 @@ public class ActivateObject : MonoBehaviour
             B.setParameterByName("BGM_Para", activateObj);
             obj.GetComponent<Renderer>().material.color = Color.white;
             paint.setParameterByNameWithLabel("Activation", "Desactivation");
-
-
-            /*if (obj.gameObject.CompareTag("Rock"))
-            {
-                obj.GetComponent<RockBehaviour>().count -= 1;
-                Debug.Log("do it");
-            }*/
         }
 
     }
