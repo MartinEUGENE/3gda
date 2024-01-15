@@ -29,6 +29,9 @@ public class CharacterControls : MonoBehaviour
         level = GetComponent<LevelManagement>(); 
         rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
         chara = GetComponent<CharacterControls>();
+
+
+        FMODUnity.RuntimeManager.PlayOneShot("event:/AllMixerEvents/InactiveMix/InactiveObjM"); 
     }
 
     void Look()
@@ -69,6 +72,7 @@ public class CharacterControls : MonoBehaviour
     public void Death()
     {
         //playerInteract.UnactivateWorld();
+        playerInteract.B.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
         playerInteract.enabled = false; 
         level.ButtonStart();
         Cursor.lockState = CursorLockMode.None;

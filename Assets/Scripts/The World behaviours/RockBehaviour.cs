@@ -33,6 +33,7 @@ public class RockBehaviour : BroColor
     {
         rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
         inactiveRock.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        fally.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 
     }
 

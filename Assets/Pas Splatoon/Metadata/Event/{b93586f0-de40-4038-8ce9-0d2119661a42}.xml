@@ -36,6 +36,9 @@
 		<relationship name="timeline">
 			<destination>{8b0677ce-e097-4132-9539-739ab5d1723b}</destination>
 		</relationship>
+		<relationship name="parameters">
+			<destination>{4575b6c9-4db6-4cca-99f4-8e8a3bcb1b26}</destination>
+		</relationship>
 		<relationship name="userProperties">
 			<destination>{bd3a767f-fab3-4cbb-bc51-cc6d31ebf667}</destination>
 		</relationship>
@@ -127,6 +130,11 @@
 		<relationship name="markers">
 			<destination>{6cc15fe2-235b-4dfb-a56d-3d31304bfe0e}</destination>
 			<destination>{30444d95-1e51-46ba-b2ee-ca29b5861235}</destination>
+		</relationship>
+	</object>
+	<object class="ParameterProxy" id="{4575b6c9-4db6-4cca-99f4-8e8a3bcb1b26}">
+		<relationship name="preset">
+			<destination>{bb3a3ea4-d2ee-4734-a01a-8480d90d0873}</destination>
 		</relationship>
 	</object>
 	<object class="UserProperty" id="{bd3a767f-fab3-4cbb-bc51-cc6d31ebf667}">
