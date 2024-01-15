@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="SnapshotList" id="{3e4abf81-0c8a-4331-98dc-ff8573ddbdfb}">
+		<relationship name="items">
+			<destination>{56978b4e-db8b-448a-9ad6-084fc7071408}</destination>
+			<destination>{3f9ce913-ce5c-4fb7-9064-3933889bd151}</destination>
+			<destination>{fe89e605-d264-41eb-b100-ab124c1fbd4e}</destination>
+			<destination>{05902186-03b8-4c29-9ebc-ac84ee78ceb9}</destination>
+			<destination>{48faff96-a2f5-4104-9992-b1653000f109}</destination>
+			<destination>{7f7509a0-814a-4699-8722-fcd7591cfb4f}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{0085e417-9e1c-4176-b612-0342ed2239ae}</destination>
 		</relationship>

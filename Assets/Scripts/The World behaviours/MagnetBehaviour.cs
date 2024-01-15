@@ -3,55 +3,66 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MagnetBehaviour : BroColor
-{    
+{
     //public float raycastDistance = 10f;
     //public float castRadius = 1.0f;
     public float magnetSpeed = .01f;
     //public bool attract = false;
 
-    [SerializeField] GameObject metalObj; 
-    [SerializeField] GameObject magnet; 
-    
+    [SerializeField] List<GameObject> metal;
+    [SerializeField] Renderer magnetRenderer;
 
-    void FixedUpdate()
+
+    private void Start()
+    {
+        magnetRenderer = GetComponent<Renderer>();
+    }
+
+    void Update()
     {
         if (isActive == true)
         {
-            MoveMetalObject(metalObj);
+            MoveMetalObject(metal);
         }
-
     }
 
     public override void CustomActivation()
     {
-        isActive = true; 
-        //MoveMetalObject();
-        //count += 1f; 
-        Debug.Log("magnet");    
+        isActive = true;
+        magnetRenderer.material.color = Color.black;
+        Debug.Log("magnet");
     }
 
     public override void CustomDeactivation()
     {
-        isActive = false; 
-        Debug.Log("NO colo ");
+        magnetRenderer.material.color = Color.white;
+        isActive = false;
+        Debug.Log("NO colo");
     }
 
-    void MoveMetalObject(GameObject magnetized)
+    void MoveMetalObject(List<GameObject> magnetized)
     {
-        if(magnetized.GetComponent<BroColor>().isActive == true)
+        foreach(GameObject magnetizedObj in magnetized)
         {
-            Vector3 direction = (transform.position - magnetized.transform.position).normalized;
+            if (magnetizedObj.GetComponent<BroColor>().isActive == true)
+            {
+                Vector3 direction = (transform.position - magnetizedObj.transform.position).normalized;
 
-            // Calculate the distance to the magnet
-            float distanceToMagnet = Vector3.Distance(transform.position, magnetized.transform.position);
+                // Calculate the distance to the magnet
+                float distanceToMagnet = Vector3.Distance(transform.position, magnetizedObj.transform.position);
+                if(distanceToMagnet <= 15f)
+                {
+                    // Move the metal object towards the object with this script with a force proportional to the distance
+                    magnetizedObj.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed /* distanceToMagnet*/);
+                }
 
-            // Move the metal object towards the object with this script with a force proportional to the distance
-            magnetized.GetComponent<Rigidbody>().AddForce(direction * magnetSpeed * distanceToMagnet); 
+            }
         }
     }
 
 
 }
+
 
 
 /*
@@ -77,11 +88,11 @@ public class MagnetBehaviour : BroColor
                 // Do something with the metal object, e.g., apply a special effect
             }*/
 
-        // Calculate the direction from the metal object to the object with this script
-    /* Vector3 direction = (transform.position - metalObject.transform.position).normalized;
+// Calculate the direction from the metal object to the object with this script
+/* Vector3 direction = (transform.position - metalObject.transform.position).normalized;
 
-    // Calculate the distance to the magnet
-     float distanceToMagnet = Vector3.Distance(transform.position, metalObject.transform.position);
+// Calculate the distance to the magnet
+ float distanceToMagnet = Vector3.Distance(transform.position, metalObject.transform.position);
 
-    // Move the metal object towards the object with this script with a force proportional to the distance
-    metalObject.GetComponent<Rigidbody>().AddForce(direction * moveSpeed * distanceToMagnet);*/
+// Move the metal object towards the object with this script with a force proportional to the distance
+metalObject.GetComponent<Rigidbody>().AddForce(direction * moveSpeed * distanceToMagnet);*/

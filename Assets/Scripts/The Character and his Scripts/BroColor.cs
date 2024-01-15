@@ -11,9 +11,6 @@ public class BroColor : MonoBehaviour
     private Renderer objectRenderer; // Reference to the object's renderer
     private Color originalColor; // Store the original color
 
-    public Material originalMat;
-    public Material compColor;
-
     public Rigidbody rb;
     public bool isActive = false;
 
@@ -27,9 +24,6 @@ public class BroColor : MonoBehaviour
     {
         
     }
-
-  
-
 }
 
 

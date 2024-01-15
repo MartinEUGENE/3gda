@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{0b559898-4f33-4375-acfb-98ec2d735441}">
+		<property name="name">
+			<value>InactiveVentilator</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{ba05e48c-87c6-4a56-8161-19e97a5d6f0c}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{20b63c6e-556f-4112-8afd-e6578e2fc7bc}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{bf7ceb22-e117-4c99-90f7-4019f69ef790}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{ba05e48c-87c6-4a56-8161-19e97a5d6f0c}">
+		<relationship name="effects">
+			<destination>{3ccf9ff1-ef53-4bb1-9998-d21eb2eb7af8}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{20b63c6e-556f-4112-8afd-e6578e2fc7bc}" />
+	<object class="MixerBusFader" id="{3ccf9ff1-ef53-4bb1-9998-d21eb2eb7af8}" />
+</objects>

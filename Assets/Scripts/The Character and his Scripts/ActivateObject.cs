@@ -2,24 +2,36 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*[System.Serializable]
+public class MonContainer
+{
+    //list 1
+    public List<GameObject> malist1 = new List<GameObject>();
+    //list 2
+    public List<GameObject> malist2 = new List<GameObject>();
+    //list 3
+    public List<GameObject> malist3 = new List<GameObject>();
+}*/
+
 public class ActivateObject : MonoBehaviour
-{ 
+{
+    //public MonContainer ListDividers; 
     
     public float activateObj;
 
     public FMOD.Studio.EventInstance paint;
     public FMOD.Studio.EventInstance B;
+
+
+    [SerializeField] List<GameObject> stockedObjects = new List<GameObject>();  
     
 
     private void Start()
     {
-        //originalColor = objectRenderer.material.color; // Store the original color
-        //rb = GetComponent<Rigidbody>();
         paint = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Paint");
         B = FMODUnity.RuntimeManager.CreateInstance("event:/BGM/BGM_");
 
         B.start();
-
     }
 
     void Update()
@@ -36,13 +48,57 @@ public class ActivateObject : MonoBehaviour
                 paint.start();
                 Debug.Log(B.isValid());
 
-                if (hit.collider.GetComponent<BroColor>())
+                BroColor brocol = hit.transform.GetComponentInParent<BroColor>();
+
+                if (hit.collider.GetComponent<BroColor>() && brocol.isActive == false)
                 {                    
                     ToggleActivation(hit.collider.gameObject);
                     Debug.Log(activateObj);
                 }
+
+                else
+                {
+                    //BroColor brocol = hit.transform.GetComponentInParent<BroColor>();
+                    if (brocol != null)
+                    {
+                        ToggleActivation(brocol.gameObject);
+                        //stockedObjects.Remove(brocol.gameObject);
+                    }
+                }
             }
         }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            UnactivateWorld();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Teleporter"))
+        {
+            foreach (GameObject playObject in stockedObjects)
+            {
+                activateObj = 1;
+                B.setParameterByName("BGM_Para", activateObj);
+                playObject.GetComponent<BroColor>().CustomDeactivation();
+            }
+
+            stockedObjects.RemoveRange(0, stockedObjects.Count);
+        }
+    }
+
+    public void UnactivateWorld()
+    {
+        foreach (GameObject playObject in stockedObjects)
+        {
+            activateObj = 0;
+            B.setParameterByName("BGM_Para", activateObj);
+            playObject.GetComponent<BroColor>().CustomDeactivation();
+        }
+
+        stockedObjects.RemoveRange(0, stockedObjects.Count);
     }
 
     public void ToggleActivation(GameObject obj)
@@ -55,53 +111,34 @@ public class ActivateObject : MonoBehaviour
         if (!prevActiveState && isActive)
         {
             activateObj +=1f;
-            obj.GetComponent<BroColor>().CustomActivation();
-            obj.GetComponent<Renderer>().material.color = Color.red;
-            B.setParameterByName("BGM_Para", activateObj);
+            stockedObjects.Add(obj);
 
+            obj.GetComponent<BroColor>().CustomActivation();
+            B.setParameterByName("BGM_Para", activateObj);
 
             paint.setParameterByNameWithLabel("Activation", "Active");
 
-            if (obj.gameObject.CompareTag("River"))
+
+           if (obj.gameObject.CompareTag("Cloud"))
             {
-                obj.GetComponent<Renderer>().material.color = Color.blue;
+                obj.GetComponent<Renderer>().material.color = Color.grey;
             }
 
-            if (obj.gameObject.CompareTag("Sand"))
-            {
-                obj.GetComponent<Renderer>().material.color = Color.yellow;
-            }
-
-            if (obj.gameObject.CompareTag("Ice"))
+            if (obj.gameObject.CompareTag("Fog"))
             {
                 obj.GetComponent<Renderer>().material.color = Color.cyan;
-            }
-
-            if (obj.gameObject.CompareTag("Magnet"))
-            {
-                obj.GetComponent<Renderer>().material.color = Color.black;
-
-            }
-
-            if(obj.gameObject.CompareTag("Key"))
-            {
-                obj.GetComponent<Renderer>().material.color = Color.green;
-            }
-
-            if (obj.gameObject.CompareTag("Wall"))
-            {
-                obj.GetComponent<Renderer>().material.color = Color.magenta;
             }
         }
 
         else if (prevActiveState && !isActive)
         {
             activateObj--;
+            stockedObjects.Remove(obj);
+
             obj.GetComponent<BroColor>().CustomDeactivation();
             B.setParameterByName("BGM_Para", activateObj);
             obj.GetComponent<Renderer>().material.color = Color.white;
             paint.setParameterByNameWithLabel("Activation", "Desactivation");
-
         }
 
     }

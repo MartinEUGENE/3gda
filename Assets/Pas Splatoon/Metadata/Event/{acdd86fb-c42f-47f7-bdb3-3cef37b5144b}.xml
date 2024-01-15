@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{dff1c81f-7627-46ce-9fd4-a9dfeb0cee44}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{d006fcaf-98e7-49e1-8f08-ca8e92635eb4}</destination>
 		</relationship>
@@ -30,6 +33,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{316b628b-d673-4a76-b85e-f39be93ae5c6}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{b7056b92-5512-4d2b-8473-d01fd6d7d0b6}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -53,7 +59,7 @@
 			<destination>{64880edf-4cc0-4238-b26f-42bc7c55737d}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d9aaec08-44a9-4c04-93c6-8accf581393a}</destination>
+			<destination>{2478feca-38e9-4067-afab-06716c35ea82}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{33514020-65db-47b9-ad4a-2c0b28d0a404}">
@@ -83,6 +89,14 @@
 		<relationship name="modules">
 			<destination>{e5a65e6f-0d50-4007-8004-807295529b80}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{b7056b92-5512-4d2b-8473-d01fd6d7d0b6}">
+		<property name="key">
+			<value>Clic</value>
+		</property>
+		<property name="value">
+			<value>sur un bouton</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{d4fa9af4-9f66-4448-b88a-e8c491138cbc}">
 		<relationship name="effectChain">

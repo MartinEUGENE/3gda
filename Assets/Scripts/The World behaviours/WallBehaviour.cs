@@ -6,7 +6,11 @@ public class WallBehaviour : BroColor
 {
     Collider wally;
     MeshRenderer rendo;
-    [SerializeField] ActivateObject act; 
+    [SerializeField] ActivateObject act;
+
+    [SerializeField] Renderer wallRenderer;
+
+
 
     void Start()
     {
@@ -18,7 +22,8 @@ public class WallBehaviour : BroColor
 
     public override void CustomActivation()
     {
-        isActive = true;       
+        isActive = true;  
+        wallRenderer.material.color = Color.red;
     }
 
     public override void CustomDeactivation()
@@ -26,9 +31,10 @@ public class WallBehaviour : BroColor
         isActive = false; 
         wally.isTrigger = false;
 
-        rendo.enabled = true; 
-    }
+        rendo.enabled = true;
+        wallRenderer.material.color = Color.white;
 
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

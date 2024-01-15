@@ -4,13 +4,41 @@ using UnityEngine;
 
 public class CloudBehaviour : BroColor
 {
-    private SphereCollider sp;
-    public float maxSpeed = 2.5f; 
+    private Collider sp;
+
+    public float maxSpeed;
+    public Vector3 nuage; 
+
+    public FMOD.Studio.EventInstance Cloud;
+    public FMOD.Studio.EventInstance Fog;
+    public FMOD.Studio.EventInstance inactiveFog;
+    public FMOD.Studio.EventInstance inactiveCloud;
+
+
 
     void Start()
     {
-        sp = GetComponent<SphereCollider>();
-        rb = GetComponent<Rigidbody>(); 
+        sp = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
+        //obj = GetComponent<GameObject>();
+
+        Cloud = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Cloud"); 
+        Fog = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Fog");
+        inactiveCloud = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Cloud");
+        inactiveFog = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Fog");
+
+        rb.isKinematic = true;
+
+        if(gameObject.CompareTag("Fog"))
+        {
+            inactiveFog.start();
+        }
+
+        else
+        {
+            inactiveCloud.start();
+        }
+
     }
 
 
@@ -18,12 +46,21 @@ public class CloudBehaviour : BroColor
     {
          //Vector3 regularSpeed = new Vector3( 0f, maxSpeed, 0f) ;
 
-        if(isActive == true && !gameObject.CompareTag("Fog") && rb.velocity.y <= maxSpeed)
+        if(isActive == true && !gameObject.CompareTag("Fog"))
         {
-            rb.AddForce(transform.up * 0.25f, ForceMode.Force); //Faire en sorte à ce que ce soit controlé par des tags aussi
+            rb.AddForce(nuage * maxSpeed); //Faire en sorte à ce que ce soit controlé par des tags aussi
         }
     }
 
+
+    private void Update()
+    {
+        Fog.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        inactiveFog.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        
+        Cloud.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        inactiveCloud.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+    }
 
     public override void CustomActivation()
     {
@@ -31,6 +68,18 @@ public class CloudBehaviour : BroColor
         sp.isTrigger = true;
         rb.isKinematic = false; 
         isActive = true;
+
+        if(gameObject.CompareTag("Cloud"))
+        {
+            Cloud.start();
+            inactiveCloud.setPaused(true);
+        }
+
+        if (gameObject.CompareTag("Fog"))
+        {
+            Fog.start();
+            inactiveFog.setPaused(true);
+        }
     }
 
     public override void CustomDeactivation()
@@ -39,6 +88,21 @@ public class CloudBehaviour : BroColor
 
         Debug.Log("DO NOT paint");
         sp.isTrigger = false;
-        rb.isKinematic = true; 
+        rb.isKinematic = true;
+
+
+
+        if (gameObject.CompareTag("Fog"))
+        {
+            inactiveFog.setPaused(false);
+            Fog.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
+        if (gameObject.CompareTag("Cloud"))
+        {
+            inactiveCloud.setPaused(false);
+            Cloud.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        }
+
     }
 }

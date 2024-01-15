@@ -7,18 +7,28 @@ public class CharacterControls : MonoBehaviour
     public float pitch = 0f;
     public float walkspeed = 5.0f;
     public float sensitivity = 3.0f;
+    public float grabRange = 5.0f;
+    public float liftSpeed = 2.0f; // Adjust the speed of lifting
 
-    Vector3 noSpeed; 
+
+    [SerializeField] ActivateObject playerInteract;
+    [SerializeField] LevelManagement level;
+    CharacterControls chara; 
+
+    Vector3 noSpeed;
+    public bool isMoving = false;
 
     private Rigidbody rb;
-    private FMOD.Studio.EventInstance steps;
+    private GameObject grabbedObject;
 
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        playerInteract = GetComponent<ActivateObject>();
+        level = GetComponent<LevelManagement>(); 
         rb = GetComponent<Rigidbody>(); // Corrected line to get the Rigidbody component
-        steps = FMODUnity.RuntimeManager.CreateInstance("event:/Character/Character_Walk"); 
+        chara = GetComponent<CharacterControls>();
     }
 
     void Look()
@@ -29,8 +39,21 @@ public class CharacterControls : MonoBehaviour
         Camera.main.transform.localRotation = Quaternion.Euler(pitch, 0, 0);
     }
 
-    void Movement()
+    public void Movement()
     {
+        if(rb.velocity.magnitude >= 0.09f)
+        {
+             isMoving = true;
+
+            //Debug.Log(isMoving);
+        }
+
+        else
+        {
+            isMoving = false;
+            //Debug.Log(isMoving);
+        }
+
         Vector2 axis = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal")) * walkspeed;
         Vector3 forward = Camera.main.transform.forward;
         Vector3 right = Camera.main.transform.right;
@@ -40,48 +63,94 @@ public class CharacterControls : MonoBehaviour
         right.Normalize();
         Vector3 ThatDirection = (forward * axis.x + right * axis.y + Vector3.up * rb.velocity.y);
         rb.velocity = ThatDirection;
-        
+    }
 
+
+    public void Death()
+    {
+        //playerInteract.UnactivateWorld();
+        playerInteract.enabled = false; 
+        level.ButtonStart();
+        Cursor.lockState = CursorLockMode.None;
+        chara.enabled = false; 
+        //GetComponentInChildren<Camera>().enabled = true; 
+    }
+
+    void GrabObject()
+    {
+        if (Input.GetMouseButtonDown(1) && grabbedObject == null) // Right mouse button and no object grabbed
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out hit, grabRange))
+            {
+                if (hit.transform.CompareTag("Rock") || hit.transform.CompareTag("Key"))
+                {
+                    // Check if the object is active before grabbing
+                    RockBehaviour rockBehavior = hit.transform.GetComponent<RockBehaviour>();
+                    if (rockBehavior != null && rockBehavior.isActive)
+                    {
+                        // Grab the object
+                        grabbedObject = hit.transform.gameObject;
+                        grabbedObject.GetComponent<Rigidbody>().isKinematic = true;
+                        grabbedObject.transform.SetParent(transform);
+                    }
+                }
+            }
+        }
+
+        if (grabbedObject != null)
+        {
+            // Lift the grabbed object based on mouse movement
+            float liftAmount = Input.GetAxisRaw("Mouse Y") * liftSpeed * Time.deltaTime;
+            grabbedObject.transform.Translate(Vector3.up * liftAmount);
+        }
+
+        if (Input.GetMouseButtonUp(1) && grabbedObject != null)
+        {
+            // Release the object
+            grabbedObject.GetComponent<Rigidbody>().isKinematic = false;
+            grabbedObject.transform.SetParent(null);
+            grabbedObject = null;
+        }
     }
 
     void Update()
     {
         Look();
+        GrabObject();
 
-        /*if (rb.velocity.magnitude >= 0.75f)
+        if(Input.GetKey(KeyCode.V))
         {
-            FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk"); 
-        }*/
+            Application.Quit();
+        }
+        if(Input.GetKey(KeyCode.K))
+        {
+            StopAllPlayerEvents();
+        }
+
+        if (Input.GetKey(KeyCode.L))
+        {
+            PlayThisSound();
+        }
     }
 
     private void FixedUpdate()
     {
         Movement();
-        
     }
 
-    private void OnTriggerEnter(Collider other)
+    void StopAllPlayerEvents()
     {
-        if(other.CompareTag("Sand"))
-        {
-            steps.setParameterByNameWithLabel("Enviro", "Sand");
-        }
-
-        if(other.CompareTag("Ice"))
-        {
-            steps.setParameterByNameWithLabel("Enviro", "Ice");
-
-        }
+        FMODUnity.RuntimeManager.MuteAllEvents(true);
     }
-    private void OnTriggerExit(Collider other)
-    {
-        steps.setParameterByNameWithLabel("Enviro","Normal");
-    }
+
 
     void PlayThisSound()
     {
-        // steps.start();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/Character/Character_Walk");
+        FMODUnity.RuntimeManager.MuteAllEvents(false);
     }
+
 }
 

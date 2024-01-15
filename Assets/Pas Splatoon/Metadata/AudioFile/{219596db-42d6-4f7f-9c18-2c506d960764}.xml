@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{219596db-42d6-4f7f-9c18-2c506d960764}">
 		<property name="assetPath">
-			<value>Footsteps, Human, Sand, Step Hard SND62094 2.wav</value>
+			<value>Character/Footsteps, Human, Sand, Step Hard SND62094 2.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>96</value>

@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{edfff478-a6ec-4eeb-afa4-e9aff066f030}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{7a48f53e-c49e-4db0-a00d-3c89da100a53}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{e54a3e04-1192-4251-a1cc-e95c3e7630bf}</destination>
 		</relationship>
@@ -37,6 +40,9 @@
 		<relationship name="parameters">
 			<destination>{35ed6ad7-3ad4-4129-918c-ed82dbabc2e2}</destination>
 		</relationship>
+		<relationship name="userProperties">
+			<destination>{f4a66bba-93c3-4d10-955c-e770827c68a5}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{e54a3e04-1192-4251-a1cc-e95c3e7630bf}">
 		<relationship name="masterBus">
@@ -56,7 +62,7 @@
 			<destination>{b676123e-1834-44a0-953d-13168cf275e3}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{d9aaec08-44a9-4c04-93c6-8accf581393a}</destination>
+			<destination>{6e573354-ca03-4a9b-8996-8e11d11141d4}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{6273d8b3-868a-4b93-ad22-42b41a225326}">
@@ -100,6 +106,14 @@
 		<relationship name="preset">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{f4a66bba-93c3-4d10-955c-e770827c68a5}">
+		<property name="key">
+			<value>WIP</value>
+		</property>
+		<property name="value">
+			<value>pour l'instant.</value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{fa3dbb59-d209-48ce-a1a8-b78927d999da}">
 		<relationship name="effectChain">

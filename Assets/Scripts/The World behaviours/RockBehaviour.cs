@@ -4,50 +4,74 @@ using UnityEngine;
 
 public class RockBehaviour : BroColor
 {
-    //private FMOD.Studio.EventInstance rocking;
+    private FMOD.Studio.EventInstance rocking;
     private FMOD.Studio.EventInstance fally;
+    private FMOD.Studio.EventInstance inactiveRock;
+
 
     public int count = 0;
+    [SerializeField] Renderer rockRenderer;
 
 
     private void Start()
     {
-        GetComponent<Rigidbody>();
-       // rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
-        fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
+        rb = GetComponent<Rigidbody>();
+        rockRenderer = GetComponent<Renderer>();
 
-       // rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        rocking = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Rock");
+        fally = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Rock_Fall");
+        inactiveRock = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Rock");
+
+
+        rb.isKinematic = true;
+        inactiveRock.start();
+       rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
-  
+
+    private void Update()
+    {
+        rocking.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        inactiveRock.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
+    }
+
+
     public override void CustomActivation()
     {
-        //count += 1; 
+        count += 1; 
         Debug.Log("rock is painted");
+        rockRenderer.material.color = Color.red;
 
         isActive = true;
 
         rb.useGravity = true;
         rb.isKinematic = false;
 
-        //rocking.start();
-       //rocking.setParameterByName("RockParameter", count);
-
-        if(rb.mass >= 50)
+        if(gameObject.CompareTag("Rock"))
         {
-            rb.AddForce(transform.up * -1000f, ForceMode.Acceleration);
-        }     
+            rocking.start();
+            rocking.setParameterByName("ActivationParameter", count);
+        }
+
+        inactiveRock.setPaused(true);
     }
 
     public override void CustomDeactivation()
     {
         Debug.Log("rock is clean now");
+        rockRenderer.material.color = Color.white;
+
+        inactiveRock.setPaused(false);
+
         isActive = false;
         rb.useGravity = false;
         rb.isKinematic = true;
-        //rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);        
-    }
 
+        rocking.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);    }
+
+
+ 
     private void OnTriggerEnter(Collider other)
     {
         bool walter = true; 
@@ -65,6 +89,7 @@ public class RockBehaviour : BroColor
         if(afall == false && isActive == true)
         {
             fally.start();
+            //FMODUnity.RuntimeManager.PlayOneShot("event:/InteractiveEnvironement/Rock_Fall");
             afall = true;
         }
     }

@@ -353,7 +353,7 @@ MonoBehaviour:
   sourceProjectPath: Assets/Pas Splatoon/Pas Splatoon.fspro
   sourceBankPath: Assets/Pas Splatoon/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0

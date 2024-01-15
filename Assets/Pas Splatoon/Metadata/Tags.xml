@@ -4,5 +4,67 @@
 		<property name="name">
 			<value>Master</value>
 		</property>
+		<relationship name="items">
+			<destination>{eb9c10eb-b9c0-49c1-aee6-975feff9b6c1}</destination>
+			<destination>{04b46d1b-4629-4cc8-901d-136c4c1468a1}</destination>
+			<destination>{c16a1dae-ee6f-48e0-b9be-9281bf418f0a}</destination>
+			<destination>{7a48f53e-c49e-4db0-a00d-3c89da100a53}</destination>
+			<destination>{12c9a97d-a942-4ee6-8d2c-07f519caff9b}</destination>
+			<destination>{acdf1db6-3ac6-4404-8b80-c983303a4da9}</destination>
+			<destination>{5f710b09-492b-4032-9bb5-006fee58636b}</destination>
+			<destination>{ef4039ee-4b89-47a2-b616-2883c70ff85c}</destination>
+			<destination>{dff1c81f-7627-46ce-9fd4-a9dfeb0cee44}</destination>
+			<destination>{1c61e0f7-dcd7-4b55-b6ff-852b41da3c91}</destination>
+		</relationship>
+	</object>
+	<object class="Tag" id="{eb9c10eb-b9c0-49c1-aee6-975feff9b6c1}">
+		<property name="name">
+			<value>Key</value>
+		</property>
+	</object>
+	<object class="Tag" id="{04b46d1b-4629-4cc8-901d-136c4c1468a1}">
+		<property name="name">
+			<value>Fog</value>
+		</property>
+	</object>
+	<object class="Tag" id="{c16a1dae-ee6f-48e0-b9be-9281bf418f0a}">
+		<property name="name">
+			<value>Character</value>
+		</property>
+	</object>
+	<object class="Tag" id="{7a48f53e-c49e-4db0-a00d-3c89da100a53}">
+		<property name="name">
+			<value>BGM</value>
+		</property>
+	</object>
+	<object class="Tag" id="{12c9a97d-a942-4ee6-8d2c-07f519caff9b}">
+		<property name="name">
+			<value>CLOUD</value>
+		</property>
+	</object>
+	<object class="Tag" id="{acdf1db6-3ac6-4404-8b80-c983303a4da9}">
+		<property name="name">
+			<value>Magnet</value>
+		</property>
+	</object>
+	<object class="Tag" id="{5f710b09-492b-4032-9bb5-006fee58636b}">
+		<property name="name">
+			<value>Rock</value>
+		</property>
+	</object>
+	<object class="Tag" id="{ef4039ee-4b89-47a2-b616-2883c70ff85c}">
+		<property name="name">
+			<value>Wall</value>
+		</property>
+	</object>
+	<object class="Tag" id="{dff1c81f-7627-46ce-9fd4-a9dfeb0cee44}">
+		<property name="name">
+			<value>Wind</value>
+		</property>
+	</object>
+	<object class="Tag" id="{1c61e0f7-dcd7-4b55-b6ff-852b41da3c91}">
+		<property name="name">
+			<value>Water</value>
+		</property>
 	</object>
 </objects>
