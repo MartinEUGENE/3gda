@@ -18,6 +18,7 @@ TagManager:
   - Ice
   - Ventilator
   - Key
+  - Teleporter
   layers:
   - Default
   - TransparentFX

@@ -14,11 +14,9 @@ public class WaterBehaviour : BroColor
     private Collider [] woter;
     public FMOD.Studio.EventInstance wa;
     public FMOD.Studio.EventInstance so;
+    public FMOD.Studio.EventInstance inactiveWater;
 
-    public LevelManagement level;
-    [SerializeField] BroColor col; 
-    public CharacterControls chara;
-
+    [SerializeField] CharacterControls chara;
     [SerializeField] Renderer waterRenderer; 
 
     private void Start()
@@ -32,11 +30,21 @@ public class WaterBehaviour : BroColor
         }
         wa = FMODUnity.RuntimeManager.CreateInstance("event:/Environement/Water");
         so = FMODUnity.RuntimeManager.CreateInstance("event:/InteractiveEnvironement/Fall_in_Water");
+        inactiveWater = FMODUnity.RuntimeManager.CreateInstance("event:/InactiveEnvironement/Inactive_Water");
 
-        col = GetComponent<BroColor>();
+
+        inactiveWater.start();
+        //col = GetComponent<BroColor>();
         wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
     }
 
+
+    private void Update()
+    {
+        wa.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+        inactiveWater.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
+
+    }
 
     public override void CustomActivation()
     {
@@ -47,6 +55,7 @@ public class WaterBehaviour : BroColor
             item.isTrigger = true;
         }
         wa.start();
+        inactiveWater.setPaused(true);
     }
 
     public override void CustomDeactivation()
@@ -61,6 +70,7 @@ public class WaterBehaviour : BroColor
             item.isTrigger = false;
         }
         wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        inactiveWater.setPaused(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -88,10 +98,7 @@ public class WaterBehaviour : BroColor
         if (isActive == true && other.CompareTag("Player"))
         {
             wa.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            level.ButtonStart();
-            chara.enabled = false;
-            col.enabled = false;
-            Cursor.lockState = CursorLockMode.None;
+            chara.Death();
         }
 
         if (isActive == true && other.CompareTag("Rock") && !other.CompareTag("Cloud") && !other.CompareTag("Fog") && !other.CompareTag("Ground"))

@@ -40,6 +40,14 @@ public class SandBehaviour : BroColor
         }
     }
 
+    private void Update()
+    {
+        if(isActive == true)
+        {
+
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(isActive && other.CompareTag("Player"))

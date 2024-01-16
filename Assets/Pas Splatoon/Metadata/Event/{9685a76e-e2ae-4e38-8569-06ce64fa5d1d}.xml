@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{68ddf8e7-1590-458a-b60e-52b1e2df842e}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{c16a1dae-ee6f-48e0-b9be-9281bf418f0a}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{f8bb87cc-e1d4-4966-bb93-acdbcc1bc5c2}</destination>
 		</relationship>
@@ -34,6 +37,9 @@
 		</relationship>
 		<relationship name="parameters">
 			<destination>{c4c2af4f-8aa5-46b2-9134-6e802dd5d232}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{3ad2e941-01fe-470d-9a87-7ef791347e99}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -98,6 +104,14 @@
 		<relationship name="preset">
 			<destination>{2e1bf370-fa9d-4720-9d30-7fba8675dba0}</destination>
 		</relationship>
+	</object>
+	<object class="UserProperty" id="{3ad2e941-01fe-470d-9a87-7ef791347e99}">
+		<property name="key">
+			<value>Possède</value>
+		</property>
+		<property name="value">
+			<value>un paramètre qui change le son selon l'état de l'objet </value>
+		</property>
 	</object>
 	<object class="EventMixerMaster" id="{2f164e85-1754-4950-97e1-ade6899d5b61}">
 		<relationship name="effectChain">

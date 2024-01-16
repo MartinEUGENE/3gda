@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{68ddf8e7-1590-458a-b60e-52b1e2df842e}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{c16a1dae-ee6f-48e0-b9be-9281bf418f0a}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{95de719e-0cab-4f4d-b93a-4d05982bae0c}</destination>
 		</relationship>
@@ -131,11 +134,14 @@
 		</relationship>
 	</object>
 	<object class="MultiSound" id="{781a62af-05b2-40e0-a565-c335ec88499a}">
+		<property name="isAsync">
+			<value>true</value>
+		</property>
 		<property name="length">
 			<value>0.23999999999999999</value>
 		</property>
 		<property name="volume">
-			<value>-6.5</value>
+			<value>7.5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{a6e871e3-4b20-464c-8fa4-f706fff985de}</destination>

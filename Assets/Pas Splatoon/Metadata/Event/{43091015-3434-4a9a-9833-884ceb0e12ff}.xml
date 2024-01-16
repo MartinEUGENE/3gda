@@ -58,7 +58,10 @@
 	</object>
 	<object class="EventAutomatableProperties" id="{f9c8373b-9dfa-4e84-a82e-1c57d95410b5}">
 		<property name="maxVoices">
-			<value>2</value>
+			<value>1</value>
+		</property>
+		<property name="triggerCooldown">
+			<value>580</value>
 		</property>
 	</object>
 	<object class="MarkerTrack" id="{3e6b9931-7060-422b-b65f-bbd84c509967}" />

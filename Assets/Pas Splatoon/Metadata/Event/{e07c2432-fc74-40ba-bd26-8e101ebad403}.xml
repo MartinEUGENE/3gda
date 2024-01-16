@@ -34,6 +34,9 @@
 		<relationship name="timeline">
 			<destination>{a770b603-2c80-4989-9b5f-9f9541b3f020}</destination>
 		</relationship>
+		<relationship name="userProperties">
+			<destination>{555429cf-be5d-46b4-a6d2-1e8bd3f513a8}</destination>
+		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
 		</relationship>
@@ -74,6 +77,14 @@
 		</relationship>
 	</object>
 	<object class="Timeline" id="{a770b603-2c80-4989-9b5f-9f9541b3f020}" />
+	<object class="UserProperty" id="{555429cf-be5d-46b4-a6d2-1e8bd3f513a8}">
+		<property name="key">
+			<value>Risque</value>
+		</property>
+		<property name="value">
+			<value>de ne pas être utilisé dans le jeu</value>
+		</property>
+	</object>
 	<object class="EventMixerMaster" id="{e254ea6f-9ec0-4f20-b6a8-42c1e1713184}">
 		<relationship name="effectChain">
 			<destination>{eb51abde-4736-478b-8a05-e6a84e634970}</destination>

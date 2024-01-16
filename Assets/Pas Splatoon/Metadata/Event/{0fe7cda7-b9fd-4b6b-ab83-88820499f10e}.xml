@@ -10,6 +10,9 @@
 		<relationship name="folder">
 			<destination>{9b645c61-0619-4f7c-bb42-766002875d86}</destination>
 		</relationship>
+		<relationship name="tags">
+			<destination>{ef4039ee-4b89-47a2-b616-2883c70ff85c}</destination>
+		</relationship>
 		<relationship name="mixer">
 			<destination>{a5c58652-5e7e-45a0-9636-1477b1becd82}</destination>
 		</relationship>
@@ -30,6 +33,9 @@
 		</relationship>
 		<relationship name="timeline">
 			<destination>{ec481596-00aa-4ebc-bcc8-b1aa52f9b3a0}</destination>
+		</relationship>
+		<relationship name="userProperties">
+			<destination>{99109a8a-bc09-4484-b60c-2435b18f39a2}</destination>
 		</relationship>
 		<relationship name="banks">
 			<destination>{d462faa2-8dfa-435d-be2e-fa4e9d49d761}</destination>
@@ -64,6 +70,14 @@
 		</relationship>
 	</object>
 	<object class="Timeline" id="{ec481596-00aa-4ebc-bcc8-b1aa52f9b3a0}" />
+	<object class="UserProperty" id="{99109a8a-bc09-4484-b60c-2435b18f39a2}">
+		<property name="key">
+			<value>Risque</value>
+		</property>
+		<property name="value">
+			<value>de ne pas être utilisé dans le jeu final</value>
+		</property>
+	</object>
 	<object class="EventMixerMaster" id="{6eec645d-dc59-4eb1-ae8f-16e56b95dc2a}">
 		<relationship name="effectChain">
 			<destination>{96be0b7a-00c7-476a-83c1-e4ce7f6cf34d}</destination>
