@@ -220,6 +220,61 @@ Transform:
   m_Father: {fileID: 2023629434}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60}
+--- !u!1 &154246124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 154246125}
+  - component: {fileID: 154246126}
+  m_Layer: 0
+  m_Name: level
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &154246125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154246124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 370.75797, y: 138.34499, z: -32.14319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &154246126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154246124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d0b5d664b547c47abe20942eda9827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stock:
+  - {fileID: 4453442243994057136, guid: 475ae3a5141d32d47a588beb78e85c46, type: 3}
+  - {fileID: 6655237446242231200, guid: 41bd5df37f7a9d445af4fd61791aee42, type: 3}
+  - {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d, type: 3}
+  - {fileID: 5273023916084270696, guid: b53df37823981b84f96f69864adf7f57, type: 3}
+  - {fileID: 3245280969104602507, guid: 29accd57c8df4464ebdf1e3911b18144, type: 3}
+  - {fileID: 1154162338647863040, guid: 309d9d3b4afed7f42ab9ab9f8e77ea58, type: 3}
+  - {fileID: 8090615666086186617, guid: f55a21dcaa30f5747975cbbba09de95a, type: 3}
+  - {fileID: 4569358075581006748, guid: 904ed9bc4d68b1045850ae6f99e330c3, type: 3}
+  - {fileID: 7855792607664970194, guid: ce92dccefac8a754cb3904d0c2c2eb10, type: 3}
+  essayer: {fileID: 4453442243994057136, guid: 475ae3a5141d32d47a588beb78e85c46, type: 3}
 --- !u!1001 &180260101
 PrefabInstance:
   m_ObjectHideFlags: 0
