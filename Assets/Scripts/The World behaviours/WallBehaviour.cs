@@ -5,10 +5,10 @@ using UnityEngine;
 public class WallBehaviour : BroColor 
 {
     Collider wally;
-    MeshRenderer rendo;
+    //MeshRenderer rendo;
     [SerializeField] ActivateObject act;
-
     [SerializeField] Renderer wallRenderer;
+    [SerializeField] KeyScript key;
 
 
 
@@ -17,13 +17,13 @@ public class WallBehaviour : BroColor
         wally = GetComponent<Collider>();
         wally.isTrigger = false;
 
-        rendo = GetComponent<MeshRenderer>();
+       // rendo = GetComponent<MeshRenderer>();
     }
 
     public override void CustomActivation()
     {
         isActive = true;  
-        wallRenderer.material.color = Color.red;
+        wallRenderer.material.color = Color.grey;
     }
 
     public override void CustomDeactivation()
@@ -31,12 +31,26 @@ public class WallBehaviour : BroColor
         isActive = false; 
         wally.isTrigger = false;
 
-        rendo.enabled = true;
+        //rendo.enabled = true;
         wallRenderer.material.color = Color.white;
-
     }
 
-    private void OnCollisionEnter(Collision collision)
+
+    private void Update()
+    {
+        if(isActive == true && key.generator == true)
+        {
+            wally.isTrigger = true; 
+        }
+    }
+
+
+   /* void KeyActivate()
+    {
+
+    }*/
+
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(isActive && collision.collider.CompareTag("Key"))
         {
@@ -45,6 +59,6 @@ public class WallBehaviour : BroColor
             Destroy(gameObject);
             Destroy(collision.gameObject);
         }
-    }
+    }*/
 
 }

@@ -24,14 +24,6 @@ public class BroColor : MonoBehaviour
     {
         
     }
-
-    public void Update()
-    {
-        if (Input.GetMouseButtonUp(2))
-        {
-            CustomDeactivation();
-        }
-    }
 }
 
 
