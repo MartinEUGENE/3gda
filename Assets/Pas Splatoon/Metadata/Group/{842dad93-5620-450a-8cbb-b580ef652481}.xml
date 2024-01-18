@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerGroup" id="{842dad93-5620-450a-8cbb-b580ef652481}">
+		<property name="name">
+			<value>CharaPaint</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{11899ebb-e738-48e3-b8c9-064be76399c3}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{020cc84b-f59a-4b77-9e6b-893be583468f}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{65efebde-5a26-4db7-ba86-516919625a1e}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{11899ebb-e738-48e3-b8c9-064be76399c3}">
+		<relationship name="effects">
+			<destination>{322138c0-3266-4dd9-ab04-f70b50962986}</destination>
+			<destination>{268cd7c3-5200-457b-9fa6-ba17c7f7806c}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{020cc84b-f59a-4b77-9e6b-893be583468f}" />
+	<object class="MixerBusFader" id="{322138c0-3266-4dd9-ab04-f70b50962986}" />
+	<object class="Sidechain" id="{268cd7c3-5200-457b-9fa6-ba17c7f7806c}" />
+</objects>
