@@ -7,17 +7,24 @@ public class Editor : MonoBehaviour
     public GameObject essayer;
     public int objetActif;
     public bool editOn = false;
+    public Camera camPlay;
+    public Camera camBuild;
+
+    void Start()
+    {
+        
+        camPlay.enabled = true;
+        camBuild.enabled = false;
+    }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && editOn == false)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            editOn = true;
+            editOn = !editOn;
         }
-        else
-        {
-            editOn = false;
-        }
+
+        Switch();
 
         objetActif += (int)Input.mouseScrollDelta.y;
         
@@ -59,6 +66,16 @@ public class Editor : MonoBehaviour
 
     public void Switch()
     {
-
+        if( editOn == true)
+        {
+            camPlay.enabled = false;
+            camBuild.enabled = true;
+        }
+        else
+        {
+            // Switch back to the first camera
+            camPlay.enabled = true;
+            camBuild.enabled = false;
+        }
     }
 }
