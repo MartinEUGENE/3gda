@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LevelSystem : MonoBehaviour
 {
-    [SerializeField] int experience = 0; 
-    [SerializeField] int level = 1; 
-
+    public int experience = 0; 
+    public int level = 1;
+    public int strenght = 2; 
     public virtual void CurrentLevel()
     {
 

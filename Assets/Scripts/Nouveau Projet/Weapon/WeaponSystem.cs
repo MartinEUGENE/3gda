@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
-    [SerializeField] float damage = 0f;
-    [SerializeField] int range = 1;
-    [SerializeField] float cooldown = 1.0f;
-    [SerializeField] float fireRate = 1.0f;
-    [SerializeField] int level = 1; 
+    public int damage = 5; 
+    public  int range = 1;
+    public float cooldown = 1.0f;
+    
+     [SerializeField] float fireRate = 1.0f;
+     public int level = 1; 
 
     public virtual void Shoot()
     {

@@ -18,9 +18,8 @@ public class PlayerLevelling : LevelSystem
     {
 
     }
-    public override void LevelUpEnemy()
+    public override void LevelUpPlayer()
     {
 
     }
-
 }
