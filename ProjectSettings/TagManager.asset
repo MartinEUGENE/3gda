@@ -19,6 +19,8 @@ TagManager:
   - Ventilator
   - Key
   - Teleporter
+  - Enemy
+  - Bullet
   layers:
   - Default
   - TransparentFX
