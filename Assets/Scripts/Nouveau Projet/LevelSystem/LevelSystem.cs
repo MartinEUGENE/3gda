@@ -5,8 +5,8 @@ using UnityEngine;
 public class LevelSystem : MonoBehaviour
 {
     public int experience = 0; 
+    public int requieredXP = 0; 
     public int level = 1;
-    public int strenght = 2; 
     public virtual void CurrentLevel()
     {
 

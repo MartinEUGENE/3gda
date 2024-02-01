@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstWeapon : MonoBehaviour
+public class FirstWeapon : WeaponSystem
 {
-    // Start is called before the first frame update
+
+    [SerializeField] GameObject rightAttack;
+    [SerializeField] GameObject leftAttack;
+
+    CharactControls player; 
+
     void Start()
     {
-        
+        player = GetComponentInParent<CharactControls>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        cooldown -= Time.deltaTime;
+        if(cooldown<0f)
+        {
+            Shoot();
+        }
+    }
+
+
+    public override void Shoot()
+    {
+        Debug.Log("Attack");
+        cooldown = weaponReload;
+
+
+        if(player.lastMovHorizon < 0)
+        {
+            rightAttack.SetActive(true);
+        }
+
+        else
+        {
+            leftAttack.SetActive(true);
+        }
     }
 }

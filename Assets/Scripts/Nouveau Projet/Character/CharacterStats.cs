@@ -4,26 +4,45 @@ using UnityEngine;
 
 public class CharacterStats : LevelSystem
 {
-    [SerializeField] CharactControls chara;
-    [SerializeField] FirstWeapon weep;
+    [SerializeField] public CharactControls chara;
+    //[SerializeField] public FirstWeapon weep;
+    /*[SerializeField] */
+
+
+
+    [Header("Attack Stats")]
+
+    public int attack = 10;
+    public float attackHaste = 1;
+    public int criticalRate = 10; 
+    public int criticalDmg = 100;
+
+
+    [Header("Health")]
+    public int maxHP = 100;
+    public int currentHP = 0;
+
+    [Header("Other Stats")]
+
+    public int pickUp = 15;
+
 
     void Start()
     {
         experience = 0;
         level = 1;
 
+        currentHP = maxHP;
 
-        chara = GetComponent<CharactControls>();
-        chara.maxHP = 100; 
         chara.movSpeed = 15f;
 
-        weep = GetComponent<FirstWeapon>(); 
+       // weep = GetComponent<FirstWeapon>(); 
 
     }
 
     void Update()
     {
-        if(experience == 100)
+        if(experience >= requieredXP)
         {
             LevelUpPlayer(); 
         }
@@ -32,10 +51,15 @@ public class CharacterStats : LevelSystem
 
     public override void LevelUpPlayer()
     {
-        chara.movSpeed += 1f;
-        chara.maxHP += 10;
-        chara.currentHP = chara.maxHP; 
+
     }
+
+    void Death()
+    {
+        chara.enabled = false;
+    }
+
+
 
 
 }

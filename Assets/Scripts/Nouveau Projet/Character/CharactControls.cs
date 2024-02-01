@@ -6,7 +6,13 @@ public class CharactControls : MonoBehaviour
 {
     [Header("Sum Stats")]
 
-    private Vector3 moving;
+    [HideInInspector]
+    public Vector3 moving;
+    [HideInInspector]
+    public float lastMovHorizon;
+    [HideInInspector]
+    public float lastMovVertical;
+
     public float movSpeed = 5f;
     private float activeSpeed;
 
@@ -19,20 +25,17 @@ public class CharactControls : MonoBehaviour
     public float dashLenght = .8f;
     public float dashCooldown = 3f;
 
-    [Header("Health")]
-    public int maxHP = 100; 
-    public int currentHP = 0;
+
 
     [SerializeField] CharactControls cont; 
     [SerializeField] Rigidbody rb;
-    [SerializeField] FirstWeapon weep; 
-
+    [SerializeField] FirstWeapon weep;
+    [SerializeField] CharacterStats characterStats; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cont = GetComponent<CharactControls>();
-        currentHP = maxHP;
 
         activeSpeed = movSpeed; 
     }
@@ -40,6 +43,16 @@ public class CharactControls : MonoBehaviour
     void FixedUpdate()
     {
         Movement(); 
+
+        if(lastMovHorizon !=0f)
+        {
+            lastMovHorizon = moving.x;
+        }
+
+        if(lastMovVertical != 0f)
+        {
+            lastMovVertical = moving.z;
+        }
     }
 
     private void Update()
@@ -71,6 +84,7 @@ public class CharactControls : MonoBehaviour
     {
         moving.x = Input.GetAxisRaw("Horizontal");
         moving.z = Input.GetAxisRaw("Vertical");
+             
 
         moving.Normalize();
 
@@ -85,26 +99,6 @@ public class CharactControls : MonoBehaviour
             activeSpeed = dashSpeed;
             dashCounter = dashLenght;
         }
-    }
-
-
-    void Death()
-    {
-        cont.enabled = false; 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet"))
-        {
-            currentHP -= 10; 
-        }
-
-        if(currentHP <= 0)
-        {
-            Death(); 
-        }
-
     }
 
 }
