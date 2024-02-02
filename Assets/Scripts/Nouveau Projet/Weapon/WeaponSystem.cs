@@ -19,4 +19,9 @@ public class WeaponSystem : MonoBehaviour
 
     }
 
+    public virtual void ApplyDmg(Collider2D[] collider)
+    {
+
+    }
+
 }

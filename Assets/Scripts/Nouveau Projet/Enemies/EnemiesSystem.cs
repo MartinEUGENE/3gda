@@ -7,12 +7,15 @@ public class EnemiesSystem : MonoBehaviour
     [SerializeField] public Transform player; 
     [SerializeField] public float enemySpeed = 8f;
 
-    private Rigidbody rb;
+
+    [SerializeField] public int enemyHP = 15; 
+
+    private Rigidbody2D rb2d;
     GameObject playerObj; 
 
     public void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb2d = GetComponent<Rigidbody2D>();
         playerObj = player.gameObject; 
     }
     public void FixedUpdate()
@@ -23,20 +26,29 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void EnemyMove()
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        rb.velocity = direction * enemySpeed;
+        rb2d.velocity = direction * enemySpeed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject == playerObj)
+        if (collision.gameObject == playerObj)
         {
             EnemyAttack();
         }
     }
 
-
     public virtual void EnemyAttack()
     {
         Debug.Log("Attacking the player");
+    }
+
+    public virtual void TakeDmg(int dmg)
+    {
+        enemyHP -= dmg; 
+
+        if(enemyHP < 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }

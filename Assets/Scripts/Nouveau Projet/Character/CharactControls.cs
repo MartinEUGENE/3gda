@@ -28,19 +28,21 @@ public class CharactControls : MonoBehaviour
 
 
     [SerializeField] CharactControls cont; 
-    [SerializeField] Rigidbody rb;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] FirstWeapon weep;
     [SerializeField] CharacterStats characterStats; 
+    [SerializeField] Animate animate; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         cont = GetComponent<CharactControls>();
+        animate = GetComponent<Animate>();
 
         activeSpeed = movSpeed; 
     }
 
-    void FixedUpdate()
+    public void FixedUpdate()
     {
         Movement(); 
 
@@ -51,7 +53,7 @@ public class CharactControls : MonoBehaviour
 
         if(lastMovVertical != 0f)
         {
-            lastMovVertical = moving.z;
+            lastMovVertical = moving.y;
         }
     }
 
@@ -80,11 +82,12 @@ public class CharactControls : MonoBehaviour
     }
 
 
-    void Movement()
+    public void Movement()
     {
         moving.x = Input.GetAxisRaw("Horizontal");
-        moving.z = Input.GetAxisRaw("Vertical");
-             
+        moving.y = Input.GetAxisRaw("Vertical");
+
+        animate.hoerizontal = moving.x; 
 
         moving.Normalize();
 
