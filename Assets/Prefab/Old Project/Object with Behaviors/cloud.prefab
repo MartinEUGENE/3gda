@@ -127,5 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52a3add17252d4e439e40d44cc0ad78f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activateObj: 0
   rb: {fileID: 0}
   isActive: 0
+  maxSpeed: 0
+  nuage: {x: 0, y: 0, z: 0}

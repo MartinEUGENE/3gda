@@ -10,12 +10,12 @@ public class EnemiesSystem : MonoBehaviour
 
     [SerializeField] public int enemyHP = 15; 
 
-    private Rigidbody2D rb2d;
-    GameObject playerObj; 
+    private Rigidbody rb2d;
+    [SerializeField] public GameObject playerObj; 
 
-    public void Start()
+    public void Awake()
     {
-        rb2d = GetComponent<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody>();
         playerObj = player.gameObject; 
     }
     public void FixedUpdate()
@@ -29,7 +29,7 @@ public class EnemiesSystem : MonoBehaviour
         rb2d.velocity = direction * enemySpeed;
     }
 
-    public void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject == playerObj)
         {
@@ -39,6 +39,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyAttack()
     {
+        playerObj.GetComponent<CharacterStats>().currentHP -= 5; 
         Debug.Log("Attacking the player");
     }
 
@@ -50,5 +51,6 @@ public class EnemiesSystem : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
+    } 
+
 }

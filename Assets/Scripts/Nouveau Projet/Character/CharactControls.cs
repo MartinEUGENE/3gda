@@ -12,6 +12,10 @@ public class CharactControls : MonoBehaviour
     public float lastMovHorizon;
     [HideInInspector]
     public float lastMovVertical;
+    [HideInInspector]
+    public Vector3 lastMovVector;
+
+
 
     public float movSpeed = 5f;
     private float activeSpeed;
@@ -28,18 +32,19 @@ public class CharactControls : MonoBehaviour
 
 
     [SerializeField] CharactControls cont; 
-    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Rigidbody rb;
     [SerializeField] FirstWeapon weep;
     [SerializeField] CharacterStats characterStats; 
-    [SerializeField] Animate animate; 
+    [SerializeField] public Animate animate; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
         cont = GetComponent<CharactControls>();
         animate = GetComponent<Animate>();
 
-        activeSpeed = movSpeed; 
+        activeSpeed = movSpeed;
+        lastMovVector = new Vector3(-1f, 0f, 0f);
     }
 
     public void FixedUpdate()
@@ -49,37 +54,25 @@ public class CharactControls : MonoBehaviour
         if(lastMovHorizon !=0f)
         {
             lastMovHorizon = moving.x;
+            lastMovVector = new Vector3(moving.x, 0f, 0f);
         }
 
         if(lastMovVertical != 0f)
         {
             lastMovVertical = moving.y;
+            lastMovVector = new Vector3(0f, moving.y, 0f);
+
+        }
+
+        if(moving.x != 0f && moving.y != 0f)
+        {
+            lastMovVector = new Vector3(moving.x, moving.y, 0f);
         }
     }
 
-    private void Update()
+    /*private void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            Dash();
-        }
-
-        if (dashCounter > 0)
-        {
-            dashCounter -= Time.deltaTime;
-            if (dashCounter <= 0)
-            {
-                activeSpeed = movSpeed;
-                dashCoolCounter = dashCooldown;
-            }
-
-        }
-
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
-        }
-    }
+    }*/
 
 
     public void Movement()
@@ -91,7 +84,7 @@ public class CharactControls : MonoBehaviour
 
         moving.Normalize();
 
-        rb.velocity = moving * activeSpeed; 
+        rb.velocity = moving * movSpeed; 
     }
 
 

@@ -6,9 +6,7 @@ public class CharacterStats : LevelSystem
 {
     [SerializeField] public CharactControls chara;
     //[SerializeField] public FirstWeapon weep;
-    /*[SerializeField] */
-
-
+    [SerializeField] public GameObject player; 
 
     [Header("Attack Stats")]
 
@@ -34,9 +32,9 @@ public class CharacterStats : LevelSystem
 
         currentHP = maxHP;
 
-        chara.movSpeed = 15f;
+        //chara.movSpeed = 3f;
 
-       // weep = GetComponent<FirstWeapon>(); 
+        player = GetComponent<GameObject>(); 
 
     }
 
@@ -54,12 +52,12 @@ public class CharacterStats : LevelSystem
 
     }
 
-    void Death()
+    public void Death()
     {
-        chara.enabled = false;
+        if(currentHP < 1)
+        {
+            chara.enabled = false;
+            Destroy(player);
+        }
     }
-
-
-
-
 }

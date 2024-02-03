@@ -20,5 +20,4 @@ public class disableTiming : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 }
