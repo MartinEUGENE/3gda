@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Rock
+  - Cloud
+  - Magnet
+  - Wall
+  - Bullet
   layers:
   - Default
   - TransparentFX

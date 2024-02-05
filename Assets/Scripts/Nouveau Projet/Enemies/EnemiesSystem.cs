@@ -29,9 +29,10 @@ public class EnemiesSystem : MonoBehaviour
         rb2d.velocity = direction * enemySpeed;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject == playerObj)
+
+        if (other.gameObject == playerObj)
         {
             EnemyAttack();
         }
