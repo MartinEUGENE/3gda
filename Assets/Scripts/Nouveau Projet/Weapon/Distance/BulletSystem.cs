@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletSystem : MonoBehaviour
 {
-    protected Vector3 dir;
+    public Vector3 dir;
     public float destroyObj = 5f;
 
     public int dmgQuick = 5; 

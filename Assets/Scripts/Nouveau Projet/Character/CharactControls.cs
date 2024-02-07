@@ -7,34 +7,30 @@ public class CharactControls : MonoBehaviour
     [Header("Sum Stats")]
 
     [HideInInspector]
-    public Vector3 moving;
+    public Vector2 moving;
     [HideInInspector]
     public float lastMovHorizon;
     [HideInInspector]
     public float lastMovVertical;
     [HideInInspector]
     public Vector3 lastMovVector;
-
-
+    
+    [HideInInspector]
+    public Vector2 mousePos;
 
     public float movSpeed = 5f;
     private float activeSpeed;
 
     [Header("Dash")]
-
     public float dashSpeed;
-    private float dashCounter;
-    private float dashCoolCounter;
-
     public float dashLenght = .8f;
     public float dashCooldown = 3f;
+    bool isDashing = false;
+    bool CanDash = true; 
 
-
-
-    [SerializeField] CharactControls cont; 
-    [SerializeField] Rigidbody rb;
-    [SerializeField] FirstWeapon weep;
-    [SerializeField] CharacterStats characterStats; 
+    [SerializeField] protected CharactControls cont; 
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] protected CharacterStats characterStats; 
     [SerializeField] public Animate animate; 
 
     void Start()
@@ -44,36 +40,19 @@ public class CharactControls : MonoBehaviour
         animate = GetComponent<Animate>();
 
         activeSpeed = movSpeed;
-        lastMovVector = new Vector3(-1f, 0f, 0f);
+        lastMovVector = new Vector3(1f, 0f, 0f);
     }
 
     public void FixedUpdate()
-    {
-        Movement(); 
+    {  
+        Movement();
 
-        if(lastMovHorizon !=0f)
+        if(Input.GetButtonDown("Fire1") && CanDash == true)
         {
-            lastMovHorizon = moving.x;
-            lastMovVector = new Vector3(moving.x, 0f, 0f);
-        }
-
-        if(lastMovVertical != 0f)
-        {
-            lastMovVertical = moving.y;
-            lastMovVector = new Vector3(0f, moving.y, 0f);
-
-        }
-
-        if(moving.x != 0f && moving.y != 0f)
-        {
-            lastMovVector = new Vector3(moving.x, moving.y, 0f);
+            Debug.Log("I dash");
+            StartCoroutine(Dash());
         }
     }
-
-    /*private void Update()
-    {
-    }*/
-
 
     public void Movement()
     {
@@ -88,13 +67,16 @@ public class CharactControls : MonoBehaviour
     }
 
 
-    void Dash()
+    public IEnumerator Dash()
     {
-        if (dashCounter <= 0 && dashCoolCounter <= 0)
-        {
-            activeSpeed = dashSpeed;
-            dashCounter = dashLenght;
-        }
+        CanDash = false;
+        isDashing = true; 
+        rb.velocity = new Vector3(moving.x * dashSpeed, moving.y * dashSpeed, 0f);
+        yield return new WaitForSeconds(dashLenght);
+        isDashing = false;
+
+        yield return new WaitForSeconds(dashCooldown);
+        CanDash = true; 
     }
 
 }

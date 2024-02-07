@@ -9,4 +9,5 @@ public class MeleeWeapon : MonoBehaviour
     {
         Destroy(gameObject, destroyAfter);
     }
+    
 }

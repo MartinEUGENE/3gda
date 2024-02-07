@@ -29,10 +29,10 @@ public class EnemiesSystem : MonoBehaviour
         rb2d.velocity = direction * enemySpeed;
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider collision)
     {
 
-        if (other.gameObject == playerObj)
+        if (collision.gameObject == playerObj)
         {
             EnemyAttack();
         }
@@ -41,6 +41,11 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void EnemyAttack()
     {
         playerObj.GetComponent<CharacterStats>().currentHP -= 5; 
+
+        if(playerObj.GetComponent<CharacterStats>().currentHP < 1)
+        {
+            playerObj.GetComponent<CharacterStats>().Death();
+        }
         Debug.Log("Attacking the player");
     }
 

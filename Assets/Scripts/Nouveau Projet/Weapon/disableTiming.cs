@@ -15,9 +15,10 @@ public class disableTiming : MonoBehaviour
     private void LateUpdate()
     {
         timer -= Time.deltaTime;
-        if(timer<0f)
+        if(timer<=0f)
         {
             gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
 }

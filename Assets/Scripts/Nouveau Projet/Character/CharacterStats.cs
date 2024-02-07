@@ -57,7 +57,7 @@ public class CharacterStats : LevelSystem
         if(currentHP < 1)
         {
             chara.enabled = false;
-            Destroy(player);
+            Destroy(gameObject);
         }
     }
 }

@@ -8,10 +8,10 @@ public class WeaponSystem : MonoBehaviour
     [Header("Weapon Stats")]
     public int damage = 5; 
     public float speedrange = 3f;
-    public float cooldown = 0f;
-    public float weaponReload = 2f;
+    public float cooldown;
+    public float weaponReload;
 
-    public int pierceEffect = 3; 
+    public bool pierceEffect = true; 
 
     [Header("Prefab Stored")]
     public GameObject prefabObj;
@@ -19,7 +19,6 @@ public class WeaponSystem : MonoBehaviour
 
     [Header("Weapon Level")]
     public int level = 1;
-
     protected virtual void Start()
     {
         chara = FindObjectOfType<CharactControls>();
@@ -27,13 +26,14 @@ public class WeaponSystem : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        cooldown = weaponReload;
+        cooldown = weaponReload;        
     }
 
     protected virtual void Update()
     {
-        cooldown -= Time.deltaTime;
-        if (cooldown < 0f)
+        cooldown = cooldown - Time.deltaTime;
+
+        if (cooldown <= 0f)
         {
             Shoot();
         }
