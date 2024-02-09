@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f657f52309b2144bd8753fb37cbc56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyAfter: 0.2
-  dmg: 5
+  destroyAfter: 1
+  weapon: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142, type: 2}
 --- !u!65 &-2623018840221116468
 BoxCollider:
   m_ObjectHideFlags: 0

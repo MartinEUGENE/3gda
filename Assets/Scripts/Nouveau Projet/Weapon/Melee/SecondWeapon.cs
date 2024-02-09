@@ -13,7 +13,7 @@ public class SecondWeapon : WeaponSystem
     protected override void Shoot()
     {
         base.Shoot();
-        GameObject Melee = Instantiate(prefabObj);
+        GameObject Melee = Instantiate(weaponData.prefabObj);
         Melee.transform.position = transform.position;
         Melee.transform.parent = transform;
     }

@@ -453,18 +453,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 0}
-      propertyPath: cooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: speedrange
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: weaponReload
-      value: 5
-      objectReference: {fileID: 0}
+    - target: {fileID: 1599041636, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: weaponData
+      value: 
+      objectReference: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142,
+        type: 2}
     - target: {fileID: 1599041636, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: weaponReload
       value: 1
@@ -483,6 +476,16 @@ PrefabInstance:
         type: 3}
       propertyPath: rb
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: dashLenght
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

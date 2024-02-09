@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class MeleeBehav : MeleeWeapon
 {
-    public int dmg; 
-
     protected override void Start()
     {
-        base.Start();        
+        base.Start();
     }
 
     protected void OnTriggerEnter(Collider other)
@@ -16,7 +14,7 @@ public class MeleeBehav : MeleeWeapon
         if (other.CompareTag("Enemy"))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(dmg);
+            en.TakeDmg(weapon.damage);
         }
     }
 
