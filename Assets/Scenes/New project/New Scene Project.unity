@@ -366,6 +366,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1542313235038742782, guid: 1a5c1fcd058c16c428dc93d9c7fab5d2,
         type: 3}
+      propertyPath: stats
+      value: 
+      objectReference: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64,
+        type: 2}
+    - target: {fileID: 1542313235038742782, guid: 1a5c1fcd058c16c428dc93d9c7fab5d2,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 898319846}
@@ -480,12 +486,12 @@ PrefabInstance:
     - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: dashSpeed
-      value: 25
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: dashLenght
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -541,6 +547,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.56826437
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.0286225
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Center.x
+      value: -0.0209793
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.004195869
       objectReference: {fileID: 0}
     - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

@@ -20,12 +20,12 @@ public class WeaponSystem : MonoBehaviour
 
     protected virtual void Shoot()
     {
-        weaponData.cooldown = weaponData.weaponReload;        
+        weaponData.cooldown = weaponData.WeaponReload; 
     }
 
     protected virtual void Update()
     {
-        weaponData.cooldown = weaponData.cooldown - Time.deltaTime;
+        weaponData.cooldown -= Time.deltaTime;
 
         if (weaponData.cooldown <= 0f)
         {

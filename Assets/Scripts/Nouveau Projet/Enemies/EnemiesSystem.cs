@@ -4,14 +4,10 @@ using UnityEngine;
 
 public class EnemiesSystem : MonoBehaviour
 {
-    [SerializeField] public Transform player; 
-    [SerializeField] public float enemySpeed = 8f;
-
-
-    [SerializeField] public int enemyHP = 15; 
-
+    [SerializeField] public Transform player;   
     private Rigidbody rb2d;
-    [SerializeField] public GameObject playerObj; 
+    [SerializeField] public GameObject playerObj;
+    public EnemyStats stats;
 
     public void Awake()
     {
@@ -26,7 +22,7 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void EnemyMove()
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        rb2d.velocity = direction * enemySpeed;
+        rb2d.velocity = direction * stats.enemySpeed;
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -40,7 +36,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyAttack()
     {
-        playerObj.GetComponent<CharacterStats>().currentHP -= 5; 
+        playerObj.GetComponent<CharacterStats>().currentHP -= stats.enemyDmg; 
 
         if(playerObj.GetComponent<CharacterStats>().currentHP < 1)
         {
@@ -51,9 +47,9 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void TakeDmg(int dmg)
     {
-        enemyHP -= dmg; 
+        stats.enemyHP -= dmg; 
 
-        if(enemyHP < 1)
+        if(stats.enemyHP < 1)
         {
             Destroy(gameObject);
         }

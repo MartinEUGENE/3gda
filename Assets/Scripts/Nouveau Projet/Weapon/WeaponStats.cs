@@ -7,18 +7,31 @@ using UnityEngine;
 
 public class WeaponStats : ScriptableObject
 {
-    public int damage;     //Dégats
-    public float speedrange;  //Vitesse de déplacement d'une balle
-    public int quantity;    //Quantité
+    [SerializeField]
+    int damage; 
+    public int Damage { get => damage; protected set => damage = value; } 
 
+    [SerializeField]
+    float speedrange; 
+    public float Speedrange { get => speedrange; protected set => speedrange = value; } 
 
-    public float cooldown; 
-    public float weaponReload;  //Passe le cooldown à cette valeur pour commencer le timer
+    [SerializeField]
+    int quantity;    
+    public int Quantity { get => quantity; protected set => quantity = value; } 
 
-    public bool pierceEffect;  // Si oui ou non on va avoir notre arme qui perce un ennemi en plus
+    [SerializeField]
+    float weaponReload; 
+    public float WeaponReload { get => weaponReload; protected set => weaponReload = value; }
 
-    public GameObject prefabObj; //Oui il faut le gameObject qqpart
+    [SerializeField]
+    public float cooldown;
+    //public float Cooldown { get => cooldown; protected set => cooldown = value; }
 
+    [SerializeField]
+     bool pierceEffect;
+    public bool PierceEffect { get => pierceEffect; protected set => pierceEffect = value; }
 
-    //zone d'effet, je sais pas encore quoi mettre ici
+    [SerializeField]
+    GameObject prefabObj;  
+    public GameObject PrefabObj { get => prefabObj; protected set => prefabObj = value; } 
 }
