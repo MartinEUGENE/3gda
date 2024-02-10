@@ -9,10 +9,18 @@ public class EnemiesSystem : MonoBehaviour
     [SerializeField] public GameObject playerObj;
     public EnemyStats stats;
 
+    public float currentSpeed;
+    public int currentHealth;
+    public int currentDamage;
+
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody>();
-        playerObj = player.gameObject; 
+        playerObj = player.gameObject;
+
+        currentHealth = stats.EnemyHP;
+        currentDamage = stats.EnemyDmg;
+        currentSpeed = stats.EnemySpeed;
     }
     public void FixedUpdate()
     {
@@ -22,7 +30,7 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void EnemyMove()
     {
         Vector3 direction = (player.position - transform.position).normalized;
-        rb2d.velocity = direction * stats.enemySpeed;
+        rb2d.velocity = direction * currentSpeed;
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -36,23 +44,30 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyAttack()
     {
-        playerObj.GetComponent<CharacterStats>().currentHP -= stats.enemyDmg; 
+        playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage; 
 
-        if(playerObj.GetComponent<CharacterStats>().currentHP < 1)
+        if(playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
+            Debug.Log("Killing the player");
+
         }
         Debug.Log("Attacking the player");
     }
 
     public virtual void TakeDmg(int dmg)
     {
-        stats.enemyHP -= dmg; 
+        currentHealth -= dmg; 
 
-        if(stats.enemyHP < 1)
+        if(currentHealth <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
     } 
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 
 }

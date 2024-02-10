@@ -18,9 +18,6 @@ public class CharactControls : MonoBehaviour
     [HideInInspector]
     public Vector2 mousePos;
 
-    public float movSpeed = 5f;
-    private float activeSpeed;
-
     [Header("Dash")]
     public float dashSpeed;
     public float dashLenght = .8f;
@@ -32,6 +29,7 @@ public class CharactControls : MonoBehaviour
     [SerializeField] public Rigidbody rb;
     [SerializeField] protected CharacterStats characterStats; 
     [SerializeField] public Animate animate; 
+    [SerializeField] public CharacterScriptable CharaData; 
 
     void Start()
     {
@@ -39,7 +37,6 @@ public class CharactControls : MonoBehaviour
         cont = GetComponent<CharactControls>();
         animate = GetComponent<Animate>();
 
-        activeSpeed = movSpeed;
         lastMovVector = new Vector3(1f, 0f, 0f);
     }
 
@@ -63,7 +60,7 @@ public class CharactControls : MonoBehaviour
 
         moving.Normalize();
 
-        rb.velocity = moving * movSpeed; 
+        rb.velocity = moving * CharaData.MovSpeed; 
     }
 
 

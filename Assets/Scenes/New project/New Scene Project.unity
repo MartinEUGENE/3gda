@@ -352,6 +352,29 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6513021268686175099}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2041637657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 242301762948449757, guid: 1a5c1fcd058c16c428dc93d9c7fab5d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2447252119423750952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2041637663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041637657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d74e2276dfd63241a75e7a52681c141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop:
+  - name: ExpGem
+    itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
+      type: 3}
+    dropRate: 99
 --- !u!1001 &2447252119423750952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,39 +482,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1599041636, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: weaponData
-      value: 
-      objectReference: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142,
-        type: 2}
-    - target: {fileID: 1599041636, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: weaponReload
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6275390168278128236, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: dashSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: dashLenght
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -547,31 +541,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.56826437
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.0286225
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_Center.x
-      value: -0.0209793
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.004195869
-      objectReference: {fileID: 0}
-    - target: {fileID: 8660012054964178689, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c42938bdef0b0498216150fb56433a, type: 3}

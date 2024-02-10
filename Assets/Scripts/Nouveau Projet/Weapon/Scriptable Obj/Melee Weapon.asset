@@ -15,8 +15,8 @@ MonoBehaviour:
   damage: 5
   speedrange: 0
   quantity: 0
-  cooldown: 0.37875983
   weaponReload: 2
+  cooldown: 0
   pierceEffect: 0
   prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
     type: 3}

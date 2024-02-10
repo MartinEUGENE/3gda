@@ -6,7 +6,16 @@ using UnityEngine;
 
 public class EnemyStats : ScriptableObject
 {
-    [SerializeField] public float enemySpeed;
-    [SerializeField] public int enemyHP;
-    [SerializeField] public int enemyDmg;
+    [SerializeField] 
+    float enemySpeed;
+    public float EnemySpeed { get => enemySpeed; protected set => enemySpeed = value; }
+
+    [SerializeField] 
+    int enemyHP;
+    public int EnemyHP { get => enemyHP; protected set => enemyHP = value; }
+
+    [SerializeField] 
+    int enemyDmg;
+    public int EnemyDmg { get => enemyDmg; protected set => enemyDmg = value; }
+
 }

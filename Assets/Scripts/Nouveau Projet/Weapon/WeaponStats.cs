@@ -24,8 +24,9 @@ public class WeaponStats : ScriptableObject
     public float WeaponReload { get => weaponReload; protected set => weaponReload = value; }
 
     [SerializeField]
+    //float cooldown;
     public float cooldown;
-    //public float Cooldown { get => cooldown; protected set => cooldown = value; }
+    //public float Cooldown { get => cooldown; private set => cooldown = value; }
 
     [SerializeField]
      bool pierceEffect;

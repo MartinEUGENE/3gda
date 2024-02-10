@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
-
     [Header("Weapon Stats")]
     public WeaponStats weaponData;
+
+
 
     [Header("Prefab Stored")]
     protected CharactControls chara;

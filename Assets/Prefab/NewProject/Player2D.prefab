@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &81481811
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 81481812}
-  m_Layer: 0
-  m_Name: WeaponDist
-  m_TagString: Bullet
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &81481812
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81481811}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6513021268895284893}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1599041634
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6513021268895284893}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1599041636
 MonoBehaviour:
@@ -75,13 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d09c289b6cdb2546a5406b07f6404ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  speedrange: 0
-  cooldown: 0
-  weaponReload: 2
-  pierceEffect: 1
-  prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
-    type: 3}
+  weaponData: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142, type: 2}
   level: 1
 --- !u!1 &6513021268895284890
 GameObject:
@@ -99,6 +62,7 @@ GameObject:
   - component: {fileID: 2036924085}
   - component: {fileID: 6275390168278128236}
   - component: {fileID: 8660012054964178689}
+  - component: {fileID: 3984075035549646760}
   m_Layer: 0
   m_Name: Player2D
   m_TagString: Player
@@ -118,7 +82,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 81481812}
   - {fileID: 1599041635}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -140,15 +103,14 @@ MonoBehaviour:
   lastMovVertical: 0
   lastMovVector: {x: 0, y: 0, z: 0}
   mousePos: {x: 0, y: 0}
-  movSpeed: 3
-  dashSpeed: 15
-  dashLenght: 0.5
+  dashSpeed: 20
+  dashLenght: 5
   dashCooldown: 1
   cont: {fileID: 6513021268895284892}
   rb: {fileID: 0}
-  weep: {fileID: 0}
   characterStats: {fileID: 2036924085}
   animate: {fileID: 428950134609088846}
+  CharaData: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d, type: 2}
 --- !u!212 &7512400717599193481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -246,18 +208,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c85733f257130146913b38bf86889ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  experience: 0
-  requieredXP: 0
-  level: 1
   chara: {fileID: 6513021268895284892}
   player: {fileID: 6513021268895284890}
-  attack: 10
-  attackHaste: 1
-  criticalRate: 10
-  criticalDmg: 100
-  maxHP: 100
-  currentHP: 0
-  pickUp: 15
+  playerStats: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d, type: 2}
+  currentAttack: 0
+  currentAttackHaste: 0
+  currentCriticalRate: 0
+  currentCriticalDmg: 0
+  currentNewHP: 0
+  currentpickUp: 0
+  experience: 0
+  experienceCap: 0
+  level: 1
+  levelRanges:
+  - startingLevel: 1
+    endLevel: 3
+    expCapIncrease: 100
+  - startingLevel: 4
+    endLevel: 10
+    expCapIncrease: 200
+  - startingLevel: 5
+    endLevel: 800
+    expCapIncrease: 300
 --- !u!54 &6275390168278128236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -272,7 +244,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &8660012054964178689
 BoxCollider:
@@ -282,8 +254,20 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6513021268895284890}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9375, y: 1.40625, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.56826437, y: 1.0286225, z: 0.2}
+  m_Center: {x: -0.0209793, y: 0.004195869, z: 0}
+--- !u!114 &3984075035549646760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513021268895284890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61b0e82d7e55c414da70e7adec6b930b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

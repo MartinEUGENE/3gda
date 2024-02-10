@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  enemyHP: 0
+  enemyHP: 15
   enemyDmg: 15
