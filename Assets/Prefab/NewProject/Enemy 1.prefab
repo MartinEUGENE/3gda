@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 853530991687609616}
   - component: {fileID: 3975026959856376316}
   - component: {fileID: 5209561316424535523}
+  - component: {fileID: 2041637663}
   m_Layer: 9
   m_Name: Enemy 1
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242301762948449757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4, y: 5, z: 2.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48,9 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  enemySpeed: 2
-  enemyHP: 20
   playerObj: {fileID: 0}
+  stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
+  currentSpeed: 0
+  currentHealth: 0
+  currentDamage: 0
 --- !u!212 &853530991687609616
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -111,7 +114,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 242301762948449757}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64, z: 0.2}
@@ -130,5 +133,22 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2041637663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242301762948449757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d74e2276dfd63241a75e7a52681c141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop:
+  - name: ExpGem
+    itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
+      type: 3}
+    dropRate: 99
