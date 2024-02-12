@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class EnemiesSystem : MonoBehaviour
 {
-    [SerializeField] public Transform player;   
     private Rigidbody rb2d;
-    [SerializeField] public GameObject playerObj;
+    GameObject playerObj;
     public EnemyStats stats;
 
     public float currentSpeed;
@@ -16,7 +15,7 @@ public class EnemiesSystem : MonoBehaviour
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody>();
-        playerObj = player.gameObject;
+        playerObj = FindObjectOfType<CharacterStats>().gameObject;
 
         currentHealth = stats.EnemyHP;
         currentDamage = stats.EnemyDmg;
@@ -29,7 +28,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyMove()
     {
-        Vector3 direction = (player.position - transform.position).normalized;
+        Vector3 direction = (playerObj.transform.position - transform.position).normalized;
         rb2d.velocity = direction * currentSpeed;
     }
 

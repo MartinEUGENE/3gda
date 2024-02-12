@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7459164955246726327}
   - component: {fileID: 7459164955246726315}
   - component: {fileID: 7459164955246726314}
+  - component: {fileID: 2024024431644030638}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -94,7 +95,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459164955246726320}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -127,5 +128,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c98a34f163e434089f41f3d107423a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  enemySpeed: 5
+  stats: {fileID: 11400000, guid: cd3500779d0348e49a1cb2d50b931b81, type: 2}
+  currentSpeed: 0
+  currentHealth: 0
+  currentDamage: 0
+--- !u!114 &2024024431644030638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459164955246726320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d74e2276dfd63241a75e7a52681c141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop:
+  - name: Yeah
+    itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
+      type: 3}
+    dropRate: 95

@@ -22,6 +22,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Other Stats")]
     
     public int currentpickUp;
+    public float currentSpeed;
 
     [Header("Experience/Level")]
     public int experience = 0;
@@ -58,6 +59,7 @@ public class CharacterStats : MonoBehaviour
         currentCriticalDmg = playerStats.CritDmg;
 
         currentpickUp = playerStats.PickUp;
+        currentSpeed = playerStats.MovSpeed;
     }
     public void Death()
     {
@@ -80,6 +82,7 @@ public class CharacterStats : MonoBehaviour
         {
             level++;
             experience -= experienceCap;
+            currentSpeed *= 1.05f;
 
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
