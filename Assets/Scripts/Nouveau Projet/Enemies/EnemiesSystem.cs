@@ -12,10 +12,14 @@ public class EnemiesSystem : MonoBehaviour
     public int currentHealth;
     public int currentDamage;
 
+    public float distanceDespawn = 15f;
+    Transform player; 
+
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody>();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
+        player = FindObjectOfType<CharacterStats>().transform;
 
         currentHealth = stats.EnemyHP;
         currentDamage = stats.EnemyDmg;
@@ -26,10 +30,23 @@ public class EnemiesSystem : MonoBehaviour
         EnemyMove();
     }
 
+    private void Update()
+    {
+        if(Vector3.Distance(transform.position, player.position) > distanceDespawn)
+        {
+            ReturnTheEnemy();
+        }
+    }
+
     public virtual void EnemyMove()
     {
         Vector3 direction = (playerObj.transform.position - transform.position).normalized;
         rb2d.velocity = direction * currentSpeed;
+    }
+
+    void ReturnTheEnemy()
+    {
+
     }
 
     public void OnTriggerEnter(Collider collision)
@@ -51,7 +68,7 @@ public class EnemiesSystem : MonoBehaviour
             Debug.Log("Killing the player");
 
         }
-        Debug.Log("Attacking the player");
+        //Debug.Log("Attacking the player");
     }
 
     public virtual void TakeDmg(int dmg)
@@ -69,4 +86,9 @@ public class EnemiesSystem : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void OnDestroy()
+    {
+        EnemySpawner us = FindObjectOfType<EnemySpawner>();
+        us.EnemyKill();
+    }
 }

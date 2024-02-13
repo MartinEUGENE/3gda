@@ -161,25 +161,19 @@ MonoBehaviour:
   waves:
   - enemyGroups:
     - enemyName: Enemy
-      enemyCount: 15
+      enemyCount: 50
       enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
-        type: 3}
-      spawnCount: 0
-    - enemyName: Enemy1
-      enemyCount: 15
-      enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
-        type: 3}
-      spawnCount: 0
-    - enemyName: 02456
-      enemyCount: 15
-      enemyPrefab: {fileID: 242301762948449757, guid: 1a5c1fcd058c16c428dc93d9c7fab5d2,
         type: 3}
       spawnCount: 0
     waveName: ah
-    waveCount: 45
-    spawnInterv: 1
+    waveCount: 100
+    spawnInterv: 10
     spawnCount: 0
   currentWaveCount: 0
+  waveInterval: 1
+  enemyAllowed: 15
+  enemyAlive: 0
+  maxEnemy: 0
 --- !u!4 &1475815963
 Transform:
   m_ObjectHideFlags: 0
@@ -419,6 +413,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1599041634, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Name
