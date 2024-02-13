@@ -2,24 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerLevelling : LevelSystem
+public class PlayerLevelling : MonoBehaviour
 {
-    void Start()
+    public void OnTriggerEnter(Collider other)
     {
-        CurrentLevel();
-    }
-
-    void Update()
-    {
-        
-    }
-
-    public override void CurrentLevel()
-    {
-
-    }
-    public override void LevelUpPlayer()
-    {
-
+        if (other.TryGetComponent(out ICollectibles collect))
+        {
+            collect.Collect();
+        }
     }
 }

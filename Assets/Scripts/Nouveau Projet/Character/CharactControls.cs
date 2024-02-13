@@ -6,105 +6,74 @@ public class CharactControls : MonoBehaviour
 {
     [Header("Sum Stats")]
 
-    private Vector3 moving;
-    public float movSpeed = 5f;
-    private float activeSpeed;
+    [HideInInspector]
+    public Vector2 moving;
+    [HideInInspector]
+    public float lastMovHorizon;
+    [HideInInspector]
+    public float lastMovVertical;
+    [HideInInspector]
+    public Vector3 lastMovVector;
+    
+    [HideInInspector]
+    public Vector2 mousePos;
 
     [Header("Dash")]
-
     public float dashSpeed;
-    private float dashCounter;
-    private float dashCoolCounter;
-
     public float dashLenght = .8f;
     public float dashCooldown = 3f;
+    bool isDashing = false;
+    bool CanDash = true; 
 
-    [Header("Health")]
-    public int maxHP = 100; 
-    public int currentHP = 0;
-
-    [SerializeField] CharactControls cont; 
-    [SerializeField] Rigidbody rb;
-    [SerializeField] FirstWeapon weep; 
-
+    [SerializeField] protected CharactControls cont; 
+    [SerializeField] public Rigidbody rb;
+    [SerializeField] protected CharacterStats characterStats; 
+    [SerializeField] public Animate animate; 
+    [SerializeField] public CharacterScriptable CharaData; 
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         cont = GetComponent<CharactControls>();
-        currentHP = maxHP;
+        animate = GetComponent<Animate>();
 
-        activeSpeed = movSpeed; 
+        lastMovVector = new Vector3(1f, 0f, 0f);
     }
 
-    void FixedUpdate()
-    {
-        Movement(); 
-    }
+    public void FixedUpdate()
+    {  
+        Movement();
 
-    private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
+        if(Input.GetButtonDown("Fire1") && CanDash == true)
         {
-            Dash();
-        }
-
-        if (dashCounter > 0)
-        {
-            dashCounter -= Time.deltaTime;
-            if (dashCounter <= 0)
-            {
-                activeSpeed = movSpeed;
-                dashCoolCounter = dashCooldown;
-            }
-
-        }
-
-        if (dashCoolCounter > 0)
-        {
-            dashCoolCounter -= Time.deltaTime;
+            Debug.Log("I dash");
+            StartCoroutine(Dash());
         }
     }
 
-
-    void Movement()
+    public void Movement()
     {
         moving.x = Input.GetAxisRaw("Horizontal");
-        moving.z = Input.GetAxisRaw("Vertical");
+        moving.y = Input.GetAxisRaw("Vertical");
+
+        animate.hoerizontal = moving.x; 
 
         moving.Normalize();
 
-        rb.velocity = moving * activeSpeed; 
+        rb.velocity = moving * CharaData.MovSpeed; 
     }
 
 
-    void Dash()
+    public IEnumerator Dash()
     {
-        if (dashCounter <= 0 && dashCoolCounter <= 0)
-        {
-            activeSpeed = dashSpeed;
-            dashCounter = dashLenght;
-        }
-    }
+        CanDash = false;
+        isDashing = true; 
+        rb.velocity = new Vector3(moving.x * dashSpeed, moving.y * dashSpeed, 0f);
+        yield return new WaitForSeconds(dashLenght);
+        isDashing = false;
 
-
-    void Death()
-    {
-        cont.enabled = false; 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Bullet"))
-        {
-            currentHP -= 10; 
-        }
-
-        if(currentHP <= 0)
-        {
-            Death(); 
-        }
-
+        yield return new WaitForSeconds(dashCooldown);
+        CanDash = true; 
     }
 
 }

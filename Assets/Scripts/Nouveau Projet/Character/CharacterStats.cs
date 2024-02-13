@@ -2,40 +2,96 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : LevelSystem
+public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] CharactControls chara;
-    [SerializeField] FirstWeapon weep;
+    [SerializeField] public CharactControls chara;
+    //[SerializeField] public FirstWeapon weep;
+    [SerializeField] public GameObject player; 
+    [SerializeField] public CharacterScriptable playerStats; 
+    [Header("Attack Stats")]
 
-    void Start()
+    public int currentAttack;
+    public float currentAttackHaste;
+    public float currentCriticalRate; 
+    public int currentCriticalDmg;
+
+
+    [Header("Health")]
+    public int currentNewHP;
+
+    [Header("Other Stats")]
+    
+    public int currentpickUp;
+    public float currentSpeed;
+
+    [Header("Experience/Level")]
+    public int experience = 0;
+    public int experienceCap;
+    public int level = 1;
+
+    [System.Serializable]
+    public class LevelRange
+    {
+        public int startingLevel;
+        public int endLevel;
+        public int expCapIncrease; 
+    }
+
+    public List<LevelRange> levelRanges;
+
+    private void Start()
+    {
+        experienceCap = levelRanges[0].expCapIncrease; 
+    }
+
+
+    void Awake()
     {
         experience = 0;
         level = 1;
 
+        currentNewHP = playerStats.MaxHP;
+        player = GetComponent<GameObject>();
 
-        chara = GetComponent<CharactControls>();
-        chara.maxHP = 100; 
-        chara.movSpeed = 15f;
+        currentAttack = playerStats.Attack;
+        //currentAttackHaste = playerStats.;
+        currentCriticalRate = playerStats.CritRate;
+        currentCriticalDmg = playerStats.CritDmg;
 
-        weep = GetComponent<FirstWeapon>(); 
-
+        currentpickUp = playerStats.PickUp;
+        currentSpeed = playerStats.MovSpeed;
     }
-
-    void Update()
+    public void Death()
     {
-        if(experience == 100)
+        if (currentNewHP <= 0)
         {
-            LevelUpPlayer(); 
+            chara.enabled = false;
+            Destroy(gameObject);
         }
     }
-
-
-    public override void LevelUpPlayer()
+    public void IncreaseExperience(int amount)
     {
-        chara.movSpeed += 1f;
-        chara.maxHP += 10;
-        chara.currentHP = chara.maxHP; 
+        experience += amount;
+
+        LevelUpCheck();
     }
 
+    void LevelUpCheck()
+    {
+        if(experience >= experienceCap)
+        {
+            level++;
+            experience -= experienceCap;
+            currentSpeed *= 1.05f;
+
+            int experienceCapIncrease = 0;
+            foreach(LevelRange range in levelRanges)
+            {
+                experienceCapIncrease = range.expCapIncrease;
+                break; 
+            }
+            experienceCap += experienceCapIncrease;
+        }
+    }
 
 }

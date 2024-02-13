@@ -4,26 +4,34 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
-    public int damage = 5; 
-    public  int range = 1;
-    public float cooldown = 1.0f;
-    
-     [SerializeField] float fireRate = 1.0f;
-     public int level = 1; 
+    [Header("Weapon Stats")]
+    public WeaponStats weaponData;
 
-    public virtual void Shoot()
+
+
+    [Header("Prefab Stored")]
+    protected CharactControls chara;
+
+    [Header("Weapon Level")]
+    public int level = 1;
+    protected virtual void Start()
     {
-
+        chara = FindObjectOfType<CharactControls>();
     }
 
-    public virtual void WeaponAttributes()
+    protected virtual void Shoot()
     {
-
+        weaponData.cooldown = weaponData.WeaponReload; 
     }
 
-    public virtual void ArmaDeck()
+    protected virtual void Update()
     {
+        weaponData.cooldown -= Time.deltaTime;
 
+        if (weaponData.cooldown <= 0f)
+        {
+            Shoot();
+        }
     }
 
 }
