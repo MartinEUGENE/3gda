@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemiesSystem : MonoBehaviour
 {
-    private Rigidbody rb2d;
+    private Rigidbody2D rb2d;
     GameObject playerObj;
     public EnemyStats stats;
 
@@ -17,7 +17,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public void Awake()
     {
-        rb2d = GetComponent<Rigidbody>();
+        rb2d = GetComponent<Rigidbody2D>();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         player = FindObjectOfType<CharacterStats>().transform;
 
@@ -32,7 +32,7 @@ public class EnemiesSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, player.position) > distanceDespawn)
+        if(Vector2.Distance(transform.position, player.position) > distanceDespawn)
         {
             ReturnTheEnemy();
         }
@@ -40,7 +40,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyMove()
     {
-        Vector3 direction = (playerObj.transform.position - transform.position).normalized;
+        Vector2 direction = (playerObj.transform.position - transform.position).normalized;
         rb2d.velocity = direction * currentSpeed;
     }
 
@@ -49,15 +49,13 @@ public class EnemiesSystem : MonoBehaviour
 
     }
 
-    public void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject == playerObj)
         {
             EnemyAttack();
         }
     }
-
     public virtual void EnemyAttack()
     {
         playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage; 

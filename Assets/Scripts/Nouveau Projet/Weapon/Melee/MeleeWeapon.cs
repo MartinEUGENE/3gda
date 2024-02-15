@@ -11,13 +11,13 @@ public class MeleeWeapon : MonoBehaviour
     {
         Destroy(gameObject, destroyAfter);
     }
-    protected virtual void OnTriggerEnter(Collider other)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+            EnemiesSystem en = collision.gameObject.GetComponent<EnemiesSystem>();
             en.TakeDmg(weapon.Damage);
         }
     }
-
 }
