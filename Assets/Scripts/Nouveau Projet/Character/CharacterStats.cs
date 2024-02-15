@@ -78,7 +78,7 @@ public class CharacterStats : MonoBehaviour
 
     void LevelUpCheck()
     {
-        if(experience >= experienceCap)
+        if(experience >= experienceCap)  // ici pour martin: provoqué le choix d'upgrade et la monté des autres state et reset bar XP
         {
             level++;
             experience -= experienceCap;
