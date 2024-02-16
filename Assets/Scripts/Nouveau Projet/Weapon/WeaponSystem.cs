@@ -10,12 +10,16 @@ public class WeaponSystem : MonoBehaviour
 
     [Header("Prefab Stored")]
     protected CharactControls chara;
+    public Camera mainCam;
+    public Vector3 mousPos;
+
 
     [Header("Weapon Level")]
     public int level = 1;
     protected virtual void Start()
     {
         chara = FindObjectOfType<CharactControls>();
+        mainCam = FindObjectOfType<Camera>();
     }
 
     protected virtual void Shoot()
@@ -31,6 +35,13 @@ public class WeaponSystem : MonoBehaviour
         {
             Shoot();
         }
+
+        mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 dir = mousPos - transform.position;
+        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rot);
+
     }
 
 }

@@ -169,10 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
-  level: 1
-  mousPos: {x: 0, y: 0, z: 0}
-  destroyObj: 5
   mainCam: {fileID: 0}
+  mousPos: {x: 0, y: 0, z: 0}
+  level: 1
+  mousePos: {x: 0, y: 0, z: 0}
+  destroyObj: 5
 --- !u!1 &782752257
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,11 +553,46 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1599041635, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599041635, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6085995709198910528, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

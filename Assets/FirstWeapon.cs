@@ -4,29 +4,37 @@ using UnityEngine;
 
 public class FirstWeapon : WeaponSystem
 {
-    public Vector3 mousPos;
+    public Vector3 mousePos;
     public float destroyObj = 5f;
-    public Camera mainCam;
 
     protected override void Start()
     {
         mainCam = FindObjectOfType<Camera>();
+        Vector3 dir = mousePos - transform.position;
+        Vector3 roting = transform.position - mousePos;
+        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(0, 0, rot + 90f);
+
     }
+
     protected override void Shoot()
     {
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 dir = mousePos - transform.position;
+
+
+
         base.Shoot();
         weaponData.prefabObj = Instantiate(weaponData.PrefabObj);
         weaponData.PrefabObj.transform.position = transform.position;
-        weaponData.PrefabObj.GetComponent<BulletSystem>().VerifDir(mousPos);
+        weaponData.PrefabObj.GetComponent<BulletSystem>().VerifDir(mousePos);
     }
 
     protected override void Update()
     {
         base.Update();
-        mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousPos - transform.position;
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+       
+        
     }
 }
