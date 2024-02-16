@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class SecondWeapon : WeaponSystem
 {
+    public Camera mainCam;
+    public Vector3 mousPos;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
     protected override void Shoot()
     {
         base.Shoot();
@@ -11,6 +18,4 @@ public class SecondWeapon : WeaponSystem
         Melee.transform.position = transform.position;
         Melee.transform.parent = transform;
     }
-
-
 }

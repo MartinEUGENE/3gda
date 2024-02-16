@@ -8,7 +8,6 @@ public class WeaponSystem : MonoBehaviour
     public WeaponStats weaponData;
 
 
-
     [Header("Prefab Stored")]
     protected CharactControls chara;
 

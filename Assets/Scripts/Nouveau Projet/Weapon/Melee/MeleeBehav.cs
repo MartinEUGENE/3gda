@@ -11,6 +11,7 @@ public class MeleeBehav : MeleeWeapon
         base.Start();
         markedEnemies = new List<GameObject>();
     }
+
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
