@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class PlayerLevelling : MonoBehaviour
 {
-
-    public void OnTriggerEnter(Collider other)
+    /*public void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out ICollectibles collect))
+        {
+        }
+    }*/
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.TryGetComponent(out ICollectibles collect))
         {
             collect.Collect();
         }

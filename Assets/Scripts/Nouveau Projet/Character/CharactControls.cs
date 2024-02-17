@@ -13,7 +13,7 @@ public class CharactControls : MonoBehaviour
     [HideInInspector]
     public float lastMovVertical;
     [HideInInspector]
-    public Vector3 lastMovVector;
+    public Vector2 lastMovVector;
     
     [HideInInspector]
     public Vector2 mousePos;
@@ -26,18 +26,18 @@ public class CharactControls : MonoBehaviour
     bool CanDash = true; 
 
     [SerializeField] protected CharactControls cont; 
-    [SerializeField] public Rigidbody rb;
+    [SerializeField] public Rigidbody2D rb;
     [SerializeField] protected CharacterStats characterStats; 
     [SerializeField] public Animate animate; 
     [SerializeField] public CharacterScriptable CharaData; 
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody2D>();
         cont = GetComponent<CharactControls>();
         animate = GetComponent<Animate>();
 
-        lastMovVector = new Vector3(1f, 0f, 0f);
+        lastMovVector = new Vector2(1f, 0f);
     }
 
     public void FixedUpdate()
@@ -68,7 +68,7 @@ public class CharactControls : MonoBehaviour
     {
         CanDash = false;
         isDashing = true; 
-        rb.velocity = new Vector3(moving.x * dashSpeed, moving.y * dashSpeed, 0f);
+        rb.velocity = new Vector2(moving.x * dashSpeed, moving.y * dashSpeed);
         yield return new WaitForSeconds(dashLenght);
         isDashing = false;
 
