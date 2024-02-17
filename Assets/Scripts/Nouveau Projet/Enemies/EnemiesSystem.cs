@@ -4,27 +4,48 @@ using UnityEngine;
 
 public class EnemiesSystem : MonoBehaviour
 {
+
+
+    [System.Serializable]
+    public class LevelRange
+    {
+        public int startingLevel;
+        public int endLevel;
+    }
+
+    public List<LevelRange> levelRangesEnemy;
+
+
     private Rigidbody2D rb2d;
     GameObject playerObj;
     public EnemyStats stats;
+    CharacterStats playerStats; 
 
     public float currentSpeed;
     public int currentHealth;
     public int currentDamage;
 
     public float distanceDespawn = 15f;
-    Transform player; 
+    Transform player;
+
+    public int enemyLevel = 1; 
+
 
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         player = FindObjectOfType<CharacterStats>().transform;
+        playerStats = FindObjectOfType<CharacterStats>();
+
 
         currentHealth = stats.EnemyHP;
         currentDamage = stats.EnemyDmg;
         currentSpeed = stats.EnemySpeed;
     }
+
+
+
     public void FixedUpdate()
     {
         EnemyMove();
@@ -32,7 +53,9 @@ public class EnemiesSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) > distanceDespawn)
+        LevelUpCheck();
+
+        if (Vector2.Distance(transform.position, player.position) > distanceDespawn)
         {
             ReturnTheEnemy();
         }
@@ -48,6 +71,24 @@ public class EnemiesSystem : MonoBehaviour
     {
 
     }
+    public void LevelUpCheck()
+    {
+        if (playerStats.level > enemyLevel)
+        {
+            currentDamage += 5; 
+            currentSpeed *= 1.05f;
+            currentHealth += 3;
+
+            enemyLevel++;
+            /*foreach (LevelRange range in levelRangesEnemy)
+            {
+                //experienceCapIncrease = range.expCapIncrease;
+                break;
+            }
+            experienceCap += experienceCapIncrease;*/
+        }
+    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

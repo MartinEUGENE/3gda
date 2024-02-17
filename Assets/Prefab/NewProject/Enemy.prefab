@@ -99,11 +99,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3c98a34f163e434089f41f3d107423a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelRangesEnemy:
+  - startingLevel: 1
+    endLevel: 500
   stats: {fileID: 11400000, guid: cd3500779d0348e49a1cb2d50b931b81, type: 2}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
   distanceDespawn: 15
+  enemyLevel: 1
 --- !u!114 &2024024431644030638
 MonoBehaviour:
   m_ObjectHideFlags: 0

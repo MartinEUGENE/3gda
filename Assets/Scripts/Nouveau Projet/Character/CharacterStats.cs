@@ -76,13 +76,13 @@ public class CharacterStats : MonoBehaviour
         LevelUpCheck();
     }
 
-    void LevelUpCheck()
+    public void LevelUpCheck()
     {
         if(experience >= experienceCap)
         {
             level++;
             experience -= experienceCap;
-            currentSpeed *= 1.05f;
+            currentSpeed *= 1.15f;
 
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
