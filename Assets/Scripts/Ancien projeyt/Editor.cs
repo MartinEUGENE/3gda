@@ -6,31 +6,50 @@ public class Editor : MonoBehaviour
     public GameObject[] stock;
     public GameObject essayer;
     public int objetActif;
+    public bool editOn = false;
+    public Camera camPlay;
+    public Camera camBuild;
+
+    void Start()
+    {
+        
+        camPlay.enabled = true;
+        camBuild.enabled = false;
+    }
 
     void Update()
     {
-        // Increase or decrease objetActif based on the scroll wheel movement
-        objetActif += (int)Input.mouseScrollDelta.y;
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            editOn = !editOn;
+        }
 
-        // Ensure objetActif stays within the valid range
+        Switch();
+
+        objetActif += (int)Input.mouseScrollDelta.y;
+        
         objetActif = Mathf.Clamp(objetActif, 0, stock.Length - 1);
 
-        if (Input.GetMouseButtonDown(1))
+        if(editOn == true)
         {
-            objetActif = 0;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            // Raycast from the camera to the mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit))
+            if (Input.GetMouseButtonDown(1))
             {
-                SpawnPrefab(hit.point);
+                objetActif = 0;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    SpawnPrefab(hit.point);
+                }
             }
         }
+        
     }
 
     void SpawnPrefab(Vector3 position)
@@ -42,6 +61,21 @@ public class Editor : MonoBehaviour
         else
         {
             Debug.LogError("Invalid objetActif index.");
+        }
+    }
+
+    public void Switch()
+    {
+        if( editOn == true)
+        {
+            camPlay.enabled = false;
+            camBuild.enabled = true;
+        }
+        else
+        {
+            // Switch back to the first camera
+            camPlay.enabled = true;
+            camBuild.enabled = false;
         }
     }
 }

@@ -9,6 +9,6 @@ public class ExpGems : MonoBehaviour, ICollectibles
     {
         CharacterStats player = FindObjectOfType<CharacterStats>();
         player.IncreaseExperience(xpGranted);
-        Destroy(gameObject);
+        Destroy(gameObject);  //ici pour martin : fair une bar UI qui monte a chaque grab. pas vraimant ici
     }    
 }
