@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharacterStats : MonoBehaviour
 {
     [SerializeField] private Image XPBAR;
+    [SerializeField] private Image HpBar;
 
     [SerializeField] public CharactControls chara;
     //[SerializeField] public FirstWeapon weep;
@@ -31,8 +32,11 @@ public class CharacterStats : MonoBehaviour
     public int experience = 0;
     public int experienceCap = 10;
     public int level = 1;
+
     public RectTransform VIDE;
+    public RectTransform NoHealth;
     private float maxWidth = 0f;
+    private float maxHP;
 
     [Header("Gold")]
     public int gold; 
@@ -51,6 +55,7 @@ public class CharacterStats : MonoBehaviour
     private void Start()
     {
         maxWidth = VIDE.rect.width;
+        maxHP = NoHealth.rect.width;
 
         experienceCap = levelRanges[0].expCapIncrease;
 
@@ -68,6 +73,7 @@ public class CharacterStats : MonoBehaviour
         currentNewHP = playerStats.MaxHP;
         player = GetComponent<GameObject>();
 
+        
         currentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
         currentCriticalRate = playerStats.CritRate;
@@ -119,10 +125,20 @@ public class CharacterStats : MonoBehaviour
     void XPbar()
     {
         float experiencePercentage = (float)experience / experienceCap;
-        float newWidth = experiencePercentage * maxWidth;
+        float newSize = experiencePercentage * maxWidth;
 
         
         RectTransform rectTransform = XPBAR.rectTransform;
-        rectTransform.sizeDelta = new Vector2(newWidth, rectTransform.sizeDelta.y);
+        rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
+    }
+
+    void HealthCheck() // add mini health bar on the player and a trigger
+    {
+        var maxHealth = currentNewHP;
+        float HPPercentage = (float)currentNewHP / maxHealth;
+        float newhealth = HPPercentage * maxHP;
+
+        RectTransform rectTransform = HpBar.rectTransform;
+        rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
     }
 }
