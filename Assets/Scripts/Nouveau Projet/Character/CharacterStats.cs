@@ -37,12 +37,14 @@ public class CharacterStats : MonoBehaviour
     public RectTransform NoHealth;
     private float maxWidth = 0f;
     private float maxHP;
+    private float maxHealth;
 
     [Header("Gold")]
     public int gold; 
 
 
     [System.Serializable]
+
     public class LevelRange
     {
         public int startingLevel;
@@ -56,11 +58,15 @@ public class CharacterStats : MonoBehaviour
     {
         maxWidth = VIDE.rect.width;
         maxHP = NoHealth.rect.width;
+        maxHealth = currentNewHP;
 
         experienceCap = levelRanges[0].expCapIncrease;
 
        
         XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
+        HpBar.rectTransform.pivot = new Vector2(0, 0.5f);
+       
+        
     }
 
 
@@ -132,12 +138,12 @@ public class CharacterStats : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
     }
 
-    void HealthCheck() // add mini health bar on the player and a trigger
-    {
-        var maxHealth = currentNewHP;
+    public void HealthCheck() // appeler dans l'attack de EnemiesSystem
+    {// add mini health bar on the player
+        
         float HPPercentage = (float)currentNewHP / maxHealth;
         float newhealth = HPPercentage * maxHP;
-
+        //Debug.Log("ouch");
         RectTransform rectTransform = HpBar.rectTransform;
         rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
     }
