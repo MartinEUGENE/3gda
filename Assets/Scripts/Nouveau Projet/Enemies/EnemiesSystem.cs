@@ -58,8 +58,9 @@ public class EnemiesSystem : MonoBehaviour
     }
     public virtual void EnemyAttack()
     {
-        playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage; 
-
+        playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage;
+        playerObj.GetComponent<CharacterStats>().HealthCheck();
+        
         if(playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();

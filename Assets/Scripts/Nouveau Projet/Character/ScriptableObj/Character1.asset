@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
     type: 3}
-  maxHP: 99999999
+  maxHP: 50
   recovery: 1
   armor: 2
   critRate: 5
