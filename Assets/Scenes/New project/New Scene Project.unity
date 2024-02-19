@@ -405,8 +405,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -571.89, y: 240.57}
-  m_SizeDelta: {x: 6.23, y: 46.86}
+  m_AnchoredPosition: {x: -575, y: 240.57}
+  m_SizeDelta: {x: 0.0050759, y: 46.86}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685345043
 MonoBehaviour:
@@ -831,6 +831,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: VIDE
+      value: 
+      objectReference: {fileID: 492209764}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: XPBAR
+      value: 
+      objectReference: {fileID: 685345043}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[0].expCapIncrease
       value: 75

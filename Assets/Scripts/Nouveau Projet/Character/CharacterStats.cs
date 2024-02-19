@@ -32,7 +32,7 @@ public class CharacterStats : MonoBehaviour
     public int experienceCap = 10;
     public int level = 1;
     public RectTransform VIDE;
-    public float maxWidth = 1150f;
+    private float maxWidth = 0f;
 
     [System.Serializable]
     public class LevelRange
