@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesSystem : MonoBehaviour
+[System.Serializable]
+public class LevelRange
 {
+    public int startingLevel;
+    public int endLevel;
+}
 
-
-    [System.Serializable]
-    public class LevelRange
-    {
-        public int startingLevel;
-        public int endLevel;
-    }
+public class EnemiesSystem : MonoBehaviour
+{    
 
     public List<LevelRange> levelRangesEnemy;
 
 
     private Rigidbody2D rb2d;
+    private DropRateManager dropManager;
     GameObject playerObj;
     public EnemyStats stats;
     CharacterStats playerStats; 
@@ -34,14 +34,13 @@ public class EnemiesSystem : MonoBehaviour
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        dropManager = GetComponent<DropRateManager>();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         player = FindObjectOfType<CharacterStats>().transform;
         playerStats = FindObjectOfType<CharacterStats>();
 
 
-        currentHealth = stats.EnemyHP;
-        currentDamage = stats.EnemyDmg;
-        currentSpeed = stats.EnemySpeed;
+        OnSpawn();
     }
 
 
@@ -53,7 +52,7 @@ public class EnemiesSystem : MonoBehaviour
 
     private void Update()
     {
-        LevelUpCheck();
+        //LevelUpCheck();
 
         if (Vector2.Distance(transform.position, player.position) > distanceDespawn)
         {
@@ -71,23 +70,20 @@ public class EnemiesSystem : MonoBehaviour
     {
 
     }
-    public void LevelUpCheck()
-    {
-        if (playerStats.level > enemyLevel)
-        {
-            currentDamage += 5; 
-            currentSpeed *= 1.05f;
-            currentHealth += 3;
 
-            enemyLevel++;
-            /*foreach (LevelRange range in levelRangesEnemy)
-            {
-                //experienceCapIncrease = range.expCapIncrease;
-                break;
-            }
-            experienceCap += experienceCapIncrease;*/
-        }
+    void OnSpawn()
+    {
+        CalculateStats();
     }
+
+    void CalculateStats()
+    {
+        enemyLevel      = playerStats.level;
+        currentHealth   = stats.EnemyHP + enemyLevel * stats.HealthIncreaseByLevel;
+        currentDamage   = stats.EnemyDmg + enemyLevel * stats.DamageIncreaseByLevel;
+        currentSpeed    = stats.EnemySpeed + enemyLevel * stats.SpeedIncreseByLevel;
+    }
+    
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -116,6 +112,7 @@ public class EnemiesSystem : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            dropManager.TryDrop();
             Die();
         }
     } 
@@ -125,9 +122,9 @@ public class EnemiesSystem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnDestroy()
+    /*public void OnDestroy()
     {
         EnemySpawner us = FindObjectOfType<EnemySpawner>();
         us.EnemyKill();
-    }
+    }*/
 }

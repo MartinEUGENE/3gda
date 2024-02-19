@@ -15,3 +15,6 @@ MonoBehaviour:
   enemySpeed: 1
   enemyHP: 25
   enemyDmg: 2
+  damageIncreaseByLevel: 5
+  speedIncreseByLevel: 1.05
+  healthIncreaseByLevel: 3

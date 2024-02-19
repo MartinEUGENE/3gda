@@ -29,6 +29,10 @@ public class CharacterStats : MonoBehaviour
     public int experienceCap;
     public int level = 1;
 
+    [Header("Gold")]
+    public int gold; 
+
+
     [System.Serializable]
     public class LevelRange
     {
@@ -48,6 +52,7 @@ public class CharacterStats : MonoBehaviour
     void Awake()
     {
         experience = 0;
+        gold = 0;
         level = 1;
 
         currentNewHP = playerStats.MaxHP;
@@ -74,6 +79,12 @@ public class CharacterStats : MonoBehaviour
         experience += amount;
 
         LevelUpCheck();
+    }
+
+    public void IncreaseGold(int amount)
+    {
+        gold += amount;
+
     }
 
     public void LevelUpCheck()

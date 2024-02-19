@@ -48,8 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mousPos: {x: 0, y: 0, z: 0}
-  destroyObj: 0.5
-  mainCam: {fileID: 0}
+  destroyObj: 0.15
   weapon: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142, type: 2}
 --- !u!331 &5417446825485186065
 SpriteMask:

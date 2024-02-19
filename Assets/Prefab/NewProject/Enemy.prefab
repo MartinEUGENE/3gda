@@ -121,10 +121,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop:
-  - name: Yeah
+  - name: Exp
     itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
       type: 3}
     dropRate: 95
+  - name: Coin
+    itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
+      type: 3}
+    dropRate: 20
 --- !u!50 &5424853228338653660
 Rigidbody2D:
   serializedVersion: 4
