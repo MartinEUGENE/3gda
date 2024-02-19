@@ -64,8 +64,7 @@ public class CharacterStats : MonoBehaviour
 
        
         XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        HpBar.rectTransform.pivot = new Vector2(0, 0.5f);
-       
+        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);     
         
     }
 
