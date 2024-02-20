@@ -1673,33 +1673,10 @@ PrefabInstance:
       propertyPath: NoHealth
       value: 
       objectReference: {fileID: 15057731}
-    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: playerStats
-      value: 
-      objectReference: {fileID: 11400000, guid: 83729ee6e349c8d4692a018e1ca80dd6,
-        type: 2}
-    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: invincibleTimer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: invincibleCooldown
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: dashSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513021268895284892, guid: b3c42938bdef0b0498216150fb56433a,
-        type: 3}
-      propertyPath: dashLenght
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
