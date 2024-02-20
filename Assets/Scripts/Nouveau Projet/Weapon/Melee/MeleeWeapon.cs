@@ -8,10 +8,12 @@ public class MeleeWeapon : MonoBehaviour
     public float destroyObj = 2f;
     //public Camera mainCam;
 
+    public CharacterStats stats;
     public WeaponStats weapon;
     protected virtual void Start()
     {
         Destroy(gameObject, destroyObj);
+        stats = GetComponentInParent<CharacterStats>();
     }
 
     /*protected virtual void Update()

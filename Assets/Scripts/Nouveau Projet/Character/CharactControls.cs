@@ -29,7 +29,7 @@ public class CharactControls : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] protected CharacterStats characterStats; 
     [SerializeField] public Animate animate; 
-    [SerializeField] public CharacterScriptable CharaData; 
+    //[SerializeField] public CharacterScriptable CharaData; 
 
     void Start()
     {
@@ -60,7 +60,7 @@ public class CharactControls : MonoBehaviour
 
         moving.Normalize();
 
-        rb.velocity = moving * CharaData.MovSpeed; 
+        rb.velocity = moving * characterStats.currentSpeed; 
     }
 
 

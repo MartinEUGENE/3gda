@@ -15,8 +15,8 @@ public class EnemyStats : ScriptableObject
     public int EnemyHP { get => enemyHP; protected set => enemyHP = value; }
 
     [SerializeField] 
-    int enemyDmg;
-    public int EnemyDmg { get => enemyDmg; protected set => enemyDmg = value; }
+    float enemyDmg;
+    public float EnemyDmg { get => enemyDmg; protected set => enemyDmg = value; }
 
     [SerializeField]
     int damageIncreaseByLevel;

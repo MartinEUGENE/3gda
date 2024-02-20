@@ -129,6 +129,10 @@ MonoBehaviour:
     itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
       type: 3}
     dropRate: 20
+  - name: Heart
+    itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
+      type: 3}
+    dropRate: 50
 --- !u!50 &5424853228338653660
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +164,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

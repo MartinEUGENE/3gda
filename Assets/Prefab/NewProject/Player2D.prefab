@@ -287,14 +287,13 @@ MonoBehaviour:
   lastMovVertical: 0
   lastMovVector: {x: 0, y: 0}
   mousePos: {x: 0, y: 0}
-  dashSpeed: 20
-  dashLenght: 5
+  dashSpeed: 50
+  dashLenght: 8
   dashCooldown: 1
   cont: {fileID: 6513021268895284892}
-  rb: {fileID: 0}
+  rb: {fileID: 917920727}
   characterStats: {fileID: 2036924085}
   animate: {fileID: 428950134609088846}
-  CharaData: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d, type: 2}
 --- !u!212 &7512400717599193481
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -392,29 +391,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c85733f257130146913b38bf86889ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  XPBAR: {fileID: 0}
+  HpBar: {fileID: 0}
   chara: {fileID: 6513021268895284892}
   player: {fileID: 6513021268895284890}
-  playerStats: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d, type: 2}
+  playerStats: {fileID: 11400000, guid: 83729ee6e349c8d4692a018e1ca80dd6, type: 2}
   currentAttack: 0
   currentAttackHaste: 0
   currentCriticalRate: 0
   currentCriticalDmg: 0
   currentNewHP: 0
+  currentRecovery: 0
   currentpickUp: 0
   currentSpeed: 0
   experience: 0
   experienceCap: 0
   level: 1
+  VIDE: {fileID: 0}
+  NoHealth: {fileID: 0}
+  gold: 0
+  invincible: 0
+  invincibleTimer: 0
+  invincibleCooldown: 2
   levelRanges:
   - startingLevel: 1
     endLevel: 3
-    expCapIncrease: 50
+    expCapIncrease: 75
   - startingLevel: 4
     endLevel: 10
-    expCapIncrease: 100
+    expCapIncrease: 150
   - startingLevel: 5
     endLevel: 800
-    expCapIncrease: 150
+    expCapIncrease: 225
 --- !u!114 &3984075035549646760
 MonoBehaviour:
   m_ObjectHideFlags: 0

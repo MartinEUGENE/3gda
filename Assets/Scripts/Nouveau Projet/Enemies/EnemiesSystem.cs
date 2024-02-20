@@ -23,7 +23,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public float currentSpeed;
     public int currentHealth;
-    public int currentDamage;
+    public float currentDamage;
 
     public float distanceDespawn = 15f;
     Transform player;
@@ -95,22 +95,30 @@ public class EnemiesSystem : MonoBehaviour
     }
     public virtual void EnemyAttack()
     {
-        playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage;
-        playerObj.GetComponent<CharacterStats>().HealthCheck();
-        
-        if(playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
+        if(playerObj.GetComponent<CharacterStats>().invincible == false)
+        {
+            playerObj.GetComponent<CharacterStats>().currentNewHP -= currentDamage;
+            playerObj.GetComponent<CharacterStats>().HealthCheck();
+            Debug.Log("Attacking the player");
+        }
+
+        if (playerObj.GetComponent<CharacterStats>().invincible == true)
+        {
+            Debug.Log("Look at the moves, FAKER, FAKER, WHAT WAS THAT ???");
+        }
+
+            if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
             Debug.Log("Killing the player");
 
         }
-        //Debug.Log("Attacking the player");
     }
 
     public virtual void TakeDmg(int dmg)
     {
-        currentHealth -= dmg; 
-
+        currentHealth -= dmg;
+        //Debug.Log(dmg);
         if(currentHealth <= 0)
         {
             dropManager.TryDrop();

@@ -21,7 +21,8 @@ public class CharacterStats : MonoBehaviour
 
 
     [Header("Health")]
-    public int currentNewHP;
+    public float currentNewHP;
+    public float currentRecovery;
 
     [Header("Other Stats")]
     
@@ -40,8 +41,11 @@ public class CharacterStats : MonoBehaviour
     private float maxHealth;
 
     [Header("Gold")]
-    public int gold; 
+    public int gold;
 
+    public bool invincible = false;
+    public float invincibleTimer; 
+    public float invincibleCooldown; 
 
     [System.Serializable]
 
@@ -60,15 +64,14 @@ public class CharacterStats : MonoBehaviour
         maxHP = NoHealth.rect.width;
         maxHealth = currentNewHP;
 
+        playerStats.recovery = currentRecovery;
+
         experienceCap = levelRanges[0].expCapIncrease;
 
        
         XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
         HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);     
-        
     }
-
-
     void Awake()
     {
         experience = 0;
@@ -101,13 +104,11 @@ public class CharacterStats : MonoBehaviour
         XPbar();
         LevelUpCheck();
     }
-
     public void IncreaseGold(int amount)
     {
         gold += amount;
 
     }
-
     public void LevelUpCheck()
     {
         if(experience >= experienceCap)  // ici pour martin: provoqué le choix d'upgrade et la monté des autres state et reset bar XP
@@ -115,6 +116,7 @@ public class CharacterStats : MonoBehaviour
             level++;
             experience -= experienceCap;
             currentSpeed *= 1.15f;
+            invincible = true; 
 
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
@@ -126,7 +128,6 @@ public class CharacterStats : MonoBehaviour
             experienceCap += experienceCapIncrease;
         }
     }
-
     void XPbar()
     {
         float experiencePercentage = (float)experience / experienceCap;
@@ -136,7 +137,6 @@ public class CharacterStats : MonoBehaviour
         RectTransform rectTransform = XPBAR.rectTransform;
         rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
     }
-
     public void HealthCheck() // appeler dans l'attack de EnemiesSystem
     {// add mini health bar on the player
         
@@ -146,4 +146,47 @@ public class CharacterStats : MonoBehaviour
         RectTransform rectTransform = HpBar.rectTransform;
         rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
     }
+
+    public void Healing(float amount)
+    {
+        if (currentNewHP < playerStats.MaxHP)
+        {
+            currentNewHP += amount; 
+            Debug.Log("HEAL MY GUY");
+            if(currentNewHP > playerStats.MaxHP)
+            {
+                currentNewHP = playerStats.MaxHP;
+            }
+        }
+    }
+
+    void Recover()
+    {
+        if(currentNewHP < playerStats.MaxHP)
+        {
+            currentNewHP += currentRecovery * Time.deltaTime;
+        }
+
+        if (currentNewHP > playerStats.MaxHP)
+        {
+            currentNewHP = playerStats.MaxHP;
+        }
+    }
+
+    public void Update()
+    {
+        if(invincible == true)
+        {
+            invincibleTimer -= Time.deltaTime;
+            
+            if (invincibleTimer <= 0f)
+            {
+                invincible = false;
+                invincibleTimer = invincibleCooldown;
+            }
+        }
+
+        Recover();
+    }
+
 }
