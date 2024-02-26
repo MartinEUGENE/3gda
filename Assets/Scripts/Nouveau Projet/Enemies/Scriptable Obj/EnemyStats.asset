@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: EnemyStats
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  enemyHP: 15
+  enemyHP: 25
   enemyDmg: 15
   damageIncreaseByLevel: 5
-  speedIncreseByLevel: 1.05
+  speedIncreseByLevel: 0
   healthIncreaseByLevel: 3

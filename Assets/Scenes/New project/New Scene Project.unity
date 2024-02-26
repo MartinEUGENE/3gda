@@ -408,7 +408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.0519104, y: -10}
+  m_AnchoredPosition: {x: 0.051879883, y: -10}
   m_SizeDelta: {x: 554.9, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &492209765
@@ -883,7 +883,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 124.87, y: 196.41}
+  m_AnchoredPosition: {x: 124.869995, y: 196.41}
   m_SizeDelta: {x: 249.74, y: 17.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1051547613
@@ -1072,11 +1072,21 @@ MonoBehaviour:
       spawnCount: 0
     waveName: ah
     waveCount: 500
-    spawnInterv: 0.9
+    spawnInterv: 1.7
+    spawnCount: 0
+  - enemyGroups:
+    - enemyName: Boss
+      enemyCount: 1
+      enemyPrefab: {fileID: 1746641256815211913, guid: 4bd25c34bada6474c9f04cce7b6aaf92,
+        type: 3}
+      spawnCount: 0
+    waveName: Booooooo
+    waveCount: 1
+    spawnInterv: 1.7
     spawnCount: 0
   currentWaveCount: 0
-  waveInterval: 3
-  enemyAllowed: 125
+  waveInterval: 50
+  enemyAllowed: 75
   enemyAlive: 0
   maxEnemy: 0
 --- !u!4 &1475815963
@@ -1673,6 +1683,11 @@ PrefabInstance:
       propertyPath: NoHealth
       value: 
       objectReference: {fileID: 15057731}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: playerStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d,
+        type: 2}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Name
@@ -1732,6 +1747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c42938bdef0b0498216150fb56433a, type: 3}

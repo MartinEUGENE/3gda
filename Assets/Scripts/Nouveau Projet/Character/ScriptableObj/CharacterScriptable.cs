@@ -20,8 +20,8 @@ public class CharacterScriptable : ScriptableObject
     public float Recovery { get => recovery; private set => recovery = value; }
 
     [SerializeField]
-    public int armor;
-    public int Armor { get => armor; private set => armor = value; }
+    public float armor;
+    public float Armor { get => armor; private set => armor = value; }
 
     [SerializeField]
     public float critRate;

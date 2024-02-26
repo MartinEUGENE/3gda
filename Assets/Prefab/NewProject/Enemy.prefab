@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7459164955246726320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0.5, z: 5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -102,7 +102,7 @@ MonoBehaviour:
   levelRangesEnemy:
   - startingLevel: 1
     endLevel: 500
-  stats: {fileID: 11400000, guid: cd3500779d0348e49a1cb2d50b931b81, type: 2}
+  stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0

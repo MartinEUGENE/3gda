@@ -23,6 +23,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Health")]
     public float currentNewHP;
     public float currentRecovery;
+    public float currentArmor;
 
     [Header("Other Stats")]
     
@@ -64,7 +65,7 @@ public class CharacterStats : MonoBehaviour
         maxHP = NoHealth.rect.width;
         maxHealth = currentNewHP;
 
-        playerStats.recovery = currentRecovery;
+        //playerStats.recovery = currentRecovery;
 
         experienceCap = levelRanges[0].expCapIncrease;
 
@@ -89,6 +90,8 @@ public class CharacterStats : MonoBehaviour
 
         currentpickUp = playerStats.PickUp;
         currentSpeed = playerStats.MovSpeed;
+        currentArmor = playerStats.Armor;
+        currentRecovery = playerStats.recovery;
     }
     public void Death()
     {
@@ -111,11 +114,12 @@ public class CharacterStats : MonoBehaviour
     }
     public void LevelUpCheck()
     {
-        if(experience >= experienceCap)  // ici pour martin: provoqué le choix d'upgrade et la monté des autres state et reset bar XP
+        if(experience >= experienceCap)  // ici pour martin: provoque le choix d'upgrade et la montée des autres state et reset bar XP
         {
             level++;
             experience -= experienceCap;
             currentSpeed *= 1.15f;
+            currentAttack += 1;
             invincible = true; 
 
             int experienceCapIncrease = 0;

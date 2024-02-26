@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: EnemyStats 1
   m_EditorClassIdentifier: 
-  enemySpeed: 1
-  enemyHP: 25
-  enemyDmg: 2
-  damageIncreaseByLevel: 2
-  speedIncreseByLevel: 1.0005
-  healthIncreaseByLevel: 1
+  enemySpeed: 3
+  enemyHP: 3
+  enemyDmg: 15
+  damageIncreaseByLevel: 5
+  speedIncreseByLevel: 0
+  healthIncreaseByLevel: 3

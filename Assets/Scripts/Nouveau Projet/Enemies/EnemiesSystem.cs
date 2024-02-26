@@ -97,7 +97,8 @@ public class EnemiesSystem : MonoBehaviour
     {
         if(playerObj.GetComponent<CharacterStats>().invincible == false)
         {
-            playerObj.GetComponent<CharacterStats>().currentNewHP -= currentDamage;
+            float dmgDealt = currentDamage - playerObj.GetComponent<CharacterStats>().currentArmor; 
+            playerObj.GetComponent<CharacterStats>().currentNewHP -= dmgDealt;
             playerObj.GetComponent<CharacterStats>().HealthCheck();
             Debug.Log("Attacking the player");
         }
