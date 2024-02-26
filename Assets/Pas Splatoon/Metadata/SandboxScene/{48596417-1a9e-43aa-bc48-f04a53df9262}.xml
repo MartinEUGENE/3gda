@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="SandboxScene" id="{48596417-1a9e-43aa-bc48-f04a53df9262}">
+		<property name="name">
+			<value>Scène Gameplay Vergeade Arnaud</value>
+		</property>
+		<relationship name="folder">
+			<destination>{e0d285da-807d-4987-ad02-b6dc0eeb4161}</destination>
+		</relationship>
+		<relationship name="markerTracks">
+			<destination>{f0750ed9-d88e-4006-ad56-27765b6bc9d3}</destination>
+		</relationship>
+		<relationship name="timeline">
+			<destination>{d8ecea84-b30f-4322-87e6-f375472639c3}</destination>
+		</relationship>
+		<relationship name="listeners">
+			<destination>{ec2dd0c8-9e66-42fd-aeed-313a9dae4d03}</destination>
+		</relationship>
+	</object>
+	<object class="MarkerTrack" id="{f0750ed9-d88e-4006-ad56-27765b6bc9d3}" />
+	<object class="Timeline" id="{d8ecea84-b30f-4322-87e6-f375472639c3}" />
+	<object class="SandboxListener" id="{ec2dd0c8-9e66-42fd-aeed-313a9dae4d03}">
+		<property name="positionX">
+			<value>-71.5999985</value>
+		</property>
+		<property name="positionZ">
+			<value>12.4000006</value>
+		</property>
+	</object>
+</objects>
