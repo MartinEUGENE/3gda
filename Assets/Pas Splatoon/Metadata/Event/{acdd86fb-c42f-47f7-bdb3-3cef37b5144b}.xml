@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{acdd86fb-c42f-47f7-bdb3-3cef37b5144b}">
+		<property name="note" />
 		<property name="name">
 			<value>Ventilator</value>
 		</property>
