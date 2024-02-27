@@ -74,6 +74,9 @@ A chaque activation, BGM aura son paramètre qui augmentera de 1. </value>
 		<property name="rotationY">
 			<value>148.322968</value>
 		</property>
+		<relationship name="sandboxParameters">
+			<destination>{d915a85a-4be7-4024-97b0-6f70508f69e8}</destination>
+		</relationship>
 		<relationship name="event">
 			<destination>{9685a76e-e2ae-4e38-8569-06ce64fa5d1d}</destination>
 		</relationship>
@@ -130,6 +133,9 @@ A chaque activation, BGM aura son paramètre qui augmentera de 1. </value>
 		<property name="rotationY">
 			<value>-172.256897</value>
 		</property>
+		<relationship name="sandboxParameters">
+			<destination>{26682d50-7023-44c9-ad9a-9f7b640862d6}</destination>
+		</relationship>
 		<relationship name="event">
 			<destination>{23782bd5-a913-4e20-9f27-7f514dabe9fb}</destination>
 		</relationship>
@@ -154,6 +160,22 @@ A chaque activation, BGM aura son paramètre qui augmentera de 1. </value>
 		</property>
 		<relationship name="parameter">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxParameter" id="{d915a85a-4be7-4024-97b0-6f70508f69e8}">
+		<property name="parameterValue">
+			<value>0</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{2e1bf370-fa9d-4720-9d30-7fba8675dba0}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxParameter" id="{26682d50-7023-44c9-ad9a-9f7b640862d6}">
+		<property name="parameterValue">
+			<value>0</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{9c283e7b-90fb-4d1f-9a44-457942738c0a}</destination>
 		</relationship>
 	</object>
 </objects>
