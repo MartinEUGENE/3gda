@@ -6,7 +6,11 @@
 
 -Character_Paint a un paramètre qui fait jouer le son d'activation ou celui de désactivation. 
 
--L'event BGM joue en permanence, à chaque fois qu'il y a un objet qui passe de l'état inactif à l'état actif, le paramètre BGM augmente de 1. </value>
+-L'event BGM joue en permanence, à chaque fois qu'il y a un objet qui passe de l'état inactif à l'état actif, le paramètre BGM augmente de 1. 
+
+Dans cette séquence gameplay, le joueur va devoir utiliser un rocher pour passer une rivière. 
+Pour passer cette rivière, il faut d'abord activer le rocher (mettre Inactive_Rock en pause et activer Rock, puis passer à 1 son paramètre interne) et activer la rivière (passer Inactive_Water en pause et activer Water). 
+A chaque activation, BGM aura son paramètre qui augmentera de 1. </value>
 		</property>
 		<property name="name">
 			<value>Scène Gameplay Vergeade Arnaud</value>
@@ -53,6 +57,9 @@
 		<property name="rotationY">
 			<value>-46.539772</value>
 		</property>
+		<relationship name="sandboxParameters">
+			<destination>{acca09e0-8732-438d-bf3f-bce26f15988b}</destination>
+		</relationship>
 		<relationship name="event">
 			<destination>{5c9d035b-be0f-43e0-aa67-a4c1e64f23c4}</destination>
 		</relationship>
@@ -139,6 +146,14 @@
 		</property>
 		<relationship name="event">
 			<destination>{89090682-b661-46c1-9eb5-7d3d2b027364}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxParameter" id="{acca09e0-8732-438d-bf3f-bce26f15988b}">
+		<property name="parameterValue">
+			<value>0</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
 		</relationship>
 	</object>
 </objects>

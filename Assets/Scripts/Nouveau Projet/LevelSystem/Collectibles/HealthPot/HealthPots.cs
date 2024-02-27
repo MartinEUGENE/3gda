@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthPots : MonoBehaviour, ICollectibles
+public class HealthPots : PickUp, ICollectibles
 {
     public float healing; 
 
@@ -10,7 +10,6 @@ public class HealthPots : MonoBehaviour, ICollectibles
     {
         CharacterStats player = FindObjectOfType<CharacterStats>();
         player.Healing(healing);
-        Destroy(gameObject);
     }
 
 }

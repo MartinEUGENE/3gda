@@ -23,7 +23,7 @@ public class PlayerCollect : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out ICollectibles collect) && !collision.gameObject.CompareTag("Weapon"))
+        if(collision.TryGetComponent(out ICollectibles collect))
         {
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             Vector2 ForceDir = (transform.position - collision.transform.position).normalized;
