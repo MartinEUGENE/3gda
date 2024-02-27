@@ -19,7 +19,7 @@ MonoBehaviour:
   armor: 15
   critRate: 5
   critDmg: 100
-  pickUp: 15
+  pickUp: 1
   movSpeed: 4
   attack: 15
   projectileSpeed: 2

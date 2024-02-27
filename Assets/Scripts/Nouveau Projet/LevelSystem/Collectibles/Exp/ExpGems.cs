@@ -9,6 +9,15 @@ public class ExpGems : MonoBehaviour, ICollectibles
     {
         CharacterStats player = FindObjectOfType<CharacterStats>();
         player.IncreaseExperience(xpGranted);
-        Destroy(gameObject);  //ici pour martin : fair une bar UI qui monte a chaque grab. pas vraimant ici
-    }    
+        //Destroy(gameObject);  //ici pour martin : fair une bar UI qui monte a chaque grab. pas vraimant ici
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+         if(collision.CompareTag("Player"))
+         {
+            Destroy(gameObject);
+         }
+    }
+
 }

@@ -4,17 +4,30 @@ using UnityEngine;
 
 public class PlayerCollect : MonoBehaviour
 {
-    /*public void OnTriggerEnter(Collider other)
+    CharacterStats player;
+    CircleCollider2D circlePlayer;
+    public float pullForce; 
+
+
+    void Start()
     {
-        if (other.TryGetComponent(out ICollectibles collect))
-        {
-        }
-    }*/
+        player = FindObjectOfType<CharacterStats>();
+        circlePlayer = GetComponent<CircleCollider2D>();
+    }
+
+
+    void Update()
+    {
+        circlePlayer.radius = player.currentpickUp; 
+    }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out ICollectibles collect))
+        if(collision.TryGetComponent(out ICollectibles collect) && !collision.gameObject.CompareTag("Weapon"))
         {
+            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            Vector2 ForceDir = (transform.position - collision.transform.position).normalized;
+            rb.AddForce(ForceDir * pullForce);
             collect.Collect();
         }
     }

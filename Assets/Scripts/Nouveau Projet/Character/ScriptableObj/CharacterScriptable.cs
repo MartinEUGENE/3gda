@@ -32,8 +32,8 @@ public class CharacterScriptable : ScriptableObject
     public int CritDmg { get => critDmg; private set => critDmg = value; }
 
     [SerializeField]
-    int pickUp;
-    public int PickUp { get => pickUp; private set => pickUp = value; }
+    float pickUp;
+    public float PickUp { get => pickUp; private set => pickUp = value; }
 
     [SerializeField]
     float movSpeed;

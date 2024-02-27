@@ -27,7 +27,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Other Stats")]
     
-    public int currentpickUp;
+    public float currentpickUp;
     public float currentSpeed;
 
     [Header("Experience/Level")]

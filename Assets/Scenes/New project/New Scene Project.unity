@@ -1066,12 +1066,12 @@ MonoBehaviour:
   waves:
   - enemyGroups:
     - enemyName: Enemy
-      enemyCount: 500
+      enemyCount: 1500
       enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
         type: 3}
       spawnCount: 0
     waveName: ah
-    waveCount: 500
+    waveCount: 1500
     spawnInterv: 1.7
     spawnCount: 0
   - enemyGroups:
@@ -1082,11 +1082,11 @@ MonoBehaviour:
       spawnCount: 0
     waveName: Booooooo
     waveCount: 1
-    spawnInterv: 1.7
+    spawnInterv: 1
     spawnCount: 0
   currentWaveCount: 0
   waveInterval: 50
-  enemyAllowed: 75
+  enemyAllowed: 125
   enemyAlive: 0
   maxEnemy: 0
 --- !u!4 &1475815963
@@ -1688,6 +1688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 21781d7af5f6dff449919036b5260e6d,
         type: 2}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: invincibleCooldown
+      value: 0.65
+      objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Name
@@ -1752,6 +1756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8002570475007746729, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: pullForce
+      value: 150
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3c42938bdef0b0498216150fb56433a, type: 3}

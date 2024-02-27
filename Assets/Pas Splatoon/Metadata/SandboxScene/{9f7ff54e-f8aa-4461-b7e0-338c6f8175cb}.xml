@@ -140,10 +140,13 @@ Pour finir, il faut activer : le ventilateur (event Ventilator en premier puis W
 	</object>
 	<object class="SandboxEmitter" id="{2395a221-1ecb-4de1-998d-1c7842e0727c}">
 		<property name="positionX">
-			<value>-88.0999985</value>
+			<value>-69.25</value>
 		</property>
 		<property name="positionZ">
-			<value>-2.4000001</value>
+			<value>4.55000019</value>
+		</property>
+		<property name="rotationY">
+			<value>-53.6795464</value>
 		</property>
 		<relationship name="sandboxParameters">
 			<destination>{4b2d238b-25b1-4de1-bdc3-e532294c7298}</destination>
@@ -213,7 +216,7 @@ Pour finir, il faut activer : le ventilateur (event Ventilator en premier puis W
 	</object>
 	<object class="SandboxParameter" id="{4b2d238b-25b1-4de1-bdc3-e532294c7298}">
 		<property name="parameterValue">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="parameter">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
