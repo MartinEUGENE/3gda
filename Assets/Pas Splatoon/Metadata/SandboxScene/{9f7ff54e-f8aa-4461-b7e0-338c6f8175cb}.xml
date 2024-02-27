@@ -10,8 +10,12 @@
 
 -L'event BGM joue en permanence, à chaque fois qu'il y a un objet qui passe de l'état inactif à l'état actif, le paramètre BGM augmente de 1.
 
-Dans cette séquence de Gameplay, il faudra faire avancer le listener dans la  un rocher bloque le chemin.  
-Pour le passer, il faut d'abord utiliser l'event character_Paint, ce son va être utiliser pour chaque activation des objets. 
+Dans cette séquence de Gameplay, il faudra faire avancer le listener dans la scène. Un rocher bloque le chemin.  Pour le passer, il faut l'activer avec un clic droit, ce clic droit va faire jouer l'event character_Paint, ce son va être utiliser pour chaque activation des objets. Le paramètre de Character_Paint sera Activation à chaque fois. 
+Quand le rocher va être activé, il faudra mettre en pause Inactive_Rock et activer l'event Rock. Cet event possède aussi un paramètre nommé activation_Parameter, il faut le passer à 1. 
+
+Après, il faut avancer un peu, et utiliser quelques fois l'event Character_Walk. 
+
+Pour finir, il faut activer : le ventilateur (event Ventilator en premier puis Wind), l'event Fog puis ensuite désactiver le Fog (le vent aura poussé le brouillard et on pourra le désactiver à nouveau pour avoir un passage). 
 
 </value>
 		</property>
@@ -45,16 +49,23 @@ Pour le passer, il faut d'abord utiliser l'event character_Paint, ce son va êtr
 			<destination>{3c395a68-0c67-4d44-a79e-67fc68486a71}</destination>
 			<destination>{8f4927fd-a87a-4ccc-b68c-236f07f6e016}</destination>
 			<destination>{2395a221-1ecb-4de1-998d-1c7842e0727c}</destination>
+			<destination>{2bd5c3f4-72a9-48ed-b541-9656c7f62056}</destination>
+			<destination>{10462898-d7f3-4ee3-9c1d-519e915f4709}</destination>
+			<destination>{796ed621-7b9a-423b-b2a6-792cd80120e9}</destination>
+			<destination>{2cedfda6-8d69-4803-ab94-72aadcd1948c}</destination>
 		</relationship>
 	</object>
 	<object class="MarkerTrack" id="{22141d86-c83b-452e-8f47-80fed6b6e751}" />
 	<object class="Timeline" id="{68b2d027-5168-4f2f-9963-c17a7f589084}" />
 	<object class="SandboxListener" id="{95ea8156-f07c-4c11-b173-49d84c1da662}">
 		<property name="positionX">
-			<value>-71.5999985</value>
+			<value>-73.1999969</value>
 		</property>
 		<property name="positionZ">
-			<value>12.4000006</value>
+			<value>11.6500006</value>
+		</property>
+		<property name="rotationY">
+			<value>-115.947166</value>
 		</property>
 	</object>
 	<object class="SandboxEmitter" id="{dc9215aa-4b97-404c-a08b-fdebfc456ec4}">
@@ -141,12 +152,79 @@ Pour le passer, il faut d'abord utiliser l'event character_Paint, ce son va êtr
 			<destination>{5c9d035b-be0f-43e0-aa67-a4c1e64f23c4}</destination>
 		</relationship>
 	</object>
+	<object class="SandboxEmitter" id="{2bd5c3f4-72a9-48ed-b541-9656c7f62056}">
+		<property name="positionX">
+			<value>-69.0786819</value>
+		</property>
+		<property name="positionZ">
+			<value>10.9099245</value>
+		</property>
+		<property name="rotationY">
+			<value>-37.9892693</value>
+		</property>
+		<relationship name="sandboxParameters">
+			<destination>{7d174340-6f42-435a-a7ae-f4db347cd168}</destination>
+		</relationship>
+		<relationship name="event">
+			<destination>{23782bd5-a913-4e20-9f27-7f514dabe9fb}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{10462898-d7f3-4ee3-9c1d-519e915f4709}">
+		<property name="positionX">
+			<value>-47.25</value>
+		</property>
+		<property name="positionZ">
+			<value>10.0500002</value>
+		</property>
+		<property name="rotationY">
+			<value>-67.6779785</value>
+		</property>
+		<relationship name="event">
+			<destination>{acdd86fb-c42f-47f7-bdb3-3cef37b5144b}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{796ed621-7b9a-423b-b2a6-792cd80120e9}">
+		<property name="positionX">
+			<value>-47.3499985</value>
+		</property>
+		<property name="positionZ">
+			<value>15.1999998</value>
+		</property>
+		<property name="rotationY">
+			<value>51.0260887</value>
+		</property>
+		<relationship name="event">
+			<destination>{b93586f0-de40-4038-8ce9-0d2119661a42}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxEmitter" id="{2cedfda6-8d69-4803-ab94-72aadcd1948c}">
+		<property name="positionX">
+			<value>-43.2999992</value>
+		</property>
+		<property name="positionZ">
+			<value>10.3999996</value>
+		</property>
+		<property name="rotationY">
+			<value>78.500946</value>
+		</property>
+		<relationship name="event">
+			<destination>{4291d204-cc64-4b57-bca5-0d428e8dda36}</destination>
+		</relationship>
+	</object>
 	<object class="SandboxParameter" id="{4b2d238b-25b1-4de1-bdc3-e532294c7298}">
+		<property name="parameterValue">
+			<value>1</value>
+		</property>
+		<relationship name="parameter">
+			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
+		</relationship>
+	</object>
+	<object class="SandboxParameter" id="{7d174340-6f42-435a-a7ae-f4db347cd168}">
 		<property name="parameterValue">
 			<value>0</value>
 		</property>
 		<relationship name="parameter">
-			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>
+			<destination>{9c283e7b-90fb-4d1f-9a44-457942738c0a}</destination>
 		</relationship>
 	</object>
 </objects>
