@@ -11,7 +11,10 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] public CharactControls chara;
     //[SerializeField] public FirstWeapon weep;
     [SerializeField] public GameObject player; 
-    [SerializeField] public CharacterScriptable playerStats; 
+    [SerializeField] public CharacterScriptable playerStats;
+
+    public List<GameObject> spawnedWeapon; 
+
     [Header("Attack Stats")]
 
     public int currentAttack;
@@ -59,22 +62,11 @@ public class CharacterStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
-    private void Start()
-    {
-        maxWidth = VIDE.rect.width;
-        maxHP = NoHealth.rect.width;
-        maxHealth = currentNewHP;
-
-        //playerStats.recovery = currentRecovery;
-
-        experienceCap = levelRanges[0].expCapIncrease;
-
-       
-        XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);     
-    }
+    
     void Awake()
     {
+        playerStats = CharacterSelector.GetData();
+
         experience = 0;
         gold = 0;
         level = 1;
@@ -93,6 +85,21 @@ public class CharacterStats : MonoBehaviour
         currentArmor = playerStats.Armor;
         currentRecovery = playerStats.recovery;
     }
+    private void Start()
+    {
+        maxWidth = VIDE.rect.width;
+        maxHP = NoHealth.rect.width;
+        maxHealth = currentNewHP;
+
+        //playerStats.recovery = currentRecovery;
+
+        experienceCap = levelRanges[0].expCapIncrease;
+
+
+        XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
+        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+    }
+
     public void Death()
     {
         if (currentNewHP <= 0)
