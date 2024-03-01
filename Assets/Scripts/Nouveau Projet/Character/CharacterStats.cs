@@ -13,7 +13,8 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] public GameObject player; 
     [SerializeField] public CharacterScriptable playerStats;
 
-    public List<GameObject> spawnedWeapon; 
+    //L'arme spawnée avec le joueur
+    public List<GameObject> spawnedWeapons; 
 
     [Header("Attack Stats")]
 
@@ -84,6 +85,10 @@ public class CharacterStats : MonoBehaviour
         currentSpeed = playerStats.MovSpeed;
         currentArmor = playerStats.Armor;
         currentRecovery = playerStats.recovery;
+
+        //Weapon Spawning
+        SpawnedWeapon(playerStats.StartingWeapon);
+
     }
     private void Start()
     {
@@ -91,13 +96,18 @@ public class CharacterStats : MonoBehaviour
         maxHP = NoHealth.rect.width;
         maxHealth = currentNewHP;
 
-        //playerStats.recovery = currentRecovery;
-
         experienceCap = levelRanges[0].expCapIncrease;
 
 
         XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
         HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+    }
+    
+    public void SpawnedWeapon(GameObject weapon)
+    {
+        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.SetParent(transform);
+        spawnedWeapons.Add(spawnedWeapon);
     }
 
     public void Death()
