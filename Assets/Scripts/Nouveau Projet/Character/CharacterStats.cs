@@ -96,6 +96,8 @@ public class CharacterStats : MonoBehaviour
     {
         maxWidth = VIDE.rect.width;
         maxHP = NoHealth.rect.width;
+        miniMax = NoHealth.rect.width;
+        //miniHealth = currentNewHP;
         maxHealth = currentNewHP;
 
         experienceCap = levelRanges[0].expCapIncrease;
@@ -162,13 +164,11 @@ public class CharacterStats : MonoBehaviour
     }
     public void HealthCheck()
     {
-        float HPPercentage = currentNewHP / playerStats.MaxHP; // Calculate the percentage of current health
-        float newHealthWidth = HPPercentage * maxHP; // Calculate the new width based on the percentage and the max width of the health bar
+        float HPPercentage = currentNewHP / playerStats.MaxHP; // adding mini health
+        float newHealthWidth = HPPercentage * maxHP; 
 
-        // Clamp the new width to ensure it doesn't exceed the maximum width
         newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
 
-        // Set the new size for the health bar
         RectTransform rectTransform = HpBar.rectTransform;
         rectTransform.sizeDelta = new Vector2(newHealthWidth, rectTransform.sizeDelta.y);
     }
