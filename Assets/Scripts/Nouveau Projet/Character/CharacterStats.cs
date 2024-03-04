@@ -41,9 +41,12 @@ public class CharacterStats : MonoBehaviour
 
     public RectTransform VIDE;
     public RectTransform NoHealth;
+    public RectTransform MiniNoHealth;
     private float maxWidth = 0f;
     private float maxHP;
     private float maxHealth;
+    private float miniMax;
+    //private float miniNoHealth;
 
     [Header("Gold")]
     public int gold;
@@ -97,7 +100,7 @@ public class CharacterStats : MonoBehaviour
         maxWidth = VIDE.rect.width;
         maxHP = NoHealth.rect.width;
         miniMax = NoHealth.rect.width;
-        //miniHealth = currentNewHP;
+       // miniNoHealth = miniNoHealth;
         maxHealth = currentNewHP;
 
         experienceCap = levelRanges[0].expCapIncrease;
@@ -166,11 +169,16 @@ public class CharacterStats : MonoBehaviour
     {
         float HPPercentage = currentNewHP / playerStats.MaxHP; // adding mini health
         float newHealthWidth = HPPercentage * maxHP; 
+        float MiniHPPercentage = currentNewHP / playerStats.MaxHP; 
+        float MininewHealthWidth = MiniHPPercentage * miniMax; 
 
         newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
 
         RectTransform rectTransform = HpBar.rectTransform;
         rectTransform.sizeDelta = new Vector2(newHealthWidth, rectTransform.sizeDelta.y);
+
+        RectTransform rektTransform = HpBar.rectTransform;
+
     }
 
 
