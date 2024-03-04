@@ -42,11 +42,11 @@ public class CharacterStats : MonoBehaviour
     public RectTransform VIDE;
     public RectTransform NoHealth;
     //public RectTransform MiniNoHealth;
-    private float maxWidth = 0f;
+    /*private float maxWidth = 0f;
     private float maxHP;
     private float maxHealth;
     private Transform miniHealth;
-    private Transform miniNoHealth;
+    private Transform miniNoHealth;*/
 
     [Header("Gold")]
     public int gold;
@@ -97,10 +97,10 @@ public class CharacterStats : MonoBehaviour
     }
     private void Start()
     {
-        maxWidth = VIDE.rect.width;
-        maxHP = NoHealth.rect.width;
+        //maxWidth = VIDE.rect.width;
+       // maxHP = NoHealth.rect.width;
         //MiniNO = miniNoHealth.rect().width;
-        maxHealth = currentNewHP;
+        //maxHealth = currentNewHP;
 
         experienceCap = levelRanges[0].expCapIncrease;
 
@@ -173,18 +173,11 @@ public class CharacterStats : MonoBehaviour
         HpBar.fillAmount = HPPercentage;
 
         /*float newHealthWidth = HPPercentage * maxHP; 
-
-        
         newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
-
-        
         RectTransform healthRectTransform = HpBar.rectTransform;
         healthRectTransform.sizeDelta = new Vector2(newHealthWidth, healthRectTransform.sizeDelta.y);*/
-
         
         //float smallerObjectSize = newHealthWidth * (miniNoHealth / maxHP); // Adjust the size relative to the max width of the smaller object
-
-        
        // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
 
