@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106cef3687f473943a6b9689a026268a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pullForce: 5
   healing: 25
 --- !u!70 &1750442679875686035
 CapsuleCollider2D:

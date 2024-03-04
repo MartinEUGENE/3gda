@@ -6,7 +6,9 @@ public class PlayerCollect : MonoBehaviour
 {
     CharacterStats player;
     CircleCollider2D circlePlayer;
-    public float pullForce; 
+
+    public float pullForce;
+  
 
 
     void Start()
