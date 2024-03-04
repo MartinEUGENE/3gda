@@ -15,6 +15,9 @@
 			<destination>{ef4039ee-4b89-47a2-b616-2883c70ff85c}</destination>
 			<destination>{dff1c81f-7627-46ce-9fd4-a9dfeb0cee44}</destination>
 			<destination>{1c61e0f7-dcd7-4b55-b6ff-852b41da3c91}</destination>
+			<destination>{eb7a9e1c-871f-4c70-8de8-64547ff245ae}</destination>
+			<destination>{34030b6f-95df-48fb-b8f4-5a0e7bf938bf}</destination>
+			<destination>{13cab297-8cb2-4ce0-a6ff-a0886e226fc5}</destination>
 		</relationship>
 	</object>
 	<object class="Tag" id="{eb9c10eb-b9c0-49c1-aee6-975feff9b6c1}">
@@ -65,6 +68,21 @@
 	<object class="Tag" id="{1c61e0f7-dcd7-4b55-b6ff-852b41da3c91}">
 		<property name="name">
 			<value>Water</value>
+		</property>
+	</object>
+	<object class="Tag" id="{eb7a9e1c-871f-4c70-8de8-64547ff245ae}">
+		<property name="name">
+			<value>Séquence</value>
+		</property>
+	</object>
+	<object class="Tag" id="{34030b6f-95df-48fb-b8f4-5a0e7bf938bf}">
+		<property name="name">
+			<value>de</value>
+		</property>
+	</object>
+	<object class="Tag" id="{13cab297-8cb2-4ce0-a6ff-a0886e226fc5}">
+		<property name="name">
+			<value>Gameplay</value>
 		</property>
 	</object>
 </objects>

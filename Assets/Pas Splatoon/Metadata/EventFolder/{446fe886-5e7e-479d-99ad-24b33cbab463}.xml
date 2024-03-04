@@ -5,7 +5,7 @@
 			<value>InactiveEnvironement</value>
 		</property>
 		<relationship name="folder">
-			<destination>{4f07508a-2800-47f4-9e9c-f0c5963e5095}</destination>
+			<destination>{a27e35b5-f052-44d2-8c01-e5926cdc8d7e}</destination>
 		</relationship>
 	</object>
 </objects>

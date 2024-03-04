@@ -11,7 +11,11 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] public CharactControls chara;
     //[SerializeField] public FirstWeapon weep;
     [SerializeField] public GameObject player; 
-    [SerializeField] public CharacterScriptable playerStats; 
+    [SerializeField] public CharacterScriptable playerStats;
+
+    //L'arme spawnée avec le joueur
+    public List<GameObject> spawnedWeapons; 
+
     [Header("Attack Stats")]
 
     public int currentAttack;
@@ -21,11 +25,13 @@ public class CharacterStats : MonoBehaviour
 
 
     [Header("Health")]
-    public int currentNewHP;
+    public float currentNewHP;
+    public float currentRecovery;
+    public float currentArmor;
 
     [Header("Other Stats")]
     
-    public int currentpickUp;
+    public float currentpickUp;
     public float currentSpeed;
 
     [Header("Experience/Level")]
@@ -39,6 +45,13 @@ public class CharacterStats : MonoBehaviour
     private float maxHP;
     private float maxHealth;
 
+    [Header("Gold")]
+    public int gold;
+
+    public bool invincible = false;
+    public float invincibleTimer; 
+    public float invincibleCooldown; 
+
     [System.Serializable]
 
     public class LevelRange
@@ -50,25 +63,13 @@ public class CharacterStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
-    private void Start()
-    {
-        maxWidth = VIDE.rect.width;
-        maxHP = NoHealth.rect.width;
-        maxHealth = currentNewHP;
-
-        experienceCap = levelRanges[0].expCapIncrease;
-
-       
-        XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        HpBar.rectTransform.pivot = new Vector2(0, 0.5f);
-       
-        
-    }
-
-
+    
     void Awake()
     {
+        playerStats = CharacterSelector.GetData();
+
         experience = 0;
+        gold = 0;
         level = 1;
 
         currentNewHP = playerStats.MaxHP;
@@ -82,7 +83,33 @@ public class CharacterStats : MonoBehaviour
 
         currentpickUp = playerStats.PickUp;
         currentSpeed = playerStats.MovSpeed;
+        currentArmor = playerStats.Armor;
+        currentRecovery = playerStats.recovery;
+
+        //Weapon Spawning
+        SpawnedWeapon(playerStats.StartingWeapon);
+
     }
+    private void Start()
+    {
+        maxWidth = VIDE.rect.width;
+        maxHP = NoHealth.rect.width;
+        maxHealth = currentNewHP;
+
+        experienceCap = levelRanges[0].expCapIncrease;
+
+
+        XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
+        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+    }
+    
+    public void SpawnedWeapon(GameObject weapon)
+    {
+        GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
+        spawnedWeapon.transform.SetParent(transform);
+        spawnedWeapons.Add(spawnedWeapon);
+    }
+
     public void Death()
     {
         if (currentNewHP <= 0)
@@ -97,14 +124,20 @@ public class CharacterStats : MonoBehaviour
         XPbar();
         LevelUpCheck();
     }
-
-    void LevelUpCheck()
+    public void IncreaseGold(int amount)
     {
-        if(experience >= experienceCap)  // ici pour martin: provoqué le choix d'upgrade et la monté des autres state et reset bar XP
+        gold += amount;
+
+    }
+    public void LevelUpCheck()
+    {
+        if(experience >= experienceCap)  // ici pour martin: provoque le choix d'upgrade et la montée des autres state et reset bar XP
         {
             level++;
             experience -= experienceCap;
-            currentSpeed *= 1.05f;
+            currentSpeed *= 1.15f;
+            currentAttack += 1;
+            invincible = true; 
 
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
@@ -116,7 +149,6 @@ public class CharacterStats : MonoBehaviour
             experienceCap += experienceCapIncrease;
         }
     }
-
     void XPbar()
     {
         float experiencePercentage = (float)experience / experienceCap;
@@ -126,7 +158,6 @@ public class CharacterStats : MonoBehaviour
         RectTransform rectTransform = XPBAR.rectTransform;
         rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
     }
-
     public void HealthCheck() // appeler dans l'attack de EnemiesSystem
     {// add mini health bar on the player
         
@@ -136,4 +167,47 @@ public class CharacterStats : MonoBehaviour
         RectTransform rectTransform = HpBar.rectTransform;
         rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
     }
+
+    public void Healing(float amount)
+    {
+        if (currentNewHP < playerStats.MaxHP)
+        {
+            currentNewHP += amount; 
+            Debug.Log("HEAL MY GUY");
+            if(currentNewHP > playerStats.MaxHP)
+            {
+                currentNewHP = playerStats.MaxHP;
+            }
+        }
+    }
+
+    void Recover()
+    {
+        if(currentNewHP < playerStats.MaxHP)
+        {
+            currentNewHP += currentRecovery * Time.deltaTime;
+        }
+
+        if (currentNewHP > playerStats.MaxHP)
+        {
+            currentNewHP = playerStats.MaxHP;
+        }
+    }
+
+    public void Update()
+    {
+        if(invincible == true)
+        {
+            invincibleTimer -= Time.deltaTime;
+            
+            if (invincibleTimer <= 0f)
+            {
+                invincible = false;
+                invincibleTimer = invincibleCooldown;
+            }
+        }
+
+        Recover();
+    }
+
 }

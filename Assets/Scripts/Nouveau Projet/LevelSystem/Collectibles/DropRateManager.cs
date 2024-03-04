@@ -14,7 +14,7 @@ public class DropRateManager : MonoBehaviour
 
     public List<Drops> drop;
 
-    void OnDestroy()
+    public void TryDrop()
     {
         float randomNmb = UnityEngine.Random.Range(0f, 100f);
         List<Drops> possibility = new List<Drops>();

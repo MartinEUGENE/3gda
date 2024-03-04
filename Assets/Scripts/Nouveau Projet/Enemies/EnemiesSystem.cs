@@ -2,29 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemiesSystem : MonoBehaviour
+[System.Serializable]
+public class LevelRange
 {
+    public int startingLevel;
+    public int endLevel;
+}
+
+public class EnemiesSystem : MonoBehaviour
+{    
+
+    public List<LevelRange> levelRangesEnemy;
+
+
     private Rigidbody2D rb2d;
+    private DropRateManager dropManager;
     GameObject playerObj;
     public EnemyStats stats;
+    CharacterStats playerStats; 
 
     public float currentSpeed;
     public int currentHealth;
-    public int currentDamage;
+    public float currentDamage;
 
     public float distanceDespawn = 15f;
-    Transform player; 
+    Transform player;
+
+    public int enemyLevel = 1; 
+
 
     public void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        dropManager = GetComponent<DropRateManager>();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         player = FindObjectOfType<CharacterStats>().transform;
+        playerStats = FindObjectOfType<CharacterStats>();
 
-        currentHealth = stats.EnemyHP;
-        currentDamage = stats.EnemyDmg;
-        currentSpeed = stats.EnemySpeed;
+
+        OnSpawn();
     }
+
+
+
     public void FixedUpdate()
     {
         EnemyMove();
@@ -32,7 +52,9 @@ public class EnemiesSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) > distanceDespawn)
+        //LevelUpCheck();
+
+        if (Vector2.Distance(transform.position, player.position) > distanceDespawn)
         {
             ReturnTheEnemy();
         }
@@ -49,6 +71,21 @@ public class EnemiesSystem : MonoBehaviour
 
     }
 
+    void OnSpawn()
+    {
+        CalculateStats();
+    }
+
+    void CalculateStats()
+    {
+        enemyLevel      = playerStats.level;
+        currentHealth   = stats.EnemyHP + enemyLevel * stats.HealthIncreaseByLevel;
+        currentDamage   = stats.EnemyDmg + enemyLevel * stats.DamageIncreaseByLevel;
+        currentSpeed    = stats.EnemySpeed + enemyLevel * stats.SpeedIncreseByLevel;
+    }
+    
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject == playerObj)
@@ -58,24 +95,34 @@ public class EnemiesSystem : MonoBehaviour
     }
     public virtual void EnemyAttack()
     {
-        playerObj.GetComponent<CharacterStats>().currentNewHP -=  currentDamage;
-        playerObj.GetComponent<CharacterStats>().HealthCheck();
-        
-        if(playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
+        if(playerObj.GetComponent<CharacterStats>().invincible == false)
+        {
+            float dmgDealt = currentDamage - playerObj.GetComponent<CharacterStats>().currentArmor; 
+            playerObj.GetComponent<CharacterStats>().currentNewHP -= dmgDealt;
+            playerObj.GetComponent<CharacterStats>().HealthCheck();
+            Debug.Log("Attacking the player");
+        }
+
+        if (playerObj.GetComponent<CharacterStats>().invincible == true)
+        {
+            Debug.Log("Look at the moves, FAKER, FAKER, WHAT WAS THAT ???");
+        }
+
+            if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
             Debug.Log("Killing the player");
 
         }
-        //Debug.Log("Attacking the player");
     }
 
     public virtual void TakeDmg(int dmg)
     {
-        currentHealth -= dmg; 
-
+        currentHealth -= dmg;
+        //Debug.Log(dmg);
         if(currentHealth <= 0)
         {
+            dropManager.TryDrop();
             Die();
         }
     } 
@@ -85,9 +132,9 @@ public class EnemiesSystem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void OnDestroy()
+    /*public void OnDestroy()
     {
         EnemySpawner us = FindObjectOfType<EnemySpawner>();
         us.EnemyKill();
-    }
+    }*/
 }

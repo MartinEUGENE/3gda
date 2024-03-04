@@ -10,6 +10,7 @@ TagManager:
   - Magnet
   - Wall
   - Bullet
+  - Weapon
   layers:
   - Default
   - TransparentFX

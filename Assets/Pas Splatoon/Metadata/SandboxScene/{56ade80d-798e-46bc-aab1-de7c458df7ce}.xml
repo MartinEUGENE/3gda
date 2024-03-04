@@ -55,13 +55,13 @@ en activant le ventilator de gauche e le rocher le wind pousse le rock dans la r
 	</object>
 	<object class="SandboxEmitter" id="{1ac22c9d-9fea-436b-a523-9240bebdf970}">
 		<property name="positionX">
-			<value>4.77500057</value>
+			<value>4.60000038</value>
 		</property>
 		<property name="positionZ">
-			<value>-0.199999914</value>
+			<value>-0.399999917</value>
 		</property>
 		<property name="rotationY">
-			<value>-166.29245</value>
+			<value>-166.567108</value>
 		</property>
 		<relationship name="event">
 			<destination>{727c5f42-b5a4-45c6-ab0e-edb95929cd1b}</destination>
