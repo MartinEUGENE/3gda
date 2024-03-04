@@ -89,6 +89,8 @@ public class CharacterStats : MonoBehaviour
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
 
+        
+        //HealthCheck();
     }
     private void Start()
     {
@@ -100,7 +102,7 @@ public class CharacterStats : MonoBehaviour
 
 
         XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        HpBar.rectTransform.pivot = new Vector2(0f, 0.5f);
     }
     
     public void SpawnedWeapon(GameObject weapon)
@@ -158,15 +160,19 @@ public class CharacterStats : MonoBehaviour
         RectTransform rectTransform = XPBAR.rectTransform;
         rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
     }
-    public void HealthCheck() // appeler dans l'attack de EnemiesSystem
-    {// add mini health bar on the player
-        
-        float HPPercentage = (float)currentNewHP / maxHealth;
-        float newhealth = HPPercentage * maxHP;
-        //Debug.Log("ouch");
+    public void HealthCheck()
+    {
+        float HPPercentage = currentNewHP / playerStats.MaxHP; // Calculate the percentage of current health
+        float newHealthWidth = HPPercentage * maxHP; // Calculate the new width based on the percentage and the max width of the health bar
+
+        // Clamp the new width to ensure it doesn't exceed the maximum width
+        newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
+
+        // Set the new size for the health bar
         RectTransform rectTransform = HpBar.rectTransform;
-        rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
+        rectTransform.sizeDelta = new Vector2(newHealthWidth, rectTransform.sizeDelta.y);
     }
+
 
     public void Healing(float amount)
     {
@@ -196,6 +202,7 @@ public class CharacterStats : MonoBehaviour
 
     public void Update()
     {
+        HealthCheck();
         if(invincible == true)
         {
             invincibleTimer -= Time.deltaTime;
