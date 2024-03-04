@@ -41,9 +41,12 @@ public class CharacterStats : MonoBehaviour
 
     public RectTransform VIDE;
     public RectTransform NoHealth;
-    private float maxWidth = 0f;
+    //public RectTransform MiniNoHealth;
+    /*private float maxWidth = 0f;
     private float maxHP;
     private float maxHealth;
+    private Transform miniHealth;
+    private Transform miniNoHealth;*/
 
     [Header("Gold")]
     public int gold;
@@ -89,18 +92,21 @@ public class CharacterStats : MonoBehaviour
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
 
+        
+        //HealthCheck();
     }
     private void Start()
     {
-        maxWidth = VIDE.rect.width;
-        maxHP = NoHealth.rect.width;
-        maxHealth = currentNewHP;
+        //maxWidth = VIDE.rect.width;
+       // maxHP = NoHealth.rect.width;
+        //MiniNO = miniNoHealth.rect().width;
+        //maxHealth = currentNewHP;
 
         experienceCap = levelRanges[0].expCapIncrease;
 
 
-        XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        HpBar.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+        //XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
+        //HpBar.rectTransform.pivot = new Vector2(0f, 0.5f);
     }
     
     public void SpawnedWeapon(GameObject weapon)
@@ -152,21 +158,30 @@ public class CharacterStats : MonoBehaviour
     void XPbar()
     {
         float experiencePercentage = (float)experience / experienceCap;
-        float newSize = experiencePercentage * maxWidth;
+        XPBAR.fillAmount = experiencePercentage;
 
-        
+        /*float newSize = experiencePercentage * maxWidth;
+
+        newSize = Mathf.Clamp(newSize, 0f, maxWidth);
+
         RectTransform rectTransform = XPBAR.rectTransform;
-        rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);
+        rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);*/
     }
-    public void HealthCheck() // appeler dans l'attack de EnemiesSystem
-    {// add mini health bar on the player
+    public void HealthCheck()
+    {
+        float HPPercentage = currentNewHP / playerStats.MaxHP;
+        HpBar.fillAmount = HPPercentage;
+
+        /*float newHealthWidth = HPPercentage * maxHP; 
+        newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
+        RectTransform healthRectTransform = HpBar.rectTransform;
+        healthRectTransform.sizeDelta = new Vector2(newHealthWidth, healthRectTransform.sizeDelta.y);*/
         
-        float HPPercentage = (float)currentNewHP / maxHealth;
-        float newhealth = HPPercentage * maxHP;
-        //Debug.Log("ouch");
-        RectTransform rectTransform = HpBar.rectTransform;
-        rectTransform.sizeDelta = new Vector2(newhealth, rectTransform.sizeDelta.y);
+        //float smallerObjectSize = newHealthWidth * (miniNoHealth / maxHP); // Adjust the size relative to the max width of the smaller object
+       // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
+
+
 
     public void Healing(float amount)
     {
@@ -196,6 +211,7 @@ public class CharacterStats : MonoBehaviour
 
     public void Update()
     {
+        HealthCheck();
         if(invincible == true)
         {
             invincibleTimer -= Time.deltaTime;
