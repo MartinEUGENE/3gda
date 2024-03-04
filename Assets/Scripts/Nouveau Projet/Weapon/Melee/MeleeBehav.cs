@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MeleeBehav : MeleeWeapon
 {
-    List<GameObject> markedEnemies; 
+    List<GameObject> markedEnemies;
+    //CharacterStats stats; 
 
     protected override void Start()
     {
@@ -17,7 +18,9 @@ public class MeleeBehav : MeleeWeapon
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(weapon.Damage + stats.currentAttack);
+            int truck = weapon.damage + stats.currentAttack; 
+            en.TakeDmg(truck);
+            Debug.Log(truck);
             markedEnemies.Add(other.gameObject);
         }
     }

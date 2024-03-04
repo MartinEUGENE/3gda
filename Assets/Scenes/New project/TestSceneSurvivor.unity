@@ -1187,16 +1187,31 @@ MonoBehaviour:
   waves:
   - enemyGroups:
     - enemyName: Enemy
-      enemyCount: 1500
+      enemyCount: 750
       enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
         type: 3}
       spawnCount: 0
+    - enemyName: Enemy
+      enemyCount: 500
+      enemyPrefab: {fileID: 7459164955246726320, guid: 6aaee0b6478fc8d4da0ff1850bc71ca0,
+        type: 3}
+      spawnCount: 0
     waveName: ah
-    waveCount: 1500
-    spawnInterv: 1.7
+    waveCount: 1250
+    spawnInterv: 3.5
     spawnCount: 0
   - enemyGroups:
-    - enemyName: Boss
+    - enemyName: AHA
+      enemyCount: 50
+      enemyPrefab: {fileID: 7459164955246726320, guid: c22354ab08dcf1e439542fcd1325ad5c,
+        type: 3}
+      spawnCount: 0
+    waveName: Booooooo
+    waveCount: 50
+    spawnInterv: 5
+    spawnCount: 0
+  - enemyGroups:
+    - enemyName: Ah this is a boss
       enemyCount: 1
       enemyPrefab: {fileID: 1746641256815211913, guid: 4bd25c34bada6474c9f04cce7b6aaf92,
         type: 3}
@@ -1206,7 +1221,7 @@ MonoBehaviour:
     spawnInterv: 1
     spawnCount: 0
   currentWaveCount: 0
-  waveInterval: 50
+  waveInterval: 60
   enemyAllowed: 125
   enemyAlive: 0
   maxEnemy: 0
