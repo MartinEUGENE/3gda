@@ -45,3 +45,11 @@ public class WeaponSystem : MonoBehaviour
     }
 
 }
+
+public enum WeaponType
+{
+    CloseRange,
+    MidRange,
+    LongRange,
+    AreaWeapon
+}

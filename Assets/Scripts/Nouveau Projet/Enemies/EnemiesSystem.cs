@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [System.Serializable]
 public class LevelRange
@@ -14,10 +16,11 @@ public class EnemiesSystem : MonoBehaviour
 
     public List<LevelRange> levelRangesEnemy;
 
+    public Text dmgText; 
 
-    private Rigidbody2D rb2d;
+    public Rigidbody2D rb2d;
     private DropRateManager dropManager;
-    GameObject playerObj;
+    public GameObject playerObj;
     public EnemyStats stats;
     CharacterStats playerStats; 
 
@@ -28,10 +31,10 @@ public class EnemiesSystem : MonoBehaviour
     public float distanceDespawn = 15f;
     Transform player;
 
-    public int enemyLevel = 1; 
+    public int enemyLevel = 1;
 
 
-    public void Awake()
+    public virtual void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
         dropManager = GetComponent<DropRateManager>();
@@ -45,15 +48,13 @@ public class EnemiesSystem : MonoBehaviour
 
 
 
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         EnemyMove();
     }
 
-    private void Update()
+    public virtual void Update()
     {
-        //LevelUpCheck();
-
         if (Vector2.Distance(transform.position, player.position) > distanceDespawn)
         {
             ReturnTheEnemy();
@@ -71,7 +72,7 @@ public class EnemiesSystem : MonoBehaviour
 
     }
 
-    void OnSpawn()
+    public virtual void OnSpawn()
     {
         CalculateStats();
     }
@@ -82,8 +83,7 @@ public class EnemiesSystem : MonoBehaviour
         currentHealth   = stats.EnemyHP + enemyLevel * stats.HealthIncreaseByLevel;
         currentDamage   = stats.EnemyDmg + enemyLevel * stats.DamageIncreaseByLevel;
         currentSpeed    = stats.EnemySpeed + enemyLevel * stats.SpeedIncreseByLevel;
-    }
-    
+    }   
 
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -108,7 +108,7 @@ public class EnemiesSystem : MonoBehaviour
             Debug.Log("Look at the moves, FAKER, FAKER, WHAT WAS THAT ???");
         }
 
-            if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
+        if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
             Debug.Log("Killing the player");
@@ -119,7 +119,9 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void TakeDmg(int dmg)
     {
         currentHealth -= dmg;
-        //Debug.Log(dmg);
+        Debug.Log(dmg);
+
+
         if(currentHealth <= 0)
         {
             dropManager.TryDrop();
@@ -131,6 +133,15 @@ public class EnemiesSystem : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    void DmgTxt(int dmg)
+    {
+        dmgText.enabled = true;
+
+        dmg = 0;
+        dmgText.text = string.Format("00", dmg);
+    }
+
 
     /*public void OnDestroy()
     {
