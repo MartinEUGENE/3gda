@@ -15,7 +15,7 @@ MonoBehaviour:
   startingWeapon: {fileID: 3473108540770449506, guid: 753e6a6bf27e21044932756e7b0cae31,
     type: 3}
   maxHP: 100
-  recovery: 0.5
+  recovery: 0.2
   armor: 15
   critRate: 5
   critDmg: 100

@@ -27,6 +27,11 @@ public class EnemySpawner : MonoBehaviour
     public int currentWaveCount; //numéro de la vague de base qui commence à 0 
     Transform player;
 
+    public int killCount;
+
+    public List<Transform> points; 
+
+
     ///public GameObject spawnPoint;
 
     [Header("Timer")]
@@ -100,8 +105,12 @@ public class EnemySpawner : MonoBehaviour
                         return;
                     }
 
-                    Vector2 spawnPoint = new Vector2(player.transform.position.x + Random.Range(-15f, 15f), player.transform.position.y + Random.Range(-15f,15f));
-                    Instantiate(enemyGroup.enemyPrefab, spawnPoint, Quaternion.identity);
+                    Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0,points.Count)].position, Quaternion.identity);
+
+
+                    /*Vector2 spawnPoint = new Vector2(player.transform.position.x + Random.Range(-15f, 15f), player.transform.position.y + Random.Range(-15f,15f));
+                    Instantiate(enemyGroup.enemyPrefab, spawnPoint, Quaternion.identity);*/
+
                     enemyGroup.spawnCount++;
                     waves[currentWaveCount].spawnCount++;
                     enemyAlive++; //ajoute 1 au compte d'ennemis vivants dans le niveau. 
@@ -119,6 +128,8 @@ public class EnemySpawner : MonoBehaviour
     public void EnemyKill()
     {
         enemyAlive--; //si un ennemi a été tué, on retire 1 ici. 
+        killCount++;
+        Debug.Log(killCount);
     }
 
 
