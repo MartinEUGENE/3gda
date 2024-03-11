@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Character", menuName = "Character/Stats")]
+[CreateAssetMenu(fileName = "Character", menuName = "Scriptable Objects/Character")]
 
 public class CharacterScriptable : ScriptableObject
 {
@@ -28,8 +28,8 @@ public class CharacterScriptable : ScriptableObject
     public float CritRate { get => critRate; private set => critRate = value; }
 
     [SerializeField]
-    int critDmg;
-    public int CritDmg { get => critDmg; private set => critDmg = value; }
+    float critDmg;
+    public float CritDmg { get => critDmg; private set => critDmg = value; }
 
     [SerializeField]
     float pickUp;

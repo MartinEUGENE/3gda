@@ -16,21 +16,9 @@ public class MeleeWeapon : MonoBehaviour
         stats = GetComponentInParent<CharacterStats>();
     }
 
-    /*protected virtual void Update()
+    public int GetCurrentDamage()
     {
-        mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousPos - transform.position;
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        return stats.currentAttack + weapon.damage;
+    }
 
-        transform.rotation = Quaternion.Euler(0, 0, rot);
-    }*/
-
-    /*private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            EnemiesSystem en = collision.gameObject.GetComponent<EnemiesSystem>();
-            en.TakeDmg(weapon.Damage);
-        }
-    }*/
 }

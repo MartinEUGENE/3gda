@@ -4,9 +4,17 @@ using UnityEngine;
 
 public class WeaponSystem : MonoBehaviour
 {
+    public enum WeaponType
+    {
+        CloseRange,
+        MidRange,
+        LongRange,
+        AreaWeapon
+    }
+
     [Header("Weapon Stats")]
     public WeaponStats weaponData;
-
+    public WeaponType weaponType; 
 
     [Header("Prefab Stored")]
     protected CharactControls chara;
@@ -46,10 +54,4 @@ public class WeaponSystem : MonoBehaviour
 
 }
 
-public enum WeaponType
-{
-    CloseRange,
-    MidRange,
-    LongRange,
-    AreaWeapon
-}
+

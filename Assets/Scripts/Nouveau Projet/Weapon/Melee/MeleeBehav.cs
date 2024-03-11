@@ -18,9 +18,8 @@ public class MeleeBehav : MeleeWeapon
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            int truck = weapon.damage + stats.currentAttack; 
-            en.TakeDmg(truck);
-            Debug.Log(truck);
+            en.TakeDmg(GetCurrentDamage());
+            Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
         }
     }

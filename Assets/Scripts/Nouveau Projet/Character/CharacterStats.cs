@@ -21,7 +21,7 @@ public class CharacterStats : MonoBehaviour
     public int currentAttack;
     public float currentAttackHaste;
     public float currentCriticalRate; 
-    public int currentCriticalDmg;
+    public float currentCriticalDmg;
 
 
     [Header("Health")]
@@ -69,6 +69,7 @@ public class CharacterStats : MonoBehaviour
     
     void Awake()
     {
+      //  playerStats = GetComponent<CharacterScriptable>();
         playerStats = CharacterSelector.GetData();
 
         experience = 0;
