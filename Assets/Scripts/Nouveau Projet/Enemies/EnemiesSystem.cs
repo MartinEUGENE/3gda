@@ -120,6 +120,10 @@ public class EnemiesSystem : MonoBehaviour
     {
         currentHealth -= dmg;
         //Debug.Log(dmg);
+
+        if (dmg > 0)
+            GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
+
         if(currentHealth <= 0)
         {
             dropManager.TryDrop();
