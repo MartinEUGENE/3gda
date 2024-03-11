@@ -28,6 +28,8 @@ public class EnemiesSystem : MonoBehaviour
     public int currentHealth;
     public float currentDamage;
 
+    GameManager gameManager; 
+
     public float distanceDespawn = 15f;
     Transform player;
 
@@ -119,6 +121,7 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void TakeDmg(int dmg)
     {
         currentHealth -= dmg;
+        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
         Debug.Log(dmg);
 
 

@@ -371,6 +371,10 @@ MonoBehaviour:
   pauseScreen: {fileID: 1301203030}
   currentState: 0
   previousState: 0
+  damageTextCanvas: {fileID: 2194205079143713235}
+  textFontSize: 25
+  textFont: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  referenceCamera: {fileID: 1795222182}
 --- !u!4 &879613020
 Transform:
   m_ObjectHideFlags: 0
@@ -1244,6 +1248,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0586d7d9ffa9f8047b75711b6e1ae59f, type: 3}
+--- !u!223 &2194205079143713235 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2194205079446968198, guid: 0586d7d9ffa9f8047b75711b6e1ae59f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2194205079143713234}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6513021268686175099
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1336,6 +1346,11 @@ PrefabInstance:
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[3].expCapIncrease
       value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

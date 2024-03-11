@@ -110,9 +110,8 @@ public class GameManager : MonoBehaviour
            
         }
     }
-    public static void GenerateFloatingText(string text, Transform target, float duration = 1.5f, float speed = 1f)
-    {
-        
+    public static void GenerateFloatingText(string text, Transform target, float duration = .75f, float speed = 1.25f)
+    {      
        
         // if canvas not set, end the function so we don't generate any floating text
         if (instance.damageTextCanvas == null)
