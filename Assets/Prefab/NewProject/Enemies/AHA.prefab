@@ -175,7 +175,7 @@ MonoBehaviour:
   startingTime: 5
   predictionLine: {fileID: 2658288579246907042}
   rushForce: 10
-  rushDist: 10
+  rushDist: 500
 --- !u!120 &2658288579246907042
 LineRenderer:
   m_ObjectHideFlags: 0

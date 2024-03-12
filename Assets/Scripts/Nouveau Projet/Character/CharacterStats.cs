@@ -140,6 +140,7 @@ public class CharacterStats : MonoBehaviour
     {
         if(experience >= experienceCap)  // ici pour martin: provoque le choix d'upgrade et la montée des autres state et reset bar XP
         {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
             experience -= experienceCap;
             currentSpeed *= 1.15f;

@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [Header("Pause Screen")]
     public GameObject pauseScreen;
 
+    /*[Header("LevelUp Screen")]
+    
+    */
     //État du jeu à un moment x
     public GameState currentState;
     //État du jeu avant l'état actuel
@@ -111,8 +114,7 @@ public class GameManager : MonoBehaviour
         }
     }
     public static void GenerateFloatingText(string text, Transform target, float duration = .75f, float speed = 1.25f)
-    {      
-       
+    { 
         // if canvas not set, end the function so we don't generate any floating text
         if (instance.damageTextCanvas == null)
         {
@@ -120,15 +122,15 @@ public class GameManager : MonoBehaviour
         }
 
          if (!instance.referenceCamera)
-        {
+         {
             instance.referenceCamera = Camera.main;
 
 
-        }
-        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(
-                        text, target, duration, speed
-                        )); 
+         }
+
+        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed)); 
     }
+
     public void ChangeState(GameState newState)
     {
         currentState = newState;

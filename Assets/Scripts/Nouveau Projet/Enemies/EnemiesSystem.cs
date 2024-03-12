@@ -134,6 +134,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public void Die()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/EnemyKill", GetComponent<Transform>().position);
         Destroy(gameObject);
     }
 
