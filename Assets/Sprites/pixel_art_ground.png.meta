@@ -108,12 +108,12 @@ TextureImporter:
       name: pixel_art_ground_0
       rect:
         serializedVersion: 2
-        x: 193
-        y: 64
-        width: 43
-        height: 39
+        x: 194
+        y: 70
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: pixel_art_ground_1
       rect:
         serializedVersion: 2
-        x: 59
+        x: 159
         y: 138
-        width: 31
-        height: 39
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,11 +151,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 58
-        y: 64
-        width: 31
-        height: 39
+        y: 71
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,10 +173,10 @@ TextureImporter:
         serializedVersion: 2
         x: 166
         y: 203
-        width: 31
-        height: 39
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,11 +193,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 13
-        y: 137
-        width: 43
-        height: 39
+        y: 144
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: pixel_art_ground_5
       rect:
         serializedVersion: 2
-        x: 193
-        y: 137
-        width: 43
-        height: 39
+        x: 194
+        y: 143
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,6 +226,27 @@ TextureImporter:
       bones: []
       spriteID: 5d23dca27540e184eb83495195f3ab44
       internalID: -447209879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pixel_art_ground_6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 71
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbc630f70493bf54787f9d110da7b6f1
+      internalID: -945487798
       vertices: []
       indices: 
       edges: []
@@ -243,6 +264,7 @@ TextureImporter:
     nameFileIdTable:
       pixel_art_ground_3: -1065057689
       pixel_art_ground_1: -229994618
+      pixel_art_ground_6: -945487798
       pixel_art_ground_4: -858215171
       pixel_art_ground_0: 1715495765
       pixel_art_ground_5: -447209879
