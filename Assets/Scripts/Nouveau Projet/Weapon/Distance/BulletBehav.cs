@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletBehav : BulletSystem
 {
+    
     protected override void Start()
     {
         base.Start();
@@ -14,4 +15,6 @@ public class BulletBehav : BulletSystem
         base.Update();
         transform.position += mousPos * weapon.speedrange * Time.deltaTime; 
     }
+
+    
 }

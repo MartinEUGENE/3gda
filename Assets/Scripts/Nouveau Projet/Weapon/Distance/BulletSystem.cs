@@ -10,12 +10,16 @@ public class BulletSystem : MonoBehaviour
     public Camera mainCam;
 
     public WeaponStats weapon;
+    public CharacterStats stats;
 
+    //List<GameObject> markedEnemies;
 
     protected virtual void Start()
     {
         Destroy(gameObject, destroyObj);
-        mainCam = FindObjectOfType<Camera>(); 
+        mainCam = FindObjectOfType<Camera>();
+        
+        //markedEnemies = new List<GameObject>();
     }
 
     protected virtual void Update()
@@ -31,4 +35,19 @@ public class BulletSystem : MonoBehaviour
         mousPos = dir; 
     }
 
+    /*protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
+        {
+            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+            en.TakeDmg(GetCurrentDamage());
+            Debug.Log(GetCurrentDamage());
+            markedEnemies.Add(other.gameObject);
+        }
+    }
+
+    public int GetCurrentDamage()
+    {
+        return stats.currentAttack + weapon.damage;
+    }*/
 }

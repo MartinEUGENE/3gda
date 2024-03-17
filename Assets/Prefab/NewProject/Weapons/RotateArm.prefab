@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142, type: 2}
+  weaponType: 0
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
   level: 1
