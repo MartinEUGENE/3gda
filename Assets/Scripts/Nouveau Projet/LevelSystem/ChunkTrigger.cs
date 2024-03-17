@@ -15,7 +15,7 @@ public class ChunkTrigger : MonoBehaviour
     // Update is called once per frame
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (col.CompareTag("player"))
+        if (col.CompareTag("Player"))
         {
             mc.currentChunk = target;
         }
@@ -23,7 +23,7 @@ public class ChunkTrigger : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.CompareTag("player"))
+        if (col.CompareTag("Player"))
         {
             if(mc.currentChunk == target)
             {
