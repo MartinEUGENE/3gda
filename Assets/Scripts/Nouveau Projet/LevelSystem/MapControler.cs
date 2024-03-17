@@ -17,6 +17,8 @@ public class MapControler : MonoBehaviour
     GameObject latestChunk;
     public float maxOpDistance; // must be greater than lenght and width of tilemap
     float opDistance;
+    float optiCooldown;
+    public float cooldonwDuration;
 
     void Start()
     {
@@ -112,6 +114,17 @@ public class MapControler : MonoBehaviour
 
     void ChunkOpti()
     {
+        optiCooldown -= Time.deltaTime;
+
+        if(optiCooldown <= 0f)
+        {
+            optiCooldown = cooldonwDuration;
+        }
+        else
+        { 
+           return;
+        } 
+
         foreach(GameObject chunk in spawnedChunks)
         {
             opDistance = Vector3.Distance(player.transform.position, chunk.transform.position);

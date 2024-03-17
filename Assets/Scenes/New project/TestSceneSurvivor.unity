@@ -238,6 +238,7 @@ MonoBehaviour:
   currentChunk: {fileID: 0}
   spawnedChunks: []
   maxOpDistance: 50
+  cooldonwDuration: 1
 --- !u!4 &359036377
 Transform:
   m_ObjectHideFlags: 0
