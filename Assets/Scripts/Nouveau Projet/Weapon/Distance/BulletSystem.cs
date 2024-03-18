@@ -6,6 +6,8 @@ public class BulletSystem : MonoBehaviour
 {
     [HideInInspector]
     public Vector3 mousPos;
+    public Vector3 mouseDir;
+    public Vector3 moveDir;
     public float destroyObj = 5f;
     public Camera mainCam;
 
@@ -18,18 +20,27 @@ public class BulletSystem : MonoBehaviour
     {
         Destroy(gameObject, destroyObj);
         mainCam = FindObjectOfType<Camera>();
-        
+        UpdateMouseData();
+        moveDir = mouseDir;
+        float rot = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rot);
         //markedEnemies = new List<GameObject>();
+        stats = FindObjectOfType<CharacterStats>();
     }
 
     protected virtual void Update()
     {
-        mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousPos - transform.position;
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rot);        
+      
     }
+
+    void UpdateMouseData()
+    {
+        mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        mouseDir = mousPos - transform.position;
+        mouseDir.z = 0;
+        mouseDir.Normalize();
+    }
+
     public virtual void VerifDir(Vector3 dir)
     {
         mousPos = dir; 

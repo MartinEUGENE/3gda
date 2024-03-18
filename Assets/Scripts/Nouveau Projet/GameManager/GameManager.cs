@@ -94,19 +94,19 @@ public class GameManager : MonoBehaviour
         while (t < duration)// la couleurs change selon l'arme
         {
 
-            Debug.Log(t);
+            //Debug.Log(t);
             yield return w;
             t += Time.deltaTime;
 
             //tmPro.color = new Color(tmPro.color.r, tmPro.color.g, 1 - t / duration);
 
-            Debug.Log("re");
+            //Debug.Log("re");
             if (t>0.5)
             { 
                 yOffset += speed * Time.deltaTime;
                 //rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
                 rect.position = rect.position + new Vector3(0, yOffset);
-                Debug.Log("done");
+                //Debug.Log("done");
                 alpha.alpha -= Time.deltaTime;
                 tmPro.fontSize = tmPro.fontSize -10f *Time.deltaTime;
             }

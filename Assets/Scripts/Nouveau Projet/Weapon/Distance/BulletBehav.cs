@@ -17,7 +17,7 @@ public class BulletBehav : BulletSystem
     protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
     {
         base.Update();
-        transform.position += mousPos * weapon.speedrange * Time.deltaTime; 
+        transform.position += moveDir * weapon.speedrange * Time.deltaTime;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -26,7 +26,7 @@ public class BulletBehav : BulletSystem
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
             en.TakeDmg(GetCurrentDamage());
-            Debug.Log(GetCurrentDamage());
+            //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
         }
     }

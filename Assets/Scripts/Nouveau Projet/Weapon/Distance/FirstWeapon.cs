@@ -27,12 +27,11 @@ public class FirstWeapon : WeaponSystem
 
         base.Shoot();
         GameObject instantiatedBullet = Instantiate(weaponData.PrefabObj);
-    
-    
-    instantiatedBullet.transform.position = transform.position;
+        BulletSystem bulletSys = instantiatedBullet.GetComponent<BulletSystem>();
 
-    
-    instantiatedBullet.GetComponent<BulletSystem>().VerifDir(mousePos);
+        instantiatedBullet.transform.position = transform.position;
+
+        bulletSys.VerifDir(mousePos);
     }
 
     protected override void Update()
