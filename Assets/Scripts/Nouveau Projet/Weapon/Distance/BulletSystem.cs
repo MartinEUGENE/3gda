@@ -35,7 +35,7 @@ public class BulletSystem : MonoBehaviour
         mousPos = dir; 
     }
 
-    /*protected virtual void OnTriggerEnter2D(Collider2D other)
+   /* protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
