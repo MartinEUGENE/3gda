@@ -807,19 +807,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemyGroups:
-    - enemyName: Rush
-      enemyCount: 50
-      enemyPrefab: {fileID: 7459164955246726320, guid: c22354ab08dcf1e439542fcd1325ad5c,
+    - enemyName: Turrets enemies
+      enemyCount: 10
+      enemyPrefab: {fileID: 7459164955246726320, guid: 6aaee0b6478fc8d4da0ff1850bc71ca0,
         type: 3}
       spawnCount: 0
-    - enemyName: Enemy
-      enemyCount: 100
-      enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
-        type: 3}
-      spawnCount: 0
-    waveName: Wave Rush
-    waveCount: 150
-    spawnInterv: 1.2
+    waveName: Turrets
+    waveCount: 10
+    spawnInterv: 1
     spawnCount: 0
   currentWaveCount: 0
   killCount: 0
@@ -1210,6 +1205,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1524819409853562578, guid: bb91824ef04561e45be65e0716af3ffc,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524819409853562578, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524819409853562578, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524819409853562578, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -1258,10 +1268,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1524819409853562578, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1524819409853562579, guid: bb91824ef04561e45be65e0716af3ffc,
         type: 3}
       propertyPath: m_Name
       value: terrain chunk
+      objectReference: {fileID: 0}
+    - target: {fileID: 1524819409853562581, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
+      propertyPath: propPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 3784181638754435790, guid: 875a526b07752aa42983fa2d4f10788c,
+        type: 3}
+    - target: {fileID: 1524819410946781098, guid: bb91824ef04561e45be65e0716af3ffc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb91824ef04561e45be65e0716af3ffc, type: 3}

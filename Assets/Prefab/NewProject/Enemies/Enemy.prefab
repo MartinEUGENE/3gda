@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5fe1a13ed21e3e248aceea3e9730ff51, type: 2}
+  - {fileID: 2100000, guid: c4043062305ae3a49afc786292a0c984, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,6 +102,9 @@ MonoBehaviour:
   levelRangesEnemy:
   - startingLevel: 1
     endLevel: 500
+  dmgText: {fileID: 0}
+  rb2d: {fileID: 0}
+  playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
   currentSpeed: 0
   currentHealth: 0

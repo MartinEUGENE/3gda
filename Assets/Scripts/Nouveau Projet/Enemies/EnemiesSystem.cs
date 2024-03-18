@@ -27,11 +27,15 @@ public class EnemiesSystem : MonoBehaviour
     public float currentSpeed;
     public int currentHealth;
     public float currentDamage;
+    public float currentTiming;
 
     GameManager gameManager; 
 
     public float distanceDespawn = 15f;
     Transform player;
+
+    protected Vector2 playerTransform;
+    protected Vector3 playerVector; 
 
     public int enemyLevel = 1;
 
@@ -44,6 +48,10 @@ public class EnemiesSystem : MonoBehaviour
         player = FindObjectOfType<CharacterStats>().transform;
         playerStats = FindObjectOfType<CharacterStats>();
 
+        playerTransform = player.transform.position;
+        playerVector = playerObj.transform.position;
+
+        currentTiming = stats.EnemyTiming; 
 
         OnSpawn();
     }
@@ -57,7 +65,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > distanceDespawn)
+        if (Vector2.Distance(transform.position, playerTransform) > distanceDespawn)
         {
             ReturnTheEnemy();
         }
@@ -65,7 +73,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyMove()
     {
-        Vector2 direction = (playerObj.transform.position - transform.position).normalized;
+        Vector2 direction = (playerVector - transform.position).normalized;
         rb2d.velocity = direction * currentSpeed;
     }
 
@@ -99,9 +107,9 @@ public class EnemiesSystem : MonoBehaviour
     {
         if(playerObj.GetComponent<CharacterStats>().invincible == false)
         {
-            float dmgDealt = currentDamage - playerObj.GetComponent<CharacterStats>().currentArmor; 
-            playerObj.GetComponent<CharacterStats>().currentNewHP -= dmgDealt;
-            playerObj.GetComponent<CharacterStats>().HealthCheck();
+            float dmgDealt = currentDamage - playerStats.currentArmor;
+            playerStats.currentNewHP -= dmgDealt;
+            playerStats.HealthCheck();
             Debug.Log("Attacking the player");
         }
 
@@ -134,18 +142,9 @@ public class EnemiesSystem : MonoBehaviour
 
     public void Die()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/EnemyKill", GetComponent<Transform>().position);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/EnemyKill", transform.position);
         Destroy(gameObject);
     }
-
-    void DmgTxt(int dmg)
-    {
-        dmgText.enabled = true;
-
-        dmg = 0;
-        dmgText.text = string.Format("00", dmg);
-    }
-
 
     /*public void OnDestroy()
     {
