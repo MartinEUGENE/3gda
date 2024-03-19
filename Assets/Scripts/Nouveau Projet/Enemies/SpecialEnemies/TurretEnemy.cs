@@ -35,7 +35,7 @@ public class TurretEnemy : EnemiesSystem
 
     IEnumerator TrueShot()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         Vector2 direction = playerVector - transform.position;
         Instantiate(bullet, transform.position, Quaternion.identity);

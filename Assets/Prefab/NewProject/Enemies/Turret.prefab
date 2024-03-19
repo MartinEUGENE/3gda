@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5424853228338653660}
   - component: {fileID: 7392186065513742821}
   - component: {fileID: -1057327176285059650}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,6 +166,7 @@ MonoBehaviour:
   rb2d: {fileID: 5424853228338653660}
   playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: 914ded79b029ba741b7082dccc1487a2, type: 2}
+  playerStats: {fileID: 0}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
@@ -173,3 +174,6 @@ MonoBehaviour:
   distanceDespawn: 15
   enemyLevel: 1
   bullet: {fileID: 6107885345596464036, guid: 917b84dfbbd5cb146a95ba07119dec4c, type: 3}
+  internalTiming: 0
+  bulletNb: 0
+  bulletTick: 0
