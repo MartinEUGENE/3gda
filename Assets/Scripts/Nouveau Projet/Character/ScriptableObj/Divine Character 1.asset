@@ -20,6 +20,6 @@ MonoBehaviour:
   critRate: 100
   critDmg: 100
   pickUp: 50000
-  movSpeed: 5
+  movSpeed: 3
   attack: 50000000
   projectileSpeed: 2

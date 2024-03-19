@@ -174,7 +174,7 @@ MonoBehaviour:
   enemyLevel: 1
   startingTime: 5
   predictionLine: {fileID: 2658288579246907042}
-  rushForce: 10
+  rushForce: 25
   rushDist: 500
 --- !u!120 &2658288579246907042
 LineRenderer:
