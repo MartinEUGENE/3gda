@@ -545,7 +545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 956102974}
   - component: {fileID: 956102975}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: mini NOhealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -704,7 +704,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1161811733}
   - component: {fileID: 1161811734}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: 4Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -991,7 +991,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1871909042}
   - component: {fileID: 1871909043}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: mini health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1514,6 +1514,11 @@ PrefabInstance:
       propertyPath: levelRanges.Array.data[3].expCapIncrease
       value: 250
       objectReference: {fileID: 0}
+    - target: {fileID: 713487338968674693, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: m_Icon
@@ -1523,6 +1528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513021268895284890, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -1583,6 +1593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConstrainProportionsScale
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7609182824086101980, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8002570475007746729, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

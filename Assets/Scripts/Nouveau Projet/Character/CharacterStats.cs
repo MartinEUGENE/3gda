@@ -117,14 +117,6 @@ public class CharacterStats : MonoBehaviour
         spawnedWeapons.Add(spawnedWeapon);
     }
 
-    public void Death()
-    {
-        if (currentNewHP <= 0)
-        {
-            chara.enabled = false;
-            Destroy(gameObject);
-        }
-    }
     public void IncreaseExperience(int amount)
     {
         experience += amount;
@@ -183,7 +175,18 @@ public class CharacterStats : MonoBehaviour
        // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
 
-
+    public void DmgTaken(int dmg)
+    {
+        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
+    }
+    public void Death()
+    {
+        if (currentNewHP <= 0)
+        {
+            chara.enabled = false;
+            Destroy(gameObject);
+        }
+    }
 
     public void Healing(float amount)
     {

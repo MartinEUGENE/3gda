@@ -19,7 +19,6 @@ public class MeleeBehav : MeleeWeapon
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
             en.TakeDmg(GetCurrentDamage());
-            Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
         }
     }

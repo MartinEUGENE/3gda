@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2024024431644030638}
   - component: {fileID: 5424853228338653660}
   - component: {fileID: 7392186065513742821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -106,9 +106,11 @@ MonoBehaviour:
   rb2d: {fileID: 0}
   playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
+  playerStats: {fileID: 0}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  currentTiming: 0
   distanceDespawn: 15
   enemyLevel: 1
 --- !u!114 &2024024431644030638

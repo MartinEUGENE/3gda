@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1814746097928583388}
   - component: {fileID: 682394394895436620}
   - component: {fileID: 4180137402489922263}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Boss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -52,10 +52,15 @@ MonoBehaviour:
   levelRangesEnemy:
   - startingLevel: 1
     endLevel: 500
+  dmgText: {fileID: 0}
+  rb2d: {fileID: 0}
+  playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: cd3500779d0348e49a1cb2d50b931b81, type: 2}
+  playerStats: {fileID: 0}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
+  currentTiming: 0
   distanceDespawn: 0
   enemyLevel: 1
 --- !u!114 &7183189207188213655

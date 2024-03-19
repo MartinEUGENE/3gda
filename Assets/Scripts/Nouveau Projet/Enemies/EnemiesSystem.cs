@@ -22,7 +22,7 @@ public class EnemiesSystem : MonoBehaviour
     private DropRateManager dropManager;
     public GameObject playerObj;
     public EnemyStats stats;
-    CharacterStats playerStats; 
+    public CharacterStats playerStats; 
 
     public float currentSpeed;
     public int currentHealth;
@@ -51,7 +51,6 @@ public class EnemiesSystem : MonoBehaviour
         playerTransform = player.transform.position;
         playerVector = playerObj.transform.position;
 
-        currentTiming = stats.EnemyTiming; 
 
         OnSpawn();
     }
@@ -109,8 +108,9 @@ public class EnemiesSystem : MonoBehaviour
         {
             float dmgDealt = currentDamage - playerStats.currentArmor;
             playerStats.currentNewHP -= dmgDealt;
+            playerStats.DmgTaken(Mathf.FloorToInt(dmgDealt));
+
             playerStats.HealthCheck();
-            Debug.Log("Attacking the player");
         }
 
         if (playerObj.GetComponent<CharacterStats>().invincible == true)
@@ -121,8 +121,6 @@ public class EnemiesSystem : MonoBehaviour
         if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
-            Debug.Log("Killing the player");
-
         }
     }
 
@@ -131,7 +129,6 @@ public class EnemiesSystem : MonoBehaviour
         currentHealth -= dmg;
         GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
         Debug.Log(dmg);
-
 
         if(currentHealth <= 0)
         {
