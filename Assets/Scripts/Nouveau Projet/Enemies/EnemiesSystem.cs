@@ -128,7 +128,7 @@ public class EnemiesSystem : MonoBehaviour
     {
         currentHealth -= dmg;
         GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
-        Debug.Log(dmg);
+        //Debug.Log(dmg);
 
         if(currentHealth <= 0)
         {

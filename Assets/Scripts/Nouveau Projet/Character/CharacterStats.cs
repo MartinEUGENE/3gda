@@ -91,9 +91,7 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
 
         //Weapon Spawning
-        SpawnedWeapon(playerStats.StartingWeapon);
-
-        
+        SpawnedWeapon(playerStats.StartingWeapon);        
         //HealthCheck();
     }
     private void Start()
