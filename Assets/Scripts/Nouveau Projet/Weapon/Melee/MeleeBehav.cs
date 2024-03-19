@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeBehav : MeleeWeapon
 {
     List<GameObject> markedEnemies;
-    //CharacterStats stats; 
+    WeaponSystem wetNoodle; 
 
     protected override void Start()
     {

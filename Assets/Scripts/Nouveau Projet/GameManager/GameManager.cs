@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1.5f, float speed = 10f)
+    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f)
     {
         GameObject textObj = new GameObject("Damage Floating Text");
         textObj.AddComponent<CanvasGroup>();
@@ -123,7 +123,6 @@ public class GameManager : MonoBehaviour
          if (!instance.referenceCamera)
          {
             instance.referenceCamera = Camera.main;
-
 
          }
 

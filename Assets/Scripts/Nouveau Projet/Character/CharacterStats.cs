@@ -66,11 +66,15 @@ public class CharacterStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
+    InventoryManager inventory; 
+    public int weaponIndex;
+    public int passiveIndex;
     
     void Awake()
     {
-      //  playerStats = GetComponent<CharacterScriptable>();
+        //playerStats = GetComponent<CharacterScriptable>();
         playerStats = CharacterSelector.GetData();
+        inventory = GetComponent<InventoryManager>();
 
         experience = 0;
         gold = 0;
@@ -112,7 +116,18 @@ public class CharacterStats : MonoBehaviour
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        spawnedWeapons.Add(spawnedWeapon);
+        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponSystem>());
+
+        weaponIndex++;
+    }
+
+    public void SpawnedPassive(GameObject passive)
+    {
+        GameObject spawnedPassive = Instantiate(passive, transform.position, Quaternion.identity);
+        spawnedPassive.transform.SetParent(transform);
+        inventory.AddPassive(passiveIndex, spawnedPassive.GetComponent<PassiveItem>());
+
+        passiveIndex++;
     }
 
     public void IncreaseExperience(int amount)
@@ -124,7 +139,6 @@ public class CharacterStats : MonoBehaviour
     public void IncreaseGold(int amount)
     {
         gold += amount;
-
     }
     public void LevelUpCheck()
     {
@@ -191,7 +205,6 @@ public class CharacterStats : MonoBehaviour
         if (currentNewHP < playerStats.MaxHP)
         {
             currentNewHP += amount; 
-            Debug.Log("HEAL MY GUY");
             if(currentNewHP > playerStats.MaxHP)
             {
                 currentNewHP = playerStats.MaxHP;

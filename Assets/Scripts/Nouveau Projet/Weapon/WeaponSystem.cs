@@ -12,9 +12,10 @@ public class WeaponSystem : MonoBehaviour
         AreaWeapon
     }
 
+
     [Header("Weapon Stats")]
     public WeaponStats weaponData;
-    public WeaponType weaponType; 
+    public WeaponType weaponType;
 
     [Header("Prefab Stored")]
     protected CharactControls chara;
@@ -23,7 +24,7 @@ public class WeaponSystem : MonoBehaviour
 
 
     [Header("Weapon Level")]
-    public int level = 1;
+    public int currentLevel = 1;
     protected virtual void Start()
     {
         chara = FindObjectOfType<CharactControls>();

@@ -15,11 +15,11 @@ MonoBehaviour:
   startingWeapon: {fileID: 3473108540770449506, guid: 753e6a6bf27e21044932756e7b0cae31,
     type: 3}
   maxHP: 5000000
-  recovery: 999999
-  armor: 500000000
+  recovery: 5000000
+  armor: 5000000
   critRate: 100
-  critDmg: 100
+  critDmg: 3
   pickUp: 50000
   movSpeed: 3
-  attack: 50000000
+  attack: 100
   projectileSpeed: 2

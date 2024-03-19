@@ -11,11 +11,14 @@ public class InventoryManager : MonoBehaviour
     public void AddWeapon(int slotsIndex, WeaponSystem weapon)
     {
         weaponSlots[slotsIndex] = weapon;
+        weaponLvls[slotsIndex] = weapon.weaponData.Level ; 
     }
 
     public void AddPassive(int slotsIndex, PassiveItem item)
     {
-        passiveSlots[slotsIndex] = item; 
+        passiveSlots[slotsIndex] = item;
+        passiveLvls[slotsIndex] = item.passiveItem.Level;
+
     }
 
     public void LevelUpWeapon(int slotIndex)

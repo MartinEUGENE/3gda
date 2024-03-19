@@ -109,13 +109,12 @@ public class EnemiesSystem : MonoBehaviour
             float dmgDealt = currentDamage - playerStats.currentArmor;
             playerStats.currentNewHP -= dmgDealt;
             playerStats.DmgTaken(Mathf.FloorToInt(dmgDealt));
-
             playerStats.HealthCheck();
         }
 
         if (playerObj.GetComponent<CharacterStats>().invincible == true)
         {
-            Debug.Log("Look at the moves, FAKER, FAKER, WHAT WAS THAT ???");
+
         }
 
         if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
