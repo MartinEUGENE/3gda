@@ -9,6 +9,8 @@ public class MeleeWeapon : MonoBehaviour
     //public Camera mainCam;
     public int inateCrit;
 
+    public bool hasCrit; 
+
 
     public CharacterStats stats;
     public WeaponStats weapon;
@@ -30,10 +32,13 @@ public class MeleeWeapon : MonoBehaviour
         if (stats.currentCriticalRate >= inateCrit)
         {
             dmgResult *= Mathf.FloorToInt(stats.currentCriticalDmg);
+            hasCrit = true; 
         }
+
         else
         {
             dmgResult = stats.currentAttack + weapon.damage;
+            hasCrit = false;
         }
 
         return dmgResult;

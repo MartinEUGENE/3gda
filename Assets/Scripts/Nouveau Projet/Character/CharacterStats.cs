@@ -75,7 +75,6 @@ public class CharacterStats : MonoBehaviour
         //playerStats = GetComponent<CharacterScriptable>();
         playerStats = CharacterSelector.GetData();
         inventory = GetComponent<InventoryManager>();
-
         experience = 0;
         gold = 0;
         level = 1;
@@ -95,7 +94,7 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
 
         //Weapon Spawning
-        SpawnedWeapon(playerStats.StartingWeapon);        
+         SpawnedWeapon(playerStats.StartingWeapon);        
         //HealthCheck();
     }
     private void Start()
@@ -107,7 +106,6 @@ public class CharacterStats : MonoBehaviour
 
         experienceCap = levelRanges[0].expCapIncrease;
 
-
         //XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
         //HpBar.rectTransform.pivot = new Vector2(0f, 0.5f);
     }
@@ -116,19 +114,20 @@ public class CharacterStats : MonoBehaviour
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponent<WeaponSystem>());
+        //spawnedWeapons.Add(spawnedWeapon);
+        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponentInChildren<WeaponSystem>());
 
         weaponIndex++;
     }
 
-    public void SpawnedPassive(GameObject passive)
-    {
-        GameObject spawnedPassive = Instantiate(passive, transform.position, Quaternion.identity);
-        spawnedPassive.transform.SetParent(transform);
-        inventory.AddPassive(passiveIndex, spawnedPassive.GetComponent<PassiveItem>());
+     public void SpawnedPassive(GameObject passive)
+     {
+         GameObject spawnedPassive = Instantiate(passive, transform.position, Quaternion.identity);
+         spawnedPassive.transform.SetParent(transform);
+         inventory.AddPassive(passiveIndex, spawnedPassive.GetComponent<PassiveItem>());
 
-        passiveIndex++;
-    }
+         passiveIndex++;
+     }
 
     public void IncreaseExperience(int amount)
     {
@@ -147,8 +146,8 @@ public class CharacterStats : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
             experience -= experienceCap;
-            currentSpeed *= 1.15f;
-            currentAttack += 1;
+            //currentSpeed *= 1.15f;
+            //currentAttack += 1;
             invincible = true; 
 
             int experienceCapIncrease = 0;
@@ -189,7 +188,7 @@ public class CharacterStats : MonoBehaviour
 
     public void DmgTaken(int dmg)
     {
-        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
+        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
     }
     public void Death()
     {
@@ -204,8 +203,10 @@ public class CharacterStats : MonoBehaviour
     {
         if (currentNewHP < playerStats.MaxHP)
         {
-            currentNewHP += amount; 
-            if(currentNewHP > playerStats.MaxHP)
+            currentNewHP += amount;
+            GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
+
+            if (currentNewHP > playerStats.MaxHP)
             {
                 currentNewHP = playerStats.MaxHP;
             }

@@ -123,11 +123,10 @@ public class EnemiesSystem : MonoBehaviour
         }
     }
 
-    public virtual void TakeDmg(int dmg)
+    public virtual void TakeDmg(int dmg, bool crit)
     {
         currentHealth -= dmg;
-        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform);
-        //Debug.Log(dmg);
+        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, .75f, crit, false, false);
 
         if(currentHealth <= 0)
         {

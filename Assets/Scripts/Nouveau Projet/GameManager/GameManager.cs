@@ -25,6 +25,11 @@ public class GameManager : MonoBehaviour
     //État du jeu avant l'état actuel
     public GameState previousState;
 
+    public Color healChara; 
+    public Color normalDmg;
+    public Color critDmg;
+    public Color playerDmg;
+
     [Header("Damage Text Settings")]
     public Canvas damageTextCanvas;
     public float textFontSize = 20;
@@ -69,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f)
+    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f, bool crit = true, bool heal = true, bool chara = false)
     {
         GameObject textObj = new GameObject("Damage Floating Text");
         textObj.AddComponent<CanvasGroup>();
@@ -97,10 +102,26 @@ public class GameManager : MonoBehaviour
             yield return w;
             t += Time.deltaTime;
 
-            //tmPro.color = new Color(tmPro.color.r, tmPro.color.g, 1 - t / duration);
+            if(crit)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = critDmg; 
+            }
+            else if(heal)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = healChara;
+            }
+            else if (chara)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = playerDmg;
+            }
+
+            else
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = normalDmg;
+            }
 
             //Debug.Log("re");
-            if (t>0.5)
+            if (t > 0.2)
             { 
                 yOffset += speed * Time.deltaTime;
                 //rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
@@ -108,11 +129,11 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("done");
                 alpha.alpha -= Time.deltaTime;
                 tmPro.fontSize = tmPro.fontSize -10f *Time.deltaTime;
-            }
+            }   
            
         }
     }
-    public static void GenerateFloatingText(string text, Transform target, float duration = .75f, float speed = 1.25f)
+    public static void GenerateFloatingText(string text, Transform target, float duration = 1f, float speed = 1.25f, bool crit = true, bool heal = true, bool chara = false)
     { 
         // if canvas not set, end the function so we don't generate any floating text
         if (instance.damageTextCanvas == null)
@@ -126,7 +147,11 @@ public class GameManager : MonoBehaviour
 
          }
 
-        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed)); 
+        bool Crit = crit;
+        bool Heal = heal;
+        bool Chara = chara;
+
+        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed, Crit, Heal, Chara)); 
     }
 
     public void ChangeState(GameState newState)

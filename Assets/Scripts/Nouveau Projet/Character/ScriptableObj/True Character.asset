@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 494890be2288ee943b7ab548f69bb992, type: 3}
   m_Name: True Character
   m_EditorClassIdentifier: 
-  startingWeapon: {fileID: 3473108540770449506, guid: 753e6a6bf27e21044932756e7b0cae31,
+  startingWeapon: {fileID: 3473108540770449506, guid: a03ab59c1d9c1d240b021707cf6969a1,
     type: 3}
   maxHP: 100
   recovery: 0.2
