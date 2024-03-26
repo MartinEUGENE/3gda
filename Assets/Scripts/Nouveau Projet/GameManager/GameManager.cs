@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Pause Screen")]
     public GameObject pauseScreen;
+    public GameObject resultScreen; 
 
     /*[Header("LevelUp Screen")]
     
@@ -35,6 +36,9 @@ public class GameManager : MonoBehaviour
     public float textFontSize = 20;
     public TMP_FontAsset textFont;
     public Camera referenceCamera;
+
+
+    public bool isGameOver = false;
 
     private void Awake()
     {
@@ -59,7 +63,14 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-                //Code à mettre pour la case de l'état de jeu ici. 
+                
+                if(!isGameOver)
+                {
+                    isGameOver = true;
+                    Time.timeScale = 0f; 
+                    DisplayResults();
+                }
+
                 break;
 
             case GameState.LevelUp:
@@ -199,6 +210,16 @@ public class GameManager : MonoBehaviour
     void DisableScreens()
     {
         pauseScreen.SetActive(false);
+        resultScreen.SetActive(false);
     }
 
+    public void GameOver()
+    {
+        ChangeState(GameState.GameOver); 
+    }
+
+    void DisplayResults()
+    {
+        resultScreen.SetActive(true);
+    }
 }

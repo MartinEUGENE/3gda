@@ -40,6 +40,12 @@ public class CharactControls : MonoBehaviour
         lastMovVector = new Vector2(1f, 0f);
     }
 
+
+    private void Update()
+    {
+        InputManagement();
+    }
+
     public void FixedUpdate()
     {  
         Movement();
@@ -53,14 +59,27 @@ public class CharactControls : MonoBehaviour
 
     public void Movement()
     {
+        if (GameManager.instance.isGameOver)
+        {
+            return;
+        }
+
+        rb.velocity = moving * characterStats.currentSpeed; 
+    }
+
+    void InputManagement()
+    {
+        if(GameManager.instance.isGameOver)
+        {
+            return; 
+        }
+
         moving.x = Input.GetAxisRaw("Horizontal");
         moving.y = Input.GetAxisRaw("Vertical");
 
-        animate.hoerizontal = moving.x; 
+        animate.hoerizontal = moving.x;
 
         moving.Normalize();
-
-        rb.velocity = moving * characterStats.currentSpeed; 
     }
 
 

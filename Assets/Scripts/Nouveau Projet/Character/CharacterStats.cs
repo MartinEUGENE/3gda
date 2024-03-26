@@ -177,6 +177,12 @@ public class CharacterStats : MonoBehaviour
         float HPPercentage = currentNewHP / playerStats.MaxHP;
         HpBar.fillAmount = HPPercentage;
 
+
+        if(currentNewHP <=0f)
+        {
+            Death();
+        }
+
         /*float newHealthWidth = HPPercentage * maxHP; 
         newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
         RectTransform healthRectTransform = HpBar.rectTransform;
@@ -191,12 +197,11 @@ public class CharacterStats : MonoBehaviour
         GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
     }
     public void Death()
-    {
-        if (currentNewHP <= 0)
-        {
-            chara.enabled = false;
-            Destroy(gameObject);
-        }
+    {       
+            if(!GameManager.instance.isGameOver)
+            {
+                GameManager.instance.GameOver();
+            }
     }
 
     public void Healing(float amount)
