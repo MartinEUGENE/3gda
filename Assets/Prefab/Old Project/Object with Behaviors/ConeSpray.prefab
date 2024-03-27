@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6222448441268027007}
   - component: {fileID: 8801494941674107115}
   m_Layer: 0
-  m_Name: Triangle
-  m_TagString: Untagged
+  m_Name: ConeSpray
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ee3fdfba526b94ba08e18a1c7417ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mousPos: {x: 0, y: 0, z: 0}
+  destroyObj: 2
+  stats: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
   duration: 0.25
   destroyDelay: 0.145
 --- !u!60 &8801494941674107115
@@ -111,7 +115,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

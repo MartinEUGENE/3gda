@@ -1,22 +1,27 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class ConeBehaviour : MonoBehaviour
+
+public class ConeBehaviour : MeleeWeapon
 {
     public float duration = 0.5f;
     public float destroyDelay = 0.25f;
     private float timer = 0f;
     private bool destroyScheduled = false;
 
-    //private Rigidbody rigi;
     private Vector3 initialLocalPosition;
+    List<GameObject> markedEnemies;
 
-    private void Awake()
+    //private Rigidbody rigi;
+    /*private void Awake()
     {
         //rigi = GetComponent<Rigidbody>();
         //rigi.constraints = RigidbodyConstraints.FreezeRotation;
-    }
-    void Start()
+    }*/
+    protected override void Start()
     {
+        base.Start();
+        markedEnemies = new List<GameObject>();
         initialLocalPosition = transform.localPosition;
     }
 
@@ -26,13 +31,10 @@ public class ConeBehaviour : MonoBehaviour
 
         float progress = Mathf.Clamp01(timer / duration);
 
-        // Increase the scale by 2 units in all axes
         Vector3 newScale = Vector3.one * (0.5f + 1f * progress);
 
-        // Set the new scale
         transform.localScale = newScale;
 
-        // If the animation is complete, schedule destruction
         if (progress >= 0.5f && !destroyScheduled)
         {
             Invoke("DestroyObject", destroyDelay);
@@ -44,4 +46,19 @@ public class ConeBehaviour : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
+        {
+            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+            en.TakeDmg(GetCurrentDamage());
+            //Debug.Log("boom");
+            markedEnemies.Add(other.gameObject);
+        }
+    }
+    /*public int GetCurrentDamage()
+    {
+        return stats.currentAttack + weapon.damage;
+    }*/
 }
