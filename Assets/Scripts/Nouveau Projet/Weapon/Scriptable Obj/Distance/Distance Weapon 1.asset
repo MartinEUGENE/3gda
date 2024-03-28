@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Distance Weapon 1
   m_EditorClassIdentifier: 
   damage: 5
-  speedrange: 2
+  speedrange: 25
   quantity: 0
   weaponReload: 2
-  cooldown: 0
+  cooldown: 0.9006329
   pierceEffect: 0
   prefabObj: {fileID: 7905828093271916926, guid: 70ddef1a9ac19aa40b11f2ec53ffcb6b,
     type: 3}

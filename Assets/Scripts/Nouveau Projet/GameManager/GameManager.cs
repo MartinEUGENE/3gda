@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    //un des différents états du jeu créés avec un enum
+    //un des diffï¿½rents ï¿½tats du jeu crï¿½ï¿½s avec un enum
     public enum GameState
     {
         Gameplay,
@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Damage Colors and GameStates")]
     public GameState currentState;
-    //État du jeu avant l'état actuel
+    //ï¿½tat du jeu avant l'ï¿½tat actuel
     public GameState previousState;
 
     public Color healChara; 
@@ -58,12 +58,12 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GameState.Gameplay:
-                //Code à mettre pour la case de l'état de jeu ici.
+                //Code ï¿½ mettre pour la case de l'ï¿½tat de jeu ici.
                 CheckPauseResume();
                 break;
 
             case GameState.Pause:
-                //Code à mettre pour la case de l'état de jeu ici. 
+                //Code ï¿½ mettre pour la case de l'ï¿½tat de jeu ici. 
                 CheckPauseResume();
                 break;
 
@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
 
                 break;
 
-            //Ligne pour gérer dans un cas où on se retrouve sur le mauvais gamestate.
+            //Ligne pour gï¿½rer dans un cas oï¿½ on se retrouve sur le mauvais gamestate.
             default:
                 Debug.LogWarning("This GameState does not exist, why are you here ?");
                 break;

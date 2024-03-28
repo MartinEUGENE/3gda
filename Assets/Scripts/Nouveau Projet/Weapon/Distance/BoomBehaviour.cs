@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletBehav : BulletSystem
+public class BoomBehaviour : BulletSystem
 {
-
     List<GameObject> markedEnemies;
+    public int countDown = 0;
 
     protected override void Start()
     {
@@ -14,12 +14,16 @@ public class BulletBehav : BulletSystem
 
     }
 
-    protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
+    protected override void Update() 
     {
         base.Update();
-        transform.position += moveDir * weapon.speedrange * Time.deltaTime;
+        countDown += 1;
+        if (countDown >= 200)
+        {
+            Destroy(gameObject);
+        }
+        
     }
-
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
@@ -30,7 +34,6 @@ public class BulletBehav : BulletSystem
             markedEnemies.Add(other.gameObject);
         }
     }
-
     public int GetCurrentDamage()
     {
         return stats.currentAttack + weapon.damage;
