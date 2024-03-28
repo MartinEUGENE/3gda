@@ -5,6 +5,8 @@ using UnityEngine;
 public class BoomBulletBehaviour : BulletSystem
 {
     List<GameObject> markedEnemies;
+
+    public int countDown = 0;
     public GameObject explosion;
 
     protected override void Start()
@@ -18,6 +20,12 @@ public class BoomBulletBehaviour : BulletSystem
     {
         base.Update();
         transform.position += moveDir * weapon.speedrange * Time.deltaTime;
+
+        countDown += 1;
+        if (countDown >= 40)
+        {
+            Boom();
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -28,13 +36,19 @@ public class BoomBulletBehaviour : BulletSystem
             en.TakeDmg(GetCurrentDamage());
             //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
-            Instantiate(explosion);
-            Destroy(gameObject);
+            Boom();
+            
         }
     }
 
     public int GetCurrentDamage()
     {
         return stats.currentAttack + weapon.damage;
+    }
+
+    public void Boom()
+    {
+        Instantiate(explosion, transform.position, Quaternion.identity); //affect scale par lvl a rajouter
+        Destroy(gameObject);
     }
 }

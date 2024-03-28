@@ -9,7 +9,7 @@ public class BoomBehaviour : BulletSystem
 
     protected override void Start()
     {
-        
+        base.Start();
         markedEnemies = new List<GameObject>();
 
     }
@@ -18,7 +18,7 @@ public class BoomBehaviour : BulletSystem
     {
         base.Update();
         countDown += 1;
-        if (countDown >= 2)
+        if (countDown >= 200)
         {
             Destroy(gameObject);
         }
