@@ -25,8 +25,10 @@ public class ConeBehaviour : MeleeWeapon
         initialLocalPosition = transform.localPosition;
     }
 
-    void Update()
+    protected override void Update()
     {
+        inateCrit = Random.Range(1, 100);
+
         timer += Time.deltaTime;
 
         float progress = Mathf.Clamp01(timer / duration);
@@ -52,7 +54,7 @@ public class ConeBehaviour : MeleeWeapon
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage());
+            en.TakeDmg(GetCurrentDamage(), hasCrit);
             //Debug.Log("boom");
             markedEnemies.Add(other.gameObject);
         }

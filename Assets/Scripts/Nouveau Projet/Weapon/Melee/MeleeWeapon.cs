@@ -20,7 +20,7 @@ public class MeleeWeapon : MonoBehaviour
         Destroy(gameObject, destroyObj);
         stats = GetComponentInParent<CharacterStats>();
     }
-    public void Update()
+    protected virtual void Update()
     {
         inateCrit = Random.Range(1, 100);
     }
