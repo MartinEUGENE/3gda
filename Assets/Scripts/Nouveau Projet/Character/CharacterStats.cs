@@ -158,6 +158,9 @@ public class CharacterStats : MonoBehaviour
             }
             XPbar();
             experienceCap += experienceCapIncrease;
+
+            GameManager.instance.Levelling();
+
         }
     }
     void XPbar()

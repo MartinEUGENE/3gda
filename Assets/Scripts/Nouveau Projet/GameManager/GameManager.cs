@@ -16,12 +16,15 @@ public class GameManager : MonoBehaviour
 
     [Header("Pause Screen")]
     public GameObject pauseScreen;
-    public GameObject resultScreen; 
 
-    /*[Header("LevelUp Screen")]
-    
-    */
-    //État du jeu à un moment x
+    [Header("Results Screen")]
+    public GameObject resultScreen;
+
+    [Header("Level Up Screen")]
+    public GameObject levelUpScreen;
+
+
+    [Header("Damage Colors and GameStates")]
     public GameState currentState;
     //État du jeu avant l'état actuel
     public GameState previousState;
@@ -39,6 +42,8 @@ public class GameManager : MonoBehaviour
 
 
     public bool isGameOver = false;
+
+    public bool isChoosingUpgrade = false; 
 
     private void Awake()
     {
@@ -74,7 +79,14 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.LevelUp:
-                //Code à mettre pour la case de l'état de jeu ici. 
+
+                if(!isChoosingUpgrade)
+                {
+                    isChoosingUpgrade = true;
+                    Time.timeScale = 0f;
+                    levelUpScreen.SetActive(true);
+                }
+
                 break;
 
             //Ligne pour gérer dans un cas où on se retrouve sur le mauvais gamestate.
@@ -211,6 +223,8 @@ public class GameManager : MonoBehaviour
     {
         pauseScreen.SetActive(false);
         resultScreen.SetActive(false);
+        levelUpScreen.SetActive(false);
+
     }
 
     public void GameOver()
@@ -221,5 +235,20 @@ public class GameManager : MonoBehaviour
     void DisplayResults()
     {
         resultScreen.SetActive(true);
+    }
+
+    public void Levelling()
+    {
+        ChangeState(GameState.LevelUp);
+    }
+
+
+    public void DoneLevelling()
+    {
+        isChoosingUpgrade = false;
+        Time.timeScale = 1f;
+
+        levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay); 
     }
 }
