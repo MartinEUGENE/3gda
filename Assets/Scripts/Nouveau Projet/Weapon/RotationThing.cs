@@ -14,11 +14,14 @@ public class RotationThing : MonoBehaviour
 
     void Update()
     {
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousePos - transform.position;
-        Vector3 rotat = transform.position - mousePos; 
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        if(Time.timeScale != 0f)
+        {
+            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 dir = mousePos - transform.position;
+            Vector3 rotat = transform.position - mousePos;
+            float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, rot);
+            transform.rotation = Quaternion.Euler(0, 0, rot);
+        }
     }
 }

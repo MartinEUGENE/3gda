@@ -33,7 +33,7 @@ public class BoomBulletBehaviour : BulletSystem
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage());
+            en.TakeDmg(GetCurrentDamage(), hasCrit);
             //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
             Boom();

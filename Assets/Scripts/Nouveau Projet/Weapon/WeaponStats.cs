@@ -34,5 +34,13 @@ public class WeaponStats : ScriptableObject
 
     [SerializeField]
     public GameObject prefabObj;  
-    public GameObject PrefabObj { get => prefabObj; protected set => prefabObj = value; } 
+    public GameObject PrefabObj { get => prefabObj; protected set => prefabObj = value; }
+
+    [SerializeField]
+    public int level;
+    public int Level { get => level; protected set => level = value; }
+
+    [SerializeField] 
+    public GameObject nextWeapon; //Pas de modifs pendant le gameplay 
+    public GameObject NextWeapon { get => nextWeapon; protected set => nextWeapon = value; }
 }

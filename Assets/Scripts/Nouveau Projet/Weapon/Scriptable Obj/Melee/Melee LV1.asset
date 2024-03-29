@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
-  m_Name: spray
+  m_Name: Melee LV1
   m_EditorClassIdentifier: 
   damage: 20
   speedrange: 0
   quantity: 0
-  weaponReload: 1
-  cooldown: 0.38831943
-  pierceEffect: 1
-  prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
+  weaponReload: 2
+  cooldown: 1.3705891
+  pierceEffect: 0
+  prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
+    type: 3}
+  level: 1
+  nextWeapon: {fileID: 3473108540770449506, guid: 9bcbd544bb671244388cab2a8a23cf83,
     type: 3}

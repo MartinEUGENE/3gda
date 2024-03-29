@@ -66,12 +66,15 @@ public class CharacterStats : MonoBehaviour
 
     public List<LevelRange> levelRanges;
 
+    InventoryManager inventory; 
+    public int weaponIndex;
+    public int passiveIndex;
     
     void Awake()
     {
-      //  playerStats = GetComponent<CharacterScriptable>();
+        //playerStats = GetComponent<CharacterScriptable>();
         playerStats = CharacterSelector.GetData();
-
+        inventory = GetComponent<InventoryManager>();
         experience = 0;
         gold = 0;
         level = 1;
@@ -91,9 +94,7 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
 
         //Weapon Spawning
-        SpawnedWeapon(playerStats.StartingWeapon);
-
-        
+         SpawnedWeapon(playerStats.StartingWeapon);        
         //HealthCheck();
     }
     private void Start()
@@ -105,7 +106,6 @@ public class CharacterStats : MonoBehaviour
 
         experienceCap = levelRanges[0].expCapIncrease;
 
-
         //XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
         //HpBar.rectTransform.pivot = new Vector2(0f, 0.5f);
     }
@@ -114,17 +114,21 @@ public class CharacterStats : MonoBehaviour
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        spawnedWeapons.Add(spawnedWeapon);
+        //spawnedWeapons.Add(spawnedWeapon);
+        inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponentInChildren<WeaponSystem>());
+
+        weaponIndex++;
     }
 
-    public void Death()
-    {
-        if (currentNewHP <= 0)
-        {
-            chara.enabled = false;
-            Destroy(gameObject);
-        }
-    }
+     public void SpawnedPassive(GameObject passive)
+     {
+         GameObject spawnedPassive = Instantiate(passive, transform.position, Quaternion.identity);
+         spawnedPassive.transform.SetParent(transform);
+         inventory.AddPassive(passiveIndex, spawnedPassive.GetComponent<PassiveItem>());
+
+         passiveIndex++;
+     }
+
     public void IncreaseExperience(int amount)
     {
         experience += amount;
@@ -134,7 +138,6 @@ public class CharacterStats : MonoBehaviour
     public void IncreaseGold(int amount)
     {
         gold += amount;
-
     }
     public void LevelUpCheck()
     {
@@ -143,8 +146,8 @@ public class CharacterStats : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
             experience -= experienceCap;
-            currentSpeed *= 1.15f;
-            currentAttack += 1;
+            //currentSpeed *= 1.15f;
+            //currentAttack += 1;
             invincible = true; 
 
             int experienceCapIncrease = 0;
@@ -155,6 +158,9 @@ public class CharacterStats : MonoBehaviour
             }
             XPbar();
             experienceCap += experienceCapIncrease;
+
+            GameManager.instance.Levelling();
+
         }
     }
     void XPbar()
@@ -174,6 +180,12 @@ public class CharacterStats : MonoBehaviour
         float HPPercentage = currentNewHP / playerStats.MaxHP;
         HpBar.fillAmount = HPPercentage;
 
+
+        if(currentNewHP <=0f)
+        {
+            Death();
+        }
+
         /*float newHealthWidth = HPPercentage * maxHP; 
         newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
         RectTransform healthRectTransform = HpBar.rectTransform;
@@ -183,15 +195,26 @@ public class CharacterStats : MonoBehaviour
        // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
 
-
+    public void DmgTaken(int dmg)
+    {
+        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+    }
+    public void Death()
+    {       
+            if(!GameManager.instance.isGameOver)
+            {
+                GameManager.instance.GameOver();
+            }
+    }
 
     public void Healing(float amount)
     {
         if (currentNewHP < playerStats.MaxHP)
         {
-            currentNewHP += amount; 
-            Debug.Log("HEAL MY GUY");
-            if(currentNewHP > playerStats.MaxHP)
+            currentNewHP += amount;
+            GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
+
+            if (currentNewHP > playerStats.MaxHP)
             {
                 currentNewHP = playerStats.MaxHP;
             }

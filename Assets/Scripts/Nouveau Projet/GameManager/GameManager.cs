@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    //un des différents états du jeu créés avec un enum
+    //un des diffï¿½rents ï¿½tats du jeu crï¿½ï¿½s avec un enum
     public enum GameState
     {
         Gameplay,
@@ -17,19 +17,33 @@ public class GameManager : MonoBehaviour
     [Header("Pause Screen")]
     public GameObject pauseScreen;
 
-    /*[Header("LevelUp Screen")]
-    
-    */
-    //État du jeu à un moment x
+    [Header("Results Screen")]
+    public GameObject resultScreen;
+
+    [Header("Level Up Screen")]
+    public GameObject levelUpScreen;
+
+
+    [Header("Damage Colors and GameStates")]
     public GameState currentState;
-    //État du jeu avant l'état actuel
+    //ï¿½tat du jeu avant l'ï¿½tat actuel
     public GameState previousState;
+
+    public Color healChara; 
+    public Color normalDmg;
+    public Color critDmg;
+    public Color playerDmg;
 
     [Header("Damage Text Settings")]
     public Canvas damageTextCanvas;
     public float textFontSize = 20;
     public TMP_FontAsset textFont;
     public Camera referenceCamera;
+
+
+    public bool isGameOver = false;
+
+    public bool isChoosingUpgrade = false; 
 
     private void Awake()
     {
@@ -44,24 +58,38 @@ public class GameManager : MonoBehaviour
         switch (currentState)
         {
             case GameState.Gameplay:
-                //Code à mettre pour la case de l'état de jeu ici.
+                //Code ï¿½ mettre pour la case de l'ï¿½tat de jeu ici.
                 CheckPauseResume();
                 break;
 
             case GameState.Pause:
-                //Code à mettre pour la case de l'état de jeu ici. 
+                //Code ï¿½ mettre pour la case de l'ï¿½tat de jeu ici. 
                 CheckPauseResume();
                 break;
 
             case GameState.GameOver:
-                //Code à mettre pour la case de l'état de jeu ici. 
+                
+                if(!isGameOver)
+                {
+                    isGameOver = true;
+                    Time.timeScale = 0f; 
+                    DisplayResults();
+                }
+
                 break;
 
             case GameState.LevelUp:
-                //Code à mettre pour la case de l'état de jeu ici. 
+
+                if(!isChoosingUpgrade)
+                {
+                    isChoosingUpgrade = true;
+                    Time.timeScale = 0f;
+                    levelUpScreen.SetActive(true);
+                }
+
                 break;
 
-            //Ligne pour gérer dans un cas où on se retrouve sur le mauvais gamestate.
+            //Ligne pour gï¿½rer dans un cas oï¿½ on se retrouve sur le mauvais gamestate.
             default:
                 Debug.LogWarning("This GameState does not exist, why are you here ?");
                 break;
@@ -69,7 +97,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1.5f, float speed = 10f)
+    IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f, bool crit = true, bool heal = true, bool chara = false)
     {
         GameObject textObj = new GameObject("Damage Floating Text");
         textObj.AddComponent<CanvasGroup>();
@@ -93,15 +121,30 @@ public class GameManager : MonoBehaviour
         
         while (t < duration)// la couleurs change selon l'arme
         {
-
             //Debug.Log(t);
             yield return w;
             t += Time.deltaTime;
 
-            //tmPro.color = new Color(tmPro.color.r, tmPro.color.g, 1 - t / duration);
+            if(crit)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = critDmg; 
+            }
+            else if(heal)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = healChara;
+            }
+            else if (chara)
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = playerDmg;
+            }
+
+            else
+            {
+                textObj.GetComponent<TextMeshProUGUI>().color = normalDmg;
+            }
 
             //Debug.Log("re");
-            if (t>0.5)
+            if (t > 0.2)
             { 
                 yOffset += speed * Time.deltaTime;
                 //rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
@@ -109,11 +152,11 @@ public class GameManager : MonoBehaviour
                 //Debug.Log("done");
                 alpha.alpha -= Time.deltaTime;
                 tmPro.fontSize = tmPro.fontSize -10f *Time.deltaTime;
-            }
+            }   
            
         }
     }
-    public static void GenerateFloatingText(string text, Transform target, float duration = .75f, float speed = 1.25f)
+    public static void GenerateFloatingText(string text, Transform target, float duration = 1f, float speed = 1.25f, bool crit = true, bool heal = true, bool chara = false)
     { 
         // if canvas not set, end the function so we don't generate any floating text
         if (instance.damageTextCanvas == null)
@@ -125,10 +168,13 @@ public class GameManager : MonoBehaviour
          {
             instance.referenceCamera = Camera.main;
 
-
          }
 
-        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed)); 
+        bool Crit = crit;
+        bool Heal = heal;
+        bool Chara = chara;
+
+        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed, Crit, Heal, Chara)); 
     }
 
     public void ChangeState(GameState newState)
@@ -176,6 +222,33 @@ public class GameManager : MonoBehaviour
     void DisableScreens()
     {
         pauseScreen.SetActive(false);
+        resultScreen.SetActive(false);
+        levelUpScreen.SetActive(false);
+
     }
 
+    public void GameOver()
+    {
+        ChangeState(GameState.GameOver); 
+    }
+
+    void DisplayResults()
+    {
+        resultScreen.SetActive(true);
+    }
+
+    public void Levelling()
+    {
+        ChangeState(GameState.LevelUp);
+    }
+
+
+    public void DoneLevelling()
+    {
+        isChoosingUpgrade = false;
+        Time.timeScale = 1f;
+
+        levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay); 
+    }
 }

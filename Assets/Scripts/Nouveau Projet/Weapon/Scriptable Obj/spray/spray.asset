@@ -10,13 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
-  m_Name: bombes
+  m_Name: spray
   m_EditorClassIdentifier: 
   damage: 20
   speedrange: 0
-  quantity: 1
-  weaponReload: 2
-  cooldown: 0.99588114
+  quantity: 0
+  weaponReload: 1
+  cooldown: 0.38831943
   pierceEffect: 1
-  prefabObj: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
+  prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
     type: 3}
+  level: 1
+  nextWeapon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7360420987635536388}
   - component: {fileID: 4499410268194775257}
   m_Layer: 0
-  m_Name: RotateArm
+  m_Name: Melee LV 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,8 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d09c289b6cdb2546a5406b07f6404ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: f3f37098cf005eb4e8d4de0c60c3c142, type: 2}
+  weaponData: {fileID: 11400000, guid: 9f5138a99d7f94046b6ecaacdff50b3e, type: 2}
   weaponType: 0
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
-  level: 1
+  currentLevel: 4

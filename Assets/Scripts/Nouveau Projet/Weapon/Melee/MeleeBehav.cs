@@ -5,7 +5,7 @@ using UnityEngine;
 public class MeleeBehav : MeleeWeapon
 {
     List<GameObject> markedEnemies;
-    //CharacterStats stats; 
+    WeaponSystem wetNoodle; 
 
     protected override void Start()
     {
@@ -17,9 +17,8 @@ public class MeleeBehav : MeleeWeapon
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
-            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage());
-            Debug.Log(GetCurrentDamage());
+            EnemiesSystem enemy = other.GetComponent<EnemiesSystem>();
+            enemy.TakeDmg(GetCurrentDamage(), hasCrit);
             markedEnemies.Add(other.gameObject);
         }
     }

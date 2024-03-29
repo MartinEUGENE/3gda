@@ -14,6 +14,9 @@ public class BulletSystem : MonoBehaviour
     public WeaponStats weapon;
     public CharacterStats stats;
 
+    public int inateCrit;
+    public bool hasCrit;
+
     //List<GameObject> markedEnemies;
 
     protected virtual void Start()
@@ -30,7 +33,7 @@ public class BulletSystem : MonoBehaviour
 
     protected virtual void Update()
     {
-      
+        inateCrit = Random.Range(1, 100);
     }
 
     void UpdateMouseData()
@@ -46,19 +49,23 @@ public class BulletSystem : MonoBehaviour
         mousPos = dir; 
     }
 
-   /* protected virtual void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
-        {
-            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage());
-            Debug.Log(GetCurrentDamage());
-            markedEnemies.Add(other.gameObject);
-        }
-    }
-
     public int GetCurrentDamage()
     {
-        return stats.currentAttack + weapon.damage;
-    }*/
+        int dmgResult = stats.currentAttack + weapon.damage;
+
+        if (stats.currentCriticalRate >= inateCrit)
+        {
+            dmgResult *= Mathf.FloorToInt(stats.currentCriticalDmg);
+            hasCrit = true;
+        }
+
+        else
+        {
+            dmgResult = stats.currentAttack + weapon.damage;
+            hasCrit = false;
+        }
+
+        return dmgResult;
+
+    }
 }

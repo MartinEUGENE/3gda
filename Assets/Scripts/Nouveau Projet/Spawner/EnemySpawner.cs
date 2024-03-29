@@ -129,7 +129,6 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyAlive--; //si un ennemi a été tué, on retire 1 ici. 
         killCount++;
-        Debug.Log(killCount);
     }
 
 
