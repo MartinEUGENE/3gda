@@ -99,8 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ee3fdfba526b94ba08e18a1c7417ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScale: {x: 2, y: 2, z: 2}
-  growthSpeed: 3
+  mousPos: {x: 2, y: 2, z: 0}
+  destroyObj: 2
+  inateCrit: 0
+  hasCrit: 0
+  stats: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
   weaponStats: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
 --- !u!60 &8801494941674107115
 PolygonCollider2D:

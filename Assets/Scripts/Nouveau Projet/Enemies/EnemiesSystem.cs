@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -68,6 +69,11 @@ public class EnemiesSystem : MonoBehaviour
         {
             ReturnTheEnemy();
         }
+    }
+
+    internal void TakeDmg(int v)
+    {
+        throw new NotImplementedException();
     }
 
     public virtual void EnemyMove()

@@ -12,12 +12,7 @@ public class ConeBehaviour : MeleeWeapon
     private Vector3 initialLocalPosition;
     List<GameObject> markedEnemies;
 
-    //private Rigidbody rigi;
-    /*private void Awake()
-    {
-        //rigi = GetComponent<Rigidbody>();
-        //rigi.constraints = RigidbodyConstraints.FreezeRotation;
-    }*/
+  
     protected override void Start()
     {
         base.Start();
@@ -59,8 +54,5 @@ public class ConeBehaviour : MeleeWeapon
             markedEnemies.Add(other.gameObject);
         }
     }
-    /*public int GetCurrentDamage()
-    {
-        return stats.currentAttack + weapon.damage;
-    }*/
+    
 }
