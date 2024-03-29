@@ -1,50 +1,48 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-
-public class ConeBehaviour : MeleeWeapon
+public class ConeBehaviour : MonoBehaviour
 {
-    public float duration = 0.5f;
-    public float destroyDelay = 0.25f;
-    private float timer = 0f;
+    public Vector3 targetScale = new Vector3(1, 1, 1); // Set the target scale here
+    public float growthSpeed = 1.0f; // Adjust as needed
+
+    private bool isGrowing = true;
+
+    private float cooldownTimer = 0f;
     private bool destroyScheduled = false;
 
-    private Vector3 initialLocalPosition;
-    List<GameObject> markedEnemies;
+    private List<GameObject> markedEnemies;
 
-    //private Rigidbody rigi;
-    /*private void Awake()
+    public WeaponStats weaponStats; // Reference to the WeaponStats object
+
+    protected void Start()
     {
-        //rigi = GetComponent<Rigidbody>();
-        //rigi.constraints = RigidbodyConstraints.FreezeRotation;
-    }*/
-    protected override void Start()
-    {
-        base.Start();
         markedEnemies = new List<GameObject>();
-        initialLocalPosition = transform.localPosition;
+        transform.localScale = Vector3.zero; // Start at zero scale
     }
 
     void Update()
     {
-        timer += Time.deltaTime;
+        cooldownTimer += Time.deltaTime;
 
-        float progress = Mathf.Clamp01(timer / duration);
-
-        Vector3 newScale = Vector3.one * (0.5f + 1f * progress);//affect scale par lvl a rajouter
-
-        transform.localScale = newScale;
-
-        if (progress >= 0.5f && !destroyScheduled)
+        if (cooldownTimer >= weaponStats.Cooldown && !destroyScheduled)
         {
-            Invoke("DestroyObject", destroyDelay);
+            Destroy(gameObject);
             destroyScheduled = true;
         }
-    }
 
-    void DestroyObject()
-    {
-        Destroy(gameObject);
+        if (isGrowing)
+        {
+            transform.localScale += Vector3.one * growthSpeed * Time.deltaTime;
+
+            if (transform.localScale.x >= targetScale.x &&
+                transform.localScale.y >= targetScale.y &&
+                transform.localScale.z >= targetScale.z)
+            {
+                transform.localScale = targetScale;
+                isGrowing = false;
+            }
+        }
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -53,12 +51,13 @@ public class ConeBehaviour : MeleeWeapon
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
             en.TakeDmg(GetCurrentDamage());
-            //Debug.Log("boom");
             markedEnemies.Add(other.gameObject);
+            Destroy(gameObject);
         }
     }
-    /*public int GetCurrentDamage()
+
+    public int GetCurrentDamage()
     {
-        return stats.currentAttack + weapon.damage;
-    }*/
+        return weaponStats.Damage; // Accessing damage from WeaponStats
+    }
 }
