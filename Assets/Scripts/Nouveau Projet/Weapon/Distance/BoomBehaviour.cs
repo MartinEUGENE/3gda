@@ -34,8 +34,5 @@ public class BoomBehaviour : BulletSystem
             markedEnemies.Add(other.gameObject);
         }
     }
-    public int GetCurrentDamage()
-    {
-        return stats.currentAttack + weapon.damage;
-    }
+
 }

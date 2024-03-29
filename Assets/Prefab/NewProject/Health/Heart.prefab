@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2936598981783001882}
   - component: {fileID: 5147994893230487742}
-  - component: {fileID: 7640980121535754712}
   - component: {fileID: 1750442679875686035}
   - component: {fileID: -8336450499364252888}
+  - component: {fileID: 3200535626362464558}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -888973317
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ac0f30a826f2a7b43bb5200c808e8ce7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7640980121535754712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8882508597679462283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 106cef3687f473943a6b9689a026268a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullForce: 5
-  healing: 25
 --- !u!70 &1750442679875686035
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -138,3 +124,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3200535626362464558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882508597679462283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aefa3b313b7c4f4c8908c2d10abe902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  life: 0.95
+  bobb:
+    frequency: 3
+    direction: {x: 0, y: 0.25}
+  exp: 0
+  hp: 50

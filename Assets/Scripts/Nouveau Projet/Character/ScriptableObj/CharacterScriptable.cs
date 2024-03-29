@@ -33,7 +33,7 @@ public class CharacterScriptable : ScriptableObject
 
     [SerializeField]
     float pickUp;
-    public float PickUp { get => pickUp; private set => pickUp = value; }
+    public float PickUp { get => pickUp; protected set => pickUp = value; }
 
     [SerializeField]
     float movSpeed;

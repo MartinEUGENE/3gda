@@ -67,6 +67,7 @@ public class CharacterStats : MonoBehaviour
     public List<LevelRange> levelRanges;
 
     InventoryManager inventory; 
+    PlayerCollect collect; 
     public int weaponIndex;
     public int passiveIndex;
     
@@ -75,20 +76,20 @@ public class CharacterStats : MonoBehaviour
         //playerStats = GetComponent<CharacterScriptable>();
         playerStats = CharacterSelector.GetData();
         inventory = GetComponent<InventoryManager>();
+        collect = GetComponentInChildren<PlayerCollect>();
         experience = 0;
         gold = 0;
         level = 1;
 
         currentNewHP = playerStats.MaxHP;
         player = GetComponent<GameObject>();
-
         
         currentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
         currentCriticalRate = playerStats.CritRate;
         currentCriticalDmg = playerStats.CritDmg;
 
-        currentpickUp = playerStats.PickUp;
+        currentpickUp = playerStats.PickUp; 
         currentSpeed = playerStats.MovSpeed;
         currentArmor = playerStats.Armor;
         currentRecovery = playerStats.recovery;
@@ -99,15 +100,7 @@ public class CharacterStats : MonoBehaviour
     }
     private void Start()
     {
-        //maxWidth = VIDE.rect.width;
-       // maxHP = NoHealth.rect.width;
-        //MiniNO = miniNoHealth.rect().width;
-        //maxHealth = currentNewHP;
-
         experienceCap = levelRanges[0].expCapIncrease;
-
-        //XPBAR.rectTransform.pivot = new Vector2(0, 0.5f);
-        //HpBar.rectTransform.pivot = new Vector2(0f, 0.5f);
     }
     
     public void SpawnedWeapon(GameObject weapon)
@@ -232,6 +225,7 @@ public class CharacterStats : MonoBehaviour
         {
             currentNewHP = playerStats.MaxHP;
         }
+
     }
 
     public void Update()

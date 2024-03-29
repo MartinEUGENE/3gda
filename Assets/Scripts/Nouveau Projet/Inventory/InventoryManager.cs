@@ -8,6 +8,28 @@ public class InventoryManager : MonoBehaviour
     public int[] weaponLvls = new int[5];
     public List<PassiveItem> passiveSlots = new List<PassiveItem>(6);
     public int[] passiveLvls = new int[5];
+
+    [System.Serializable]
+    public class WeaponUpgrade
+    {
+        public GameObject initialWeapaon;
+        public WeaponStats weaponStats; 
+    }
+
+    [System.Serializable]
+    public class PassiveUpgrade
+    {
+        public GameObject initialPassive;
+        public PassiveScriptable passiveStats;
+
+    }
+
+    [System.Serializable]
+    public class UpgradeUI
+    {
+
+    }
+
     public void AddWeapon(int slotsIndex, WeaponSystem weapon)
     {
         weaponSlots[slotsIndex] = weapon;
