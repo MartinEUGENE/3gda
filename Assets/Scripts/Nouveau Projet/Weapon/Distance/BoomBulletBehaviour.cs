@@ -32,8 +32,8 @@ public class BoomBulletBehaviour : BulletSystem
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
-            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage(), hasCrit);
+            //EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+            //en.TakeDmg(GetCurrentDamage(), hasCrit);
             //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
             Boom();
@@ -41,10 +41,10 @@ public class BoomBulletBehaviour : BulletSystem
         }
     }
 
-    public int GetCurrentDamage()
+    /*public int GetCurrentDamage()
     {
         return stats.currentAttack + weapon.damage;
-    }
+    }*/
 
     public void Boom()
     {

@@ -6,6 +6,7 @@ public class RotationThing : MonoBehaviour
 {
     public Vector3 mousePos;
     public Camera mainCam;
+    
     private void Start()
     {
         mainCam = FindObjectOfType<Camera>();
