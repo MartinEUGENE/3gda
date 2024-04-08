@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         DisableScreens();
-
+        /*playerObj = FindObjectOfType<CharacterStats>().gameObject;*/ 
         instance = this;
     }
 

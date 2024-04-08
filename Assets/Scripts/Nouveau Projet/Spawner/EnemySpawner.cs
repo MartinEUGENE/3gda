@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
         public int waveCount; //nombre d'ennemis total dans la wave
         public float spawnInterv; //float qui sert d'intervalle entre chaque spawn
         public int spawnCount; //comptage d'ennemis
+
     }
 
     [System.Serializable]
@@ -21,6 +22,9 @@ public class EnemySpawner : MonoBehaviour
         public int enemyCount; //Nombre d'ennemi de ce type en particulier
         public GameObject enemyPrefab; // de l'ennemi
         public int spawnCount; //comptage d'ennemis
+
+        public bool specialEnemy;
+        public Transform specialSpwan;
     }
 
     public List<Wave> waves; //Toutes les vagues dans le jeu.
@@ -30,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
     public int killCount;
 
     public List<Transform> points; 
-
+    
 
     ///public GameObject spawnPoint;
 
@@ -105,15 +109,22 @@ public class EnemySpawner : MonoBehaviour
                         return;
                     }
 
-                    Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0,points.Count)].position, Quaternion.identity);
+                    if(!enemyGroup.specialEnemy)
+                    {
+                        Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0, points.Count)].position, Quaternion.identity);
+                        enemyGroup.spawnCount++;
+                        waves[currentWaveCount].spawnCount++;
+                        enemyAlive++;
+                    }
 
-
-                    /*Vector2 spawnPoint = new Vector2(player.transform.position.x + Random.Range(-15f, 15f), player.transform.position.y + Random.Range(-15f,15f));
-                    Instantiate(enemyGroup.enemyPrefab, spawnPoint, Quaternion.identity);*/
-
-                    enemyGroup.spawnCount++;
-                    waves[currentWaveCount].spawnCount++;
-                    enemyAlive++; //ajoute 1 au compte d'ennemis vivants dans le niveau. 
+                    else
+                    {
+                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan);
+                        enemyGroup.spawnCount++;
+                        waves[currentWaveCount].spawnCount++;
+                        enemyAlive++;
+                    }
+                    
                 }
             }
        }

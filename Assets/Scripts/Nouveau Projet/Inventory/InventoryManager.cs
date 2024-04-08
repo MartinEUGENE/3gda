@@ -108,7 +108,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    void ApplyUpgrade()
+    /*public*/ void ApplyUpgrade()
     {
         foreach(var upgradeOpt in UpgradeOptions)
         {

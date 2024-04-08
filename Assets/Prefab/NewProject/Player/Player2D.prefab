@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 2036924085}
   - component: {fileID: 917920727}
   - component: {fileID: 7081588605714762631}
+  - component: {fileID: 3095968198641944391}
   m_Layer: 0
   m_Name: Player2D
   m_TagString: Player
@@ -550,6 +551,35 @@ PolygonCollider2D:
       - {x: 0.2736286, y: 0.3479424}
       - {x: 0.22822422, y: 0.4563292}
       - {x: 0.12576342, y: 0.5262961}
+--- !u!114 &3095968198641944391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6513021268895284890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4211e09ef7b32ec41bdda51dbc4c6302, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  weaponLvls: 0000000000000000000000000000000000000000
+  passiveSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  passiveLvls: 0000000000000000000000000000000000000000
+  wpnUpgradeOptions: []
+  passiveUpgradeOptions: []
+  UpgradeOptions: []
 --- !u!1 &7609182824086101980
 GameObject:
   m_ObjectHideFlags: 0
