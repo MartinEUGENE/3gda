@@ -2,13 +2,15 @@ using UnityEngine;
 
 public class BeamBehavior : MeleeWeapon
 {
-    public float duration = 2f; // Duration of the beam
+    public float duration = 0.25f;
     private float timer = 0f;
 
-    protected override void Start()
+    protected override void Update()
     {
-        base.Start();
-         timer += Time.deltaTime;
+        base.Update(); // Call the base class Update method if needed
+
+        // Increment timer
+        timer += Time.deltaTime;
 
         // If the duration is over, destroy the beam
         if (timer >= duration)
@@ -17,12 +19,7 @@ public class BeamBehavior : MeleeWeapon
         }
     }
 
-    protected override void Update()
-    {
-        inateCrit = Random.Range(1, 100);
-
-    }
-        public void SetDirection(float direction)// Method to set the direction of the beam
+    public void SetDirection(float direction)
     {
         // Adjust the beam's scale based on the direction
         Vector3 scale = transform.localScale;
@@ -30,7 +27,7 @@ public class BeamBehavior : MeleeWeapon
         transform.localScale = scale;
     }
 
-    protected virtual void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
@@ -42,5 +39,4 @@ public class BeamBehavior : MeleeWeapon
             }
         }
     }
-
 }
