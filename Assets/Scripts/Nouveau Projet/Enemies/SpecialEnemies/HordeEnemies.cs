@@ -26,9 +26,16 @@ public class HordeEnemies : EnemiesSystem
         }
     }
 
+    public override void FixedUpdate()
+    {
+       if(dead)
+       {
+            base.FixedUpdate();
+       }
+    }
+
     public IEnumerator TowardTheGoal()
     {
-
         yield return new WaitForSeconds(startingTime);
         rb2d.velocity = new Vector2(goThere.x, goThere.y).normalized * mov;
         yield return new WaitForSeconds(dist);

@@ -78,7 +78,8 @@ public class EnemiesSystem : MonoBehaviour
 
     void ReturnTheEnemy()
     {
-
+        EnemySpawner es = FindObjectOfType<EnemySpawner>();
+        transform.position = player.position + es.points[Random.Range(0, es.points.Count)].position; 
     }
 
     public virtual void OnSpawn()
@@ -141,9 +142,9 @@ public class EnemiesSystem : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /*public void OnDestroy()
+    public void OnDestroy()
     {
         EnemySpawner us = FindObjectOfType<EnemySpawner>();
         us.EnemyKill();
-    }*/
+    }
 }
