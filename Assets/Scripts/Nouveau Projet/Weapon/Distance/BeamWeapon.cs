@@ -30,7 +30,6 @@ public class BeamWeapon : WeaponSystem
         // Get the direction the player is facing (based on scale)
         float direction = Mathf.Sign(playerTransform.localScale.x);
 
-        // Calculate the position to instantiate the beam
         Vector3 beamPosition = playerTransform.position + Vector3.right * direction;
 
         // Determine if the prefab needs to be flipped based on the last direction
@@ -43,13 +42,8 @@ public class BeamWeapon : WeaponSystem
             rotation = Quaternion.Euler(0f, 180f, 0f); // Rotate 180 degrees around the y-axis
         }
 
-        // Instantiate the beam prefab
-        GameObject beam = Instantiate(beamPrefab, beamPosition, rotation);
+        GameObject beam = Instantiate(beamPrefab, beamPosition, rotation, playerTransform);
 
-        // Update the last direction taken by the player
-        lastDirection = direction;
-
-        // Set the beam's direction based on the player's facing direction
         BeamBehavior beamBehavior = beam.GetComponent<BeamBehavior>();
         if (beamBehavior != null)
         {
@@ -59,5 +53,9 @@ public class BeamWeapon : WeaponSystem
         {
             Debug.LogError("Beam prefab is missing BeamBehavior component!");
         }
+
+        // Update the last direction taken by the player
+        lastDirection = direction;
     }
+
 }
