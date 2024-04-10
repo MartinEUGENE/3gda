@@ -49,7 +49,7 @@ MonoBehaviour:
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
   currentLevel: 1
-  beamPrefab: {fileID: 2742540426966787090, guid: 98f761221b602704d9b2c7730154e6b1,
+  beamPrefab: {fileID: 8785628014650320031, guid: 25e03be3e63bb0b4990a05ef1014727f,
     type: 3}
 --- !u!1 &3473108540770449506
 GameObject:

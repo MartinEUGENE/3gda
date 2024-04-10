@@ -4,58 +4,49 @@ public class BeamWeapon : WeaponSystem
 {
     public GameObject beamPrefab;
     private Transform playerTransform;
-    private float lastDirection = 1f; // Last direction taken by the player (1 for right, -1 for left)
+    private Vector3 lastPosition;
+    private int choice;
 
     protected override void Start()
     {
         base.Start();
         playerTransform = transform.parent.transform;
+        lastPosition = playerTransform.position;
     }
 
     protected override void Update()
     {
         base.Update();
+
+        Vector3 currentPosition = playerTransform.position;
+
+        if (currentPosition.x < lastPosition.x)
+        {
+            choice = -1;
+            //Blast(-1); 
+        }
+        else if (currentPosition.x > lastPosition.x)
+        {
+            choice = 1;
+            //Blast(1); 
+        }
+        lastPosition = currentPosition;
     }
 
     protected override void Shoot()
     {
         base.Shoot();
-
-        if (playerTransform == null || beamPrefab == null)
-        {
-            Debug.LogError("Player transform or beam prefab is not set!");
-            return;
-        }
-
-        // Get the direction the player is facing (based on scale)
-        float direction = Mathf.Sign(playerTransform.localScale.x);
-
-        Vector3 beamPosition = playerTransform.position + Vector3.right * direction;
-
-        // Determine if the prefab needs to be flipped based on the last direction
-        bool flipPrefab = lastDirection != direction;
-
-        // Adjust the rotation of the instantiated prefab
-        Quaternion rotation = Quaternion.identity;
-        if (flipPrefab)
-        {
-            rotation = Quaternion.Euler(0f, 180f, 0f); // Rotate 180 degrees around the y-axis
-        }
-
-        GameObject beam = Instantiate(beamPrefab, beamPosition, rotation, playerTransform);
-
-        BeamBehavior beamBehavior = beam.GetComponent<BeamBehavior>();
-        if (beamBehavior != null)
-        {
-            beamBehavior.SetDirection(direction);
-        }
-        else
-        {
-            Debug.LogError("Beam prefab is missing BeamBehavior component!");
-        }
-
-        // Update the last direction taken by the player
-        lastDirection = direction;
+        Blast(choice);
     }
 
+    private void Blast(int direction)
+    {
+        Vector3 beamPosition = playerTransform.position + Vector3.right * direction;
+        GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, playerTransform);
+
+        if (direction < 0)
+        {
+            beam.transform.localScale = new Vector3(-1, 1, 1);
+        }
+    }
 }
