@@ -123,7 +123,10 @@ public class InventoryManager : MonoBehaviour
                 psyOps[i].upgradeName.text = upgradeOption[randomIntArray[i]].weaponStats.Named;
                 psyOps[i].upgradeDescrption.text = upgradeOption[randomIntArray[i]].weaponStats.Descrip;
 
-                if(upgradeOption.Contains(weaponSlots)
+                if(upgradeOption[randomIntArray[i]].weaponStats == weaponSlots[randomIntArray[i]])
+                {
+
+                }
 
             }
 
