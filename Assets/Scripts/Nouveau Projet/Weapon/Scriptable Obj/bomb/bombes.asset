@@ -22,3 +22,6 @@ MonoBehaviour:
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}
+  icon: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
+  named: Bombe
+  descrip: Bombe industrielle

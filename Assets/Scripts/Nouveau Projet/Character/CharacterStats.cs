@@ -67,23 +67,27 @@ public class CharacterStats : MonoBehaviour
     public List<LevelRange> levelRanges;
 
     InventoryManager inventory; 
-    PlayerCollect collect; 
+    PlayerCollect collect;
+    ParticleSystem part; 
     public int weaponIndex;
     public int passiveIndex;
     
     void Awake()
     {
         //playerStats = GetComponent<CharacterScriptable>();
+
         playerStats = CharacterSelector.GetData();
         inventory = GetComponent<InventoryManager>();
         collect = GetComponentInChildren<PlayerCollect>();
+        player = GetComponent<GameObject>();
+        part = GetComponentInChildren<ParticleSystem>(); 
+
         experience = 0;
         gold = 0;
         level = 1;
+        XPBAR.fillAmount = 0;
 
-        currentNewHP = playerStats.MaxHP;
-        player = GetComponent<GameObject>();
-        
+        currentNewHP = playerStats.MaxHP;        
         currentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
         currentCriticalRate = playerStats.CritRate;
@@ -93,11 +97,12 @@ public class CharacterStats : MonoBehaviour
         currentSpeed = playerStats.MovSpeed;
         currentArmor = playerStats.Armor;
         currentRecovery = playerStats.recovery;
-
         //Weapon Spawning
-         SpawnedWeapon(playerStats.StartingWeapon);        
-        //HealthCheck();
+        SpawnedWeapon(playerStats.StartingWeapon);
+
+        part.Pause(); 
     }
+
     private void Start()
     {
         experienceCap = levelRanges[0].expCapIncrease;
@@ -107,7 +112,6 @@ public class CharacterStats : MonoBehaviour
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        //spawnedWeapons.Add(spawnedWeapon);
         inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponentInChildren<WeaponSystem>());
 
         weaponIndex++;
@@ -149,10 +153,11 @@ public class CharacterStats : MonoBehaviour
                 experienceCapIncrease = range.expCapIncrease;
                 break; 
             }
+
             XPbar();
             experienceCap += experienceCapIncrease;
 
-            GameManager.instance.Levelling();
+            GameManager.instance.LevelUp();
 
         }
     }
@@ -191,6 +196,7 @@ public class CharacterStats : MonoBehaviour
     public void DmgTaken(int dmg)
     {
         GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+        part.Play(); 
     }
     public void Death()
     {       

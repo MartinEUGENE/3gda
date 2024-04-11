@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     //�tat du jeu avant l'�tat actuel
     public GameState previousState;
 
-    public Color healChara; 
+    public Color healChara;
     public Color normalDmg;
     public Color critDmg;
     public Color playerDmg;
@@ -44,13 +44,19 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
     public bool isChoosingUpgrade = false;
 
-    public GameObject playerObj; 
+    public GameObject playerObj;
+
+    public int[] randomIndexes = new int[3];
 
     private void Awake()
     {
         DisableScreens();
-        /*playerObj = FindObjectOfType<CharacterStats>().gameObject;*/ 
+        playerObj = FindObjectOfType<CharacterStats>().gameObject;
         instance = this;
+        for (int i = 0; i < randomIndexes.Length; i++)
+        {
+            randomIndexes[i] = Random.Range(0, 3);
+        }
     }
 
     void Update()
@@ -69,11 +75,11 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.GameOver:
-                
-                if(!isGameOver)
+
+                if (!isGameOver)
                 {
                     isGameOver = true;
-                    Time.timeScale = 0f; 
+                    Time.timeScale = 0f;
                     DisplayResults();
                 }
 
@@ -81,11 +87,12 @@ public class GameManager : MonoBehaviour
 
             case GameState.LevelUp:
 
-                if(!isChoosingUpgrade)
+                if (!isChoosingUpgrade)
                 {
                     isChoosingUpgrade = true;
                     Time.timeScale = 0f;
                     levelUpScreen.SetActive(true);
+                    playerObj.GetComponent<InventoryManager>().Upgrading(randomIndexes);
                 }
 
                 break;
@@ -96,6 +103,14 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
+        if (randomIndexes[1] == randomIndexes[0])
+        {
+            randomIndexes[1] = Random.Range(0, 3);
+        }
+        else if (randomIndexes[2] == randomIndexes[0 | 1])
+        {
+            randomIndexes[2] = Random.Range(0, 3);
+        }
     }
 
     IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f, bool crit = true, bool heal = true, bool chara = false)
@@ -119,18 +134,18 @@ public class GameManager : MonoBehaviour
         WaitForEndOfFrame w = new WaitForEndOfFrame();
         float t = 0;
         float yOffset = 0;
-        
+
         while (t < duration)// la couleurs change selon l'arme
         {
             //Debug.Log(t);
             yield return w;
             t += Time.deltaTime;
 
-            if(crit)
+            if (crit)
             {
-                textObj.GetComponent<TextMeshProUGUI>().color = critDmg; 
+                textObj.GetComponent<TextMeshProUGUI>().color = critDmg;
             }
-            else if(heal)
+            else if (heal)
             {
                 textObj.GetComponent<TextMeshProUGUI>().color = healChara;
             }
@@ -146,36 +161,36 @@ public class GameManager : MonoBehaviour
 
             //Debug.Log("re");
             if (t > 0.2)
-            { 
+            {
                 yOffset += speed * Time.deltaTime;
                 //rect.position = referenceCamera.WorldToScreenPoint(target.position + new Vector3(0, yOffset));
                 rect.position = rect.position + new Vector3(0, yOffset);
                 //Debug.Log("done");
                 alpha.alpha -= Time.deltaTime;
-                tmPro.fontSize = tmPro.fontSize -10f *Time.deltaTime;
-            }   
-           
+                tmPro.fontSize = tmPro.fontSize - 10f * Time.deltaTime;
+            }
+
         }
     }
     public static void GenerateFloatingText(string text, Transform target, float duration = 1f, float speed = 1.25f, bool crit = true, bool heal = true, bool chara = false)
-    { 
+    {
         // if canvas not set, end the function so we don't generate any floating text
         if (instance.damageTextCanvas == null)
         {
             return;
         }
 
-         if (!instance.referenceCamera)
-         {
+        if (!instance.referenceCamera)
+        {
             instance.referenceCamera = Camera.main;
 
-         }
+        }
 
         bool Crit = crit;
         bool Heal = heal;
         bool Chara = chara;
 
-        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed, Crit, Heal, Chara)); 
+        instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed, Crit, Heal, Chara));
     }
 
     public void ChangeState(GameState newState)
@@ -230,7 +245,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        ChangeState(GameState.GameOver); 
+        ChangeState(GameState.GameOver);
     }
 
     void DisplayResults()
@@ -238,19 +253,20 @@ public class GameManager : MonoBehaviour
         resultScreen.SetActive(true);
     }
 
-    public void Levelling()
+    public void LevelUp()
     {
         ChangeState(GameState.LevelUp);
-        playerObj.SendMessage("RemoveAndApplyUpgrades"); 
+
+        //playerObj.SendMessage("RemoveAndApplyUpgrades"); 
     }
 
 
-    public void DoneLevelling()
+    public void LevelUpDone()
     {
         isChoosingUpgrade = false;
         Time.timeScale = 1f;
 
         levelUpScreen.SetActive(false);
-        ChangeState(GameState.Gameplay); 
+        ChangeState(GameState.Gameplay);
     }
 }
