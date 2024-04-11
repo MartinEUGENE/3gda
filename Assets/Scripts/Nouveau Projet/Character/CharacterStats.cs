@@ -195,7 +195,7 @@ public class CharacterStats : MonoBehaviour
 
     public void DmgTaken(int dmg)
     {
-        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+        //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
         part.Play(); 
     }
     public void Death()

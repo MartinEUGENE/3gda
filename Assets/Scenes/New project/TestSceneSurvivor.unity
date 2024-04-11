@@ -713,15 +713,15 @@ MonoBehaviour:
       specialEnemy: 0
       specialSpwan: {fileID: 0}
     - enemyName: Fighters
-      enemyCount: 500
+      enemyCount: 1000
       enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
         type: 3}
       spawnCount: 0
       specialEnemy: 0
       specialSpwan: {fileID: 0}
     waveName: Wave 1
-    waveCount: 510
-    spawnInterv: 1
+    waveCount: 1010
+    spawnInterv: 0.2
     spawnCount: 0
   - enemyGroups:
     - enemyName: Fighters
@@ -732,6 +732,18 @@ MonoBehaviour:
       specialEnemy: 0
       specialSpwan: {fileID: 0}
     waveName: Wave 2
+    waveCount: 500
+    spawnInterv: 1
+    spawnCount: 0
+  - enemyGroups:
+    - enemyName: Fighters
+      enemyCount: 500
+      enemyPrefab: {fileID: 7459164955246726320, guid: 81c773fbacc97d24da9ff0dd2678610c,
+        type: 3}
+      spawnCount: 0
+      specialEnemy: 0
+      specialSpwan: {fileID: 0}
+    waveName: Wave 3
     waveCount: 500
     spawnInterv: 1
     spawnCount: 0
@@ -749,7 +761,7 @@ MonoBehaviour:
   - {fileID: 2011482880}
   - {fileID: 139078888}
   waveInterval: 5
-  enemyAllowed: 250
+  enemyAllowed: 500
   enemyAlive: 0
   maxEnemy: 0
 --- !u!4 &1475815963

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -18,11 +19,14 @@ public class InventoryManager : MonoBehaviour
         public int weaponUpIndex;
         public GameObject initialWeapaon;
         public WeaponStats weaponStats;
+        public WeaponSystem WeaponSystem;
+
         [Header("")]
         //====================================================//
         public int passiveUpIndex;
         public GameObject initialPassive;
         public PassiveScriptable passiveStats;
+        public PassiveItem passiveItem; 
     }
 
     [System.Serializable]
@@ -118,12 +122,19 @@ public class InventoryManager : MonoBehaviour
                 psyOps[i].upgradeImg.sprite = upgradeOption[randomIntArray[i]].weaponStats.Icon;
                 psyOps[i].upgradeName.text = upgradeOption[randomIntArray[i]].weaponStats.Named;
                 psyOps[i].upgradeDescrption.text = upgradeOption[randomIntArray[i]].weaponStats.Descrip;
+
+                if(upgradeOption.Contains(weaponSlots)
+
             }
+
             else if (upgradeOption[randomIntArray[i]].passiveStats != null)
             {
                 psyOps[i].upgradeImg.sprite = upgradeOption[randomIntArray[i]].passiveStats.Icon;
                 psyOps[i].upgradeName.text = upgradeOption[randomIntArray[i]].passiveStats.Named;
                 psyOps[i].upgradeDescrption.text = upgradeOption[randomIntArray[i]].passiveStats.Descrip;
+
+
+
             }
         }
     }
@@ -136,7 +147,7 @@ public class InventoryManager : MonoBehaviour
 
         }
     }
-    public void TestDeFou(int buttonIndex)
+    public void ButtonActivation(int buttonIndex)
     {
 
     }
