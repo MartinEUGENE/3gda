@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour
         public int waveCount; //nombre d'ennemis total dans la wave
         public float spawnInterv; //float qui sert d'intervalle entre chaque spawn
         public int spawnCount; //comptage d'ennemis
+
     }
 
     [System.Serializable]
@@ -21,6 +22,9 @@ public class EnemySpawner : MonoBehaviour
         public int enemyCount; //Nombre d'ennemi de ce type en particulier
         public GameObject enemyPrefab; // de l'ennemi
         public int spawnCount; //comptage d'ennemis
+
+        public bool specialEnemy;
+        public Transform specialSpwan;
     }
 
     public List<Wave> waves; //Toutes les vagues dans le jeu.
@@ -30,13 +34,13 @@ public class EnemySpawner : MonoBehaviour
     public int killCount;
 
     public List<Transform> points; 
-
+    
 
     ///public GameObject spawnPoint;
 
-    [Header("Timer")]
-    float timerSpawn; 
-
+    [Header("Specialities")]
+    float timerSpawn;
+    bool isWaveActive = false; 
     public float waveInterval;
 
     [Header("Enemy count")]
@@ -64,7 +68,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void Update()
     {
-        if(currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0)
+        if(currentWaveCount < waves.Count && waves[currentWaveCount].spawnCount == 0 && !isWaveActive)
         {
            // Debug.Log("Begin the next wave bro !");
             StartCoroutine(NextWave());
@@ -80,9 +84,12 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator NextWave()
     {
+        isWaveActive = true; 
+
         yield return new WaitForSeconds(waveInterval);
         if(currentWaveCount < waves.Count -1)
         {
+            isWaveActive = false; 
             currentWaveCount++;
             CalculateWaveQuota();
         }
@@ -98,30 +105,33 @@ public class EnemySpawner : MonoBehaviour
             {
                 //Check si le nombre d'ennemi d'un type minimal a été invoqué
                 if(enemyGroup.enemyCount > enemyGroup.spawnCount)
-                {
+                {                   
+
+                    if(!enemyGroup.specialEnemy)
+                    {
+                        Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0, points.Count)].position, Quaternion.identity);
+                        enemyGroup.spawnCount++;
+                        waves[currentWaveCount].spawnCount++;
+                        enemyAlive++;
+                    }
+
+                    else
+                    {
+                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan);
+                        enemyGroup.spawnCount++;
+                        waves[currentWaveCount].spawnCount++;
+                        enemyAlive++;
+                    }
+
                     if (enemyAlive >= enemyAllowed)
                     {
                         maxEnemy = true;
                         return;
                     }
 
-                    Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0,points.Count)].position, Quaternion.identity);
-
-
-                    /*Vector2 spawnPoint = new Vector2(player.transform.position.x + Random.Range(-15f, 15f), player.transform.position.y + Random.Range(-15f,15f));
-                    Instantiate(enemyGroup.enemyPrefab, spawnPoint, Quaternion.identity);*/
-
-                    enemyGroup.spawnCount++;
-                    waves[currentWaveCount].spawnCount++;
-                    enemyAlive++; //ajoute 1 au compte d'ennemis vivants dans le niveau. 
                 }
             }
        }
-
-        if (enemyAlive < enemyAllowed)
-        {
-            maxEnemy = false; // passe ce bool en faux et permet de recommencer le spawn d'ennemi
-        }
 
     }
 
@@ -129,6 +139,11 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyAlive--; //si un ennemi a été tué, on retire 1 ici. 
         killCount++;
+
+        if (enemyAlive < enemyAllowed)
+        {
+            maxEnemy = false; // passe ce bool en faux et permet de recommencer le spawn d'ennemi
+        }
     }
 
 

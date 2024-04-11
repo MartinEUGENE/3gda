@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1516533171599517915}
   - component: {fileID: 2038736412378593109}
-  - component: {fileID: -8249395109974437777}
   - component: {fileID: 3266556442270919896}
   - component: {fileID: 7984899344552975785}
+  - component: {fileID: 8686424699705703249}
   m_Layer: 0
   m_Name: redGem
   m_TagString: Untagged
@@ -73,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -888973317
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 10774fe7cad6c7e418f578b0f8a201c5, type: 3}
   m_Color: {r: 1, g: 0.18431373, b: 0.0627451, a: 1}
@@ -87,20 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8249395109974437777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7616842400326546156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5934ee405457647b23cf0d6d61d718, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pullForce: 5
-  xpGranted: 1000
 --- !u!61 &3266556442270919896
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -148,3 +134,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8686424699705703249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7616842400326546156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aefa3b313b7c4f4c8908c2d10abe902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  life: 0.95
+  bobb:
+    frequency: 1.5
+    direction: {x: 0, y: 0.25}
+  exp: 500
+  hp: 0

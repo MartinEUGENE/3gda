@@ -8,10 +8,12 @@ public class RushingEnemy : EnemiesSystem
     public float startingTime;
     public LineRenderer predictionLine;
 
-    Vector2 playerDir; 
+    Vector2 playerDir;
 
+
+
+    [Header("Stat of the movement part")]
     int dist = 15; 
-
     public float rushForce; 
     public float rushDist;
     float timing; 
@@ -40,7 +42,6 @@ public class RushingEnemy : EnemiesSystem
     public override void Update()
     {
         playerDir = playerObj.transform.position - transform.position;
-        //predictionLine.SetPosition(0, playerDir);       
 
         if (dead == true)
         {

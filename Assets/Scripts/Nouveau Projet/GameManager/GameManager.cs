@@ -42,13 +42,14 @@ public class GameManager : MonoBehaviour
 
 
     public bool isGameOver = false;
+    public bool isChoosingUpgrade = false;
 
-    public bool isChoosingUpgrade = false; 
+    public GameObject playerObj; 
 
     private void Awake()
     {
         DisableScreens();
-
+        /*playerObj = FindObjectOfType<CharacterStats>().gameObject;*/ 
         instance = this;
     }
 
@@ -240,6 +241,7 @@ public class GameManager : MonoBehaviour
     public void Levelling()
     {
         ChangeState(GameState.LevelUp);
+        playerObj.SendMessage("RemoveAndApplyUpgrades"); 
     }
 
 

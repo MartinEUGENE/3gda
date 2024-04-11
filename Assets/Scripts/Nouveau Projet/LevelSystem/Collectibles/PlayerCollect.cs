@@ -5,32 +5,30 @@ using UnityEngine;
 public class PlayerCollect : MonoBehaviour
 {
     CharacterStats player;
-    CircleCollider2D circlePlayer;
+    CircleCollider2D detect;
 
     public float pullForce;
-  
-
 
     void Start()
     {
-        player = FindObjectOfType<CharacterStats>();
-        circlePlayer = GetComponent<CircleCollider2D>();
+        player = GetComponentInParent<CharacterStats>();
     }
 
-
-    void Update()
+    public void SetDetection(float rayon)
     {
-        circlePlayer.radius = player.currentpickUp; 
+        if(!detect)
+        {
+            detect = GetComponent<CircleCollider2D>();
+        }
+
+        detect.radius = rayon;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out ICollectibles collect))
+        if(collision.TryGetComponent(out PickUp pick))
         {
-            Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
-            Vector2 ForceDir = (transform.position - collision.transform.position).normalized;
-            rb.AddForce(ForceDir * pullForce);
-            collect.Collect();
+            pick.Collect(player, pullForce, .8f); 
         }
     }
 }
