@@ -22,7 +22,8 @@ public class GameManager : MonoBehaviour
 
     [Header("Level Up Screen")]
     public GameObject levelUpScreen;
-
+    [Header("Ingame UI")]
+    public GameObject inGameUI; 
 
     [Header("Damage Colors and GameStates")]
     public GameState currentState;
@@ -87,13 +88,13 @@ public class GameManager : MonoBehaviour
 
             case GameState.LevelUp:
 
-                if (!isChoosingUpgrade)
+                /*if (!isChoosingUpgrade)
                 {
                     isChoosingUpgrade = true;
                     Time.timeScale = 0f;
                     levelUpScreen.SetActive(true);
                     playerObj.GetComponent<InventoryManager>().Upgrading(randomIndexes);
-                }
+                }*/
 
                 break;
 
@@ -251,6 +252,7 @@ public class GameManager : MonoBehaviour
     void DisplayResults()
     {
         resultScreen.SetActive(true);
+        inGameUI.SetActive(false);
     }
 
     public void LevelUp()

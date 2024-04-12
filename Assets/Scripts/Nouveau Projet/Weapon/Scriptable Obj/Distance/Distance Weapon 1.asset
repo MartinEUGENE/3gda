@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Distance Weapon 1
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 15
   speedrange: 25
   quantity: 0
   weaponReload: 2
-  cooldown: 0.9006329
-  pierceEffect: 0
+  cooldown: 1.9926269
+  pierceEffect: 5
   prefabObj: {fileID: 7905828093271916926, guid: 70ddef1a9ac19aa40b11f2ec53ffcb6b,
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}
+  icon: {fileID: 0}
+  named: 
+  descrip: 

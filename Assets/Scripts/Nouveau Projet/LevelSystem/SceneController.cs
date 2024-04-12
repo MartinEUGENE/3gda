@@ -11,6 +11,10 @@ public class SceneController : MonoBehaviour
         Time.timeScale = 1f; 
     }
 
+    public void CloseScene()
+    {
+        Application.Quit(); 
+    }
 
 
 }

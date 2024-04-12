@@ -144,7 +144,10 @@ public class CharacterStats : MonoBehaviour
             level++;
             experience -= experienceCap;
             //currentSpeed *= 1.15f;
-            //currentAttack += 1;
+            
+            currentAttack = Mathf.FloorToInt(currentAttack * 1.15f);
+            currentArmor = Mathf.FloorToInt(currentArmor * 1.15f);
+
             invincible = true; 
 
             int experienceCapIncrease = 0;
@@ -184,13 +187,6 @@ public class CharacterStats : MonoBehaviour
             Death();
         }
 
-        /*float newHealthWidth = HPPercentage * maxHP; 
-        newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
-        RectTransform healthRectTransform = HpBar.rectTransform;
-        healthRectTransform.sizeDelta = new Vector2(newHealthWidth, healthRectTransform.sizeDelta.y);*/
-        
-        //float smallerObjectSize = newHealthWidth * (miniNoHealth / maxHP); // Adjust the size relative to the max width of the smaller object
-       // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
 
     public void DmgTaken(int dmg)
@@ -220,6 +216,10 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    void StatsCheck()
+    {
+    }
+
     void Recover()
     {
         if(currentNewHP < playerStats.MaxHP)
@@ -231,12 +231,13 @@ public class CharacterStats : MonoBehaviour
         {
             currentNewHP = playerStats.MaxHP;
         }
-
     }
 
     public void Update()
     {
         HealthCheck();
+        StatsCheck();
+
         if(invincible == true)
         {
             invincibleTimer -= Time.deltaTime;

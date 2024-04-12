@@ -34,16 +34,9 @@ public class BoomBulletBehaviour : BulletSystem
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
             en.TakeDmg(GetCurrentDamage(), hasCrit);
-            //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
-            Boom();
-            
+            Boom();            
         }
-    }
-
-    public int GetCurrentDamage()
-    {
-        return stats.currentAttack + weapon.damage;
     }
 
     public void Boom()
