@@ -85,7 +85,7 @@ public class EnemiesSystem : MonoBehaviour
     void ReturnTheEnemy()
     {
         EnemySpawner es = FindObjectOfType<EnemySpawner>();
-        transform.position = player.position + es.points[Random.Range(0, es.points.Count)].position; 
+        //transform.position = player.position + es.points[Random.Range(0, es.points.Count)].position; 
     }
 
     public virtual void OnSpawn()

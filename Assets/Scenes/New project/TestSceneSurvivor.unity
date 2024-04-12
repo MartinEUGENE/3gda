@@ -235,7 +235,7 @@ MonoBehaviour:
   terrainMask:
     serializedVersion: 2
     m_Bits: 64
-  currentChunk: {fileID: 0}
+  currentChunk: {fileID: 456702246}
   spawnedChunks: []
   maxOpDistance: 50
   cooldonwDuration: 1
@@ -327,6 +327,12 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 1727860000335228513, guid: af27e4aa9f6819049b0795fe30992b9d,
     type: 3}
   m_PrefabInstance: {fileID: 1727860000575270965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &456702246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1524819409853562579, guid: bb91824ef04561e45be65e0716af3ffc,
+    type: 3}
+  m_PrefabInstance: {fileID: 1524819409624527865}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &492209764 stripped
 RectTransform:
