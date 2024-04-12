@@ -51,8 +51,7 @@ public class EnemySpawner : MonoBehaviour
     public void Start()
     {
         player = FindObjectOfType<CharacterStats>().transform;
-        CalculateWaveQuota();
-    }
+        CalculateWaveQuota();    }
 
     void CalculateWaveQuota()
     {
@@ -105,8 +104,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 //Check si le nombre d'ennemi d'un type minimal a été invoqué
                 if(enemyGroup.enemyCount > enemyGroup.spawnCount)
-                {                   
-
+                {        
                     if(!enemyGroup.specialEnemy)
                     {
                         Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0, points.Count)].position, Quaternion.identity);

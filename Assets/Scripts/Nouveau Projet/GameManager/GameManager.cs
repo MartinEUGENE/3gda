@@ -71,8 +71,12 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.Pause:
-                //Code � mettre pour la case de l'�tat de jeu ici. 
-                CheckPauseResume();
+                //Code � mettre pour la case de l'�tat de jeu ici.
+                if(Input.GetKey(KeyCode.Escape))
+                {
+                    PauseGame(); 
+                }
+                
                 break;
 
             case GameState.GameOver:
@@ -88,13 +92,13 @@ public class GameManager : MonoBehaviour
 
             case GameState.LevelUp:
 
-                /*if (!isChoosingUpgrade)
+                if (!isChoosingUpgrade)
                 {
                     isChoosingUpgrade = true;
                     Time.timeScale = 0f;
                     levelUpScreen.SetActive(true);
                     playerObj.GetComponent<InventoryManager>().Upgrading(randomIndexes);
-                }*/
+                }
 
                 break;
 

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: 
   enemySpeed: 1
-  enemyHP: 200
+  enemyHP: 300
   enemyDmg: 25
+  enemyTiming: 0
   damageIncreaseByLevel: 0
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 0

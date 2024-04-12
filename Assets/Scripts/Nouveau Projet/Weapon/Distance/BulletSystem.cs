@@ -13,6 +13,7 @@ public class BulletSystem : MonoBehaviour
 
     public WeaponStats weapon;
     public CharacterStats stats;
+    public Rigidbody2D rb; 
 
     public int inateCrit;
     public bool hasCrit;
@@ -23,12 +24,13 @@ public class BulletSystem : MonoBehaviour
     {
         Destroy(gameObject, destroyObj);
         mainCam = FindObjectOfType<Camera>();
-        UpdateMouseData();
+        stats = FindObjectOfType<CharacterStats>();
+        rb = GetComponent<Rigidbody2D>();
+        //UpdateMouseData();
         moveDir = mouseDir;
         float rot = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
         //markedEnemies = new List<GameObject>();
-        stats = FindObjectOfType<CharacterStats>();
     }
 
     protected virtual void Update()
@@ -36,13 +38,13 @@ public class BulletSystem : MonoBehaviour
         inateCrit = Random.Range(1, 100);
     }
 
-    void UpdateMouseData()
+    /*void UpdateMouseData()
     {
         mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         mouseDir = mousPos - transform.position;
         mouseDir.z = 0;
         mouseDir.Normalize();
-    }
+    }*/
 
     public virtual void VerifDir(Vector3 dir)
     {
