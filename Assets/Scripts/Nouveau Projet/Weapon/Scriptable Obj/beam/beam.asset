@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponReload: 2
   cooldown: 1.5242378
   pierceEffect: 0
-  prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
+  prefabObj: {fileID: 2742540426966787090, guid: 98f761221b602704d9b2c7730154e6b1,
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}

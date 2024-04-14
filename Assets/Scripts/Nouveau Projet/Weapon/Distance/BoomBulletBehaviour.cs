@@ -16,7 +16,7 @@ public class BoomBulletBehaviour : BulletSystem
 
     }
 
-    protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
+    protected override void Update() // il tire dans la bonne direction mais une force suplï¿½mentaire le pousse dans la direction oï¿½ se dï¿½place le joueur, dï¿½montrï¿½ par le fait que la balle est plus lente quand tirï¿½ loing du joueur
     {
         base.Update();
         transform.position += moveDir * weapon.speedrange * Time.deltaTime;
@@ -32,12 +32,18 @@ public class BoomBulletBehaviour : BulletSystem
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
-            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-            en.TakeDmg(GetCurrentDamage(), hasCrit);
+            //EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+            //en.TakeDmg(GetCurrentDamage(), hasCrit);
+            //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
             Boom();            
         }
     }
+
+    /*public int GetCurrentDamage()
+    {
+        return stats.currentAttack + weapon.damage;
+    }*/
 
     public void Boom()
     {

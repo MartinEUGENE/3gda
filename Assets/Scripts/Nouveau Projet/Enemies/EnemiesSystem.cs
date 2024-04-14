@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,6 +71,11 @@ public class EnemiesSystem : MonoBehaviour
         }
     }
 
+    internal void TakeDmg(int v)
+    {
+        throw new NotImplementedException();
+    }
+
     public virtual void EnemyMove()
     {
         Vector2 direction = (playerObj.transform.position - transform.position).normalized;
@@ -79,7 +85,7 @@ public class EnemiesSystem : MonoBehaviour
     void ReturnTheEnemy()
     {
         EnemySpawner es = FindObjectOfType<EnemySpawner>();
-        transform.position = player.position + es.points[Random.Range(0, es.points.Count)].position; 
+        //transform.position = player.position + es.points[Random.Range(0, es.points.Count)].position; 
     }
 
     public virtual void OnSpawn()
