@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
                 //Code � mettre pour la case de l'�tat de jeu ici.
                 if(Input.GetKey(KeyCode.Escape))
                 {
-                    PauseGame(); 
+                    CheckPauseResume(); 
                 }
                 
                 break;

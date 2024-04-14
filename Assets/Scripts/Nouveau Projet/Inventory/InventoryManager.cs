@@ -7,10 +7,13 @@ using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(6);
+    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(5);
     public int[] weaponLvls = new int[5];
-    public List<PassiveItem> passiveSlots = new List<PassiveItem>(6);
+    public List<Image> weaponUiSlots = new List<Image>(5); 
+
+    public List<PassiveItem> passiveSlots = new List<PassiveItem>(5);
     public int[] passiveLvls = new int[5];
+    public List<Image> passiveUiSlots = new List<Image>(5);
 
 
     [System.Serializable]
@@ -52,6 +55,8 @@ public class InventoryManager : MonoBehaviour
     {
         weaponSlots[slotsIndex] = weapon;
         weaponLvls[slotsIndex] = weapon.weaponData.Level;
+        weaponUiSlots[slotsIndex].enabled = true;
+        weaponUiSlots[slotsIndex].sprite = weapon.weaponData.Icon; 
 
         if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
         {
@@ -63,6 +68,9 @@ public class InventoryManager : MonoBehaviour
     {
         passiveSlots[slotsIndex] = item;
         passiveLvls[slotsIndex] = item.passiveItem.Level;
+        passiveUiSlots[slotsIndex].enabled = true;
+        passiveUiSlots[slotsIndex].sprite = item.passiveItem.Icon;
+
 
         if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
         {

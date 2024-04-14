@@ -51,7 +51,8 @@ public class EnemySpawner : MonoBehaviour
     public void Start()
     {
         player = FindObjectOfType<CharacterStats>().transform;
-        CalculateWaveQuota();    }
+        CalculateWaveQuota();
+    }
 
     void CalculateWaveQuota()
     {

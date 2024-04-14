@@ -22,3 +22,6 @@ MonoBehaviour:
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0ff8fd73a1ad1284eb30ab319560b4c7, type: 3}
+  named: 
+  descrip: 
