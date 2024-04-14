@@ -82,11 +82,11 @@ MonoBehaviour:
   - name: Coin
     itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
       type: 3}
-    dropRate: 0
+    dropRate: 5
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
-    dropRate: 0
+    dropRate: 5
 --- !u!50 &3815081860997091557
 Rigidbody2D:
   serializedVersion: 4
