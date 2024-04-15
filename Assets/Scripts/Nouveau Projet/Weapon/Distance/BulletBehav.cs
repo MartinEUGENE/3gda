@@ -28,6 +28,10 @@ public class BulletBehav : BulletSystem
             en.TakeDmg(GetCurrentDamage(), hasCrit);
             //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
+            if (weapon.pierceEffect == false)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

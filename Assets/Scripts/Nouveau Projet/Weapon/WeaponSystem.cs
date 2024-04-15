@@ -43,6 +43,7 @@ public class WeaponSystem : MonoBehaviour
         if (weaponData.cooldown <= 0f)
         {
             Shoot();
+
         }
 
         /*mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
