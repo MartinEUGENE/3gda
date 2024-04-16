@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: bombes LV2
   m_EditorClassIdentifier: 
   damage: 35
-  speedrange: 0
+  speedrange: 25
   quantity: 2
   weaponReload: 1.9
   cooldown: 0.99588114
@@ -21,8 +21,7 @@ MonoBehaviour:
   prefabObj: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
     type: 3}
   level: 2
-  nextWeapon: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
-    type: 3}
+  nextWeapon: {fileID: 0}
   icon: {fileID: 0}
   named: 
   descrip: 

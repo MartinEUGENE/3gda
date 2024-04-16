@@ -102,7 +102,7 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   destroyObj: 5
   mainCam: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
   stats: {fileID: 0}
   inateCrit: 0
   hasCrit: 0

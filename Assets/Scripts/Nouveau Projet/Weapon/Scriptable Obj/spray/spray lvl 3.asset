@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: spray lvl 3
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 24
   speedrange: 0
-  quantity: 1
-  weaponReload: 1
+  quantity: 2
+  weaponReload: 0.8
   cooldown: 0.57408786
   pierceEffect: 1
   prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
