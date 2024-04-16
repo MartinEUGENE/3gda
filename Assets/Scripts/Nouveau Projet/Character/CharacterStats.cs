@@ -99,6 +99,7 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
+        SpawnedPassive(playerStats.StartingPassive);
 
         part.Pause(); 
     }
@@ -143,10 +144,6 @@ public class CharacterStats : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
             experience -= experienceCap;
-            //currentSpeed *= 1.15f;
-            
-            currentAttack = Mathf.FloorToInt(currentAttack * 1.15f);
-            currentArmor = Mathf.FloorToInt(currentArmor * 1.15f);
 
             invincible = true; 
 
@@ -218,6 +215,7 @@ public class CharacterStats : MonoBehaviour
 
     void StatsCheck()
     {
+
     }
 
     void Recover()

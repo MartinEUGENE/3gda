@@ -15,7 +15,7 @@ public class FirstWeapon : WeaponSystem
         float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90f);
     }
-
+    
     protected override void Shoot()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);

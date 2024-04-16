@@ -36,6 +36,11 @@ public class WeaponSystem : MonoBehaviour
         weaponData.cooldown = weaponData.WeaponReload; 
     }
 
+    public void GetALevelUp(WeaponStats weapon)
+    {
+        weaponData = weapon;
+    }
+
     protected virtual void Update()
     {
         weaponData.cooldown -= Time.deltaTime;

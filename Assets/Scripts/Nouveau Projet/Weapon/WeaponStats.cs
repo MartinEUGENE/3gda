@@ -39,11 +39,7 @@ public class WeaponStats : ScriptableObject
     [SerializeField]
     public int level;
     public int Level { get => level; protected set => level = value; }
-
-    [SerializeField] 
-    public GameObject nextWeapon; //Pas de modifs pendant le gameplay 
-    public GameObject NextWeapon { get => nextWeapon; protected set => nextWeapon = value; }
-    
+        
     [SerializeField]
     public Sprite icon; //Pas de modifs pendant le gameplay 
     public Sprite Icon { get => icon; protected set => icon = value; }
@@ -55,5 +51,9 @@ public class WeaponStats : ScriptableObject
     [SerializeField]
     public string descrip; //Pas de modifs pendant le gameplay 
     public string Descrip { get => descrip; protected set => descrip = value; }
+
+    [SerializeField]
+    public GameObject nextWeapon; //Pas de modifs pendant le gameplay 
+    public GameObject NextWeapon { get => nextWeapon; protected set => nextWeapon = value; }
 
 }

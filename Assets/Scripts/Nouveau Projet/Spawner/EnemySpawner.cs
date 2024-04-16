@@ -116,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
 
                     else
                     {
-                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan);
+                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan.position + player.position, Quaternion.identity);
                         enemyGroup.spawnCount++;
                         waves[currentWaveCount].spawnCount++;
                         enemyAlive++;

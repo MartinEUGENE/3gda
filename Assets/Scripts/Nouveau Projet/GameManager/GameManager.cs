@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
                     isChoosingUpgrade = true;
                     Time.timeScale = 0f;
                     levelUpScreen.SetActive(true);
-                    playerObj.GetComponent<InventoryManager>().Upgrading(randomIndexes);
+                    //playerObj.GetComponent<InventoryManager>().Upgrading(randomIndexes);
                 }
 
                 break;
@@ -245,7 +245,6 @@ public class GameManager : MonoBehaviour
         pauseScreen.SetActive(false);
         resultScreen.SetActive(false);
         levelUpScreen.SetActive(false);
-
     }
 
     public void GameOver()
@@ -262,8 +261,7 @@ public class GameManager : MonoBehaviour
     public void LevelUp()
     {
         ChangeState(GameState.LevelUp);
-
-        //playerObj.SendMessage("RemoveAndApplyUpgrades"); 
+        playerObj.SendMessage("RemoveUpApplyUp"); 
     }
 
 
