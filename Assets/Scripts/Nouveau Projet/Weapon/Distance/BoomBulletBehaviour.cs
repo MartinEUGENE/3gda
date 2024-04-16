@@ -48,7 +48,20 @@ public class BoomBulletBehaviour : BulletSystem
 
     public void Boom()
     {
-        Instantiate(explosion, transform.position, Quaternion.identity); //affect scale par lvl a rajouter
+        if (weapon.quantity == 3f)
+        {
+            GameObject explosionObject = Instantiate(explosion, transform.position, Quaternion.identity);
+            explosionObject.transform.localScale = new Vector3(2f, 2f, 1f);
+           // Debug.Log("bum");
+        }
+        else
+        {
+            //Debug.Log("lul");
+            Instantiate(explosion, transform.position, Quaternion.identity);
+
+        }
+
+        //Debug.Log(weapon.quantity);
         Destroy(gameObject);
     }
 }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
-  m_Name: spray
+  m_Name: beam lvl3
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 24
   speedrange: 0
-  quantity: 1
-  weaponReload: 1
-  cooldown: 0.57408786
-  pierceEffect: 1
-  prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
+  quantity: 2
+  weaponReload: 2
+  cooldown: 1.5242378
+  pierceEffect: 0
+  prefabObj: {fileID: 2742540426966787090, guid: 98f761221b602704d9b2c7730154e6b1,
     type: 3}
-  level: 1
+  level: 3
   nextWeapon: {fileID: 0}
   icon: {fileID: 0}
   named: 

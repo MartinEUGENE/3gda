@@ -36,7 +36,16 @@ public class BeamWeapon : WeaponSystem
     protected override void Shoot()
     {
         base.Shoot();
-        Blast(choice);
+        if(weaponData.quantity == 2)
+        {
+            Blast(1);
+            Blast(-1);
+        }
+        else
+        {
+            Blast(choice);
+        }
+        
     }
 
     private void Blast(int direction)
