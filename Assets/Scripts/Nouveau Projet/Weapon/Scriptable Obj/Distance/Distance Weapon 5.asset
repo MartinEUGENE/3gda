@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 6
   speedrange: 25
-  quantity: 3
+  quantity: 4
   weaponReload: 2
-  cooldown: 0.7206329
+  cooldown: 0.634328
   pierceEffect: 1
   prefabObj: {fileID: 7905828093271916926, guid: 70ddef1a9ac19aa40b11f2ec53ffcb6b,
     type: 3}

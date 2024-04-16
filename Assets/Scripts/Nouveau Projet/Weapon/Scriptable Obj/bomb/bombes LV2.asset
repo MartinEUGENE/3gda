@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 35
   speedrange: 0
-  quantity: 1
+  quantity: 2
   weaponReload: 1.9
   cooldown: 0.99588114
   pierceEffect: 1

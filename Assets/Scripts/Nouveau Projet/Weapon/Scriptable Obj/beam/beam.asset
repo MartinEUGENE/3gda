@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   speedrange: 0
-  quantity: 0
+  quantity: 1
   weaponReload: 2
   cooldown: 1.5242378
   pierceEffect: 0
@@ -22,3 +22,6 @@ MonoBehaviour:
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}
+  icon: {fileID: 0}
+  named: 
+  descrip: 
