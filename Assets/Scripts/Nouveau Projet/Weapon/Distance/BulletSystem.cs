@@ -29,6 +29,7 @@ public class BulletSystem : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot);
         //markedEnemies = new List<GameObject>();
         stats = FindObjectOfType<CharacterStats>();
+        weapon = FindObjectOfType<WeaponStats>();
     }
 
     protected virtual void Update()

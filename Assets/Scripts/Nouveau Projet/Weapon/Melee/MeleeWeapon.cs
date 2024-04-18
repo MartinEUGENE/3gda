@@ -19,6 +19,7 @@ public class MeleeWeapon : MonoBehaviour
     {
         Destroy(gameObject, destroyObj);
         stats = GetComponentInParent<CharacterStats>();
+        weapon = GetComponent<WeaponStats>();
     }
     protected virtual void Update()
     {
