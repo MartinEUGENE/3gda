@@ -128,7 +128,11 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   destroyObj: 5
   mainCam: {fileID: 0}
-  weapon: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
+  weapon: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
   stats: {fileID: 0}
+  rb: {fileID: 0}
+  inateCrit: 0
+  hasCrit: 0
+  countDown: 0
   explosion: {fileID: 2775600253798852073, guid: 34dd13ac57783584a86b4daab257c135,
     type: 3}

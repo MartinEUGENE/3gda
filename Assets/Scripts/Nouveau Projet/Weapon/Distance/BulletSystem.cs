@@ -26,8 +26,8 @@ public class BulletSystem : MonoBehaviour
         mainCam = FindObjectOfType<Camera>();
         stats = FindObjectOfType<CharacterStats>();
         rb = GetComponent<Rigidbody2D>();
-        //UpdateMouseData();
-        //moveDir = mouseDir;
+        UpdateMouseData();
+        moveDir = mouseDir;
         float rot = Mathf.Atan2(mouseDir.y, mouseDir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot);
         //markedEnemies = new List<GameObject>();

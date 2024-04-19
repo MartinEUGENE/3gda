@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
         DisableScreens();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         instance = this;
-        for (int i = 0; i < randomIndexes.Length; i++)
+       /* for (int i = 0; i < randomIndexes.Length; i++)
         {
             randomIndexes[i] = Random.Range(0, 3);
-        }
+        }*/
     }
 
     void Update()
@@ -107,7 +107,7 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("This GameState does not exist, why are you here ?");
                 break;
         }
-
+/*
         if (randomIndexes[1] == randomIndexes[0])
         {
             randomIndexes[1] = Random.Range(0, 3);
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
         else if (randomIndexes[2] == randomIndexes[0 | 1])
         {
             randomIndexes[2] = Random.Range(0, 3);
-        }
+        }*/
     }
 
     IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f, bool crit = true, bool heal = true, bool chara = false)

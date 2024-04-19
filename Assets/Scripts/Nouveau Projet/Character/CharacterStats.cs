@@ -99,7 +99,7 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
-        SpawnedPassive(playerStats.StartingPassive);
+        //SpawnedPassive(playerStats.StartingPassive);
 
         part.Pause(); 
     }

@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: beam
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 35
   speedrange: 0
   quantity: 0
   weaponReload: 2
   cooldown: 1.5242378
   pierceEffect: 0
-  prefabObj: {fileID: 2742540426966787090, guid: 98f761221b602704d9b2c7730154e6b1,
+  prefabObj: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
     type: 3}
   level: 1
-  nextWeapon: {fileID: 0}
   icon: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
-  named: 
-  descrip: 
+  named: Beam
+  descrip: Comment est-ce qu'un laser fait aussi mal ?
+  nextWeapon: {fileID: 0}
