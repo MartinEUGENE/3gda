@@ -105,7 +105,8 @@ MonoBehaviour:
   hasCrit: 0
   stats: {fileID: 0}
   weapon: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
-  weaponStats: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
+  duration: 0.5
+  destroyDelay: 0.25
 --- !u!60 &8801494941674107115
 PolygonCollider2D:
   m_ObjectHideFlags: 0
