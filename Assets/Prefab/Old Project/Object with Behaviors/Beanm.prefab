@@ -77,8 +77,8 @@ MonoBehaviour:
   inateCrit: 0
   hasCrit: 0
   stats: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 22b0d5b01aa01f44bbad81496369522b, type: 2}
-  duration: 0.25
+  weapon: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8, type: 2}
+  duration: 0.1
 --- !u!1 &8785628015768227880
 GameObject:
   m_ObjectHideFlags: 0

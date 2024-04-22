@@ -13,7 +13,6 @@ public class BoomBulletBehaviour : BulletSystem
     {
         base.Start();
         markedEnemies = new List<GameObject>();
-
     }
 
     protected override void Update() // il tire dans la bonne direction mais une force supl�mentaire le pousse dans la direction o� se d�place le joueur, d�montr� par le fait que la balle est plus lente quand tir� loing du joueur
@@ -21,7 +20,7 @@ public class BoomBulletBehaviour : BulletSystem
         base.Update();
         transform.position += moveDir * weapon.speedrange * Time.deltaTime;
 
-        countDown += 1;
+        countDown += Mathf.FloorToInt(1 * Time.timeScale); 
         if (countDown >= 40)
         {
             Boom();

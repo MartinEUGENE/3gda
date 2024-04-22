@@ -16,13 +16,13 @@ MonoBehaviour:
   speedrange: 0
   quantity: 0
   weaponReload: 1.6
-  cooldown: 0.6226741
+  cooldown: 1.2664468
   pierceEffect: 0
-  prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
+  prefabObj: {fileID: 5664156195521514898, guid: 27cf0321677cd584f8afa3d9d205400b,
     type: 3}
   level: 3
+  icon: {fileID: 21300000, guid: 1f810cd5677bfa246b00446a707e2002, type: 3}
+  named: The Fist of the North Star LV3
+  descrip: "Ce poing est arm\xE9 de bonnes intentions. Sauf pour les policiers"
   nextWeapon: {fileID: 3473108540770449506, guid: a41017d79e507f74783a27c7e2a9b9f8,
     type: 3}
-  icon: {fileID: 21300000, guid: 1f810cd5677bfa246b00446a707e2002, type: 3}
-  named: 
-  descrip: 

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: StarItem
   m_EditorClassIdentifier: 
-  multiplier: 60
+  multiplier: 100
   level: 1
-  nextPassive: {fileID: 0}
+  nextPassive: {fileID: 8517228953195156906, guid: 85aeae69b38911842a6df840aa509442,
+    type: 3}
   icon: {fileID: 21300000, guid: d21c302b95cd7d3468caec58d491c706, type: 3}
   named: "Boule \xE0 4 \xE9toiles"
-  descrip: 'Cet objet file de la chance pure : +60% coup critique'
+  descrip: Cet objet est fait avec de la chance pure
