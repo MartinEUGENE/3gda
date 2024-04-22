@@ -103,15 +103,15 @@ MonoBehaviour:
   - name: Exp
     itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
       type: 3}
-    dropRate: 99
+    dropRate: 100
   - name: Coin
     itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
       type: 3}
-    dropRate: 2
+    dropRate: 0.3
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
-    dropRate: 2
+    dropRate: 0.3
 --- !u!50 &5424853228338653660
 Rigidbody2D:
   serializedVersion: 4
@@ -143,7 +143,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

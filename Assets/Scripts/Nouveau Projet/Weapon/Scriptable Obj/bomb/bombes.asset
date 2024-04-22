@@ -18,9 +18,12 @@ MonoBehaviour:
   weaponReload: 2
   cooldown: 1.9006488
   pierceEffect: 1
-  prefabObj: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
+  prefabObj: {fileID: 7905828093271916926, guid: fa277519f8dbcb2449c7277dd4b2866f,
     type: 3}
   level: 1
+  icon: {fileID: 21300000, guid: daf2ab606d4db0d4f9ecf4c02137d2a8, type: 3}
+  named: Bombe
+  descrip: Bombe industrielle
   nextWeapon: {fileID: 0}
   icon: {fileID: 0}
   named: 

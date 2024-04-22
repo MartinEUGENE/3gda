@@ -19,4 +19,24 @@ public class PassiveItem : MonoBehaviour
     {
 
     }
+/*
+    protected virtual void Update()
+    {
+        CheckLevel();
+    }
+
+    public void GetALevelUp(PassiveScriptable passive)
+    {
+        passiveItem = passive; 
+    }
+
+
+    void CheckLevel()
+    {
+        if(currentLevel != passiveItem.Level)
+        {
+            currentLevel = passiveItem.Level;
+        }
+    }*/
+
 }

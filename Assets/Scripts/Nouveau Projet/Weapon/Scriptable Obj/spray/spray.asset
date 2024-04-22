@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   speedrange: 0
-  quantity: 1
+  quantity: 0
   weaponReload: 1
-  cooldown: 0.57408786
+  cooldown: 0.38831943
   pierceEffect: 1
   prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
     type: 3}
   level: 1
   nextWeapon: {fileID: 0}
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 0ff8fd73a1ad1284eb30ab319560b4c7, type: 3}
   named: 
   descrip: 

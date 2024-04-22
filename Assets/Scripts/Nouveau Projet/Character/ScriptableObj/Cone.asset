@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 494890be2288ee943b7ab548f69bb992, type: 3}
-  m_Name: True Character
+  m_Name: Cone
   m_EditorClassIdentifier: 
-  startingWeapon: {fileID: 3473108540770449506, guid: bdaa8bb2caf437349897e58062de5c4c,
+  startingWeapon: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
     type: 3}
   maxHP: 100
   recovery: 0.2

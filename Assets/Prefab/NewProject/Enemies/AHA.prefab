@@ -104,15 +104,15 @@ MonoBehaviour:
   - name: Exp
     itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
       type: 3}
-    dropRate: 99
+    dropRate: 100
   - name: Coin
     itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
       type: 3}
-    dropRate: 20
+    dropRate: 0.1
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
-    dropRate: 50
+    dropRate: 0.5
 --- !u!50 &5424853228338653660
 Rigidbody2D:
   serializedVersion: 4
@@ -176,8 +176,8 @@ MonoBehaviour:
   enemyLevel: 1
   startingTime: 5
   predictionLine: {fileID: 2658288579246907042}
-  rushForce: 25
-  rushDist: 500
+  rushForce: 10
+  rushDist: 50
 --- !u!120 &2658288579246907042
 LineRenderer:
   m_ObjectHideFlags: 0

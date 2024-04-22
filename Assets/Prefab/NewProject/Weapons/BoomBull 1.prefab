@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 461758817289730076}
   - component: {fileID: 8084174008588251940}
   - component: {fileID: 1228734420995242199}
-  - component: {fileID: 335493806987292439}
   - component: {fileID: -6779442168298151130}
+  - component: {fileID: -206618312619063468}
   m_Layer: 0
-  m_Name: bull
+  m_Name: BoomBull 1
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,27 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &335493806987292439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7905828093271916926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0909bb889b0497340a18df85bb53ece7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mousPos: {x: 0, y: 0, z: 0}
-  mouseDir: {x: 0, y: 0, z: 0}
-  moveDir: {x: 0, y: 0, z: 0}
-  destroyObj: 5
-  mainCam: {fileID: 0}
-  weapon: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
-  stats: {fileID: 0}
-  inateCrit: 0
-  hasCrit: 0
 --- !u!61 &-6779442168298151130
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -132,3 +111,28 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-206618312619063468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7905828093271916926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7670977a82f507429dfb43b3a1fc64b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mousPos: {x: 0, y: 0, z: 0}
+  mouseDir: {x: 0, y: 0, z: 0}
+  moveDir: {x: 0, y: 0, z: 0}
+  destroyObj: 5
+  mainCam: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 3459362914e00634da32b3ac5757ab45, type: 2}
+  stats: {fileID: 0}
+  rb: {fileID: 0}
+  inateCrit: 0
+  hasCrit: 0
+  countDown: 0
+  explosion: {fileID: 2775600253798852073, guid: 34dd13ac57783584a86b4daab257c135,
+    type: 3}

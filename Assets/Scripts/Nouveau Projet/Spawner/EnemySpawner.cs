@@ -105,8 +105,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 //Check si le nombre d'ennemi d'un type minimal a été invoqué
                 if(enemyGroup.enemyCount > enemyGroup.spawnCount)
-                {                   
-
+                {        
                     if(!enemyGroup.specialEnemy)
                     {
                         Instantiate(enemyGroup.enemyPrefab, player.position + points[Random.Range(0, points.Count)].position, Quaternion.identity);
@@ -117,7 +116,7 @@ public class EnemySpawner : MonoBehaviour
 
                     else
                     {
-                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan);
+                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan.position + player.position, Quaternion.identity);
                         enemyGroup.spawnCount++;
                         waves[currentWaveCount].spawnCount++;
                         enemyAlive++;

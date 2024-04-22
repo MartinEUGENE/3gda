@@ -67,23 +67,27 @@ public class CharacterStats : MonoBehaviour
     public List<LevelRange> levelRanges;
 
     InventoryManager inventory; 
-    PlayerCollect collect; 
+    PlayerCollect collect;
+    ParticleSystem part; 
     public int weaponIndex;
     public int passiveIndex;
     
     void Awake()
     {
         //playerStats = GetComponent<CharacterScriptable>();
+
         playerStats = CharacterSelector.GetData();
         inventory = GetComponent<InventoryManager>();
         collect = GetComponentInChildren<PlayerCollect>();
+        player = GetComponent<GameObject>();
+        part = GetComponentInChildren<ParticleSystem>(); 
+
         experience = 0;
         gold = 0;
         level = 1;
+        XPBAR.fillAmount = 0;
 
-        currentNewHP = playerStats.MaxHP;
-        player = GetComponent<GameObject>();
-        
+        currentNewHP = playerStats.MaxHP;        
         currentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
         currentCriticalRate = playerStats.CritRate;
@@ -93,11 +97,13 @@ public class CharacterStats : MonoBehaviour
         currentSpeed = playerStats.MovSpeed;
         currentArmor = playerStats.Armor;
         currentRecovery = playerStats.recovery;
-
         //Weapon Spawning
-         SpawnedWeapon(playerStats.StartingWeapon);        
-        //HealthCheck();
+        SpawnedWeapon(playerStats.StartingWeapon);
+        //SpawnedPassive(playerStats.StartingPassive);
+
+        part.Pause(); 
     }
+
     private void Start()
     {
         experienceCap = levelRanges[0].expCapIncrease;
@@ -107,7 +113,6 @@ public class CharacterStats : MonoBehaviour
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
-        //spawnedWeapons.Add(spawnedWeapon);
         inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponentInChildren<WeaponSystem>());
 
         weaponIndex++;
@@ -139,8 +144,7 @@ public class CharacterStats : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
             experience -= experienceCap;
-            //currentSpeed *= 1.15f;
-            //currentAttack += 1;
+
             invincible = true; 
 
             int experienceCapIncrease = 0;
@@ -149,10 +153,11 @@ public class CharacterStats : MonoBehaviour
                 experienceCapIncrease = range.expCapIncrease;
                 break; 
             }
+
             XPbar();
             experienceCap += experienceCapIncrease;
 
-            GameManager.instance.Levelling();
+            GameManager.instance.LevelUp();
 
         }
     }
@@ -179,18 +184,12 @@ public class CharacterStats : MonoBehaviour
             Death();
         }
 
-        /*float newHealthWidth = HPPercentage * maxHP; 
-        newHealthWidth = Mathf.Clamp(newHealthWidth, 0f, maxHP);
-        RectTransform healthRectTransform = HpBar.rectTransform;
-        healthRectTransform.sizeDelta = new Vector2(newHealthWidth, healthRectTransform.sizeDelta.y);*/
-        
-        //float smallerObjectSize = newHealthWidth * (miniNoHealth / maxHP); // Adjust the size relative to the max width of the smaller object
-       // miniHealth.sizeDelta = new Vector2(smallerObjectSize, miniHealth.sizeDelta.y);
     }
 
     public void DmgTaken(int dmg)
     {
-        GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+        //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+        part.Play(); 
     }
     public void Death()
     {       
@@ -214,6 +213,11 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
+    void StatsCheck()
+    {
+
+    }
+
     void Recover()
     {
         if(currentNewHP < playerStats.MaxHP)
@@ -225,12 +229,13 @@ public class CharacterStats : MonoBehaviour
         {
             currentNewHP = playerStats.MaxHP;
         }
-
     }
 
     public void Update()
     {
         HealthCheck();
+        StatsCheck();
+
         if(invincible == true)
         {
             invincibleTimer -= Time.deltaTime;

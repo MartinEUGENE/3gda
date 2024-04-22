@@ -15,6 +15,7 @@ MonoBehaviour:
   enemySpeed: 1
   enemyHP: 25
   enemyDmg: 15
+  enemyTiming: 0
   damageIncreaseByLevel: 5
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 0

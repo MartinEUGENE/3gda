@@ -3,20 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(6);
-    public int[] weaponLvls = new int[5];
-    public List<PassiveItem> passiveSlots = new List<PassiveItem>(6);
-    public int[] passiveLvls = new int[5];
 
+    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(5);
+    public int[] weaponLvls = new int[5];
+    public List<Image> weaponUiSlots = new List<Image>(5); 
+
+    public List<PassiveItem> passiveSlots = new List<PassiveItem>(5);
+    public int[] passiveLvls = new int[5];
+    public List<Image> passiveUiSlots = new List<Image>(5);
+        
     [System.Serializable]
-    public class WeaponUpgrade
+    public class UpgradeUI
     {
-        public int weaponUpIndex; 
-        public GameObject initialWeapaon;
-        public WeaponStats weaponStats; 
+        public TextMeshProUGUI upgradeName;
+        public TextMeshProUGUI upgradeDescrption;
+        public Image upgradeImg;
+        public Button buttonUpgrade;
     }
 
     [System.Serializable]
@@ -25,37 +31,38 @@ public class InventoryManager : MonoBehaviour
         public int passiveUpIndex;
         public GameObject initialPassive;
         public PassiveScriptable passiveStats;
-
     }
+
 
     [System.Serializable]
-    public class UpgradeUI
+    public class WeaponUpgrade
     {
-        public TextMeshProUGUI upgradeName; 
-        public TextMeshProUGUI upgradeDescrption;
-        public Image upgradeImg;
-        public Button buttonUpgrade; 
+        public int weaponUpIndex;
+        public GameObject initialWeapaon;
+        public WeaponStats weaponStats;
     }
 
-    public List<WeaponUpgrade> wpnUpgradeOptions = new List<WeaponUpgrade>();
-    public List<PassiveUpgrade> passiveUpgradeOptions = new List<PassiveUpgrade>();
-    public List<UpgradeUI> UpgradeOptions = new List<UpgradeUI>();
+    public List<WeaponUpgrade> wpnUp = new List<WeaponUpgrade>();
+    public List<PassiveUpgrade> passiveUp = new List<PassiveUpgrade>();
+    public List<UpgradeUI> psyOps = new List<UpgradeUI>();
 
     CharacterStats chara;
 
     void Start()
     {
-        chara = GetComponent<CharacterStats>(); 
+        chara = GetComponent<CharacterStats>();
     }
 
     public void AddWeapon(int slotsIndex, WeaponSystem weapon)
     {
         weaponSlots[slotsIndex] = weapon;
         weaponLvls[slotsIndex] = weapon.weaponData.Level;
-        
-        if(GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
+        weaponUiSlots[slotsIndex].enabled = true;
+        weaponUiSlots[slotsIndex].sprite = weapon.weaponData.icon; 
+
+        if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
         {
-            GameManager.instance.DoneLevelling(); 
+            GameManager.instance.LevelUpDone();
         }
     }
 
@@ -63,41 +70,45 @@ public class InventoryManager : MonoBehaviour
     {
         passiveSlots[slotsIndex] = item;
         passiveLvls[slotsIndex] = item.passiveItem.Level;
+        passiveUiSlots[slotsIndex].enabled = true;
+        passiveUiSlots[slotsIndex].sprite = item.passiveItem.icon;
+
 
         if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
         {
-            GameManager.instance.DoneLevelling();
+            GameManager.instance.LevelUpDone();
         }
     }
 
     public void LevelUpWeapon(int slotIndex, int upgradeIndex)
     {
-        if(weaponSlots.Count > slotIndex)
+        if (weaponSlots.Count > slotIndex)
         {
             WeaponSystem weapon = weaponSlots[slotIndex];
-            GameObject weaponUpgrade = Instantiate(weapon.weaponData.NextWeapon, transform.position, Quaternion.identity);
+            GameObject weaponUpgrade = Instantiate(weapon.weaponData.nextWeapon, transform.position, Quaternion.identity);
             weaponUpgrade.transform.SetParent(transform);
-            //Méthode de spawn de l'arme chez le joueur. 
+            //Méthode de spawn de l'arme chez le joueur. *//*
 
             AddWeapon(slotIndex, weaponUpgrade.GetComponentInChildren<WeaponSystem>());
             Destroy(weapon.gameObject);
             weaponLvls[slotIndex] = weaponUpgrade.GetComponentInChildren<WeaponSystem>().weaponData.Level;
 
-            wpnUpgradeOptions[upgradeIndex].weaponStats = weaponUpgrade.GetComponentInChildren<WeaponSystem>().weaponData; 
-
             if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
             {
-                GameManager.instance.DoneLevelling();
+                GameManager.instance.LevelUpDone();
             }
+
+            wpnUp[upgradeIndex].weaponStats = weaponUpgrade.GetComponent<WeaponSystem>().weaponData; 
+
+            /**/
         }
     }
-
     public void LevelUpPassive(int slotIndex, int upgradeIndex)
     {
         if (passiveSlots.Count > slotIndex)
         {
             PassiveItem passive = passiveSlots[slotIndex];
-            GameObject passiveUpgrade = Instantiate(passive.passiveItem.NextPassive, transform.position, Quaternion.identity);
+            GameObject passiveUpgrade = Instantiate(passive.passiveItem.nextPassive, transform.position, Quaternion.identity);
             passiveUpgrade.transform.SetParent(transform);
             //Méthode de spawn de l'arme chez le joueur. 
 
@@ -105,109 +116,178 @@ public class InventoryManager : MonoBehaviour
             Destroy(passive.gameObject);
             passiveLvls[slotIndex] = passiveUpgrade.GetComponent<PassiveItem>().passiveItem.Level;
 
-            passiveUpgradeOptions[upgradeIndex].passiveStats = passiveUpgrade.GetComponentInChildren<PassiveItem>().passiveItem;
+            passiveUp[upgradeIndex].passiveStats = passiveUpgrade.GetComponent<PassiveItem>().passiveItem;
 
             if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
             {
-                GameManager.instance.DoneLevelling();
+                GameManager.instance.LevelUpDone();
             }
+
+            /**/
         }
     }
 
-    /*public*/ void ApplyUpgrade()
+    void ApplyUpgrade()
     {
-        foreach(var upgradeOpt in UpgradeOptions)
+        List<WeaponUpgrade> avalivableWeaponUpgrades = new List<WeaponUpgrade>(wpnUp);
+        List<PassiveUpgrade> avalivablePassiveUpgrades = new List<PassiveUpgrade>(passiveUp);
+
+        foreach(var up in psyOps)
         {
-            int upgradeType = Random.Range(1, 3);
-            if(upgradeType == 1)
+            if(avalivablePassiveUpgrades.Count == 0 && avalivableWeaponUpgrades.Count == 0)
             {
-                WeaponUpgrade chosenWeapon = wpnUpgradeOptions[Random.Range(0, wpnUpgradeOptions.Count)]; 
-
-                if(chosenWeapon != null)
-                {
-                    bool newWepon = false; 
-                    for(int i = 0; i < weaponSlots.Count; i++)
-                    {
-                        if(weaponSlots[i] != null && weaponSlots[i].weaponData == chosenWeapon.weaponStats)
-                        {
-                            newWepon = false;
-                            if(!newWepon)
-                            {
-                                upgradeOpt.buttonUpgrade.onClick.AddListener(() => LevelUpWeapon(i, chosenWeapon.weaponUpIndex));
-
-                                upgradeOpt.upgradeDescrption.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.Descrip; 
-                                upgradeOpt.upgradeName.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.Named; 
-                            }
-                            break; 
-                        }
-                        else
-                        {
-                            newWepon = true; 
-                        }
-                    }
-                    if(newWepon)
-                    {
-                        upgradeOpt.buttonUpgrade.onClick.AddListener(() => chara.SpawnedWeapon(chosenWeapon.initialWeapaon));
-                        upgradeOpt.upgradeDescrption.text = chosenWeapon.weaponStats.Descrip;
-                        upgradeOpt.upgradeName.text = chosenWeapon.weaponStats.Named;
-                    }
-                    
-                }
-
-                upgradeOpt.upgradeImg.sprite = chosenWeapon.weaponStats.Icon; 
+                return; 
             }
 
-            else if(upgradeType == 2)
-            {
-                PassiveUpgrade chosenPassive = passiveUpgradeOptions[Random.Range(0, passiveUpgradeOptions.Count)];
+            int upgradeType; 
 
-                if (chosenPassive != null)
+            if(avalivableWeaponUpgrades.Count == 0)
+            {
+                upgradeType = 2; 
+            }
+
+            else if(avalivablePassiveUpgrades.Count == 0)
+            {
+                upgradeType = 1;
+            }
+
+            else
+            {
+                upgradeType = Random.Range(1, 3);
+            }
+
+
+            if (upgradeType ==1)
+            {
+                WeaponUpgrade chosenWeapon = avalivableWeaponUpgrades[Random.Range(0, avalivableWeaponUpgrades.Count)];
+                avalivableWeaponUpgrades.Remove(chosenWeapon); 
+
+                if (chosenWeapon != null)
                 {
-                    bool newPassive = false;
-                    for (int i = 0; i < passiveSlots.Count; i++)
+                    bool newWeapon = false;
+                    for (int i = 0; i < weaponSlots.Count; i++)
                     {
-                        if (weaponSlots[i] != null && passiveSlots[i].passiveItem == chosenPassive.passiveStats)
+                        if (weaponSlots[i] != null && weaponSlots[i].weaponData == chosenWeapon.weaponStats)
                         {
-                            newPassive = false;
-                            if (!newPassive)
+                            newWeapon = false;
+                            if (!newWeapon)
                             {
-                                upgradeOpt.buttonUpgrade.onClick.AddListener(() => LevelUpPassive(i, chosenPassive.passiveUpIndex));
-                                upgradeOpt.upgradeDescrption.text = chosenPassive.passiveStats.NextPassive.GetComponent<PassiveItem>().passiveItem.Descrip;
-                                upgradeOpt.upgradeName.text = chosenPassive.passiveStats.NextPassive.GetComponent<PassiveItem>().passiveItem.Named;
+                                if(!chosenWeapon.weaponStats.nextWeapon)
+                                {
+                                    break;
+                                }
+
+                                //ButtonActivation(); 
+                                up.buttonUpgrade.onClick.AddListener(() => LevelUpWeapon(i, chosenWeapon.weaponUpIndex));
+                                up.upgradeName.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.named;
+                                up.upgradeDescrption.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.descrip;
                             }
                             break;
                         }
                         else
                         {
-                            newPassive = true;
+                           newWeapon = true;
                         }
                     }
-                    if (newPassive)
+
+                    if (newWeapon)
                     {
-                        upgradeOpt.buttonUpgrade.onClick.AddListener(() => chara.SpawnedPassive(chosenPassive.initialPassive));
-                        upgradeOpt.upgradeDescrption.text = chosenPassive.passiveStats.Descrip;
-                        upgradeOpt.upgradeName.text = chosenPassive.passiveStats.Named;
+                        up.buttonUpgrade.onClick.AddListener(() => chara.SpawnedWeapon(chosenWeapon.initialWeapaon));
                     }
 
-                }
+                    up.upgradeImg.sprite = chosenWeapon.weaponStats.icon;
 
-                upgradeOpt.upgradeImg.sprite = chosenPassive.passiveStats.Icon;
+                }
             }
 
+            else if (upgradeType == 2)
+            {
+                PassiveUpgrade chosenPassive = avalivablePassiveUpgrades[Random.Range(0, avalivablePassiveUpgrades.Count)];
+                avalivablePassiveUpgrades.Remove(chosenPassive);
+
+                if (chosenPassive != null)
+                {
+                    bool newPass = false;
+                    for (int i = 0; i < weaponSlots.Count; i++)
+                    {
+                        if (weaponSlots[i] != null && weaponSlots[i].weaponData == chosenPassive.passiveStats)
+                        {
+                            newPass = false;
+                            if (!newPass)
+                            {
+                                if(!chosenPassive.passiveStats.nextPassive)
+                                {
+                                    break;
+                                }
+
+                                //ButtonActivation(); 
+                                up.buttonUpgrade.onClick.AddListener(() => LevelUpPassive(i, chosenPassive.passiveUpIndex));
+                                up.upgradeName.text = chosenPassive.passiveStats.nextPassive.GetComponent<PassiveItem>().passiveItem.named;
+                                up.upgradeDescrption.text = chosenPassive.passiveStats.nextPassive.GetComponent<PassiveItem>().passiveItem.descrip;
+                            }
+                            break;
+                        }
+
+                        else
+                        {
+                            newPass = true;
+                        }
+                    }
+                    if (newPass)
+                    {
+                        up.buttonUpgrade.onClick.AddListener(() => chara.SpawnedPassive(chosenPassive.initialPassive));
+                    }
+
+                    up.upgradeImg.sprite = chosenPassive.passiveStats.icon;
+
+                }
+            }
         }
     }
+
 
     void RemoveUpgradeOpt()
     {
-        foreach(var upgradeOption in UpgradeOptions)
+        foreach (var upgradeOption in psyOps)
         {
-            upgradeOption.buttonUpgrade.onClick.RemoveAllListeners();
+            upgradeOption.buttonUpgrade.onClick.RemoveAllListeners(); 
         }
     }
-
-    public void RemoveAndApplyUpgrades()
+    
+    public void RemoveUpApplyUp()
     {
         RemoveUpgradeOpt();
         ApplyUpgrade();
     }
+
 }
+
+
+/*   public void Upgrading(int[] randomIntArray)
+    {
+        for (int i = 0; i < psyOps.Count; i++)
+        {
+            if (upgradeOption[randomIntArray[i]].weaponStats != null)
+            {
+                psyOps[i].upgradeImg.sprite = upgradeOption[randomIntArray[i]].weaponStats.Icon;
+                psyOps[i].upgradeName.text = upgradeOption[randomIntArray[i]].weaponStats.Named;
+                psyOps[i].upgradeDescrption.text = upgradeOption[randomIntArray[i]].weaponStats.Descrip;
+
+                if(upgradeOption[randomIntArray[i]].weaponStats == weaponSlots[randomIntArray[i]])
+                {
+
+                }
+
+            }
+
+            else if (upgradeOption[randomIntArray[i]].passiveStats != null)
+            {
+                psyOps[i].upgradeImg.sprite = upgradeOption[randomIntArray[i]].passiveStats.Icon;
+                psyOps[i].upgradeName.text = upgradeOption[randomIntArray[i]].passiveStats.Named;
+                psyOps[i].upgradeDescrption.text = upgradeOption[randomIntArray[i]].passiveStats.Descrip;
+
+
+
+            }
+        }
+    }*/

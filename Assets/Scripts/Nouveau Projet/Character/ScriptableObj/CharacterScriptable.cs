@@ -10,7 +10,11 @@ public class CharacterScriptable : ScriptableObject
     [SerializeField] 
     GameObject startingWeapon;
     public GameObject StartingWeapon { get => startingWeapon; private set => startingWeapon = value; }
-    
+
+    [SerializeField]
+    GameObject startingPassive;
+    public GameObject StartingPassive { get => startingPassive; private set => startingPassive = value; }
+
     [SerializeField]
     public float maxHP;
     public float MaxHP { get => maxHP; private set => maxHP = value; }

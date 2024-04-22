@@ -67,7 +67,7 @@ public class EnemiesSystem : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerTransform) > distanceDespawn)
         {
-            ReturnTheEnemy();
+            //ReturnTheEnemy();
         }
     }
 
@@ -78,7 +78,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void EnemyMove()
     {
-        Vector2 direction = (playerVector - transform.position).normalized;
+        Vector2 direction = (playerObj.transform.position - transform.position).normalized;
         rb2d.velocity = direction * currentSpeed;
     }
 
@@ -145,12 +145,13 @@ public class EnemiesSystem : MonoBehaviour
     public void Die()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/EnemyKill", transform.position);
+        EnemySpawner us = FindObjectOfType<EnemySpawner>();
+        us.EnemyKill();
         Destroy(gameObject);
     }
 
     public void OnDestroy()
     {
-        EnemySpawner us = FindObjectOfType<EnemySpawner>();
-        us.EnemyKill();
+        
     }
 }

@@ -6,19 +6,20 @@ public class BoomBehaviour : BulletSystem
 {
     List<GameObject> markedEnemies;
     public int countDown = 0;
+    public int countStop = 200; 
 
     protected override void Start()
     {
         base.Start();
         markedEnemies = new List<GameObject>();
-
     }
 
     protected override void Update() 
     {
         base.Update();
         countDown += 1;
-        if (countDown >= 200)
+
+        if (countDown >= countStop)
         {
             Destroy(gameObject);
         }
@@ -30,7 +31,6 @@ public class BoomBehaviour : BulletSystem
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
             en.TakeDmg(GetCurrentDamage(), hasCrit);
-            //Debug.Log(GetCurrentDamage());
             markedEnemies.Add(other.gameObject);
         }
     }

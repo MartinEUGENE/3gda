@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class FirstWeapon : WeaponSystem
 {
@@ -8,41 +9,27 @@ public class FirstWeapon : WeaponSystem
 
     protected override void Start()
     {
-        base.Start();
         mainCam = FindObjectOfType<Camera>();
         Vector3 dir = mousePos - transform.position;
         Vector3 roting = transform.position - mousePos;
         float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
         transform.rotation = Quaternion.Euler(0, 0, rot + 90f);
     }
-
+    
     protected override void Shoot()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousePos - transform.position;
 
-        StartCoroutine(ShootCoroutine());
-    }
+        base.Shoot();
+        GameObject instantiatedBullet = Instantiate(weaponData.PrefabObj);
+        BulletSystem bulletSys = instantiatedBullet.GetComponent<BulletSystem>();
 
-    private IEnumerator ShootCoroutine()
-    {
-        for (int i = 0; i < weaponData.Quantity; i++)
-        {
-            base.Shoot();
-            GameObject instantiatedBullet = Instantiate(weaponData.PrefabObj);
-            BulletSystem bulletSys = instantiatedBullet.GetComponent<BulletSystem>();
-
-            instantiatedBullet.transform.position = transform.position;
-
-            bulletSys.VerifDir(mousePos);
-
-            yield return new WaitForSeconds(0.15f);
-        }
+        instantiatedBullet.transform.position = transform.position;
+        bulletSys.VerifDir(mousePos);
     }
 
     protected override void Update()
     {
-        base.Update();
+        base.Update();         
     }
 }
