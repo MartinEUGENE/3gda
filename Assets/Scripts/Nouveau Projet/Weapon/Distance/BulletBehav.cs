@@ -15,7 +15,7 @@ public class BulletBehav : BulletSystem
         rb.velocity = new Vector2(dir.x, dir.y) * weapon.speedrange; 
     }
 
-    protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
+    protected override void Update() 
     {
         base.Update();
         //transform.position += moveDir * weapon.speedrange * Time.deltaTime;
