@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SlowPoke
   m_EditorClassIdentifier: 
   enemySpeed: 0.75
-  enemyHP: 25
+  enemyHP: 150
   enemyDmg: 15
+  enemyTiming: 0
   damageIncreaseByLevel: 5
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 0
