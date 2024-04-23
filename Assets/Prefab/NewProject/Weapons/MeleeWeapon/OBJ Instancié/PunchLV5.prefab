@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2058195919969079773}
   - component: {fileID: 3470247245275865687}
   m_Layer: 0
-  m_Name: a Wall
+  m_Name: PunchLV5
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
   inateCrit: 0
   hasCrit: 0
   stats: {fileID: 0}
-  weapon: {fileID: 11400000, guid: dde587c17e191ae4dacbc803b0ae1003, type: 2}
+  weapon: {fileID: 11400000, guid: 48b7c43f84a5b1544a3040ea0f83f9c6, type: 2}
 --- !u!212 &2058195919969079773
 SpriteRenderer:
   m_ObjectHideFlags: 0
