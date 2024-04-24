@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyStats : ScriptableObject
 {
     [SerializeField] 
-    float enemySpeed;
+    [Range(0f, 2f)] float enemySpeed;
     public float EnemySpeed { get => enemySpeed; protected set => enemySpeed = value; }
 
     [SerializeField] 
@@ -27,11 +27,11 @@ public class EnemyStats : ScriptableObject
     public int DamageIncreaseByLevel { get => damageIncreaseByLevel; protected set => damageIncreaseByLevel = value; }
 
     [SerializeField]
-    float speedIncreseByLevel;
+    [Range(0f, .05f)] float speedIncreseByLevel;
     public float SpeedIncreseByLevel { get => speedIncreseByLevel; protected set => speedIncreseByLevel = value; }
 
     [SerializeField]
-    int healthIncreaseByLevel;
+    [Range(0,15)]int healthIncreaseByLevel;
     public int HealthIncreaseByLevel { get => healthIncreaseByLevel; protected set => healthIncreaseByLevel = value; }
 
 

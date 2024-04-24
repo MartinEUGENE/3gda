@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Normal kid
   m_EditorClassIdentifier: 
   enemySpeed: 0.9
-  enemyHP: 150
+  enemyHP: 50
   enemyDmg: 15
   enemyTiming: 0
-  damageIncreaseByLevel: 5
+  damageIncreaseByLevel: 1
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 0
+  healthIncreaseByLevel: 5

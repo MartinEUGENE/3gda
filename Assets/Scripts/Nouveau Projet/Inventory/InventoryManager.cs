@@ -254,7 +254,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
     void RemoveUpgradeOpt()
     {
         foreach (var upgradeOption in psyOps)

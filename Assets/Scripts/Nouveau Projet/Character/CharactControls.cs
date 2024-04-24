@@ -21,14 +21,15 @@ public class CharactControls : MonoBehaviour
     [Header("Dash")]
     public float dashSpeed;
     public float dashLenght = .8f;
-    public float dashCooldown = 3f;
+    public float dashCooldown;
+    public float dashMainDown = 3f; 
     bool isDashing = false;
     bool CanDash = true; 
 
     [SerializeField] protected CharactControls cont; 
     [SerializeField] public Rigidbody2D rb;
     [SerializeField] protected CharacterStats characterStats; 
-    [SerializeField] public Animate animate; 
+    [SerializeField] public Animate animate;
     //[SerializeField] public CharacterScriptable CharaData; 
 
     void Start()
@@ -37,13 +38,20 @@ public class CharactControls : MonoBehaviour
         cont = GetComponent<CharactControls>();
         animate = GetComponent<Animate>();
 
+        dashCooldown = dashMainDown; 
         lastMovVector = new Vector2(1f, 0f);
     }
-
 
     private void Update()
     {
         InputManagement();
+
+        dashCooldown -= Time.deltaTime;
+
+        if (dashCooldown <= 0f)
+        {
+            CanDash = true;
+        }
     }
 
     public void FixedUpdate()
@@ -99,8 +107,7 @@ public class CharactControls : MonoBehaviour
         yield return new WaitForSeconds(dashLenght);
         isDashing = false;
 
-        yield return new WaitForSeconds(dashCooldown);
-        CanDash = true; 
+        dashCooldown = dashMainDown; 
     }
 
 }
