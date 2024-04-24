@@ -77,9 +77,17 @@ public class CharactControls : MonoBehaviour
         moving.x = Input.GetAxisRaw("Horizontal");
         moving.y = Input.GetAxisRaw("Vertical");
 
-        animate.hoerizontal = moving.x;
-
         moving.Normalize();
+
+        if(moving.x != 0)
+        {
+            lastMovHorizon = moving.x; 
+        }
+
+        if (moving.y != 0)
+        {
+            lastMovHorizon = moving.y;
+        }
     }
 
 

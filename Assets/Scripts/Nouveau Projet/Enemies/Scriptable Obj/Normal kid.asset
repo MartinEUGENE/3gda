@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: Normal kid
   m_EditorClassIdentifier: 
-  enemySpeed: 1
-  enemyHP: 25
+  enemySpeed: 0.9
+  enemyHP: 150
   enemyDmg: 15
   enemyTiming: 0
   damageIncreaseByLevel: 5
