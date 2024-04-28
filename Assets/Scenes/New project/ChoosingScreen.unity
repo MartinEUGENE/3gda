@@ -782,7 +782,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Fist of the North Star
+  m_Text: Galactic Bat
 --- !u!222 &804345754
 CanvasRenderer:
   m_ObjectHideFlags: 0

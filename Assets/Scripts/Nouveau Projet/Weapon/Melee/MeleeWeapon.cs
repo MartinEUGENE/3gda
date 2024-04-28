@@ -19,6 +19,7 @@ public class MeleeWeapon : MonoBehaviour
     {
         Destroy(gameObject, destroyObj);
         stats = GetComponentInParent<CharacterStats>();
+        OnSpawn(); 
     }
     protected virtual void Update()
     {
@@ -44,4 +45,10 @@ public class MeleeWeapon : MonoBehaviour
         return dmgResult;
 
     }
+
+
+   protected virtual void OnSpawn()
+   {
+
+   }
 }

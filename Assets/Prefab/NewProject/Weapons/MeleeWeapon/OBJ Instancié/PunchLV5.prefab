@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: -7776159003789212333}
   - component: {fileID: 2058195919969079773}
   - component: {fileID: 3470247245275865687}
+  - component: {fileID: 4391717342853745581}
   m_Layer: 0
   m_Name: PunchLV5
-  m_TagString: Wall
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,12 +94,12 @@ SpriteRenderer:
   m_SortingLayerID: -888973317
   m_SortingLayer: 3
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 1f810cd5677bfa246b00446a707e2002, type: 3}
+  m_Sprite: {fileID: -1738104064, guid: 23487068003d8ad4e8097408493dc4e2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 9.28, y: 10.45}
+  m_Size: {x: 1.23, y: 2.21}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -121,8 +122,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.28, y: 10.45}
-    newSize: {x: 9.28, y: 10.45}
+    oldSize: {x: 0.37, y: 0.54}
+    newSize: {x: 1.23, y: 2.21}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -150,3 +151,23 @@ PolygonCollider2D:
       - {x: 3.9675322, y: -1.6278299}
       - {x: 4.44, y: -1.665}
       - {x: 4.44, y: 2.665}
+--- !u!95 &4391717342853745581
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664156195521514898}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 21983c90cf6402844a0b1d0992c639e7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
