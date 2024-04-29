@@ -5,12 +5,21 @@ using UnityEngine;
 public class MeleeBehav : MeleeWeapon
 {
     List<GameObject> markedEnemies;
-    WeaponSystem wetNoodle; 
+    WeaponSystem wetNoodle;
+    Animator animate;
+
 
     protected override void Start()
     {
         base.Start();
+        animate = GetComponent<Animator>(); 
         markedEnemies = new List<GameObject>();
+    }
+
+    protected override void Update()
+    {
+        base.Update(); 
+        //animate.Play("Batting");
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

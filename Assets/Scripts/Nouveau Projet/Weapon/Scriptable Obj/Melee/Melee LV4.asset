@@ -21,8 +21,8 @@ MonoBehaviour:
   prefabObj: {fileID: 5664156195521514898, guid: 9856d09ea0b437841b272ff1e7b449f8,
     type: 3}
   level: 4
-  icon: {fileID: 21300000, guid: 1f810cd5677bfa246b00446a707e2002, type: 3}
+  icon: {fileID: 21300000, guid: 7b0d220eca4675240930dcc07a6865d1, type: 3}
   named: The Fist of the North Star LV4
-  descrip: "Ce poing est arm\xE9 de bonnes intentions. Sauf pour les policiers"
+  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
   nextWeapon: {fileID: 3473108540770449506, guid: a03ab59c1d9c1d240b021707cf6969a1,
     type: 3}

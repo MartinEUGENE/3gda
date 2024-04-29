@@ -47,17 +47,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerObj;
 
-    public int[] randomIndexes = new int[3];
-
     private void Awake()
     {
         DisableScreens();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
         instance = this;
-       /* for (int i = 0; i < randomIndexes.Length; i++)
-        {
-            randomIndexes[i] = Random.Range(0, 3);
-        }*/
     }
 
     void Update()
@@ -107,15 +101,81 @@ public class GameManager : MonoBehaviour
                 Debug.LogWarning("This GameState does not exist, why are you here ?");
                 break;
         }
-/*
-        if (randomIndexes[1] == randomIndexes[0])
+    }
+   
+    public void ChangeState(GameState newState)
+    {
+        currentState = newState;
+    }
+
+    public void PauseGame()
+    {
+        if (currentState != GameState.Pause)
         {
-            randomIndexes[1] = Random.Range(0, 3);
+            previousState = currentState;
+            ChangeState(GameState.Pause);
+            pauseScreen.SetActive(true);
+            Time.timeScale = 0f;
         }
-        else if (randomIndexes[2] == randomIndexes[0 | 1])
+    }
+
+    public void ResumeGame()
+    {
+        if (currentState == GameState.Pause)
         {
-            randomIndexes[2] = Random.Range(0, 3);
-        }*/
+            ChangeState(previousState);
+            pauseScreen.SetActive(false);
+            Time.timeScale = 1f;
+        }
+    }
+
+    void CheckPauseResume()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (currentState == GameState.Pause)
+            {
+                ResumeGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+
+    void DisableScreens()
+    {
+        pauseScreen.SetActive(false);
+        resultScreen.SetActive(false);
+        levelUpScreen.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        ChangeState(GameState.GameOver);
+    }
+
+    void DisplayResults()
+    {
+        resultScreen.SetActive(true);
+        inGameUI.SetActive(false);
+    }
+
+    public void LevelUp()
+    {
+        ChangeState(GameState.LevelUp);
+        playerObj.SendMessage("RemoveUpApplyUp"); 
+    }
+
+    public void LevelUpDone()
+    {
+        isChoosingUpgrade = false;
+        Time.timeScale = 1f;
+
+        levelUpScreen.SetActive(false);
+        ChangeState(GameState.Gameplay);
     }
 
     IEnumerator GenerateFloatingTextCoroutine(string text, Transform target, float duration = 1f, float speed = 10f, bool crit = true, bool heal = true, bool chara = false)
@@ -198,79 +258,5 @@ public class GameManager : MonoBehaviour
         instance.StartCoroutine(instance.GenerateFloatingTextCoroutine(text, target, duration, speed, Crit, Heal, Chara));
     }
 
-    public void ChangeState(GameState newState)
-    {
-        currentState = newState;
-    }
 
-    public void PauseGame()
-    {
-        if (currentState != GameState.Pause)
-        {
-            previousState = currentState;
-            ChangeState(GameState.Pause);
-            pauseScreen.SetActive(true);
-            Time.timeScale = 0f;
-        }
-    }
-
-    public void ResumeGame()
-    {
-        if (currentState == GameState.Pause)
-        {
-            ChangeState(previousState);
-            pauseScreen.SetActive(false);
-            Time.timeScale = 1f;
-        }
-    }
-
-    void CheckPauseResume()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (currentState == GameState.Pause)
-            {
-                ResumeGame();
-            }
-            else
-            {
-                PauseGame();
-            }
-        }
-    }
-
-
-    void DisableScreens()
-    {
-        pauseScreen.SetActive(false);
-        resultScreen.SetActive(false);
-        levelUpScreen.SetActive(false);
-    }
-
-    public void GameOver()
-    {
-        ChangeState(GameState.GameOver);
-    }
-
-    void DisplayResults()
-    {
-        resultScreen.SetActive(true);
-        inGameUI.SetActive(false);
-    }
-
-    public void LevelUp()
-    {
-        ChangeState(GameState.LevelUp);
-        playerObj.SendMessage("RemoveUpApplyUp"); 
-    }
-
-
-    public void LevelUpDone()
-    {
-        isChoosingUpgrade = false;
-        Time.timeScale = 1f;
-
-        levelUpScreen.SetActive(false);
-        ChangeState(GameState.Gameplay);
-    }
 }
