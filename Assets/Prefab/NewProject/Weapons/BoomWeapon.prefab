@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5395413200928856352}
   - component: {fileID: 8678934384192256438}
-  - component: {fileID: 5536994962790342127}
+  - component: {fileID: 9176117012308500618}
+  - component: {fileID: 63608420456574296}
   m_Layer: 0
   m_Name: BoomWeapon
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -86,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5536994962790342127
+--- !u!114 &9176117012308500618
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6917476096416706048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7670977a82f507429dfb43b3a1fc64b, type: 3}
+  m_Script: {fileID: 11500000, guid: f7cf7705f023a5d409d0fddf0c5f90fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mousPos: {x: 0, y: 0, z: 0}
@@ -103,10 +104,26 @@ MonoBehaviour:
   moveDir: {x: 0, y: 0, z: 0}
   destroyObj: 5
   mainCam: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
   stats: {fileID: 0}
   rb: {fileID: 0}
   inateCrit: 0
   hasCrit: 0
   countDown: 0
-  explosion: {fileID: 0}
+  countStop: 200
+--- !u!58 &63608420456574296
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917476096416706048}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
