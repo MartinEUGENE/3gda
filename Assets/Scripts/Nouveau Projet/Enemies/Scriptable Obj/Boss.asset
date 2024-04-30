@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemySpeed: 1
   enemyHP: 300
-  enemyDmg: 25
+  enemyDmg: 35
   enemyTiming: 0
   damageIncreaseByLevel: 0
   speedIncreseByLevel: 0

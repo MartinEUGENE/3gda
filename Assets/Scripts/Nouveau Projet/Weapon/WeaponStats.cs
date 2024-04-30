@@ -7,6 +7,22 @@ using UnityEngine;
 
 public class WeaponStats : ScriptableObject
 {
+
+    [Header("Nom et Description")]
+
+    [SerializeField]
+    public string named; //Pas de modifs pendant le gameplay 
+    public string Named { get => named; protected set => named = value; }
+
+    [SerializeField]
+    public string descrip; //Pas de modifs pendant le gameplay 
+    public string Descrip { get => descrip; protected set => descrip = value; }
+
+    [Header("Stats de l'arme")]
+
+    [SerializeField]
+    public int level;
+    public int Level { get => level; protected set => level = value; }
     [SerializeField]
     public int damage; 
     public int Damage { get => damage; protected set => damage = value; } 
@@ -32,25 +48,16 @@ public class WeaponStats : ScriptableObject
     public int pierceEffect;
     public int PierceEffect { get => pierceEffect; protected set => pierceEffect = value; }
 
-    [SerializeField]
-    public GameObject prefabObj;  
-    public GameObject PrefabObj { get => prefabObj; protected set => prefabObj = value; }
 
-    [SerializeField]
-    public int level;
-    public int Level { get => level; protected set => level = value; }
-        
+    [Header("Prefab Arme")]
+
     [SerializeField]
     public Sprite icon; //Pas de modifs pendant le gameplay 
     public Sprite Icon { get => icon; protected set => icon = value; }
 
     [SerializeField]
-    public string named; //Pas de modifs pendant le gameplay 
-    public string Named { get => named; protected set => named = value; }
-
-    [SerializeField]
-    public string descrip; //Pas de modifs pendant le gameplay 
-    public string Descrip { get => descrip; protected set => descrip = value; }
+    public GameObject prefabObj;
+    public GameObject PrefabObj { get => prefabObj; protected set => prefabObj = value; }
 
     [SerializeField]
     public GameObject nextWeapon; //Pas de modifs pendant le gameplay 
