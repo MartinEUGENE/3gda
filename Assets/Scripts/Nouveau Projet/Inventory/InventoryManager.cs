@@ -7,13 +7,13 @@ using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(5);
-    public int[] weaponLvls = new int[5];
-    public List<Image> weaponUiSlots = new List<Image>(5); 
+    public List<WeaponSystem> weaponSlots = new List<WeaponSystem>(3);
+    public int[] weaponLvls = new int[3];
+    public List<Image> weaponUiSlots = new List<Image>(3); 
 
-    public List<PassiveItem> passiveSlots = new List<PassiveItem>(5);
-    public int[] passiveLvls = new int[5];
-    public List<Image> passiveUiSlots = new List<Image>(5);
+    public List<PassiveItem> passiveSlots = new List<PassiveItem>(3);
+    public int[] passiveLvls = new int[3];
+    public List<Image> passiveUiSlots = new List<Image>(3);
         
     [System.Serializable]
     public class UpgradeUI
