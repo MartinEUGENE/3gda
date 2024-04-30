@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class CharacterStats : MonoBehaviour
     public int experience = 0;
     public int experienceCap = 10;
     public int level = 1;
+
+    public TextMeshProUGUI levelTxt; 
 
     public RectTransform VIDE;
     public RectTransform NoHealth;
@@ -139,6 +142,8 @@ public class CharacterStats : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
+            levelTxt.text = "Lv " + level; 
+
             experience -= experienceCap;
 
             invincible = true; 
