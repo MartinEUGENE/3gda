@@ -11,9 +11,9 @@ public class InventoryManager : MonoBehaviour
     public int[] weaponLvls = new int[3];
     public List<Image> weaponUiSlots = new List<Image>(3); 
 
-    public List<PassiveItem> passiveSlots = new List<PassiveItem>(3);
-    public int[] passiveLvls = new int[3];
-    public List<Image> passiveUiSlots = new List<Image>(3);
+    public List<PassiveItem> passiveSlots = new List<PassiveItem>(6);
+    public int[] passiveLvls = new int[6];
+    public List<Image> passiveUiSlots = new List<Image>(6);
         
     [System.Serializable]
     public class UpgradeUI

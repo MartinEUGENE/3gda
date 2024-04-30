@@ -237,6 +237,8 @@ MonoBehaviour:
   currentNewHP: 0
   currentRecovery: 0
   currentArmor: 0
+  dmgHasBeenTaken: 0
+  coolIt: 3
   currentpickUp: 0
   currentSpeed: 0
   experience: 0
@@ -379,6 +381,9 @@ MonoBehaviour:
   - {fileID: 0}
   passiveLvls: 000000000000000000000000
   passiveUiSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -234,18 +234,6 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
         StatsCheck();
 
-        /* coolIt -= Time.timeScale; 
-
-         if(dmgHasBeenTaken && coolIt <=0f)
-         {
-             dmgHasBeenTaken = false;
-             HpBar.gameObject.SetActive(false); 
-         }
-
-         else if(!dmgHasBeenTaken && coolIt <=0f)
-        {
-
-        }         */
 
         if (invincible == true)
         {
