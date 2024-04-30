@@ -123,6 +123,7 @@ MonoBehaviour:
   dashSpeed: 50
   dashLenght: 8
   dashCooldown: 1
+  dashMainDown: 3
   cont: {fileID: 6513021268895284892}
   rb: {fileID: 917920727}
   characterStats: {fileID: 2036924085}
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_Size: {x: 0.9375, y: 1.40625}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!114 &428950134609088846
@@ -191,7 +192,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de731a1b74e66eb4ba537058d2757681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoerizontal: 0
 --- !u!95 &5473278538578136698
 Animator:
   serializedVersion: 4
@@ -228,9 +228,8 @@ MonoBehaviour:
   HpBar: {fileID: 0}
   chara: {fileID: 6513021268895284892}
   player: {fileID: 6513021268895284890}
-  playerStats: {fileID: 11400000, guid: 83729ee6e349c8d4692a018e1ca80dd6, type: 2}
-  spawnedWeapons:
-  - {fileID: 3473108540770449506, guid: 753e6a6bf27e21044932756e7b0cae31, type: 3}
+  playerStats: {fileID: 0}
+  spawnedWeapons: []
   currentAttack: 0
   currentAttackHaste: 0
   currentCriticalRate: 0
@@ -238,6 +237,8 @@ MonoBehaviour:
   currentNewHP: 0
   currentRecovery: 0
   currentArmor: 0
+  dmgHasBeenTaken: 0
+  coolIt: 3
   currentpickUp: 0
   currentSpeed: 0
   experience: 0
@@ -254,13 +255,16 @@ MonoBehaviour:
     endLevel: 3
     expCapIncrease: 75
   - startingLevel: 4
-    endLevel: 8
+    endLevel: 15
     expCapIncrease: 125
   - startingLevel: 9
     endLevel: 15
     expCapIncrease: 175
   - startingLevel: 16
     endLevel: 35
+    expCapIncrease: 250
+  - startingLevel: 36
+    endLevel: 100
     expCapIncrease: 250
   weaponIndex: 0
   passiveIndex: 0
@@ -366,21 +370,70 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  weaponLvls: 000000000000000000000000
+  weaponUiSlots:
   - {fileID: 0}
   - {fileID: 0}
-  weaponLvls: 0000000000000000000000000000000000000000
-  weaponUiSlots: []
+  - {fileID: 0}
   passiveSlots:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  passiveLvls: 000000000000000000000000
+  passiveUiSlots:
   - {fileID: 0}
   - {fileID: 0}
-  passiveLvls: 0000000000000000000000000000000000000000
-  passiveUiSlots: []
-  wpnUp: []
-  passiveUp: []
-  psyOps: []
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  wpnUp:
+  - weaponUpIndex: 0
+    initialWeapaon: {fileID: 3473108540770449506, guid: a9d28fd7b7fe42e46a5e22ba728b5965,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: dde587c17e191ae4dacbc803b0ae1003, type: 2}
+  - weaponUpIndex: 1
+    initialWeapaon: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
+  - weaponUpIndex: 2
+    initialWeapaon: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8, type: 2}
+  - weaponUpIndex: 3
+    initialWeapaon: {fileID: 3473108540770449506, guid: 086fb2579d3230149a206db67e1c4d43,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
+  - weaponUpIndex: 4
+    initialWeapaon: {fileID: 3473108540770449506, guid: ac14369e32250f64b905b2e33ad6fce8,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
+  passiveUp:
+  - passiveUpIndex: 0
+    initialPassive: {fileID: 8517228953195156906, guid: b9de6f125a436224a8a8c8a4bba7e940,
+      type: 3}
+    passiveStats: {fileID: 11400000, guid: cac657a950ea0f343bf271dd2d42420d, type: 2}
+  - passiveUpIndex: 1
+    initialPassive: {fileID: 8579314183846126787, guid: c3aeb72ccab459c468ad61bb295b7364,
+      type: 3}
+    passiveStats: {fileID: 11400000, guid: 3229f997c42cf0f4f97f06611b8bc3b8, type: 2}
+  - passiveUpIndex: 2
+    initialPassive: {fileID: 8009455447645230295, guid: 0692033a7c2c56049a9e361eeb33ddcd,
+      type: 3}
+    passiveStats: {fileID: 11400000, guid: 17075e18dcfab244bafde5719e63c9cb, type: 2}
+  psyOps:
+  - upgradeName: {fileID: 0}
+    upgradeDescrption: {fileID: 0}
+    upgradeImg: {fileID: 0}
+    buttonUpgrade: {fileID: 0}
+  - upgradeName: {fileID: 0}
+    upgradeDescrption: {fileID: 0}
+    upgradeImg: {fileID: 0}
+    buttonUpgrade: {fileID: 0}
+  - upgradeName: {fileID: 0}
+    upgradeDescrption: {fileID: 0}
+    upgradeImg: {fileID: 0}
+    buttonUpgrade: {fileID: 0}
 --- !u!1 &7609182824086101980
 GameObject:
   m_ObjectHideFlags: 0

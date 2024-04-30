@@ -28,6 +28,8 @@ public class CharacterStats : MonoBehaviour
     public float currentNewHP;
     public float currentRecovery;
     public float currentArmor;
+    public bool dmgHasBeenTaken = false;
+    public float coolIt = 3f; 
 
     [Header("Other Stats")]
     
@@ -41,12 +43,6 @@ public class CharacterStats : MonoBehaviour
 
     public RectTransform VIDE;
     public RectTransform NoHealth;
-    //public RectTransform MiniNoHealth;
-    /*private float maxWidth = 0f;
-    private float maxHP;
-    private float maxHealth;
-    private Transform miniHealth;
-    private Transform miniNoHealth;*/
 
     [Header("Gold")]
     public int gold;
@@ -165,21 +161,22 @@ public class CharacterStats : MonoBehaviour
     {
         float experiencePercentage = (float)experience / experienceCap;
         XPBAR.fillAmount = experiencePercentage;
-
-        /*float newSize = experiencePercentage * maxWidth;
-
-        newSize = Mathf.Clamp(newSize, 0f, maxWidth);
-
-        RectTransform rectTransform = XPBAR.rectTransform;
-        rectTransform.sizeDelta = new Vector2(newSize, rectTransform.sizeDelta.y);*/
     }
+
     public void HealthCheck()
     {
-        float HPPercentage = currentNewHP / playerStats.MaxHP;
-        HpBar.fillAmount = HPPercentage;
+        /*if (currentNewHP < playerStats.maxHP)
+        {
+            HpBar.gameObject.SetActive(true);
+        }
 
+        if (dmgHasBeenTaken)
+        {*/
+            float HPPercentage = currentNewHP / playerStats.MaxHP;
+            HpBar.fillAmount = HPPercentage;
+        //}
 
-        if(currentNewHP <=0f)
+        if (currentNewHP <=0f)
         {
             Death();
         }
@@ -188,7 +185,8 @@ public class CharacterStats : MonoBehaviour
 
     public void DmgTaken(int dmg)
     {
-        //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true);
+        //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
+        dmgHasBeenTaken = true; 
         part.Play(); 
     }
     public void Death()
@@ -236,7 +234,8 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
         StatsCheck();
 
-        if(invincible == true)
+
+        if (invincible == true)
         {
             invincibleTimer -= Time.deltaTime;
             
