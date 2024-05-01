@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class NewBoomWeapon : WeaponSystem
 {
-    
+    public CharactControls play; 
     public CircleCollider2D boomZone;
     // Start is called before the first frame update
     protected override void Start()
     {
-        
+        play = FindObjectOfType<CharactControls>();
+        boomZone = play.gameObject.GetComponentInChildren<CircleCollider2D>(); 
     }
 
     // Update is called once per frame
@@ -35,16 +36,14 @@ public class NewBoomWeapon : WeaponSystem
         {
             GameObject explosionObject = Instantiate(weaponData.prefabObj, new Vector3(x, y, 0f), Quaternion.identity);
             explosionObject.transform.localScale = new Vector3(2f, 2f, 1f);
-             Debug.Log("bum");
+            // Debug.Log("bum");
         }
         else
         {
-            Debug.Log("lul");
+            //Debug.Log("lul");
             Instantiate(weaponData.prefabObj, new Vector3(x, y, 0f), Quaternion.identity);
 
-        }
-
-        
+        }        
 
     }
 
