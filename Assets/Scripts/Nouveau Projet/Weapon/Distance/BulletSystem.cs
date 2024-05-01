@@ -53,7 +53,7 @@ public class BulletSystem : MonoBehaviour
 
     public int GetCurrentDamage()
     {
-        int dmgResult = stats.currentAttack + weapon.damage;
+        int dmgResult = stats.currentAttack + weapon.Damage;
 
         if (stats.currentCriticalRate >= inateCrit)
         {
@@ -63,7 +63,7 @@ public class BulletSystem : MonoBehaviour
 
         else
         {
-            dmgResult = stats.currentAttack + weapon.damage;
+            dmgResult = stats.currentAttack + weapon.Damage;
             hasCrit = false;
         }
 

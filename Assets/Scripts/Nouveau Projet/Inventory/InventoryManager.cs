@@ -60,7 +60,7 @@ public class InventoryManager : MonoBehaviour
         weaponSlots[slotsIndex] = weapon;
         weaponLvls[slotsIndex] = weapon.weaponData.Level;
         weaponUiSlots[slotsIndex].enabled = true;
-        weaponUiSlots[slotsIndex].sprite = weapon.weaponData.icon; 
+        weaponUiSlots[slotsIndex].sprite = weapon.weaponData.Icon; 
 
         if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
         {
@@ -73,7 +73,7 @@ public class InventoryManager : MonoBehaviour
         passiveSlots[slotsIndex] = item;
         passiveLvls[slotsIndex] = item.passiveItem.Level;
         passiveUiSlots[slotsIndex].enabled = true;
-        passiveUiSlots[slotsIndex].sprite = item.passiveItem.icon;
+        passiveUiSlots[slotsIndex].sprite = item.passiveItem.Icon;
 
 
         if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
@@ -87,7 +87,7 @@ public class InventoryManager : MonoBehaviour
         if (weaponSlots.Count > slotIndex)
         {
             WeaponSystem weapon = weaponSlots[slotIndex];
-            GameObject weaponUpgrade = Instantiate(weapon.weaponData.nextWeapon, transform.position, Quaternion.identity);
+            GameObject weaponUpgrade = Instantiate(weapon.weaponData.NextWeapon, transform.position, Quaternion.identity);
             weaponUpgrade.transform.SetParent(transform);
             //Méthode de spawn de l'arme chez le joueur. *//*
 
@@ -108,7 +108,7 @@ public class InventoryManager : MonoBehaviour
         if (passiveSlots.Count > slotIndex)
         {
             PassiveItem passive = passiveSlots[slotIndex];
-            GameObject passiveUpgrade = Instantiate(passive.passiveItem.nextPassive, transform.position, Quaternion.identity);
+            GameObject passiveUpgrade = Instantiate(passive.passiveItem.NextPassive, transform.position, Quaternion.identity);
             passiveUpgrade.transform.SetParent(transform);
             //Méthode de spawn de l'arme chez le joueur. 
 
@@ -163,7 +163,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (chosenWeapon != null)
                 {
-                    EnableUI(up);
+                    //EnableUI(up);
 
                     bool newWeapon = false;
                     for (int i = 0; i < weaponSlots.Count; i++)
@@ -173,16 +173,16 @@ public class InventoryManager : MonoBehaviour
                             newWeapon = false;
                             if (!newWeapon)
                             {
-                                if(!chosenWeapon.weaponStats.nextWeapon)
+                                if(!chosenWeapon.weaponStats.NextWeapon)
                                 {
-                                    DisableUI(up); 
+                                    //DisableUI(up); 
                                     break;
                                 }
 
                                 //ButtonActivation(); 
                                 up.buttonUpgrade.onClick.AddListener(() => LevelUpWeapon(i, chosenWeapon.weaponUpIndex));
-                                up.upgradeName.text = chosenWeapon.weaponStats.nextWeapon.GetComponent<WeaponSystem>().weaponData.named;
-                                up.upgradeDescrption.text = chosenWeapon.weaponStats.nextWeapon.GetComponent<WeaponSystem>().weaponData.descrip;
+                                up.upgradeName.text = chosenWeapon.weaponStats.Named + (chosenWeapon.weaponStats.Level + 2);
+                                up.upgradeDescrption.text = chosenWeapon.weaponStats.NextWeapon.GetComponentInChildren<WeaponSystem>().weaponData.Descrip;
                             }
                             
                             break;
@@ -198,9 +198,9 @@ public class InventoryManager : MonoBehaviour
                         up.buttonUpgrade.onClick.AddListener(() => chara.SpawnedWeapon(chosenWeapon.initialWeapaon));
                     }
 
-                    up.upgradeImg.sprite = chosenWeapon.weaponStats.icon;
-                    up.upgradeName.text = chosenWeapon.weaponStats.named;
-                    up.upgradeDescrption.text = chosenWeapon.weaponStats.descrip;
+                    up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
+                    up.upgradeName.text = chosenWeapon.weaponStats.Named;
+                    up.upgradeDescrption.text = chosenWeapon.weaponStats.Descrip;
                 }
             }
 
@@ -211,7 +211,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (chosenPassive != null)
                 {
-                    EnableUI(up); 
+                    //EnableUI(up); 
 
                     bool newPass = false;
                     for (int i = 0; i < passiveSlots.Count; i++)
@@ -221,16 +221,16 @@ public class InventoryManager : MonoBehaviour
                             newPass = false;
                             if (!newPass)
                             {
-                                if(!chosenPassive.passiveStats.nextPassive)
+                                if(!chosenPassive.passiveStats.NextPassive)
                                 {
-                                    DisableUI(up);
+                                    //DisableUI(up);
                                     break;
                                 }
 
                                 //ButtonActivation(); 
                                 up.buttonUpgrade.onClick.AddListener(() => LevelUpPassive(i, chosenPassive.passiveUpIndex));
-                                up.upgradeName.text = chosenPassive.passiveStats.nextPassive.GetComponent<PassiveItem>().passiveItem.named;
-                                up.upgradeDescrption.text = chosenPassive.passiveStats.nextPassive.GetComponent<PassiveItem>().passiveItem.descrip;
+                                up.upgradeName.text = chosenPassive.passiveStats.Named + (chosenPassive.passiveStats.Level + 1); 
+                                up.upgradeDescrption.text = chosenPassive.passiveStats.NextPassive.GetComponent<PassiveItem>().passiveItem.Descrip;
                             }
 
                             break;
@@ -246,9 +246,9 @@ public class InventoryManager : MonoBehaviour
                         up.buttonUpgrade.onClick.AddListener(() => chara.SpawnedPassive(chosenPassive.initialPassive));
                     }
 
-                    up.upgradeImg.sprite = chosenPassive.passiveStats.icon;
-                    up.upgradeName.text = chosenPassive.passiveStats.named;
-                    up.upgradeDescrption.text = chosenPassive.passiveStats.descrip;
+                    up.upgradeImg.sprite = chosenPassive.passiveStats.Icon;
+                    up.upgradeName.text = chosenPassive.passiveStats.Named;
+                    up.upgradeDescrption.text = chosenPassive.passiveStats.Descrip;
                 }
             }
         }
@@ -269,7 +269,7 @@ public class InventoryManager : MonoBehaviour
     }
 
 
-    void DisableUI(UpgradeUI ui)
+    /*void DisableUI(UpgradeUI ui)
     {
         ui.upgradeName.transform.parent.gameObject.SetActive(false);
     }
@@ -277,7 +277,7 @@ public class InventoryManager : MonoBehaviour
     void EnableUI(UpgradeUI ui)
     {
         ui.upgradeName.transform.parent.gameObject.SetActive(true);
-    }
+    }*/
 
 }
 

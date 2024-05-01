@@ -3049,7 +3049,7 @@ PrefabInstance:
     - target: {fileID: 687351312768456444, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 687351312771938512, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
@@ -3826,6 +3826,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
+      propertyPath: wpnUp.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
       propertyPath: weaponUiSlots.Array.data[0]
       value: 
       objectReference: {fileID: 1727860000575270976}
@@ -3886,6 +3896,12 @@ PrefabInstance:
       objectReference: {fileID: 2194205078584926050}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
+      propertyPath: wpnUp.Array.data[1].weaponStats
+      value: 
+      objectReference: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8,
+        type: 2}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
       propertyPath: psyOps.Array.data[0].upgradeName
       value: 
       objectReference: {fileID: 2194205078085502783}
@@ -3901,6 +3917,11 @@ PrefabInstance:
       objectReference: {fileID: 2194205078800755889}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
+      propertyPath: wpnUp.Array.data[1].weaponUpIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
       propertyPath: psyOps.Array.data[0].buttonUpgrade
       value: 
       objectReference: {fileID: 2194205078756446391}
@@ -3914,6 +3935,12 @@ PrefabInstance:
       propertyPath: psyOps.Array.data[2].buttonUpgrade
       value: 
       objectReference: {fileID: 2194205077583331299}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: wpnUp.Array.data[1].initialWeapaon
+      value: 
+      objectReference: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
+        type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: psyOps.Array.data[0].upgradeDescrption
