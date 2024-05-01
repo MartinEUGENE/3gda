@@ -181,8 +181,8 @@ public class InventoryManager : MonoBehaviour
 
                                 //ButtonActivation(); 
                                 up.buttonUpgrade.onClick.AddListener(() => LevelUpWeapon(i, chosenWeapon.weaponUpIndex));
-                                up.upgradeName.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.named;
-                                up.upgradeDescrption.text = chosenWeapon.weaponStats.NextWeapon.GetComponent<WeaponSystem>().weaponData.descrip;
+                                up.upgradeName.text = chosenWeapon.weaponStats.nextWeapon.GetComponent<WeaponSystem>().weaponData.named;
+                                up.upgradeDescrption.text = chosenWeapon.weaponStats.nextWeapon.GetComponent<WeaponSystem>().weaponData.descrip;
                             }
                             
                             break;

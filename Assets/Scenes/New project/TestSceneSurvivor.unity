@@ -3812,6 +3812,18 @@ PrefabInstance:
       propertyPath: levelTxt
       value: 
       objectReference: {fileID: 162384114}
+    - target: {fileID: 2080420215, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080420215, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080420215, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: weaponUiSlots.Array.data[0]

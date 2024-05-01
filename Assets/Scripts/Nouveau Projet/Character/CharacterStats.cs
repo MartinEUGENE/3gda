@@ -170,9 +170,8 @@ public class CharacterStats : MonoBehaviour
     }
 
     public void HealthCheck()
-    {       
+    {
         float HPPercentage = currentNewHP / playerStats.MaxHP;
-       // HpBar.fillAmount = HPPercentage;
         trueHealthBar.fillAmount = HPPercentage; 
         
         if (currentNewHP <=0f)
@@ -185,6 +184,7 @@ public class CharacterStats : MonoBehaviour
     public void DmgTaken(int dmg)
     {
         //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
+        healthContainer.SetActive(true);
         dmgHasBeenTaken = true; 
         part.Play(); 
     }
@@ -232,6 +232,12 @@ public class CharacterStats : MonoBehaviour
     {
         StatsCheck();
         HealthCheck();
+
+        coolIt -= Time.deltaTime;
+        if(coolIt <= 0f && currentNewHP == playerStats.maxHP)
+        {
+            healthContainer.SetActive(false); 
+        }
 
         if (invincible == true)
         {
