@@ -1620,7 +1620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Distance
+  m_text: Brick
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a8fea5402136e4a40a79e1db991135be, type: 2}
   m_sharedMaterial: {fileID: -3829409064373564350, guid: a8fea5402136e4a40a79e1db991135be,
@@ -1711,7 +1711,7 @@ GameObject:
   - component: {fileID: 1047684907}
   - component: {fileID: 1047684906}
   m_Layer: 5
-  m_Name: Distance
+  m_Name: Brique
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
