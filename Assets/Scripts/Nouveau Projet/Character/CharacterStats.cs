@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class CharacterStats : MonoBehaviour
 {
     [SerializeField] private Image XPBAR;
     [SerializeField] private Image HpBar;
+    [SerializeField] public Image trueHealthBar;
+    [SerializeField] public GameObject healthContainer;
 
     [SerializeField] public CharactControls chara;
-    //[SerializeField] public FirstWeapon weep;
     [SerializeField] public GameObject player; 
     [SerializeField] public CharacterScriptable playerStats;
 
@@ -26,8 +28,10 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Health")]
     public float currentNewHP;
+   // public TextMeshProUGUI hpNumbers; 
     public float currentRecovery;
     public float currentArmor;
+
     public bool dmgHasBeenTaken = false;
     public float coolIt = 3f; 
 
@@ -40,12 +44,12 @@ public class CharacterStats : MonoBehaviour
     public int experience = 0;
     public int experienceCap = 10;
     public int level = 1;
+    public TextMeshProUGUI levelTxt; 
 
-    public RectTransform VIDE;
-    public RectTransform NoHealth;
 
     [Header("Gold")]
     public int gold;
+    public TextMeshProUGUI goldTxt;
 
     public bool invincible = false;
     public float invincibleTimer; 
@@ -71,16 +75,15 @@ public class CharacterStats : MonoBehaviour
     void Awake()
     {
         //playerStats = GetComponent<CharacterScriptable>();
-
         playerStats = CharacterSelector.GetData();
         inventory = GetComponent<InventoryManager>();
         collect = GetComponentInChildren<PlayerCollect>();
         player = GetComponent<GameObject>();
-        part = GetComponentInChildren<ParticleSystem>(); 
+        part = GetComponentInChildren<ParticleSystem>();
 
+        level = 1;
         experience = 0;
         gold = 0;
-        level = 1;
         XPBAR.fillAmount = 0;
 
         currentNewHP = playerStats.MaxHP;        
@@ -95,16 +98,17 @@ public class CharacterStats : MonoBehaviour
         currentRecovery = playerStats.recovery;
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
-        //SpawnedPassive(playerStats.StartingPassive);
 
-        part.Pause(); 
+        //hpNumbers.text = string.Format("{00}/{00}", currentNewHP, playerStats.maxHP);
+        part.Pause();
     }
 
     private void Start()
     {
         experienceCap = levelRanges[0].expCapIncrease;
+        HealthCheck();
     }
-    
+
     public void SpawnedWeapon(GameObject weapon)
     {
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
@@ -139,6 +143,8 @@ public class CharacterStats : MonoBehaviour
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
+            levelTxt.text = "Lv " + level; 
+
             experience -= experienceCap;
 
             invincible = true; 
@@ -165,17 +171,9 @@ public class CharacterStats : MonoBehaviour
 
     public void HealthCheck()
     {
-        /*if (currentNewHP < playerStats.maxHP)
-        {
-            HpBar.gameObject.SetActive(true);
-        }
-
-        if (dmgHasBeenTaken)
-        {*/
-            float HPPercentage = currentNewHP / playerStats.MaxHP;
-            HpBar.fillAmount = HPPercentage;
-        //}
-
+        float HPPercentage = currentNewHP / playerStats.MaxHP;
+        trueHealthBar.fillAmount = HPPercentage; 
+        
         if (currentNewHP <=0f)
         {
             Death();
@@ -186,6 +184,7 @@ public class CharacterStats : MonoBehaviour
     public void DmgTaken(int dmg)
     {
         //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
+        healthContainer.SetActive(true);
         dmgHasBeenTaken = true; 
         part.Play(); 
     }
@@ -231,9 +230,14 @@ public class CharacterStats : MonoBehaviour
 
     public void Update()
     {
-        HealthCheck();
         StatsCheck();
+        HealthCheck();
 
+        coolIt -= Time.deltaTime;
+        if(coolIt <= 0f && currentNewHP == playerStats.maxHP)
+        {
+            healthContainer.SetActive(false); 
+        }
 
         if (invincible == true)
         {

@@ -12,7 +12,7 @@ public class BulletBehav : BulletSystem
         markedEnemies = new List<GameObject>();
         //moveDir = mainCam.ScreenToWorldPoint(Input.mousePosition); 
         Vector2 dir = moveDir; 
-        rb.velocity = new Vector2(dir.x, dir.y) * weapon.speedrange; 
+        rb.velocity = new Vector2(dir.x, dir.y) * weapon.Speedrange; 
     }
 
     protected override void Update() 

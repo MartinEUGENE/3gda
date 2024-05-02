@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Melee LV1
   m_EditorClassIdentifier: 
+  named: Starry Bat
+  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
+  level: 1
   damage: 15
   speedrange: 0
   quantity: 0
   weaponReload: 2
-  cooldown: 1.6051557
+  cooldown: 0.22714743
   pierceEffect: 0
+  icon: {fileID: 21300000, guid: 7b0d220eca4675240930dcc07a6865d1, type: 3}
   prefabObj: {fileID: 5664156195521514898, guid: dce49aa19e2ba4840b893c2a18ddf76d,
     type: 3}
-  level: 1
-  icon: {fileID: 21300000, guid: 7b0d220eca4675240930dcc07a6865d1, type: 3}
-  named: The Fist of the North Star
-  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
   nextWeapon: {fileID: 3473108540770449506, guid: 9bcbd544bb671244388cab2a8a23cf83,
     type: 3}

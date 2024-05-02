@@ -19,7 +19,7 @@ MonoBehaviour:
   critDmg: 2
   critRate: 35
   maxHP: 80
-  armor: 10
+  armor: 5
   recovery: 0.2
   pickUp: 1.5
   movSpeed: 2.5
