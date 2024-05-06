@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyStats : ScriptableObject
 {
+    [Header("Enemy Main Stats")]
     [SerializeField] 
     [Range(0f, 2f)] float enemySpeed;
     public float EnemySpeed { get => enemySpeed; protected set => enemySpeed = value; }
@@ -22,8 +23,10 @@ public class EnemyStats : ScriptableObject
     float enemyTiming;
     public float EnemyTiming { get => enemyTiming; protected set => enemyTiming = value; }
 
+    [Header("Increase by Level")]
+
     [SerializeField]
-    int damageIncreaseByLevel;
+    [Range(0, 25)] int damageIncreaseByLevel;
     public int DamageIncreaseByLevel { get => damageIncreaseByLevel; protected set => damageIncreaseByLevel = value; }
 
     [SerializeField]

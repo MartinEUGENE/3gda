@@ -6,13 +6,13 @@ using UnityEngine;
 public class RushingEnemy : EnemiesSystem
 {
     public float startingTime;
-    public LineRenderer predictionLine;
+    public LineRenderer prediction;
+    Transform AHA; 
 
     Vector2 playerDir;
 
 
 
-    [Header("Stat of the movement part")]
     int dist = 15; 
     public float rushForce; 
     public float rushDist;
@@ -22,14 +22,13 @@ public class RushingEnemy : EnemiesSystem
     public override void Awake()
     {
         base.Awake();
-        predictionLine = GetComponent<LineRenderer>();
-        
     }
     public override void OnSpawn()
     {
         base.OnSpawn();
-        playerDir = playerObj.transform.position - transform.position;
-
+        AHA = GetComponent<Transform>();
+        prediction = GetComponent<LineRenderer>(); 
+        
         timing = rushDist;
         StartCoroutine(Rush());        
     }
@@ -42,6 +41,7 @@ public class RushingEnemy : EnemiesSystem
     public override void Update()
     {
         playerDir = playerObj.transform.position - transform.position;
+        prediction.SetPosition(1, 5 * playerDir);
 
         if (dead == true)
         {
@@ -52,7 +52,7 @@ public class RushingEnemy : EnemiesSystem
     public IEnumerator Rush()
     {
         yield return new WaitForSeconds(startingTime);
-        predictionLine.enabled = false;
+        prediction.enabled = false;
         rb2d.velocity = new Vector2(playerDir.x, playerDir.y).normalized * rushForce;
         yield return new WaitForSeconds(rushDist);
                
