@@ -47,8 +47,6 @@ public class TrueBoss : EnemiesSystem
         {
             BigLaser(); 
         }*/
-
-        Debug.Log(patternAttack);
     }
 
     
