@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   named: Bat
   descrip: Strikes at 180 degrees in the aimed direction.
+  nextNamed: Bat Lv2
+  nextDescrip: Strikes stronger.
   level: 1
   damage: 15
   speedrange: 0

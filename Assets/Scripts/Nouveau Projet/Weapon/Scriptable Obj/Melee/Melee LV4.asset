@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   named: Bat Lv4
   descrip: Strikes stronger.
+  nextNamed: Bat Lv5
+  nextDescrip: Strikes stronger.
   level: 4
   damage: 50
   speedrange: 0
