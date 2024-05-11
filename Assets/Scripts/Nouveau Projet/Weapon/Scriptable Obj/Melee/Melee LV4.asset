@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Melee LV4
   m_EditorClassIdentifier: 
-  named: Starry Bat Lv4
-  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
+  named: Bat Lv4
+  descrip: Strikes stronger.
+  nextNamed: Bat Lv5
+  nextDescrip: Strikes stronger.
   level: 4
   damage: 50
   speedrange: 0
   quantity: 0
   weaponReload: 1.5
   cooldown: 0.94384235
-  knockback: 10
-  knockbackDuration: 1.2
+  knockback: 3
+  knockbackDuration: 0.2
   pierceEffect: 0
   icon: {fileID: 21300000, guid: 7b0d220eca4675240930dcc07a6865d1, type: 3}
   prefabObj: {fileID: 5664156195521514898, guid: 9856d09ea0b437841b272ff1e7b449f8,

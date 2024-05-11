@@ -17,4 +17,4 @@ MonoBehaviour:
   nextPassive: {fileID: 0}
   icon: {fileID: 0}
   named: Strenght
-  descrip: I need to hit harder
+  descrip: Raises inflicted damage.

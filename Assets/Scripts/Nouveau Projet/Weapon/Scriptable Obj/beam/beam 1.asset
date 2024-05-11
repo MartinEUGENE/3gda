@@ -12,17 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: beam 1
   m_EditorClassIdentifier: 
+  named: Taser
+  descrip: Shoots lightning in one direction.
+  level: 1
   damage: 25
   speedrange: 0
   quantity: 0
   weaponReload: 5
-  cooldown: 5
+  cooldown: 4.7197547
+  knockback: 0
+  knockbackDuration: 0
   pierceEffect: 0
+  icon: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
   prefabObj: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
     type: 3}
-  level: 1
-  icon: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
-  named: Beam
-  descrip: Comment est-ce qu'un laser fait aussi mal ?
   nextWeapon: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
     type: 3}

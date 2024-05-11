@@ -17,4 +17,4 @@ MonoBehaviour:
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: e36d1a38d7aa309409e80bf66a089330, type: 3}
   named: 'Speed '
-  descrip: I am Speed
+  descrip: Character moves faster.

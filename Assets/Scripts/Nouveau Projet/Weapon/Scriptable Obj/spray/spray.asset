@@ -12,14 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Spray
   m_EditorClassIdentifier: 
-  named: Bombe de peinture
-  descrip: Parfait pour aveugler la police avec style
+  named: Spray Paint
+  descrip: Cone spreading in the aimed direction.
   level: 1
   damage: 10
   speedrange: 0
   quantity: 0
   weaponReload: 1.2
   cooldown: 0.035344556
+  knockback: 0
+  knockbackDuration: 0
   pierceEffect: 1
   icon: {fileID: 21300000, guid: 3027511ec8ebd884ea9a94cc174dc438, type: 3}
   prefabObj: {fileID: 6222448441268027003, guid: 41ac21a204cbe7d4ca8e1093a439bb74,
