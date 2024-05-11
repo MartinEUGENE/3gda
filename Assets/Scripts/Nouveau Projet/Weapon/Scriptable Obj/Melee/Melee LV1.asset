@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Melee LV1
   m_EditorClassIdentifier: 
-  named: Starry Bat
-  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
+  named: Bat
+  descrip: Strikes at 180 degrees in the aimed direction.
   level: 1
   damage: 15
   speedrange: 0
   quantity: 0
   weaponReload: 2
-  cooldown: 1.955672
+  cooldown: 0.16919997
   knockback: 10
   knockbackDuration: 1.2
   pierceEffect: 0

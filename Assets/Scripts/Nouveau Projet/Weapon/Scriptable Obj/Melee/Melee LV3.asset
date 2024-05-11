@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Melee LV3
   m_EditorClassIdentifier: 
-  named: Starry Bat Lv3
-  descrip: "Batte de baseball utile pour frapper les m\xE9chantes personnes."
+  named: Bat Lv3
+  descrip: Strikes stronger.
   level: 3
   damage: 35
   speedrange: 0

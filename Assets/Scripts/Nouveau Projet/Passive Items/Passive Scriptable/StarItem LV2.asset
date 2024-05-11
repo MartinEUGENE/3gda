@@ -16,5 +16,5 @@ MonoBehaviour:
   level: 2
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: d21c302b95cd7d3468caec58d491c706, type: 3}
-  named: "Boule \xE0 4 \xE9toiles LV2"
-  descrip: De la chance pure
+  named: Luck Lv2
+  descrip: Even more critical strike chance.
