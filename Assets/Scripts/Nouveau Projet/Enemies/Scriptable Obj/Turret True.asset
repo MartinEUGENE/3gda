@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Turret True
   m_EditorClassIdentifier: 
   enemySpeed: 0
-  enemyHP: 50
-  enemyDmg: 25
+  enemyHP: 150
+  enemyDmg: 35
   enemyTiming: 5
-  damageIncreaseByLevel: 1
+  damageIncreaseByLevel: 5
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 5
+  healthIncreaseByLevel: 10

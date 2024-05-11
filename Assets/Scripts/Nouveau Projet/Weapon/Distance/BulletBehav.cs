@@ -12,7 +12,7 @@ public class BulletBehav : BulletSystem
         markedEnemies = new List<GameObject>();
         //moveDir = mainCam.ScreenToWorldPoint(Input.mousePosition); 
         Vector2 dir = moveDir; 
-        rb.velocity = new Vector2(dir.x, dir.y) * weapon.speedrange; 
+        rb.velocity = new Vector2(dir.x, dir.y) * weapon.Speedrange; 
     }
 
     protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
@@ -25,8 +25,12 @@ public class BulletBehav : BulletSystem
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
-                EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-                en.TakeDmg(GetCurrentDamage(), hasCrit);         
+            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+
+            en.knockDuration = weapon.KnockbackDuration;
+            en.knockForce = weapon.Knockback;
+
+            en.TakeDmg(GetCurrentDamage(), hasCrit);         
         }
     }
 }

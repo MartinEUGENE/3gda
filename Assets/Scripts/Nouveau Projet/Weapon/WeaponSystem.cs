@@ -45,7 +45,7 @@ public class WeaponSystem : MonoBehaviour
     {
         weaponData.cooldown -= Time.deltaTime;
 
-        if (weaponData.cooldown <= 0f)
+        if (weaponData.Cooldown <= 0f)
         {
             Shoot();
         }

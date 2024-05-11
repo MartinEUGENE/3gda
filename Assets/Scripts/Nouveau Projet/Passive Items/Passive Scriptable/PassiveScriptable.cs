@@ -16,19 +16,19 @@ public class PassiveScriptable : ScriptableObject
     public int Level { get => level; private set => level = value; }
 
     [SerializeField]
-    public GameObject nextPassive; //Pas de modifs pendant le gameplay 
+    GameObject nextPassive; //Pas de modifs pendant le gameplay 
     public GameObject NextPassive { get => nextPassive; protected set => nextPassive = value; }
 
     [SerializeField]
-    public Sprite icon; //Pas de modifs pendant le gameplay 
+    Sprite icon; //Pas de modifs pendant le gameplay 
     public Sprite Icon { get => icon; protected set => icon = value; }
 
     [SerializeField]
-    public string named; //Pas de modifs pendant le gameplay 
+    string named; //Pas de modifs pendant le gameplay 
     public string Named { get => named; protected set => named = value; }
 
     [SerializeField]
-    public string descrip; //Pas de modifs pendant le gameplay 
+    string descrip; //Pas de modifs pendant le gameplay 
     public string Descrip { get => descrip; protected set => descrip = value; }
 
 }

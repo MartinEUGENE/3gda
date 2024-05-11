@@ -35,6 +35,10 @@ public class BeamBehavior : MeleeWeapon
             if (en != null)
             {
                 en.TakeDmg(GetCurrentDamage(), hasCrit);
+
+                en.knockDuration = weapon.KnockbackDuration;
+                en.knockForce = weapon.Knockback;
+
                 // Debug.Log(GetCurrentDamage());
             }
         }

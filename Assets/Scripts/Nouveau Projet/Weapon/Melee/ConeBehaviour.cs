@@ -49,8 +49,11 @@ public class ConeBehaviour : MeleeWeapon
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+
+            en.knockDuration = weapon.KnockbackDuration;
+            en.knockForce = weapon.Knockback;
+
             en.TakeDmg(GetCurrentDamage(), hasCrit);
-            //Debug.Log("boom");
             markedEnemies.Add(other.gameObject);
         }
     }
