@@ -25,8 +25,12 @@ public class BulletBehav : BulletSystem
     {
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
-                EnemiesSystem en = other.GetComponent<EnemiesSystem>();
-                en.TakeDmg(GetCurrentDamage(), hasCrit);         
+            EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+
+            en.knockDuration = weapon.KnockbackDuration;
+            en.knockForce = weapon.Knockback;
+
+            en.TakeDmg(GetCurrentDamage(), hasCrit);         
         }
     }
 }

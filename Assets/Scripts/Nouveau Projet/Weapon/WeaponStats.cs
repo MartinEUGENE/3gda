@@ -45,6 +45,16 @@ public class WeaponStats : ScriptableObject
     public float Cooldown { get => cooldown; protected set => cooldown = value; }
 
     [SerializeField]
+    //float cooldown;
+    float knockback;
+    public float Knockback { get => knockback; protected set => knockback = value; }
+
+    [SerializeField]
+    //float cooldown;
+    float knockbackDuration;
+    public float KnockbackDuration { get => knockbackDuration; protected set => knockbackDuration = value; }
+
+    [SerializeField]
     int pierceEffect;
     public int PierceEffect { get => pierceEffect; protected set => pierceEffect = value; }
 

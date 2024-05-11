@@ -21,6 +21,14 @@ public class TrueBoss : EnemiesSystem
         recoverTiming = attackTiming; 
     }
 
+    public override void EnemyMove()
+    {
+        if(!canAttack)
+        {
+            base.EnemyMove();
+        }
+    }
+
     public override void Awake()
     {
         base.Awake();
@@ -40,7 +48,7 @@ public class TrueBoss : EnemiesSystem
 
         if(/*patternAttack == 1 && canAttack*/ canAttack)
         {
-            RushAttack();            
+            StartCoroutine(RushAttack());            
         }
 
         /*else if(patternAttack == 2 && canAttack)
@@ -54,7 +62,7 @@ public class TrueBoss : EnemiesSystem
     {
         yield return new WaitForSeconds(stats.EnemyTiming);
         rb2d.velocity = new Vector2(playerDir.x, playerDir.y).normalized * attackTiming;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
 
         canAttack = false; 
     }
