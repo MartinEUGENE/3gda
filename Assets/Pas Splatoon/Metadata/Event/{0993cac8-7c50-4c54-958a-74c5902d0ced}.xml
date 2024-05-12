@@ -2,13 +2,13 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{0993cac8-7c50-4c54-958a-74c5902d0ced}">
 		<property name="name">
-			<value>RushSpawn</value>
+			<value>Special_Enemy_Spawn</value>
 		</property>
 		<property name="outputFormat">
 			<value>2</value>
 		</property>
 		<relationship name="folder">
-			<destination>{b6344322-7d26-4e42-b637-b0a1176902ad}</destination>
+			<destination>{0161e6d2-a032-42a2-a89e-23ebcc5acbeb}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{3e57b6ea-4180-4ac1-921c-4b93b503bdbe}</destination>

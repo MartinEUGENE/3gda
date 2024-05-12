@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   named: Taser
   descrip: Shoots lightning in one direction.
+  nextNamed: 
+  nextDescrip: 
   level: 1
-  damage: 25
+  damage: 45
   speedrange: 0
   quantity: 0
   weaponReload: 5
-  cooldown: 4.7197547
+  cooldown: 0
   knockback: 0
-  knockbackDuration: 0
+  knockbackDuration: 0.1
   pierceEffect: 0
   icon: {fileID: 21300000, guid: 9125c204f566db048a92ebcb64d9d14a, type: 3}
   prefabObj: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,

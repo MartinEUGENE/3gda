@@ -39,6 +39,11 @@ public class ConeBehaviour : MeleeWeapon
         }
     }
 
+    protected override void OnSpawn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Spray_Weapon"); 
+    }
+
     void DestroyObject()
     {
         Destroy(gameObject);

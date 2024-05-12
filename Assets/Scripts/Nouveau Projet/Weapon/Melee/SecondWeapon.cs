@@ -12,7 +12,6 @@ public class SecondWeapon : WeaponSystem
     protected override void Shoot()
     {
         base.Shoot();
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/MeleeWeapon");
         GameObject Melee = Instantiate(weaponData.PrefabObj);
         Melee.transform.position = transform.position;
         Melee.transform.parent = transform.parent;

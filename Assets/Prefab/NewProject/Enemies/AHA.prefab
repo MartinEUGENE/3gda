@@ -168,11 +168,14 @@ MonoBehaviour:
   playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
   playerStats: {fileID: 0}
+  enemyTransform: {fileID: 0}
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
   currentTiming: 0
   distanceDespawn: 15
+  knockDuration: 0
+  knockForce: 3
   enemyLevel: 1
   startingTime: 5
   prediction: {fileID: 5378563468445956122, guid: dba92a9b77ad8f64c94decb6b76e1752,
@@ -230,7 +233,7 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
+        time: 0.013169438
         value: 1
         inSlope: 0
         outSlope: 0
