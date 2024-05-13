@@ -16,23 +16,62 @@ public class EnemyEditor : EditorWindow
         window.Show();
     }
 
-    Vector2 scroll; 
+    Vector2 scroll;
+    Texture2D sprite; 
 
     private void OnGUI()
     {
-        //LoadAllAssetsOfType<EnemyStats>(out EnemyStats[] enemyStats);
+        LoadAllAssetsOfType <EnemyStats>(out EnemyStats[] enemies);
         GUI.backgroundColor = new Color(0.8f, .2f, 1f);
-        GUIStyle style = new GUIStyle();
-        
-       
-        GUILayout.BeginVertical();
-        scroll = GUILayout.BeginScrollView(scroll);
 
-        GUILayout.EndScrollView();
-        GUILayout.EndVertical();
+        if (enemies.Length == 0)
+        {
+            EditorGUILayout.LabelField("We finally banned weapons from the whole world, we can have peace now !");
+        }
+
+        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.BeginScrollView(scroll); 
+
+        foreach(EnemyStats en in enemies)
+        {
+            EditorGUILayout.BeginVertical();
+
+            SerializedObject ai = new SerializedObject(en);
+            ai.Update();
+
+            SerializedProperty ichi = ai.FindProperty("enemy");
+            EditorGUILayout.PropertyField(ichi);
+
+            SerializedProperty ni = ai.FindProperty("enemyHP"); 
+            EditorGUILayout.PropertyField(ni);
+
+            SerializedProperty san = ai.FindProperty("enemyDmg");
+            EditorGUILayout.PropertyField(san);
+
+            SerializedProperty chi = ai.FindProperty("enemyTiming");
+            EditorGUILayout.PropertyField(chi);
+
+            SerializedProperty go = ai.FindProperty("enemySpeed");
+            EditorGUILayout.PropertyField(go);
+
+            SerializedProperty roku = ai.FindProperty("damageIncreaseByLevel");
+            EditorGUILayout.PropertyField(roku);
+
+            SerializedProperty nana = ai.FindProperty("speedIncreseByLevel");
+            EditorGUILayout.PropertyField(nana);
+
+            SerializedProperty hachi = ai.FindProperty("healthIncreaseByLevel");
+            EditorGUILayout.PropertyField(hachi);
+
+
+            ai.ApplyModifiedProperties();
+            
+            EditorGUILayout.EndVertical(); 
+        }
+        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.EndScrollView();
+
     }
-
-    
 
     private void LoadAllAssetsOfType<T>(out T[] assets) where T : Object
     {

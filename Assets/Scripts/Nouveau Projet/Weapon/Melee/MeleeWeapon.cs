@@ -6,11 +6,9 @@ public class MeleeWeapon : MonoBehaviour
 {
     public Vector3 mousPos;
     public float destroyObj = 2f;
-    //public Camera mainCam;
     public int inateCrit;
 
     public bool hasCrit; 
-
 
     public CharacterStats stats;
     public WeaponStats weapon;
@@ -43,7 +41,6 @@ public class MeleeWeapon : MonoBehaviour
         }
 
         return dmgResult;
-
     }
 
 

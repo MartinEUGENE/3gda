@@ -38,7 +38,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Other Stats")]
     
     public float currentpickUp;
-    public float currentSpeed;
+    [Range(0f,2.9f)]public float currentSpeed;
 
     [Header("Experience/Level")]
     public int experience = 0;
