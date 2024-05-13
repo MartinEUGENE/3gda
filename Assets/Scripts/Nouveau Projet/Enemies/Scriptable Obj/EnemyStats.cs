@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [CreateAssetMenu(fileName = "Stats", menuName = "Enemy Stats")]
 
 public class EnemyStats : ScriptableObject
 {
+    [Header("Enemy Main Appearence")]
+    
+    [SerializeField]
+    Sprite enemy; //Pas de modifs pendant le gameplay 
+    public Sprite Enemy { get => enemy; protected set => enemy = value; }
+
     [Header("Enemy Main Stats")]
     [SerializeField] 
     [Range(0f, 2f)] float enemySpeed;
@@ -36,6 +43,5 @@ public class EnemyStats : ScriptableObject
     [SerializeField]
     [Range(0,15)]int healthIncreaseByLevel;
     public int HealthIncreaseByLevel { get => healthIncreaseByLevel; protected set => healthIncreaseByLevel = value; }
-
 
 }

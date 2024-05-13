@@ -13,38 +13,36 @@ public class LevelRange
 }
 
 public class EnemiesSystem : MonoBehaviour
-{    
-
-    public List<LevelRange> levelRangesEnemy;
-
-    public Text dmgText; 
-
+{  
+    [Header("Enemy Main Components")]
     public Rigidbody2D rb2d;
     private DropRateManager dropManager;
     public GameObject playerObj;
     public EnemyStats stats;
     public CharacterStats playerStats;
-    public Transform enemyTransform; 
+    public Transform enemyTransform;
 
+    [Header("Enemy Main Stats")] 
+    public int enemyLevel = 1;
     public float currentSpeed;
     public int currentHealth;
     public float currentDamage;
     public float currentTiming;
 
-    GameManager gameManager; 
-
-    public float distanceDespawn = 15f;
-    Transform player;
-
+    [Header("Player Detection")]
     protected Vector2 playerTransform;
     protected Vector3 playerVector;
-
+    public float distanceDespawn = 15f;
+    Transform player;
+    
+    [Header("Enemy Knockback")]
     public float knockDuration;
     public float knockForce = 3f;
 
-
-    public int enemyLevel = 1;
-    bool isMoving = false; 
+    bool isMoving = false;
+    GameManager gameManager;
+    public List<LevelRange> levelRangesEnemy;
+    public Text dmgText;
 
     public virtual void Awake()
     {

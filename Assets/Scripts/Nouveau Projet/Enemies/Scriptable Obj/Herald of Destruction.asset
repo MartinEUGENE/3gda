@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: Herald of Destruction
   m_EditorClassIdentifier: 
-  enemySpeed: 3
+  enemy: {fileID: 0}
+  enemySpeed: 2
   enemyHP: 50
   enemyDmg: 35
   enemyTiming: 0
