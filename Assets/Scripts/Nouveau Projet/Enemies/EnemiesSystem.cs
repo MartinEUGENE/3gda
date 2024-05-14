@@ -21,6 +21,7 @@ public class EnemiesSystem : MonoBehaviour
     public EnemyStats stats;
     public CharacterStats playerStats;
     public Transform enemyTransform;
+    public PickUp pickUp; 
 
     [Header("Enemy Main Stats")] 
     public int enemyLevel = 1;
@@ -28,6 +29,7 @@ public class EnemiesSystem : MonoBehaviour
     public int currentHealth;
     public float currentDamage;
     public float currentTiming;
+    public int currentXp;
 
     [Header("Player Detection")]
     protected Vector2 playerTransform;
@@ -113,6 +115,8 @@ public class EnemiesSystem : MonoBehaviour
         currentHealth   = stats.EnemyHP + enemyLevel * stats.HealthIncreaseByLevel;
         currentDamage   = stats.EnemyDmg + enemyLevel * stats.DamageIncreaseByLevel;
         currentSpeed    = stats.EnemySpeed + enemyLevel * stats.SpeedIncreseByLevel;
+
+        pickUp.exp      = stats.XpIncrease + enemyLevel * stats.XpIncrease;  
     }   
 
 

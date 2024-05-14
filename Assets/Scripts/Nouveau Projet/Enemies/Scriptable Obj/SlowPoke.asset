@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: SlowPoke
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  eliteMember: 0
+  system: {fileID: 0}
   enemySpeed: 0.3
-  enemyHP: 200
+  enemyHP: 30
   enemyDmg: 25
   enemyTiming: 0
   damageIncreaseByLevel: 1

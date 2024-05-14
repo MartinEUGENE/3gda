@@ -13,6 +13,9 @@ public class EnemyStats : ScriptableObject
     Sprite enemy; //Pas de modifs pendant le gameplay 
     public Sprite Enemy { get => enemy; protected set => enemy = value; }
 
+    public bool eliteMember; 
+    public EnemiesSystem system;    
+
     [Header("Enemy Main Stats")]
     [SerializeField] 
     [Range(0f, 2f)] float enemySpeed;
@@ -30,6 +33,10 @@ public class EnemyStats : ScriptableObject
     float enemyTiming;
     public float EnemyTiming { get => enemyTiming; protected set => enemyTiming = value; }
 
+    [SerializeField]
+    int enemyXpValue;
+    public int EnemyXpValue { get => enemyXpValue; protected set => enemyXpValue = value; }
+
     [Header("Increase by Level")]
 
     [SerializeField]
@@ -43,5 +50,9 @@ public class EnemyStats : ScriptableObject
     [SerializeField]
     [Range(0,15)]int healthIncreaseByLevel;
     public int HealthIncreaseByLevel { get => healthIncreaseByLevel; protected set => healthIncreaseByLevel = value; }
+    
+    [SerializeField]
+    [Range(0, 15)] int xpIncrease;
+    public int XpIncrease { get => xpIncrease; protected set => xpIncrease = value; }
 
 }

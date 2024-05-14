@@ -25,6 +25,7 @@ public class PickUp : MonoBehaviour
     [Header("Bonus")]
     public int exp;
     public int hp;
+    public int money; 
 
     public virtual void Start()
     {

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MeleeBehav : MeleeWeapon
 {
-    List<GameObject> markedEnemies;
     WeaponSystem wetNoodle;
     Animator animate;
 
@@ -20,7 +19,6 @@ public class MeleeBehav : MeleeWeapon
     protected override void Update()
     {
         base.Update(); 
-        //animate.Play("Batting");
     }
 
     protected override void OnSpawn()

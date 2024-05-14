@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class MeleeWeapon : MonoBehaviour
 {
-    public Vector3 mousPos;
     public float destroyObj = 2f;
     public int inateCrit;
-
     public bool hasCrit; 
 
     public CharacterStats stats;
     public WeaponStats weapon;
+    public List<GameObject> markedEnemies;
 
     protected virtual void Start()
     {
