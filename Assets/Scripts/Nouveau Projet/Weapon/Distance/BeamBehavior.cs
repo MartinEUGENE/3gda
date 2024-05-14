@@ -3,20 +3,21 @@ using UnityEngine;
 public class BeamBehavior : MeleeWeapon
 {
     public float duration = 0.25f;
-    private float timer = 0f;
+    protected override void Start()
+    {
+        Destroy(gameObject, duration);
+        stats = GetComponentInParent<CharacterStats>(); 
+        OnSpawn(); 
+    }
+
+    protected override void OnSpawn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Taser_Weapon");
+    }
 
     protected override void Update()
     {
-        base.Update(); // Call the base class Update method if needed
-
-        // Increment timer
-        timer += Time.deltaTime;
-
-        // If the duration is over, destroy the beam
-        if (timer >= duration)
-        {
-            Destroy(gameObject);
-        }
+        base.Update();
     }
 
     public void SetDirection(float direction)
@@ -35,6 +36,10 @@ public class BeamBehavior : MeleeWeapon
             if (en != null)
             {
                 en.TakeDmg(GetCurrentDamage(), hasCrit);
+
+                en.knockDuration = weapon.KnockbackDuration;
+                en.knockForce = weapon.Knockback;
+
                 // Debug.Log(GetCurrentDamage());
             }
         }

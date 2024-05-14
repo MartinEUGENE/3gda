@@ -10,8 +10,6 @@ public class ConeBehaviour : MeleeWeapon
     private bool destroyScheduled = false;
 
     private Vector3 initialLocalPosition;
-    List<GameObject> markedEnemies;
-
   
     protected override void Start()
     {
@@ -40,6 +38,11 @@ public class ConeBehaviour : MeleeWeapon
         }
     }
 
+    protected override void OnSpawn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Spray_Weapon"); 
+    }
+
     void DestroyObject()
     {
         Destroy(gameObject);
@@ -50,8 +53,11 @@ public class ConeBehaviour : MeleeWeapon
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+
+            en.knockDuration = weapon.KnockbackDuration;
+            en.knockForce = weapon.Knockback;
+
             en.TakeDmg(GetCurrentDamage(), hasCrit);
-            //Debug.Log("boom");
             markedEnemies.Add(other.gameObject);
         }
     }

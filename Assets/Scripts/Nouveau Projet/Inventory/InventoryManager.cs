@@ -175,18 +175,20 @@ public class InventoryManager : MonoBehaviour
                             {
                                 if(!chosenWeapon.weaponStats.NextWeapon)
                                 {
-                                    //DisableUI(up); 
+                                    DisableUI(up); 
                                     break;
                                 }
 
                                 //ButtonActivation(); 
                                 up.buttonUpgrade.onClick.AddListener(() => LevelUpWeapon(i, chosenWeapon.weaponUpIndex));
-                                up.upgradeName.text = chosenWeapon.weaponStats.Named + (chosenWeapon.weaponStats.Level + 2);
-                                up.upgradeDescrption.text = chosenWeapon.weaponStats.NextWeapon.GetComponentInChildren<WeaponSystem>().weaponData.Descrip;
+
+                                up.upgradeName.text = chosenWeapon.weaponStats.NextNamed; 
+                                up.upgradeDescrption.text = chosenWeapon.weaponStats.NextDescrip;
                             }
                             
                             break;
                         }
+
                         else
                         {
                            newWeapon = true;
@@ -211,7 +213,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (chosenPassive != null)
                 {
-                    //EnableUI(up); 
+                    EnableUI(up); 
 
                     bool newPass = false;
                     for (int i = 0; i < passiveSlots.Count; i++)
@@ -223,7 +225,7 @@ public class InventoryManager : MonoBehaviour
                             {
                                 if(!chosenPassive.passiveStats.NextPassive)
                                 {
-                                    //DisableUI(up);
+                                    DisableUI(up);
                                     break;
                                 }
 
@@ -267,9 +269,7 @@ public class InventoryManager : MonoBehaviour
         RemoveUpgradeOpt();
         ApplyUpgrade();
     }
-
-
-    /*void DisableUI(UpgradeUI ui)
+    void DisableUI(UpgradeUI ui)
     {
         ui.upgradeName.transform.parent.gameObject.SetActive(false);
     }
@@ -277,8 +277,7 @@ public class InventoryManager : MonoBehaviour
     void EnableUI(UpgradeUI ui)
     {
         ui.upgradeName.transform.parent.gameObject.SetActive(true);
-    }*/
-
+    }
 }
 
 

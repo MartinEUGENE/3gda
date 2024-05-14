@@ -5,7 +5,7 @@
 			<value>BGM_Para</value>
 		</property>
 		<relationship name="folder">
-			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>
+			<destination>{51a9ed54-30e9-4642-a306-d102af913638}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{a5ec9ae7-8d65-4857-844f-9a9f9aa2799c}</destination>

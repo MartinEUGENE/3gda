@@ -12,6 +12,7 @@ public class BoomBulletBehaviour : BulletSystem
     protected override void Start()
     {
         base.Start();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Fireworks_Weapon"); 
         markedEnemies = new List<GameObject>();
     }
 
@@ -46,20 +47,8 @@ public class BoomBulletBehaviour : BulletSystem
 
     public void Boom()
     {
-        if (weapon.quantity == 3f)
-        {
-            GameObject explosionObject = Instantiate(explosion, transform.position, Quaternion.identity);
-            explosionObject.transform.localScale = new Vector3(2f, 2f, 1f);
-           // Debug.Log("bum");
-        }
-        else
-        {
-            //Debug.Log("lul");
-            Instantiate(explosion, transform.position, Quaternion.identity);
-
-        }
-
-        //Debug.Log(weapon.quantity);
+        Instantiate(explosion, transform.position, Quaternion.identity); //affect scale par lvl a rajouter
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Fireworks_Explosion");
         Destroy(gameObject);
     }
 }

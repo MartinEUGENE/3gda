@@ -40,7 +40,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3473108540770449506}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e60c4530ed8a8ea4da1e6452be6a8e9f, type: 3}
   m_Name: 
@@ -57,7 +57,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7158793607643934225}
   - component: {fileID: 9004393079704481404}
-  - component: {fileID: 1552314522511852911}
   m_Layer: 0
   m_Name: FightFar
   m_TagString: Untagged
@@ -87,7 +86,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5384232791740640841}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 280c82ce9f27608428577332a869dd30, type: 3}
   m_Name: 
@@ -99,22 +98,3 @@ MonoBehaviour:
   currentLevel: 1
   mousePos: {x: 0, y: 0, z: 0}
   destroyObj: 5
---- !u!114 &1552314522511852911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5384232791740640841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e315839d47b5a94ba91abbf7a218118, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
-  weaponType: 3
-  mainCam: {fileID: 0}
-  mousPos: {x: 0, y: 0, z: 0}
-  currentLevel: 1
-  play: {fileID: 0}
-  boomZone: {fileID: 0}

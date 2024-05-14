@@ -5,8 +5,7 @@ using UnityEngine;
 public class BoomBehaviour : BulletSystem
 {
     List<GameObject> markedEnemies;
-    public int countDown = 0;
-    public int countStop = 200; 
+    public float countDown = 0;
 
     protected override void Start()
     {
@@ -17,9 +16,9 @@ public class BoomBehaviour : BulletSystem
     protected override void Update() 
     {
         base.Update();
-        countDown += 1;
+        countDown += Time.deltaTime;
 
-        if (countDown >= countStop)
+        if (countDown >= destroyObj)
         {
             Destroy(gameObject);
         }
@@ -30,6 +29,10 @@ public class BoomBehaviour : BulletSystem
         if (other.CompareTag("Enemy") && !markedEnemies.Contains(other.gameObject))
         {
             EnemiesSystem en = other.GetComponent<EnemiesSystem>();
+
+            en.knockDuration = weapon.KnockbackDuration;
+            en.knockForce = weapon.Knockback;
+
             en.TakeDmg(GetCurrentDamage(), hasCrit);
             markedEnemies.Add(other.gameObject);
         }

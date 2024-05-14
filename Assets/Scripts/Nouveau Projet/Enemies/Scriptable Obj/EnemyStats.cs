@@ -2,10 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stats", menuName = "Enemy Stats")]
+
+[CreateAssetMenu(fileName = "Stats", menuName = "Scriptable Objects/Enemy Stats")]
 
 public class EnemyStats : ScriptableObject
 {
+    [Header("Enemy Main Appearence")]
+    
+    [SerializeField]
+    Sprite enemy; //Pas de modifs pendant le gameplay 
+    public Sprite Enemy { get => enemy; protected set => enemy = value; }
+
+    public bool eliteMember; 
+    public EnemiesSystem system;    
+
+    [Header("Enemy Main Stats")]
     [SerializeField] 
     [Range(0f, 2f)] float enemySpeed;
     public float EnemySpeed { get => enemySpeed; protected set => enemySpeed = value; }
@@ -23,7 +34,13 @@ public class EnemyStats : ScriptableObject
     public float EnemyTiming { get => enemyTiming; protected set => enemyTiming = value; }
 
     [SerializeField]
-    int damageIncreaseByLevel;
+    int enemyXpValue;
+    public int EnemyXpValue { get => enemyXpValue; protected set => enemyXpValue = value; }
+
+    [Header("Increase by Level")]
+
+    [SerializeField]
+    [Range(0, 25)] int damageIncreaseByLevel;
     public int DamageIncreaseByLevel { get => damageIncreaseByLevel; protected set => damageIncreaseByLevel = value; }
 
     [SerializeField]
@@ -33,6 +50,9 @@ public class EnemyStats : ScriptableObject
     [SerializeField]
     [Range(0,15)]int healthIncreaseByLevel;
     public int HealthIncreaseByLevel { get => healthIncreaseByLevel; protected set => healthIncreaseByLevel = value; }
-
+    
+    [SerializeField]
+    [Range(0, 15)] int xpIncrease;
+    public int XpIncrease { get => xpIncrease; protected set => xpIncrease = value; }
 
 }

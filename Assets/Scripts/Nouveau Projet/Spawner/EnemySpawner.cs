@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -46,12 +49,15 @@ public class EnemySpawner : MonoBehaviour
     [Header("Enemy count")]
     public int enemyAllowed;
     public int enemyAlive;
+
+    public Text enemyKilled;
     public bool maxEnemy = false; 
 
     public void Start()
     {
         player = FindObjectOfType<CharacterStats>().transform;
         CalculateWaveQuota();
+        enemyKilled.text = "0"; 
     }
 
     void CalculateWaveQuota()
@@ -138,6 +144,8 @@ public class EnemySpawner : MonoBehaviour
     {
         enemyAlive--; //si un ennemi a été tué, on retire 1 ici. 
         killCount++;
+
+        enemyKilled.text = "" + killCount; 
 
         if (enemyAlive < enemyAllowed)
         {

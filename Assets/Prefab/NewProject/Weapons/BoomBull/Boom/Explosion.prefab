@@ -118,7 +118,7 @@ MonoBehaviour:
   mousPos: {x: 0, y: 0, z: 0}
   mouseDir: {x: 0, y: 0, z: 0}
   moveDir: {x: 0, y: 0, z: 0}
-  destroyObj: 5
+  destroyObj: 1
   mainCam: {fileID: 0}
   weapon: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
   stats: {fileID: 0}
@@ -126,4 +126,3 @@ MonoBehaviour:
   inateCrit: 0
   hasCrit: 0
   countDown: 0
-  countStop: 200

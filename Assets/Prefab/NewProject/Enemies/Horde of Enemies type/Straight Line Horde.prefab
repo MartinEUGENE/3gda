@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1260651103826803482}
   m_Layer: 9
-  m_Name: FirstHorde
+  m_Name: Straight Line Horde
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

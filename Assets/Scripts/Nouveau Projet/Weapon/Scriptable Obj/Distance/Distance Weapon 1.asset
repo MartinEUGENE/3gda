@@ -12,16 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: Distance Weapon 1
   m_EditorClassIdentifier: 
+  named: Brick
+  descrip: Throw a brick in the aimed direction.
+  nextNamed: 
+  nextDescrip: 
+  level: 1
   damage: 15
   speedrange: 25
   quantity: 0
   weaponReload: 2
-  cooldown: 1.9926269
+  cooldown: 0
+  knockback: 0
+  knockbackDuration: 0.1
   pierceEffect: 5
+  icon: {fileID: 21300000, guid: 772ad34bc7c727b46bbe1a0748b63aa5, type: 3}
   prefabObj: {fileID: 7905828093271916926, guid: 70ddef1a9ac19aa40b11f2ec53ffcb6b,
     type: 3}
-  level: 1
-  icon: {fileID: 21300000, guid: 772ad34bc7c727b46bbe1a0748b63aa5, type: 3}
-  named: Brique
-  descrip: "Une brique \xE0 lancer."
   nextWeapon: {fileID: 0}

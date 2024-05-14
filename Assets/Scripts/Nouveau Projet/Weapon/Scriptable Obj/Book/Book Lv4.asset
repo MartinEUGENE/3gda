@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
+  m_Name: Book Lv4
+  m_EditorClassIdentifier: 
+  named: Manifesto Lv4
+  descrip: 
+  nextNamed: Manifesto Lv5
+  nextDescrip: 
+  level: 4
+  damage: 45
+  speedrange: 50
+  quantity: 0
+  weaponReload: 2.5
+  cooldown: 0
+  knockback: 4
+  knockbackDuration: 0.3
+  pierceEffect: 0
+  icon: {fileID: 0}
+  prefabObj: {fileID: 3804036500857089885, guid: dd17445917014d6439680a2926d3fc0c,
+    type: 3}
+  nextWeapon: {fileID: 3202764605150555591, guid: 8587a6a72113f5e4db41cf1738aa6bab,
+    type: 3}

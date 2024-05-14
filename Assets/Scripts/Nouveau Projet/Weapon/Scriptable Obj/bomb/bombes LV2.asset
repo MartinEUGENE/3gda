@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53cbbb50fcd4f0f4ca438f8fff55705c, type: 3}
   m_Name: bombes LV2
   m_EditorClassIdentifier: 
+  named: Fireworks Lv2
+  descrip: More damages.
+  nextNamed: 
+  nextDescrip: 
+  level: 2
   damage: 35
-  speedrange: 25
+  speedrange: 0
   quantity: 1
   weaponReload: 1.9
-  cooldown: 0.99588114
+  cooldown: 0
+  knockback: 0
+  knockbackDuration: 0.05
   pierceEffect: 1
-  prefabObj: {fileID: 6917476096416706048, guid: ea4b2259c2360a14b875665b14bb099c,
-    type: 3}
-  level: 2
   icon: {fileID: 21300000, guid: 0779ad3feec52124e97114bcbb12ef13, type: 3}
-  named: 
-  descrip: 
+  prefabObj: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
+    type: 3}
   nextWeapon: {fileID: 7905828093271916926, guid: 527b6f235c0312942996176bbf171685,
     type: 3}

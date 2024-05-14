@@ -13,33 +13,38 @@ public class LevelRange
 }
 
 public class EnemiesSystem : MonoBehaviour
-{    
-
-    public List<LevelRange> levelRangesEnemy;
-
-    public Text dmgText; 
-
+{  
+    [Header("Enemy Main Components")]
     public Rigidbody2D rb2d;
     private DropRateManager dropManager;
     public GameObject playerObj;
     public EnemyStats stats;
-    public CharacterStats playerStats; 
+    public CharacterStats playerStats;
+    public Transform enemyTransform;
+    public PickUp pickUp; 
 
+    [Header("Enemy Main Stats")] 
+    public int enemyLevel = 1;
     public float currentSpeed;
     public int currentHealth;
     public float currentDamage;
     public float currentTiming;
+    public int currentXp;
 
-    GameManager gameManager; 
-
+    [Header("Player Detection")]
+    protected Vector2 playerTransform;
+    protected Vector3 playerVector;
     public float distanceDespawn = 15f;
     Transform player;
+    
+    [Header("Enemy Knockback")]
+    public float knockDuration;
+    public float knockForce = 3f;
 
-    protected Vector2 playerTransform;
-    protected Vector3 playerVector; 
-
-    public int enemyLevel = 1;
-
+    bool isMoving = false;
+    GameManager gameManager;
+    public List<LevelRange> levelRangesEnemy;
+    public Text dmgText;
 
     public virtual void Awake()
     {
@@ -51,20 +56,30 @@ public class EnemiesSystem : MonoBehaviour
 
         playerTransform = player.transform.position;
         playerVector = playerObj.transform.position;
-
+        enemyTransform = GetComponent<Transform>(); 
 
         OnSpawn();
     }
 
+   public virtual void FixedUpdate()
+   {
+        if(knockDuration <= 0f)
+        {
+            EnemyMove();
+        }
+        else
+        {
+            Vector2 direction = (playerObj.transform.position - transform.position).normalized;
+            rb2d.velocity = -(direction * knockForce);
 
-
-    public virtual void FixedUpdate()
-    {
-        EnemyMove();
-    }
+            knockDuration -= Time.deltaTime; 
+        }
+        
+   }
 
     public virtual void Update()
     {
+
         if (Vector2.Distance(transform.position, playerTransform) > distanceDespawn)
         {
             //ReturnTheEnemy();
@@ -77,9 +92,9 @@ public class EnemiesSystem : MonoBehaviour
     }
 
     public virtual void EnemyMove()
-    {
-        Vector2 direction = (playerObj.transform.position - transform.position).normalized;
-        rb2d.velocity = direction * currentSpeed;
+    {       
+         Vector2 direction = (playerObj.transform.position - transform.position).normalized;
+         rb2d.velocity = direction * currentSpeed;       
     }
 
     void ReturnTheEnemy()
@@ -90,6 +105,7 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void OnSpawn()
     {
+        isMoving = true; 
         CalculateStats();
     }
 
@@ -99,6 +115,8 @@ public class EnemiesSystem : MonoBehaviour
         currentHealth   = stats.EnemyHP + enemyLevel * stats.HealthIncreaseByLevel;
         currentDamage   = stats.EnemyDmg + enemyLevel * stats.DamageIncreaseByLevel;
         currentSpeed    = stats.EnemySpeed + enemyLevel * stats.SpeedIncreseByLevel;
+
+        pickUp.exp      = stats.XpIncrease + enemyLevel * stats.XpIncrease;  
     }   
 
 
@@ -130,7 +148,7 @@ public class EnemiesSystem : MonoBehaviour
         }
     }
 
-    public virtual void TakeDmg(int dmg, bool crit)
+    public virtual void TakeDmg(int dmg, /*Vector2 dmgSource,*/ bool crit, float knockForce = 5f, float duration = 1f)
     {
         currentHealth -= dmg;
         GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, .75f, crit, false, false);
@@ -148,6 +166,14 @@ public class EnemiesSystem : MonoBehaviour
         EnemySpawner us = FindObjectOfType<EnemySpawner>();
         us.EnemyKill();
         Destroy(gameObject);
+    }
+
+    public void KnockBack(Vector2 knockback, float duration)
+    {
+        if(duration > 0) return; 
+
+        //knockVelocity = knockback; 
+        knockDuration = duration;         
     }
 
     public void OnDestroy()
