@@ -3919,7 +3919,7 @@ PrefabInstance:
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.size
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -3996,7 +3996,7 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[2].weaponStats
       value: 
-      objectReference: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298,
+      objectReference: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4008,7 +4008,7 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[4].weaponStats
       value: 
-      objectReference: {fileID: 11400000, guid: 3fbcdc33de0184f44bf599db7956cd10,
+      objectReference: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4029,6 +4029,11 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[1].weaponUpIndex
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: wpnUp.Array.data[2].weaponUpIndex
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4065,7 +4070,7 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[2].initialWeapaon
       value: 
-      objectReference: {fileID: 3473108540770449506, guid: 086fb2579d3230149a206db67e1c4d43,
+      objectReference: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4077,7 +4082,7 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[4].initialWeapaon
       value: 
-      objectReference: {fileID: 3202764605150555591, guid: 979e21840013be44ca181ada0a229827,
+      objectReference: {fileID: 3473108540770449506, guid: ac14369e32250f64b905b2e33ad6fce8,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
