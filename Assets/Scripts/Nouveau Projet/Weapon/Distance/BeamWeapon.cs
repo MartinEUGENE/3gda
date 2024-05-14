@@ -36,7 +36,7 @@ public class BeamWeapon : WeaponSystem
     protected override void Shoot()
     {
         base.Shoot();
-        if(weaponData.quantity == 2)
+        if(weaponData.Quantity == 2)//
         {
             Blast(1);
             Blast(-1);

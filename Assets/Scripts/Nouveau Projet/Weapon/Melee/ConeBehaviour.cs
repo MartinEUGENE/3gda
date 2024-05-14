@@ -26,7 +26,7 @@ public class ConeBehaviour : MeleeWeapon
 
         float progress = Mathf.Clamp01(timer / duration);
 
-        Vector3 newScale = Vector3.one * (0.5f + weapon.quantity * progress);//quantity = taille
+        Vector3 newScale = Vector3.one * (0.5f + weapon.Quantity * progress);//quantity = taille
         //Debug.Log(weapon.quantity);
 
         transform.localScale = newScale;

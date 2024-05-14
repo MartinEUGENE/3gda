@@ -32,16 +32,16 @@ public class NewBoomWeapon : WeaponSystem
         float x = transform.position.x + radius * Mathf.Cos(randomAngle);
         float y = transform.position.y + radius * Mathf.Sin(randomAngle);
 
-        if (weaponData.quantity == 3f)
+        if (weaponData.Quantity == 3f)
         {
-            GameObject explosionObject = Instantiate(weaponData.prefabObj, new Vector3(x, y, 0f), Quaternion.identity);
+            GameObject explosionObject = Instantiate(weaponData.PrefabObj, new Vector3(x, y, 0f), Quaternion.identity);
             explosionObject.transform.localScale = new Vector3(2f, 2f, 1f);
             // Debug.Log("bum");
         }
         else
         {
             //Debug.Log("lul");
-            Instantiate(weaponData.prefabObj, new Vector3(x, y, 0f), Quaternion.identity);
+            Instantiate(weaponData.PrefabObj, new Vector3(x, y, 0f), Quaternion.identity);
 
         }        
 
