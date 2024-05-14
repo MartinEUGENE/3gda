@@ -14,12 +14,19 @@ public class MeleeBehav : MeleeWeapon
         base.Start();
         animate = GetComponent<Animator>(); 
         markedEnemies = new List<GameObject>();
+        OnSpawn(); 
     }
 
     protected override void Update()
     {
         base.Update(); 
         //animate.Play("Batting");
+    }
+
+    protected override void OnSpawn()
+    {
+        base.OnSpawn();
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/Bat_Weapon");
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

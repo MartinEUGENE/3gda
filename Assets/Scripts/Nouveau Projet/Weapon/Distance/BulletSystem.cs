@@ -22,6 +22,7 @@ public class BulletSystem : MonoBehaviour
 
     protected virtual void Start()
     {
+        OnSpawn(); 
         Destroy(gameObject, destroyObj);
         mainCam = FindObjectOfType<Camera>();
         stats = FindObjectOfType<CharacterStats>();
@@ -32,6 +33,12 @@ public class BulletSystem : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, rot);
         //markedEnemies = new List<GameObject>();
     }
+
+    protected virtual void OnSpawn()
+    {
+
+    }
+
 
     protected virtual void Update()
     {

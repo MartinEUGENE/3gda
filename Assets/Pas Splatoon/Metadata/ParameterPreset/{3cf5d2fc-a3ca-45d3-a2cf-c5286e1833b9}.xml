@@ -5,7 +5,7 @@
 			<value>Activation</value>
 		</property>
 		<relationship name="folder">
-			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>
+			<destination>{51a9ed54-30e9-4642-a306-d102af913638}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{2e1bf370-fa9d-4720-9d30-7fba8675dba0}</destination>

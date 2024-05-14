@@ -10,15 +10,19 @@ public class BulletBehav : BulletSystem
     {
         base.Start();
         markedEnemies = new List<GameObject>();
-        //moveDir = mainCam.ScreenToWorldPoint(Input.mousePosition); 
+        OnSpawn(); 
         Vector2 dir = moveDir; 
         rb.velocity = new Vector2(dir.x, dir.y) * weapon.Speedrange; 
     }
 
-    protected override void Update() // il tire dans la bonne direction mais une force suplémentaire le pousse dans la direction où se déplace le joueur, démontré par le fait que la balle est plus lente quand tiré loing du joueur
+    protected override void OnSpawn()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/Brick_Weapon");
+    }
+
+    protected override void Update()
     {
         base.Update();
-        //transform.position += moveDir * weapon.speedrange * Time.deltaTime;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
@@ -30,6 +34,7 @@ public class BulletBehav : BulletSystem
             en.knockDuration = weapon.KnockbackDuration;
             en.knockForce = weapon.Knockback;
 
+            FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/ContactWith/Brick_Contact"); 
             en.TakeDmg(GetCurrentDamage(), hasCrit);         
         }
     }

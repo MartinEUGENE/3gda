@@ -21,9 +21,9 @@ MonoBehaviour:
   speedrange: 0
   quantity: 0
   weaponReload: 1.8
-  cooldown: 1.7679302
-  knockback: 3
-  knockbackDuration: 0.2
+  cooldown: 1.0957315
+  knockback: 1.5
+  knockbackDuration: 0.15
   pierceEffect: 0
   icon: {fileID: 21300000, guid: 7b0d220eca4675240930dcc07a6865d1, type: 3}
   prefabObj: {fileID: 5664156195521514898, guid: 0f4ceda419996b74cb77738098fb0d71,

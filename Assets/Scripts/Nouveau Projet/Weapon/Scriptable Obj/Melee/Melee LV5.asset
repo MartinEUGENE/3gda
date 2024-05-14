@@ -17,7 +17,7 @@ MonoBehaviour:
   nextNamed: "\u3042"
   nextDescrip: Strikes stronger.
   level: 5
-  damage: 150
+  damage: 75
   speedrange: 0
   quantity: 0
   weaponReload: 1.2
