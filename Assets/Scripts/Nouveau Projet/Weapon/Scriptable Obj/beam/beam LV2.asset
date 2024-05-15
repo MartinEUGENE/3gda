@@ -21,7 +21,7 @@ MonoBehaviour:
   speedrange: 0
   quantity: 0
   weaponReload: 4.8
-  cooldown: 5
+  cooldown: 0
   knockback: 0
   knockbackDuration: 0.1
   pierceEffect: 0

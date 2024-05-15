@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 5957218721949957639}
   - component: {fileID: 2255163695324364329}
   - component: {fileID: 4829483524322921880}
+  - component: {fileID: 6308209573786131496}
   m_Layer: 9
   m_Name: Un vrai boss _
   m_TagString: Enemy
@@ -194,18 +195,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab1f2dc57883ef144a91f170fe01dfee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelRangesEnemy: []
-  dmgText: {fileID: 0}
   rb2d: {fileID: 0}
   playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: cd3500779d0348e49a1cb2d50b931b81, type: 2}
   playerStats: {fileID: 0}
+  enemyTransform: {fileID: 0}
+  enemyLevel: 1
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
   currentTiming: 0
   distanceDespawn: 15
-  enemyLevel: 1
+  knockDuration: 0
+  knockForce: 3
+  levelRangesEnemy: []
+  dmgText: {fileID: 0}
   patternAttack: 0
   attackTiming: 5
   recoverTiming: 0
@@ -261,3 +265,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6308209573786131496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9063409085522702638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d74e2276dfd63241a75e7a52681c141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop:
+  - name: Burrito
+    itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
+      type: 3}
+    dropRate: 25
+  - name: Experience Gem
+    itemPrefab: {fileID: 7616842400326546156, guid: 1fb99eb9812d4904c916a69d7f3e3434,
+      type: 3}
+    dropRate: 99
