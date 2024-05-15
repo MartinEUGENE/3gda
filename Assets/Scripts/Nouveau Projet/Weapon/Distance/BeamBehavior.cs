@@ -3,8 +3,6 @@ using UnityEngine;
 public class BeamBehavior : MeleeWeapon
 {
     public float duration = 0.25f;
-    private float timer = 0f;
-
     protected override void Start()
     {
         Destroy(gameObject, duration);

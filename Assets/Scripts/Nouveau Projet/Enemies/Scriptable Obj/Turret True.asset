@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: Turret True
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  eliteMember: 1
+  system: {fileID: 0}
   enemySpeed: 0
   enemyHP: 150
   enemyDmg: 35
   enemyTiming: 5
+  enemyXpValue: 150
   damageIncreaseByLevel: 5
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 10
+  xpIncrease: 0
+  currentEnemyObj: {fileID: 0}
+  replacement: {fileID: 0}

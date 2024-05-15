@@ -49,13 +49,6 @@ public class WeaponSystem : MonoBehaviour
         {
             Shoot();
         }
-
-        /*mousPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-        Vector3 dir = mousPos - transform.position;
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rot);*/
-
     }
 
 }

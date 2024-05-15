@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8974576539804311551}
   - component: {fileID: 7552753047856247249}
+  - component: {fileID: -4466968293630371418}
   m_Layer: 0
   m_Name: Trace
   m_TagString: Untagged
@@ -81,6 +82,18 @@ SpriteRenderer:
   m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-4466968293630371418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6273229752775388543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f454c60f3f02e4faf56531a8da894c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   multiplier: 15
   level: 1
-  nextPassive: {fileID: 0}
+  nextPassive: {fileID: 8009455447645230295, guid: 0f65f6fbbb6702c4a8b6fdfceabca6fa,
+    type: 3}
   icon: {fileID: 0}
   named: Strenght
   descrip: Raises inflicted damage.

@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
+  eliteMember: 1
+  system: {fileID: 0}
   enemySpeed: 1
   enemyHP: 500
   enemyDmg: 35
   enemyTiming: 0
-  damageIncreaseByLevel: 0
-  speedIncreseByLevel: 0
-  healthIncreaseByLevel: 0
+  enemyXpValue: 150
+  damageIncreaseByLevel: 5
+  speedIncreseByLevel: 0.05
+  healthIncreaseByLevel: 11
+  xpIncrease: 15
+  currentEnemyObj: {fileID: 0}
+  replacement: {fileID: 0}

@@ -10,8 +10,6 @@ public class ConeBehaviour : MeleeWeapon
     private bool destroyScheduled = false;
 
     private Vector3 initialLocalPosition;
-    List<GameObject> markedEnemies;
-
   
     protected override void Start()
     {
