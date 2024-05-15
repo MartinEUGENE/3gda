@@ -18,11 +18,13 @@ public class EnemyEditor : EditorWindow
 
     Vector2 scroll;
     Texture2D sprite;
+
     EnemyStats theEnemy;
+    GameObject anEnemy;
+
+    GameObject[] group;
+
     string typedResult;
-    
-    [SerializeField] private int m_SelectedIndex = -1;
-    private VisualElement rightPlane;
 
     /*private void CreateGUI()
     {
@@ -51,7 +53,6 @@ public class EnemyEditor : EditorWindow
         GUI.backgroundColor = new Color(0.8f, .2f, 1f);
         LoadAllAssetsOfType<EnemyStats>(out EnemyStats[] enemies);
 
-        //sprite. = AssetDatabase.FindAssets("Assets/ah.png");   
 
         if (enemies.Length == 0)
         {
@@ -61,77 +62,108 @@ public class EnemyEditor : EditorWindow
         EditorGUILayout.BeginHorizontal();
         EditorGUILayout.BeginScrollView(scroll);
 
+        GUILayout.Box("Enemy Creator Manager", GUILayout.ExpandWidth(true), GUILayout.Height(30));
         foreach (EnemyStats en in enemies)
         {
-            EditorGUILayout.BeginVertical(GUILayout.Width(300));
+            EditorGUILayout.BeginVertical();
             SerializedObject ai = new SerializedObject(en);
             ai.Update();
 
             if (GUILayout.Button(text: en.ToString()))
-            {
-               EditorGUILayout.BeginHorizontal();
-                //theEnemy = ScriptableObject.CreateInstance(en.ToString()); 
-                theEnemy = en; 
-                if(theEnemy !=null)
-                {
-                    EditorGUILayout.PropertyField(ai.FindProperty("enemy"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("enemyHP"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("enemyDmg"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("enemyTiming"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("enemySpeed"));
-
-                    EditorGUILayout.PropertyField(ai.FindProperty("damageIncreaseByLevel"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("speedIncreseByLevel"));
-                    EditorGUILayout.PropertyField(ai.FindProperty("healthIncreaseByLevel"));
-                }
-
-                EditorGUILayout.EndHorizontal();
+            {               
+                theEnemy = en;
             }
 
-            ai.ApplyModifiedProperties();
+            ai.ApplyModifiedProperties();           
             EditorGUILayout.EndVertical();
         }
 
-        EditorGUILayout.BeginHorizontal(GUILayout.Width(300));
+        EditorGUILayout.Space(30);
+
+        EditorGUILayout.BeginVertical(); 
+        if (theEnemy != null)
+        {
+            SerializedObject so = new SerializedObject(theEnemy);
+            so.Update();
+
+            SerializedProperty ichi = so.FindProperty("enemy");
+            EditorGUILayout.PropertyField(ichi);
+
+            SerializedProperty dos = so.FindProperty("eliteMember");
+            EditorGUILayout.PropertyField(dos);   
+
+            if(dos.boolValue == true)
+            {
+
+            }
+            
+            /*SerializedProperty tres = so.FindProperty("system");
+            EditorGUILayout.PropertyField(tres);*/
+
+            SerializedProperty ni = so.FindProperty("enemyHP");
+            EditorGUILayout.PropertyField(ni);
+
+            SerializedProperty san = so.FindProperty("enemyDmg");
+            EditorGUILayout.PropertyField(san);
+
+            SerializedProperty chi = so.FindProperty("enemyTiming");
+            EditorGUILayout.PropertyField(chi);
+
+            SerializedProperty go = so.FindProperty("enemySpeed");
+            EditorGUILayout.PropertyField(go);
+            
+            SerializedProperty ku = so.FindProperty("enemyXpValue");
+            EditorGUILayout.PropertyField(ku);
+            
+            SerializedProperty roku = so.FindProperty("damageIncreaseByLevel");
+            EditorGUILayout.PropertyField(roku);
+
+            SerializedProperty nana = so.FindProperty("speedIncreseByLevel");
+            EditorGUILayout.PropertyField(nana);
+
+            SerializedProperty hachi = so.FindProperty("healthIncreaseByLevel");
+            EditorGUILayout.PropertyField(hachi);
+
+            SerializedProperty nu = so.FindProperty("xpIncrease");
+            EditorGUILayout.PropertyField(nu);
+
+            so.ApplyModifiedProperties();
+        }
+        EditorGUILayout.EndVertical();
+
+        EditorGUILayout.Space(70);
+
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Box("New Scriptable Creation", GUILayout.ExpandWidth(true), GUILayout.Height(18.5f));
         typedResult = EditorGUILayout.TextArea(typedResult, GUILayout.Width(150));
         if (GUILayout.Button(text: "New Enemy Type", GUILayout.Width(150)))
         {
-            CreateTheEnemy();
+            CreateStats();
         }
-
         EditorGUILayout.EndHorizontal();
+
+
+        /*foreach(GameObject ga in group)
+        {
+
+        }*/
 
         EditorGUILayout.EndHorizontal();
         EditorGUILayout.EndScrollView();
     }
 
-    void OpenTheEnemy(EnemyStats enemy)
-    {
-        theEnemy = enemy;
-    }
-
-    void CreateTheEnemy()
+    void CreateStats()
     {
         theEnemy = new EnemyStats();
-        AssetDatabase.CreateAsset(theEnemy, typedResult);
+        AssetDatabase.CreateAsset(theEnemy, "Assets/Scripts/Nouveau Projet/Enemies/Scriptable Obj/" + typedResult + ".asset");
+    } 
+
+    //ici je vais faire la fonction pour la creation d'un asset de type prefab qui prendra en compte les scripts EnemiesSystem et le 
+    void CreateAnEnemy()
+    {
+        AssetDatabase.CreateAsset(anEnemy, "Assets/Prefab/NewProject/Enemies/" + typedResult + ".prefab");
     }
 
-    /*void OnSpriteSelectionChange(IEnumerable<object> selectedItems)
-     {
-         rightPlane.Clear();
-
-         var enumerator = selectedItems.GetEnumerator();
-         if (enumerator.MoveNext())
-         {
-             var selectedStats = enumerator.Current as EnemyStats;
-             if (selectedStats != null)
-             {
-                theEnemy = selectedStats; 
-             }
-         }
-
-     }*/
- 
     private void LoadAllAssetsOfType<T>(out T[] assets) where T : Object
     {
         string[] guids = AssetDatabase.FindAssets("t:" + typeof(T));
@@ -145,85 +177,19 @@ public class EnemyEditor : EditorWindow
     }
 }
 
+/*void OnSpriteSelectionChange(IEnumerable<object> selectedItems)
+ {
+     rightPlane.Clear();
 
-/*private void OnGUI()
-    {
-        GUI.backgroundColor = new Color(0.8f, .2f, 1f);
-        LoadAllAssetsOfType<EnemyStats>(out EnemyStats[] enemies);
+     var enumerator = selectedItems.GetEnumerator();
+     if (enumerator.MoveNext())
+     {
+         var selectedStats = enumerator.Current as EnemyStats;
+         if (selectedStats != null)
+         {
+            theEnemy = selectedStats; 
+         }
+     }
 
-        //sprite. = AssetDatabase.FindAssets("Assets/ah.png");   
+ }*/
 
-        if (enemies.Length == 0)
-        {
-            EditorGUILayout.LabelField("I have no enenmies.");
-        }
-
-        EditorGUILayout.BeginHorizontal();
-        EditorGUILayout.BeginScrollView(scroll);
-
-        foreach (EnemyStats en in enemies)
-        {
-            EditorGUILayout.BeginVertical(GUILayout.Width(300));
-            SerializedObject ai = new SerializedObject(en);
-            ai.Update();
-
-            if (GUILayout.Button(text: en.ToString()))
-            {
-                EditorGUILayout.BeginHorizontal();
-                OpenTheEnemy(en);
-
-                EditorGUILayout.EndHorizontal();
-            }
-
-            ai.ApplyModifiedProperties();
-            EditorGUILayout.EndVertical();
-        }
-
-        EditorGUILayout.BeginHorizontal(GUILayout.Width(300));
-
-        typedResult = EditorGUILayout.TextArea(typedResult);
-        if (GUILayout.Button(text: "Create New Enemy Type"))
-        {
-            CreateTheEnemy();
-        }
-
-        EditorGUILayout.EndHorizontal();
-
-        EditorGUILayout.EndHorizontal();
-        EditorGUILayout.EndScrollView();
-    }
-
-    void OpenTheEnemy(EnemyStats enemy)
-    {
-        theEnemy = enemy;         
-    }
-
-    void CreateTheEnemy()
-    {
-        theEnemy = new EnemyStats();
-        AssetDatabase.CreateAsset(theEnemy, typedResult); 
-    }
-
-SerializedProperty ichi = ai.FindProperty("enemy");
-EditorGUILayout.PropertyField(ichi);
-
-SerializedProperty ni = ai.FindProperty("enemyHP");
-EditorGUILayout.PropertyField(ni);
-
-SerializedProperty san = ai.FindProperty("enemyDmg");
-EditorGUILayout.PropertyField(san);
-
-SerializedProperty chi = ai.FindProperty("enemyTiming");
-EditorGUILayout.PropertyField(chi);
-
-SerializedProperty go = ai.FindProperty("enemySpeed");
-EditorGUILayout.PropertyField(go);
-
-SerializedProperty roku = ai.FindProperty("damageIncreaseByLevel");
-EditorGUILayout.PropertyField(roku);
-
-SerializedProperty nana = ai.FindProperty("speedIncreseByLevel");
-EditorGUILayout.PropertyField(nana);
-
-SerializedProperty hachi = ai.FindProperty("healthIncreaseByLevel");
-EditorGUILayout.PropertyField(hachi);*/

@@ -19,6 +19,8 @@ MonoBehaviour:
   enemyHP: 50
   enemyDmg: 25
   enemyTiming: 0
+  enemyXpValue: 25
   damageIncreaseByLevel: 1
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 7
+  xpIncrease: 5
