@@ -94,7 +94,7 @@ public class CharactControls : MonoBehaviour
 
         if (moving.y != 0)
         {
-            lastMovHorizon = moving.y;
+            lastMovVertical = moving.y;
         }
     }
 

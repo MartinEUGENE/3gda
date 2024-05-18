@@ -12,7 +12,6 @@ public class WeaponSystem : MonoBehaviour
         AreaWeapon
     }
 
-
     [Header("Weapon Stats")]
     public WeaponStats weaponData;
     public WeaponType weaponType;

@@ -39,6 +39,16 @@ public class EnemiesSystem : MonoBehaviour
     public float knockDuration;
     public float knockForce = 3f;
 
+    public Vector2 moving;
+    [HideInInspector]
+    public float lastMovHorizon;
+    [HideInInspector]
+    public float lastMovVertical;
+    [HideInInspector]
+    AnimateEnemy animate; 
+    [HideInInspector]
+    public Vector2 lastMovVector;
+
     bool isMoving = false;
     GameManager gameManager;
     public List<LevelRange> levelRangesEnemy;
@@ -55,6 +65,8 @@ public class EnemiesSystem : MonoBehaviour
         playerTransform = player.transform.position;
         playerVector = playerObj.transform.position;
         enemyTransform = GetComponent<Transform>(); 
+        animate = GetComponent<AnimateEnemy>();
+
 
         OnSpawn();
     }
@@ -92,7 +104,17 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void EnemyMove()
     {       
          Vector2 direction = (playerObj.transform.position - transform.position).normalized;
-         rb2d.velocity = direction * currentSpeed;       
+         rb2d.velocity = direction * currentSpeed;
+
+        if(direction.x !=0)
+        {
+            lastMovHorizon = direction.x;
+        }
+
+        if(direction.y !=0)
+        {
+            lastMovVertical = direction.y;
+        }
     }
 
     void ReturnTheEnemy()
@@ -171,7 +193,6 @@ public class EnemiesSystem : MonoBehaviour
         //knockVelocity = knockback; 
         knockDuration = duration;         
     }
-
     public void OnDestroy()
     {
         

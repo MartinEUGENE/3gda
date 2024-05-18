@@ -20,13 +20,14 @@ public class BeamBehavior : MeleeWeapon
         base.Update();
     }
 
+/*
     public void SetDirection(float direction)
     {
         // Adjust the beam's scale based on the direction
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Sign(direction); // Set the scale based on the sign of the direction
         transform.localScale = scale;
-    }
+    }*/
 
     public void OnTriggerEnter2D(Collider2D other)
     {

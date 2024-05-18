@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2775600253798852077}
   - component: {fileID: 2775600253798852074}
   - component: {fileID: 2775600253798852075}
-  - component: {fileID: 2775600253798852072}
   - component: {fileID: -795585149310192304}
   m_Layer: 0
   m_Name: Explosion
@@ -103,29 +102,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &2775600253798852072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2775600253798852073}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7cf7705f023a5d409d0fddf0c5f90fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mousPos: {x: 0, y: 0, z: 0}
-  mouseDir: {x: 0, y: 0, z: 0}
-  moveDir: {x: 0, y: 0, z: 0}
-  destroyObj: 3
-  mainCam: {fileID: 0}
-  weapon: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
-  stats: {fileID: 0}
-  rb: {fileID: 0}
-  inateCrit: 0
-  hasCrit: 0
-  countDown: 0
 --- !u!95 &-795585149310192304
 Animator:
   serializedVersion: 4

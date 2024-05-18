@@ -6,7 +6,7 @@ public class SpeedItem : PassiveItem
 {
     protected override void ApplyStats()
     {
-        player.currentSpeed *= 1 + passiveItem.Multiplier / 100f;
+        player.currentSpeed *= passiveItem.Multiplier; 
     }
 
 }

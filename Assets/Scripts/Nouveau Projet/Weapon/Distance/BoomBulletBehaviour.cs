@@ -8,7 +8,6 @@ public class BoomBulletBehaviour : BulletSystem
 
     public int countDown = 0;
     public GameObject explosion;
-
     protected override void Start()
     {
         base.Start();

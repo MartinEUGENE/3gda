@@ -28,13 +28,13 @@ public class BeamWeapon : WeaponSystem
         {
             choice = -1;
             //Blast(-1); 
-            Debug.Log("gauche");
+           // Debug.Log("gauche");
         }
         else if (WorldPos.x  > currentPosition.x )
         {
             choice = 1;
             //Blast(1); 
-            Debug.Log("droite");
+            //Debug.Log("droite");
         }
         lastPosition = currentPosition;
     }
@@ -47,7 +47,6 @@ public class BeamWeapon : WeaponSystem
 
     private void Blast(int direction)
     {
-        
         if(!LvlMax)
         {
             Vector3 beamPosition = playerTransform.position + Vector3.right * direction;

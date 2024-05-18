@@ -14,7 +14,6 @@ public class Animate : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(ch.moving.x !=0 || ch.moving.y != 0)

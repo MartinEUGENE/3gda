@@ -177,7 +177,7 @@ MonoBehaviour:
   knockForce: 3
   levelRangesEnemy: []
   dmgText: {fileID: 0}
-  startingTime: 2.5
+  startingTime: 3
   prediction: {fileID: 5378563468445956122, guid: dba92a9b77ad8f64c94decb6b76e1752,
     type: 3}
   rushForce: 10

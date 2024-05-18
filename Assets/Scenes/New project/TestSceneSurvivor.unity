@@ -211,6 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56efb072f75edc842afdfebc6263adc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!1 &373467579
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +3905,14 @@ PrefabInstance:
       propertyPath: levelTxt
       value: 
       objectReference: {fileID: 162384114}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: levelRanges.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: levelRanges.Array.data[0].expCapIncrease
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 2080420215, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -3919,7 +3928,7 @@ PrefabInstance:
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -3990,19 +3999,19 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[1].weaponStats
       value: 
-      objectReference: {fileID: 11400000, guid: 3fbcdc33de0184f44bf599db7956cd10,
+      objectReference: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[2].weaponStats
       value: 
-      objectReference: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8,
+      objectReference: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[3].weaponStats
       value: 
-      objectReference: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd,
+      objectReference: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4028,12 +4037,12 @@ PrefabInstance:
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[1].weaponUpIndex
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[2].weaponUpIndex
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4043,7 +4052,7 @@ PrefabInstance:
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[4].weaponUpIndex
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
@@ -4064,25 +4073,25 @@ PrefabInstance:
         type: 3}
       propertyPath: wpnUp.Array.data[1].initialWeapaon
       value: 
-      objectReference: {fileID: 3202764605150555591, guid: 979e21840013be44ca181ada0a229827,
+      objectReference: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[2].initialWeapaon
       value: 
-      objectReference: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
+      objectReference: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[3].initialWeapaon
       value: 
-      objectReference: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
+      objectReference: {fileID: 3473108540770449506, guid: 086fb2579d3230149a206db67e1c4d43,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: wpnUp.Array.data[4].initialWeapaon
       value: 
-      objectReference: {fileID: 3473108540770449506, guid: ac14369e32250f64b905b2e33ad6fce8,
+      objectReference: {fileID: 820928720109151547, guid: ef6909e9bae114a428cd7615849aafe0,
         type: 3}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

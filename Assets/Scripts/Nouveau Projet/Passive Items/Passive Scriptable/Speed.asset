@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: Speed
   m_EditorClassIdentifier: 
-  multiplier: 102
+  multiplier: 1.1
   level: 1
   nextPassive: {fileID: 8579314183846126787, guid: 1e026f3d2b51716479e1e9cb492d4a8a,
     type: 3}

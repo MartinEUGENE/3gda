@@ -4,25 +4,19 @@ using UnityEngine;
 
 public class BoomBehaviour : BulletSystem
 {
-    List<GameObject> markedEnemies;
-    public float countDown = 0;
-
+    public List<GameObject> markedEnemies;
     protected override void Start()
     {
-        base.Start();
+        transform.eulerAngles = new Vector3(0, 0, 0);
+        stats = GetComponentInParent<CharacterStats>();
+        OnSpawn(); 
         markedEnemies = new List<GameObject>();
+        Destroy(gameObject, destroyObj); 
     }
 
     protected override void Update() 
     {
         base.Update();
-        countDown += Time.deltaTime;
-
-        if (countDown >= destroyObj)
-        {
-            Destroy(gameObject);
-        }
-        
     }
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
@@ -37,5 +31,4 @@ public class BoomBehaviour : BulletSystem
             markedEnemies.Add(other.gameObject);
         }
     }
-
 }
