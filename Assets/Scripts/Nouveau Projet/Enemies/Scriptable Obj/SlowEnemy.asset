@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: SlowEnemy
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 21300000, guid: 61ac40b257b3a994f841856ad38b2b6b, type: 3}
   eliteMember: 0
-  system: {fileID: 0}
   enemySpeed: 0
   enemyHP: 0
   enemyDmg: 0
@@ -22,3 +21,5 @@ MonoBehaviour:
   damageIncreaseByLevel: 0
   speedIncreseByLevel: 0
   healthIncreaseByLevel: 0
+  currentEnemyObj: {fileID: 0}
+  replacement: {fileID: 0}

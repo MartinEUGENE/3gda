@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2936598981783001882}
   - component: {fileID: 5147994893230487742}
-  - component: {fileID: 1750442679875686035}
   - component: {fileID: -8336450499364252888}
   - component: {fileID: 3200535626362464558}
+  - component: {fileID: 2828227365420099079}
   m_Layer: 0
   m_Name: Heart
   m_TagString: Untagged
@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 8882508597679462283}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!70 &1750442679875686035
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8882508597679462283}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.01608096, y: -0.01072067}
-  m_Size: {x: 0.496129, y: 0.56045294}
-  m_Direction: 0
 --- !u!50 &-8336450499364252888
 Rigidbody2D:
   serializedVersion: 4
@@ -142,4 +126,54 @@ MonoBehaviour:
     frequency: 3
     direction: {x: 0, y: 0.25}
   exp: 0
-  hp: 50
+  hp: 25
+  money: 0
+--- !u!60 &2828227365420099079
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882508597679462283}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.23, y: 2.21}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.615, y: -0.475}
+      - {x: 0.615, y: -0.065}
+      - {x: 0.59499997, y: -0.024999999}
+      - {x: 0.385, y: 0.185}
+      - {x: 0.24499999, y: 0.33499998}
+      - {x: 0.005, y: 0.545}
+      - {x: -0.065, y: 0.60499996}
+      - {x: -0.405, y: 0.60499996}
+      - {x: -0.42499998, y: 0.585}
+      - {x: -0.48499998, y: 0.555}
+      - {x: -0.515, y: 0.49499997}
+      - {x: -0.575, y: 0.465}
+      - {x: -0.615, y: 0.405}
+      - {x: -0.615, y: 0.035}
+      - {x: -0.575, y: -0.015}
+      - {x: -0.33499998, y: -0.255}
+      - {x: -0.275, y: -0.325}
+      - {x: -0.225, y: -0.405}
+      - {x: -0.055, y: -0.53499997}
+      - {x: -0.015, y: -0.575}
+      - {x: 0.074999996, y: -0.655}
+      - {x: 0.415, y: -0.655}
+      - {x: 0.505, y: -0.565}
+      - {x: 0.565, y: -0.525}
