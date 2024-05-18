@@ -112,7 +112,7 @@ MonoBehaviour:
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
-    dropRate: 0.5
+    dropRate: 15
 --- !u!50 &5424853228338653660
 Rigidbody2D:
   serializedVersion: 4
@@ -162,13 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e3b1450a74710f428caddf200532f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelRangesEnemy: []
-  dmgText: {fileID: 0}
   rb2d: {fileID: 0}
   playerObj: {fileID: 0}
   stats: {fileID: 11400000, guid: 308f91f145c0b74449f9a21691ee0f64, type: 2}
   playerStats: {fileID: 0}
   enemyTransform: {fileID: 0}
+  enemyLevel: 1
   currentSpeed: 0
   currentHealth: 0
   currentDamage: 0
@@ -176,8 +175,9 @@ MonoBehaviour:
   distanceDespawn: 15
   knockDuration: 0
   knockForce: 3
-  enemyLevel: 1
-  startingTime: 5
+  levelRangesEnemy: []
+  dmgText: {fileID: 0}
+  startingTime: 2.5
   prediction: {fileID: 5378563468445956122, guid: dba92a9b77ad8f64c94decb6b76e1752,
     type: 3}
   rushForce: 10
@@ -233,8 +233,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.013169438
-        value: 1
+        time: 0
+        value: 0.34545517
         inSlope: 0
         outSlope: 0
         tangentMode: 0

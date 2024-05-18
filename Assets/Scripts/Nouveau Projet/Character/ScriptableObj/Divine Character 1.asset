@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingWeapon: {fileID: 3473108540770449506, guid: a9d28fd7b7fe42e46a5e22ba728b5965,
     type: 3}
-  maxHP: 5000000
-  recovery: 5000000
-  armor: 5000000
-  critRate: 100
-  critDmg: 3
-  pickUp: 50000
-  movSpeed: 3
   attack: 100
   projectileSpeed: 2
+  critDmg: 3
+  critRate: 100
+  maxHP: 5000000
+  armor: 5000000
+  recovery: 5000000
+  pickUp: 50000
+  movSpeed: 3

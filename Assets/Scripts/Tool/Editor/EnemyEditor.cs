@@ -46,8 +46,6 @@ public class EnemyEditor : EditorWindow
 
         leftPane.onSelectionChange += (items) => { m_SelectedIndex = leftPane.selectedIndex; };
     }*/
-
-
     private void OnGUI()
     {
         GUI.backgroundColor = new Color(0.8f, .2f, 1f);
@@ -72,6 +70,7 @@ public class EnemyEditor : EditorWindow
             if (GUILayout.Button(text: en.ToString()))
             {               
                 theEnemy = en;
+                
             }
 
             ai.ApplyModifiedProperties();           
@@ -80,6 +79,17 @@ public class EnemyEditor : EditorWindow
 
         EditorGUILayout.Space(30);
 
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Box("New Scriptable Creation", GUILayout.ExpandWidth(true), GUILayout.Height(18.5f));
+        typedResult = EditorGUILayout.TextArea(typedResult, GUILayout.Width(150));
+        if (GUILayout.Button(text: "New Enemy Type", GUILayout.Width(150)))
+        {
+            CreateStats();
+        }
+        EditorGUILayout.EndHorizontal();
+
+        EditorGUILayout.Space(20);
+
         EditorGUILayout.BeginVertical(); 
         if (theEnemy != null)
         {
@@ -87,7 +97,14 @@ public class EnemyEditor : EditorWindow
             so.Update();
 
             SerializedProperty ichi = so.FindProperty("enemy");
-            EditorGUILayout.PropertyField(ichi);
+            GUILayout.BeginHorizontal(); 
+            EditorGUILayout.PropertyField(ichi, GUIContent.none);
+            Sprite sprite = (Sprite)ichi.objectReferenceValue;
+            if (sprite != null)
+            {
+                GUILayout.Box(sprite.texture, GUILayout.Height(80), GUILayout.Width(80));
+            }
+            GUILayout.EndHorizontal(); 
 
             SerializedProperty dos = so.FindProperty("eliteMember");
             EditorGUILayout.PropertyField(dos);   
@@ -112,8 +129,8 @@ public class EnemyEditor : EditorWindow
             SerializedProperty go = so.FindProperty("enemySpeed");
             EditorGUILayout.PropertyField(go);
             
-            SerializedProperty ku = so.FindProperty("enemyXpValue");
-            EditorGUILayout.PropertyField(ku);
+            /*SerializedProperty ku = so.FindProperty("enemyXpValue");
+            EditorGUILayout.PropertyField(ku);*/
             
             SerializedProperty roku = so.FindProperty("damageIncreaseByLevel");
             EditorGUILayout.PropertyField(roku);
@@ -124,24 +141,14 @@ public class EnemyEditor : EditorWindow
             SerializedProperty hachi = so.FindProperty("healthIncreaseByLevel");
             EditorGUILayout.PropertyField(hachi);
 
-            SerializedProperty nu = so.FindProperty("xpIncrease");
-            EditorGUILayout.PropertyField(nu);
+            /*SerializedProperty nu = so.FindProperty("xpIncrease");
+            EditorGUILayout.PropertyField(nu);*/
 
             so.ApplyModifiedProperties();
         }
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.Space(70);
-
-        EditorGUILayout.BeginHorizontal();
-        GUILayout.Box("New Scriptable Creation", GUILayout.ExpandWidth(true), GUILayout.Height(18.5f));
-        typedResult = EditorGUILayout.TextArea(typedResult, GUILayout.Width(150));
-        if (GUILayout.Button(text: "New Enemy Type", GUILayout.Width(150)))
-        {
-            CreateStats();
-        }
-        EditorGUILayout.EndHorizontal();
-
 
         /*foreach(GameObject ga in group)
         {
@@ -176,6 +183,9 @@ public class EnemyEditor : EditorWindow
         }
     }
 }
+
+
+
 
 /*void OnSpriteSelectionChange(IEnumerable<object> selectedItems)
  {
