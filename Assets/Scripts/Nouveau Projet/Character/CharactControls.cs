@@ -72,7 +72,7 @@ public class CharactControls : MonoBehaviour
             return;
         }
 
-        rb.velocity = moving * characterStats.currentSpeed; 
+        rb.velocity = moving * characterStats.CurrentMovSpeed; 
     }
 
     void InputManagement()

@@ -6,7 +6,7 @@ public class StrenghtItem : PassiveItem
 {
     protected override void ApplyStats()
     {
-        player.currentAttack += Mathf.FloorToInt(passiveItem.Multiplier);
+        player.CurrentAttack += Mathf.FloorToInt(passiveItem.Multiplier);
     }
 }
 

@@ -149,8 +149,8 @@ public class EnemiesSystem : MonoBehaviour
     {
         if(playerObj.GetComponent<CharacterStats>().invincible == false)
         {
-            float dmgDealt = currentDamage - playerStats.currentArmor;
-            playerStats.currentNewHP -= dmgDealt;
+            float dmgDealt = currentDamage - playerStats.CurrentArmor;
+            playerStats.CurrentHealth -= dmgDealt;
             playerStats.DmgTaken(Mathf.FloorToInt(dmgDealt));
             playerStats.HealthCheck();
         }
@@ -160,7 +160,7 @@ public class EnemiesSystem : MonoBehaviour
 
         }
 
-        if (playerObj.GetComponent<CharacterStats>().currentNewHP <= 0)
+        if (playerObj.GetComponent<CharacterStats>().CurrentHealth <= 0)
         {
             playerObj.GetComponent<CharacterStats>().Death();
         }
