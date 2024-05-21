@@ -71,8 +71,6 @@ public class CharacterStats : MonoBehaviour
     public int weaponIndex;
     public int passiveIndex;
 
-
-
     #region Current Stats
     public float CurrentHealth
     {
@@ -81,7 +79,11 @@ public class CharacterStats : MonoBehaviour
         {
             if (currentNewHP != value)
             {
-                currentNewHP = value; 
+                currentNewHP = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth; 
+                }
             }
         }        
     }
@@ -93,6 +95,10 @@ public class CharacterStats : MonoBehaviour
             if (currentRecovery != value)
             {
                 currentRecovery = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
+                }
             }
         }
     }
@@ -104,6 +110,10 @@ public class CharacterStats : MonoBehaviour
             if (currentArmor != value)
             {
                 currentArmor = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
+                }
             }
         }
     }
@@ -115,6 +125,10 @@ public class CharacterStats : MonoBehaviour
             if (currentAttack != value)
             {
                 currentAttack = Mathf.FloorToInt(value);
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
+                }
             }
         }
     }
@@ -126,6 +140,10 @@ public class CharacterStats : MonoBehaviour
             if (currentCriticalRate != value)
             {
                 currentCriticalRate = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + CurrentCritRate;
+                }
             }
         }
     }
@@ -138,6 +156,10 @@ public class CharacterStats : MonoBehaviour
             if (currentCriticalDmg != value)
             {
                 currentCriticalDmg = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + CurrentCritDmg;
+                }
             }
         }
     }
@@ -149,6 +171,10 @@ public class CharacterStats : MonoBehaviour
             if (currentpickUp != value)
             {
                 currentpickUp = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentPickUpDisp.text = "Magnet : " + CurrentPickUp;
+                }
             }
         }
     }
@@ -161,6 +187,10 @@ public class CharacterStats : MonoBehaviour
             if (currentSpeed != value)
             {
                 currentSpeed = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentMovSpeedDisp.text = "Speed : " + CurrentMovSpeed;
+                }
             }
         }
     }
@@ -201,6 +231,7 @@ public class CharacterStats : MonoBehaviour
     {
         experienceCap = levelRanges[0].expCapIncrease;
         HealthCheck();
+        StatsCheck(); 
     }
 
     public void SpawnedWeapon(GameObject weapon)
@@ -306,7 +337,14 @@ public class CharacterStats : MonoBehaviour
 
     void StatsCheck()
     {
-
+        GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
+        GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
+        GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
+        GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
+        GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + CurrentCritRate;
+        GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + CurrentCritDmg;
+        GameManager.instance.currentPickUpDisp.text = "Magnet : " + CurrentPickUp;
+        GameManager.instance.currentMovSpeedDisp.text = "Speed : " + CurrentMovSpeed;
     }
 
     void Recover()

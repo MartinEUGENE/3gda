@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New project/TestSceneSurvivor.unity
     guid: 2cdd01d1ecef32d40a5c62edbfcbfdec
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/New project/TestSceneSurvivor 1.unity
     guid: 6a3de5b1ea82a484dab630bdd025944e
   - enabled: 1
