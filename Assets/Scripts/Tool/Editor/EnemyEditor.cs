@@ -1,8 +1,11 @@
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 public class EnemyEditor : EditorWindow
 {
     [MenuItem("Tools/Enemy Management/Enemy Creator Window")]
@@ -20,61 +23,39 @@ public class EnemyEditor : EditorWindow
     Texture2D sprite;
 
     EnemyStats theEnemy;
-    GameObject anEnemy;
-
-    GameObject[] group;
+    GameObject group;
 
     string typedResult;
+    string typeResult;
+    [Range(1,4)] int chooseEnemyType;
 
-    /*private void CreateGUI()
-    {
-        var splitView = new TwoPaneSplitView(0, 250, TwoPaneSplitViewOrientation.Horizontal);
-        LoadAllAssetsOfType<EnemyStats>(out EnemyStats[] enemies);
-        rootVisualElement.Add(splitView);
-
-        var leftPane = new ListView();
-        splitView.Add(leftPane);
-        rightPlane = new ScrollView(ScrollViewMode.VerticalAndHorizontal);
-        splitView.Add(rightPlane);
-
-        leftPane.makeItem = () => new Label();
-        leftPane.bindItem = (item, index) => { (item as Label).text = enemies[index].name;};
-        leftPane.itemsSource = enemies;
-
-        leftPane.onSelectionChange += OnSpriteSelectionChange;
-        leftPane.selectedIndex = m_SelectedIndex;
-
-        leftPane.onSelectionChange += (items) => { m_SelectedIndex = leftPane.selectedIndex; };
-    }*/
     private void OnGUI()
     {
         GUI.backgroundColor = new Color(0.8f, .2f, 1f);
         LoadAllAssetsOfType<EnemyStats>(out EnemyStats[] enemies);
 
-
         if (enemies.Length == 0)
         {
-            EditorGUILayout.LabelField("I have no enenmies.");
+            EditorGUILayout.LabelField("I have no enenmy.");
         }
 
-        EditorGUILayout.BeginHorizontal();
+        EditorGUILayout.BeginHorizontal(GUILayout.ExpandWidth(true));
         EditorGUILayout.BeginScrollView(scroll);
 
         GUILayout.Box("Enemy Creator Manager", GUILayout.ExpandWidth(true), GUILayout.Height(30));
         foreach (EnemyStats en in enemies)
         {
-            EditorGUILayout.BeginVertical();
+            EditorGUILayout.BeginHorizontal();
             SerializedObject ai = new SerializedObject(en);
             ai.Update();
 
             if (GUILayout.Button(text: en.ToString()))
             {               
                 theEnemy = en;
-                
             }
 
             ai.ApplyModifiedProperties();           
-            EditorGUILayout.EndVertical();
+            EditorGUILayout.EndHorizontal();
         }
 
         EditorGUILayout.Space(30);
@@ -82,7 +63,7 @@ public class EnemyEditor : EditorWindow
         EditorGUILayout.BeginHorizontal();
         GUILayout.Box("New Scriptable Creation", GUILayout.ExpandWidth(true), GUILayout.Height(18.5f));
         typedResult = EditorGUILayout.TextArea(typedResult, GUILayout.Width(150));
-        if (GUILayout.Button(text: "New Enemy Type", GUILayout.Width(150)))
+        if (GUILayout.Button(text: "New Enemy Stats", GUILayout.Width(150)))
         {
             CreateStats();
         }
@@ -92,7 +73,7 @@ public class EnemyEditor : EditorWindow
 
         EditorGUILayout.BeginVertical(); 
         if (theEnemy != null)
-        {
+        {            
             SerializedObject so = new SerializedObject(theEnemy);
             so.Update();
 
@@ -107,15 +88,10 @@ public class EnemyEditor : EditorWindow
             GUILayout.EndHorizontal(); 
 
             SerializedProperty dos = so.FindProperty("eliteMember");
-            EditorGUILayout.PropertyField(dos);   
+            EditorGUILayout.PropertyField(dos);
 
-            if(dos.boolValue == true)
-            {
-
-            }
-            
-            /*SerializedProperty tres = so.FindProperty("system");
-            EditorGUILayout.PropertyField(tres);*/
+            SerializedProperty di = so.FindProperty("enemyType");
+            EditorGUILayout.PropertyField(di);
 
             SerializedProperty ni = so.FindProperty("enemyHP");
             EditorGUILayout.PropertyField(ni);
@@ -129,9 +105,6 @@ public class EnemyEditor : EditorWindow
             SerializedProperty go = so.FindProperty("enemySpeed");
             EditorGUILayout.PropertyField(go);
             
-            /*SerializedProperty ku = so.FindProperty("enemyXpValue");
-            EditorGUILayout.PropertyField(ku);*/
-            
             SerializedProperty roku = so.FindProperty("damageIncreaseByLevel");
             EditorGUILayout.PropertyField(roku);
 
@@ -141,21 +114,27 @@ public class EnemyEditor : EditorWindow
             SerializedProperty hachi = so.FindProperty("healthIncreaseByLevel");
             EditorGUILayout.PropertyField(hachi);
 
-            /*SerializedProperty nu = so.FindProperty("xpIncrease");
-            EditorGUILayout.PropertyField(nu);*/
-
             so.ApplyModifiedProperties();
         }
         EditorGUILayout.EndVertical();
 
-        EditorGUILayout.Space(70);
+        EditorGUILayout.Space(35);
 
-        /*foreach(GameObject ga in group)
+        EditorGUILayout.BeginHorizontal();
+        GUILayout.Box("New GameObject Creation", GUILayout.ExpandWidth(true), GUILayout.Height(18.5f));
+        chooseEnemyType = EditorGUILayout.IntField(chooseEnemyType, GUILayout.Width(150));
+        if(GUILayout.Button(text: "New Enemy Object", GUILayout.Width(150)))
         {
-
-        }*/
-
-        EditorGUILayout.EndHorizontal();
+            switch(chooseEnemyType)
+            {
+                default:
+                    CreateAnEnemy();
+                    break;
+            }
+        }
+        EditorGUILayout.EndHorizontal(); 
+        
+        EditorGUILayout.EndVertical();
         EditorGUILayout.EndScrollView();
     }
 
@@ -164,11 +143,49 @@ public class EnemyEditor : EditorWindow
         theEnemy = new EnemyStats();
         AssetDatabase.CreateAsset(theEnemy, "Assets/Scripts/Nouveau Projet/Enemies/Scriptable Obj/" + typedResult + ".asset");
     } 
-
-    //ici je vais faire la fonction pour la creation d'un asset de type prefab qui prendra en compte les scripts EnemiesSystem et le 
+    //ici je vais faire la fonction pour la creation d'un gameObject 
+    //Je n'ai pas vu de méthode qui me permettrait de transformer un gameObject en Prefab immédiatement après sa création.
     void CreateAnEnemy()
     {
-        AssetDatabase.CreateAsset(anEnemy, "Assets/Prefab/NewProject/Enemies/" + typedResult + ".prefab");
+        group = new GameObject();
+        group.tag = "Enemy";
+        group.layer = 9; 
+
+        //Ajout forcé de tous les composants dont j'ai besoin sur le gameObject, je n'ai pas trouvé d'autres façons de faire cet ajout mieux
+        group.AddComponent<Rigidbody2D>();
+        group.AddComponent<SpriteRenderer>(); 
+        group.AddComponent<PolygonCollider2D>(); 
+        group.AddComponent<DropRateManager>(); 
+
+        group.GetComponent<SpriteRenderer>().sprite = theEnemy.Enemy; 
+
+        switch(chooseEnemyType)
+        {
+            case 1:
+                group.AddComponent<EnemiesSystem>();
+                group.GetComponent<EnemiesSystem>().stats = theEnemy;
+                Debug.LogError("A Chicken was created");
+                //Le Log Error est mis exprès ici pour forcer les autres designers à regarder la console lors de la création de l'objet.  
+
+                break;
+            case 2:
+                group.AddComponent<TurretEnemy>();
+                group.GetComponent<TurretEnemy>().stats = theEnemy;
+                Debug.LogError("A Turret was created");
+
+                break;          
+            case 3:
+                group.AddComponent<RushingEnemy>();
+                group.GetComponent<RushingEnemy>().stats = theEnemy;
+                Debug.LogError("A Rusher was created");
+
+                break;            
+            case 4:
+                group.AddComponent<HordeEnemies>();
+                group.GetComponent<HordeEnemies>().stats = theEnemy;
+                Debug.LogError("A Horde was created"); 
+                break;
+        }
     }
 
     private void LoadAllAssetsOfType<T>(out T[] assets) where T : Object
@@ -184,22 +201,4 @@ public class EnemyEditor : EditorWindow
     }
 }
 
-
-
-
-/*void OnSpriteSelectionChange(IEnumerable<object> selectedItems)
- {
-     rightPlane.Clear();
-
-     var enumerator = selectedItems.GetEnumerator();
-     if (enumerator.MoveNext())
-     {
-         var selectedStats = enumerator.Current as EnemyStats;
-         if (selectedStats != null)
-         {
-            theEnemy = selectedStats; 
-         }
-     }
-
- }*/
 

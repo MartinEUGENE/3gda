@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da10d667d8868e346b1a0b883fb3d0af, type: 3}
   m_Name: Normal kid
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 21300000, guid: 7ee9829606a2c2841aadf68079a4bcb4, type: 3}
   eliteMember: 0
   enemySpeed: 0.7
   enemyHP: 50
