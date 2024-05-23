@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
     protected CharacterStats targ;
     public float speed;
     public float life;
+    float initialOffset; 
     Vector2 intialPos;
 
     [System.Serializable]
@@ -29,6 +30,7 @@ public class PickUp : MonoBehaviour
     public virtual void Start()
     {
         intialPos = transform.position;
+        initialOffset = Random.Range(0,bobb.frequency);
         transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
@@ -48,7 +50,7 @@ public class PickUp : MonoBehaviour
         }
         else
         {
-            transform.position = intialPos + bobb.direction * Mathf.Sin(Time.time * bobb.frequency); 
+            transform.position = intialPos + bobb.direction * Mathf.Sin((Time.time +initialOffset) * bobb.frequency); 
         }
     }
 

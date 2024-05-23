@@ -33,6 +33,23 @@ public class TurretEnemy : EnemiesSystem
         }
     }
 
+    public override void FixedUpdate()
+    {
+        Vector2 direction = (playerObj.transform.position - transform.position).normalized;
+
+        if (direction.x != 0)
+        {
+            lastMovHorizon = direction.x;
+            moving.x = direction.x;
+        }
+
+        if (direction.y != 0)
+        {
+            lastMovVertical = direction.y;
+            moving.y = direction.y;
+        }
+    }
+
     IEnumerator TrueShot()
     {
         yield return new WaitForSeconds(.1f);

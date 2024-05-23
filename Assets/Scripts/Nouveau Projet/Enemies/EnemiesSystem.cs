@@ -109,11 +109,13 @@ public class EnemiesSystem : MonoBehaviour
         if(direction.x !=0)
         {
             lastMovHorizon = direction.x;
+            moving.x = direction.x; 
         }
 
         if(direction.y !=0)
         {
             lastMovVertical = direction.y;
+            moving.y = direction.y; 
         }
     }
 
