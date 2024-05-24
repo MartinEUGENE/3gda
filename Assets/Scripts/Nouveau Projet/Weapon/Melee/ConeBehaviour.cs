@@ -22,7 +22,7 @@ public class ConeBehaviour : MeleeWeapon
     {
         inateCrit = Random.Range(1, 100);
 
-        timer += Time.deltaTime;
+        /*timer += Time.deltaTime;
 
         float progress = Mathf.Clamp01(timer / duration);
 
@@ -34,7 +34,7 @@ public class ConeBehaviour : MeleeWeapon
         {
             Invoke("DestroyObject", destroyDelay);
             destroyScheduled = true;
-        }
+        }*/
     }
 
     protected override void OnSpawn()

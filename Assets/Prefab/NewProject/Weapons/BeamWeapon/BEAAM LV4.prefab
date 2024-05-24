@@ -48,7 +48,7 @@ MonoBehaviour:
   weaponType: 0
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
-  currentLevel: 2
+  currentLevel: 4
   beamPrefab: {fileID: 8785628014650320031, guid: 25e03be3e63bb0b4990a05ef1014727f,
     type: 3}
   LvlMax: 0
