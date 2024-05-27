@@ -160,7 +160,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &1237863064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -544,7 +544,6 @@ MonoBehaviour:
   playerStats: {fileID: 0}
   spawnedWeapons: []
   currentAttack: 0
-  currentAttackHaste: 0
   currentCriticalRate: 0
   currentCriticalDmg: 0
   currentNewHP: 0
@@ -564,21 +563,24 @@ MonoBehaviour:
   invincibleTimer: 0
   invincibleCooldown: 0.65
   levelRanges:
-  - startingLevel: 1
-    endLevel: 3
+  - startLevel: 1
+    endLevel: 2
+    expCapIncrease: 50
+  - startLevel: 3
+    endLevel: 4
     expCapIncrease: 75
-  - startingLevel: 4
-    endLevel: 15
+  - startLevel: 5
+    endLevel: 6
+    expCapIncrease: 90
+  - startLevel: 7
+    endLevel: 8
+    expCapIncrease: 100
+  - startLevel: 9
+    endLevel: 10
+    expCapIncrease: 105
+  - startLevel: 11
+    endLevel: 12
     expCapIncrease: 125
-  - startingLevel: 9
-    endLevel: 15
-    expCapIncrease: 175
-  - startingLevel: 16
-    endLevel: 35
-    expCapIncrease: 250
-  - startingLevel: 36
-    endLevel: 100
-    expCapIncrease: 250
   weaponIndex: 0
   passiveIndex: 0
 --- !u!50 &917920727
@@ -643,22 +645,18 @@ MonoBehaviour:
     initialWeapaon: {fileID: 3473108540770449506, guid: a9d28fd7b7fe42e46a5e22ba728b5965,
       type: 3}
     weaponStats: {fileID: 11400000, guid: dde587c17e191ae4dacbc803b0ae1003, type: 2}
-  - weaponUpIndex: 1
-    initialWeapaon: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
-      type: 3}
-    weaponStats: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
   - weaponUpIndex: 2
     initialWeapaon: {fileID: 3473108540770449506, guid: d8187317ce15e36429fca2dac05ccded,
       type: 3}
     weaponStats: {fileID: 11400000, guid: fdb36e48b58fa944c9a135f210a0e0d8, type: 2}
   - weaponUpIndex: 3
+    initialWeapaon: {fileID: 3473108540770449506, guid: e199445b3ce261d4aa951beb8c42b164,
+      type: 3}
+    weaponStats: {fileID: 11400000, guid: 22247cdb19930de4ea323221b6dd94fd, type: 2}
+  - weaponUpIndex: 3
     initialWeapaon: {fileID: 3473108540770449506, guid: 086fb2579d3230149a206db67e1c4d43,
       type: 3}
     weaponStats: {fileID: 11400000, guid: c48cdfdddda51884f9488b8c4434c298, type: 2}
-  - weaponUpIndex: 4
-    initialWeapaon: {fileID: 3473108540770449506, guid: ac14369e32250f64b905b2e33ad6fce8,
-      type: 3}
-    weaponStats: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
   passiveUp:
   - passiveUpIndex: 0
     initialPassive: {fileID: 8517228953195156906, guid: b9de6f125a436224a8a8c8a4bba7e940,

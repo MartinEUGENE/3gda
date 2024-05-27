@@ -41,7 +41,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Experience/Level")]
     public int experience = 0;
-    public int experienceCap = 10;
+    public int experienceCap;
     public int level = 1;
     public TextMeshProUGUI levelTxt; 
 
@@ -55,10 +55,9 @@ public class CharacterStats : MonoBehaviour
     public float invincibleCooldown; 
 
     [System.Serializable]
-
     public class LevelRange
     {
-        public int startingLevel;
+        public int startLevel;
         public int endLevel;
         public int expCapIncrease; 
     }
@@ -251,20 +250,20 @@ public class CharacterStats : MonoBehaviour
 
          passiveIndex++;
      }
-
+    public void IncreaseGold(int amount)
+    {
+        gold += amount;
+    }
     public void IncreaseExperience(int amount)
     {
         experience += amount;
         XPbar();
         LevelUpCheck();
     }
-    public void IncreaseGold(int amount)
-    {
-        gold += amount;
-    }
+
     public void LevelUpCheck()
     {
-        if(experience >= experienceCap)  // ici pour martin: provoque le choix d'upgrade et la montée des autres state et reset bar XP
+        if(experience >= experienceCap)  
         {
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/LevelUP");
             level++;
@@ -277,13 +276,15 @@ public class CharacterStats : MonoBehaviour
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
             {
-                experienceCapIncrease = range.expCapIncrease;
-                break; 
+                if(level >= range.startLevel && level <= range.endLevel)
+                {
+                    experienceCapIncrease = range.expCapIncrease;
+                    break;
+                }
             }
 
             XPbar();
-            experienceCap += experienceCapIncrease;
-
+            experienceCap = experienceCapIncrease;            
             GameManager.instance.LevelUp();
 
         }
