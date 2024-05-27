@@ -10,7 +10,7 @@ public class SpawnAfter : MonoBehaviour
     bool eliteSpawned; 
     void Start()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/Special_Enemy_Spawn");
     }
 
     private void Update()
@@ -19,13 +19,12 @@ public class SpawnAfter : MonoBehaviour
         if(seconds <= 0f)
         {
             SpawnTheEnemy(); 
-
         }
     }
 
     void SpawnTheEnemy()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("");
+        //FMODUnity.RuntimeManager.PlayOneShot("");
         Instantiate(eliteSpawn, transform.position, Quaternion.identity);
         Destroy(gameObject); 
     }
