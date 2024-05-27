@@ -151,6 +151,6 @@ MonoBehaviour:
   bobb:
     frequency: 1.5
     direction: {x: 0, y: 0.25}
-  exp: 500
+  exp: 150
   hp: 0
   money: 0
