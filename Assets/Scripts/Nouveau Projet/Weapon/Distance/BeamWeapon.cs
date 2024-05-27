@@ -49,12 +49,15 @@ public class BeamWeapon : WeaponSystem
     {
         if(!LvlMax)
         {
-            Vector3 beamPosition = playerTransform.position + Vector3.right * direction;
+            Vector3 beamPosition = transform.position + Vector3.right * direction;
             GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, playerTransform);
+
             if (direction < 0)
             {
-            beam.transform.localScale = new Vector3(-1, 1, 1);
+                beamPosition = transform.position + Vector3.right * direction;
+                beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, playerTransform);
             }
+
         }
 
         else
