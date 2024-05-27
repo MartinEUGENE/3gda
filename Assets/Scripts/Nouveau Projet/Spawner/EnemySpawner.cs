@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         public int spawnCount; //comptage d'ennemis
 
         public bool specialEnemy;
-        public Transform specialSpwan;
+        public Transform[] specialSpwan;
     }
 
     public List<Wave> waves; //Toutes les vagues dans le jeu.
@@ -122,7 +122,7 @@ public class EnemySpawner : MonoBehaviour
 
                     else
                     {
-                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan.position + player.position, Quaternion.identity);
+                        Instantiate(enemyGroup.enemyPrefab, enemyGroup.specialSpwan[Random.Range(0, enemyGroup.specialSpwan.Length)].position + player.position, Quaternion.identity);
                         enemyGroup.spawnCount++;
                         waves[currentWaveCount].spawnCount++;
                         enemyAlive++;

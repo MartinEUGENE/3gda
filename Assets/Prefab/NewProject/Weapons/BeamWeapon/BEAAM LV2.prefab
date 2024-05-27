@@ -48,9 +48,10 @@ MonoBehaviour:
   weaponType: 0
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
-  currentLevel: 1
-  beamPrefab: {fileID: 8785628014650320031, guid: 25e03be3e63bb0b4990a05ef1014727f,
+  currentLevel: 2
+  beamPrefab: {fileID: 8785628014650320031, guid: b3162beffe301e641b4d459520c9ba78,
     type: 3}
+  LvlMax: 0
 --- !u!1 &3473108540770449506
 GameObject:
   m_ObjectHideFlags: 0

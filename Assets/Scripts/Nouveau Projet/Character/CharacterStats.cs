@@ -21,10 +21,9 @@ public class CharacterStats : MonoBehaviour
     [Header("Attack Stats")]
 
     public int currentAttack;
-    public float currentAttackHaste;
+   // public float currentAttackHaste;
     public float currentCriticalRate; 
     public float currentCriticalDmg;
-
 
     [Header("Health")]
     public float currentNewHP;
@@ -71,7 +70,132 @@ public class CharacterStats : MonoBehaviour
     ParticleSystem part; 
     public int weaponIndex;
     public int passiveIndex;
-    
+
+    #region Current Stats
+    public float CurrentHealth
+    {
+        get { return currentNewHP; }
+        set
+        {
+            if (currentNewHP != value)
+            {
+                currentNewHP = value;
+                if(GameManager.instance != null)
+                {
+                    GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth; 
+                }
+            }
+        }        
+    }
+    public float CurrentRecovery
+    {
+        get { return currentRecovery; }
+        set
+        {
+            if (currentRecovery != value)
+            {
+                currentRecovery = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
+                }
+            }
+        }
+    }
+    public float CurrentArmor
+    {
+        get { return currentArmor; }
+        set
+        {
+            if (currentArmor != value)
+            {
+                currentArmor = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
+                }
+            }
+        }
+    }
+    public float CurrentAttack
+    {
+        get { return currentAttack; }
+        set
+        {
+            if (currentAttack != value)
+            {
+                currentAttack = Mathf.FloorToInt(value);
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
+                }
+            }
+        }
+    }
+    public float CurrentCritRate
+    {
+        get { return currentCriticalRate; }
+        set
+        {
+            if (currentCriticalRate != value)
+            {
+                currentCriticalRate = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + CurrentCritRate;
+                }
+            }
+        }
+    }
+
+    public float CurrentCritDmg
+    {
+        get { return currentCriticalDmg; }
+        set
+        {
+            if (currentCriticalDmg != value)
+            {
+                currentCriticalDmg = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + CurrentCritDmg;
+                }
+            }
+        }
+    }
+    public float CurrentPickUp
+    {
+        get { return currentpickUp; }
+        set
+        {
+            if (currentpickUp != value)
+            {
+                currentpickUp = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentPickUpDisp.text = "Magnet : " + CurrentPickUp;
+                }
+            }
+        }
+    }
+
+    public float CurrentMovSpeed
+    {
+        get { return currentSpeed; }
+        set
+        {
+            if (currentSpeed != value)
+            {
+                currentSpeed = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentMovSpeedDisp.text = "Speed : " + CurrentMovSpeed;
+                }
+            }
+        }
+    }
+    #endregion 
+
     void Awake()
     {
         //playerStats = GetComponent<CharacterScriptable>();
@@ -86,16 +210,16 @@ public class CharacterStats : MonoBehaviour
         gold = 0;
         XPBAR.fillAmount = 0;
 
-        currentNewHP = playerStats.MaxHP;        
-        currentAttack = playerStats.Attack;
+        CurrentHealth = playerStats.MaxHP;        
+        CurrentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
-        currentCriticalRate = playerStats.CritRate;
-        currentCriticalDmg = playerStats.CritDmg;
+        CurrentCritRate = playerStats.CritRate;
+        CurrentCritDmg = playerStats.CritDmg;
 
-        currentpickUp = playerStats.PickUp; 
-        currentSpeed = playerStats.MovSpeed;
-        currentArmor = playerStats.Armor;
-        currentRecovery = playerStats.recovery;
+        CurrentPickUp = playerStats.PickUp; 
+        CurrentMovSpeed = playerStats.MovSpeed;
+        CurrentArmor = playerStats.Armor;
+        CurrentRecovery = playerStats.recovery;
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
 
@@ -107,6 +231,7 @@ public class CharacterStats : MonoBehaviour
     {
         experienceCap = levelRanges[0].expCapIncrease;
         HealthCheck();
+        StatsCheck(); 
     }
 
     public void SpawnedWeapon(GameObject weapon)
@@ -171,10 +296,10 @@ public class CharacterStats : MonoBehaviour
 
     public void HealthCheck()
     {
-        float HPPercentage = currentNewHP / playerStats.MaxHP;
+        float HPPercentage = CurrentHealth / playerStats.MaxHP;
         trueHealthBar.fillAmount = HPPercentage; 
         
-        if (currentNewHP <=0f)
+        if (CurrentHealth <= 0f)
         {
             Death();
         }
@@ -198,33 +323,40 @@ public class CharacterStats : MonoBehaviour
 
     public void Healing(float amount)
     {
-        if (currentNewHP < playerStats.MaxHP)
+        if (CurrentHealth < playerStats.MaxHP)
         {
-            currentNewHP += amount;
+            CurrentHealth += amount;
             GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
 
-            if (currentNewHP > playerStats.MaxHP)
+            if (CurrentHealth > playerStats.MaxHP)
             {
-                currentNewHP = playerStats.MaxHP;
+                CurrentHealth = playerStats.MaxHP;
             }
         }
     }
 
     void StatsCheck()
     {
-
+        GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
+        GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
+        GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
+        GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
+        GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + CurrentCritRate;
+        GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + CurrentCritDmg;
+        GameManager.instance.currentPickUpDisp.text = "Magnet : " + CurrentPickUp;
+        GameManager.instance.currentMovSpeedDisp.text = "Speed : " + CurrentMovSpeed;
     }
 
     void Recover()
     {
-        if(currentNewHP < playerStats.MaxHP)
+        if(CurrentHealth < playerStats.MaxHP)
         {
-            currentNewHP += currentRecovery * Time.deltaTime;
+            CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
 
-        if (currentNewHP > playerStats.MaxHP)
+        if (CurrentHealth > playerStats.MaxHP)
         {
-            currentNewHP = playerStats.MaxHP;
+            CurrentHealth = playerStats.MaxHP;
         }
     }
 
@@ -234,7 +366,7 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
 
         coolIt -= Time.deltaTime;
-        if(coolIt <= 0f && currentNewHP == playerStats.maxHP)
+        if(coolIt <= 0f && CurrentHealth == playerStats.maxHP)
         {
             healthContainer.SetActive(false); 
         }

@@ -35,22 +35,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/New project/ChoosingScreen.unity
     guid: f3aaf4242fbdc7d40b5393e5014d72eb
   - enabled: 1
     path: Assets/Scenes/New project/TestSceneSurvivor.unity
     guid: 2cdd01d1ecef32d40a5c62edbfcbfdec
+  - enabled: 0
+    path: Assets/Scenes/New project/TestSceneSurvivor 1.unity
+    guid: 6a3de5b1ea82a484dab630bdd025944e
+  - enabled: 1
+    path: Assets/Scenes/New project/Collection.unity
+    guid: 31f19f88797c87a44b78ccd1acfa1176
   m_configObjects: {}

@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3713833878485706452}
   - component: {fileID: 6369407330980709450}
   - component: {fileID: 5235780142848644038}
-  - component: {fileID: 433784468691727654}
   - component: {fileID: 2779617057167821512}
+  - component: {fileID: 9079801646659737536}
   m_Layer: 0
   m_Name: MineProjectile
   m_TagString: Player
@@ -108,32 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &433784468691727654
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4645513350164538108}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.24, y: 0.24}
-    newSize: {x: 0.16, y: 0.16}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24, y: 0.24}
-  m_EdgeRadius: 0
 --- !u!114 &2779617057167821512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +120,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88add37e72f3316439b7413d95ed5803, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyObj: 2
+  inateCrit: 0
+  hasCrit: 0
+  stats: {fileID: 0}
+  weapon: {fileID: 11400000, guid: 15d5ccc642ab04948bb98f18a2e10a07, type: 2}
+  markedEnemies: []
+  timerLife: 0
+  Radius: 0
+  Damages: 0
+  explosion: {fileID: 2775600253798852073, guid: 34dd13ac57783584a86b4daab257c135,
+    type: 3}
+--- !u!58 &9079801646659737536
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4645513350164538108}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.12

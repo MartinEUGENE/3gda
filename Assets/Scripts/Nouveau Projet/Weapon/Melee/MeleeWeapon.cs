@@ -25,17 +25,17 @@ public class MeleeWeapon : MonoBehaviour
 
     public int GetCurrentDamage()
     {
-        int dmgResult = stats.currentAttack + weapon.Damage;
+        int dmgResult = Mathf.FloorToInt(stats.CurrentAttack) + weapon.Damage;
 
-        if (stats.currentCriticalRate >= inateCrit)
+        if (stats.CurrentCritRate >= inateCrit)
         {
-            dmgResult *= Mathf.FloorToInt(stats.currentCriticalDmg);
+            dmgResult *= Mathf.FloorToInt(stats.CurrentCritDmg);
             hasCrit = true; 
         }
 
         else
         {
-            dmgResult = stats.currentAttack + weapon.Damage;
+            dmgResult = Mathf.FloorToInt(stats.CurrentAttack) + weapon.Damage;
             hasCrit = false;
         }
 

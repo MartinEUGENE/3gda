@@ -13,26 +13,28 @@ public class DropRateManager : MonoBehaviour
     }
 
     public List<Drops> drop;
+    public float LaunchForce = 100f;
+    public float Drag = 5f; 
 
     public void TryDrop()
     {
-        float randomNmb = Random.Range(0f, 100f);
-        //List<Drops> possibility = new List<Drops>();
+        Yeet();
+    }
 
-        foreach(Drops rate in drop)
+    public void Yeet()
+    {
+        float randomNmb = Random.Range(0f, 100f);
+
+        foreach (Drops rate in drop)
         {
             if(randomNmb <= rate.dropRate)
             {
-                //  possibility.Add(rate);
-                Instantiate(rate.itemPrefab, transform.position, Quaternion.identity);
+                Instantiate(rate.itemPrefab, transform.position, Quaternion.Euler(0, 0, Random.Range(0, 360)));
 
+                Rigidbody2D pref = rate.itemPrefab.GetComponent<Rigidbody2D>();
+                pref.AddForce(rate.itemPrefab.transform.up * LaunchForce); // donne une force de déplacement selon l'angle
+                pref.drag = Drag;
             }
         }
-
-        /*if(possibility.Count > 0)
-        {
-            Drops drops = possibility[Random.Range(0, possibility.Count)];
-        }*/
-
     }
 }

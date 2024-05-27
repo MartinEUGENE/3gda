@@ -7,6 +7,7 @@ public class PickUp : MonoBehaviour
     protected CharacterStats targ;
     public float speed;
     public float life;
+    float initialOffset; 
     Vector2 intialPos;
 
     [System.Serializable]
@@ -21,7 +22,6 @@ public class PickUp : MonoBehaviour
         frequency = 2f,    direction = new Vector2(0, 0.5f)
     }; 
 
-
     [Header("Bonus")]
     public int exp;
     public int hp;
@@ -29,7 +29,9 @@ public class PickUp : MonoBehaviour
 
     public virtual void Start()
     {
-        intialPos = transform.position; 
+        intialPos = transform.position;
+        initialOffset = Random.Range(0,bobb.frequency);
+        transform.eulerAngles = new Vector3(0, 0, 0);
     }
 
     protected virtual void Update()
@@ -41,16 +43,14 @@ public class PickUp : MonoBehaviour
             {
                 transform.position += (Vector3)dir * speed * Time.deltaTime; 
             }
-
             else
             {
                 Destroy(gameObject);
             }
         }
-
         else
         {
-            transform.position = intialPos + bobb.direction * Mathf.Sin(Time.time * bobb.frequency); 
+            transform.position = intialPos + bobb.direction * Mathf.Sin((Time.time +initialOffset) * bobb.frequency); 
         }
     }
 
@@ -68,8 +68,6 @@ public class PickUp : MonoBehaviour
         
         return false;
     }
-
-
     protected virtual void OnDestroy()
     {
         if (!targ) return;
@@ -78,8 +76,12 @@ public class PickUp : MonoBehaviour
             targ.IncreaseExperience(exp);
             FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Exp/ExpCollect");
         }
-        if(hp != 0) targ.Healing(hp);
 
+        if (hp != 0)
+        {
+            targ.Healing(hp);
+            FMODUnity.RuntimeManager.PlayOneShot("");
+        }
     }
 
 }

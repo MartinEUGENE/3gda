@@ -72,7 +72,7 @@ public class CharactControls : MonoBehaviour
             return;
         }
 
-        rb.velocity = moving * characterStats.currentSpeed; 
+        rb.velocity = moving * characterStats.CurrentMovSpeed; 
     }
 
     void InputManagement()
@@ -94,7 +94,7 @@ public class CharactControls : MonoBehaviour
 
         if (moving.y != 0)
         {
-            lastMovHorizon = moving.y;
+            lastMovVertical = moving.y;
         }
     }
 

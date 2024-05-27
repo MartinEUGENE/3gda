@@ -6,23 +6,23 @@ public class ConeBehaviour : MeleeWeapon
 {
     public float duration = 0.5f;
     public float destroyDelay = 0.25f;
-    private float timer = 0f;
+   /* private float timer = 0f;
     private bool destroyScheduled = false;
 
     private Vector3 initialLocalPosition;
-  
+  */
     protected override void Start()
     {
         base.Start();
         markedEnemies = new List<GameObject>();
-        initialLocalPosition = transform.localPosition;
+        //initialLocalPosition = transform.localPosition;
     }
 
     protected override void Update()
     {
         inateCrit = Random.Range(1, 100);
 
-        timer += Time.deltaTime;
+        /*timer += Time.deltaTime;
 
         float progress = Mathf.Clamp01(timer / duration);
 
@@ -35,17 +35,12 @@ public class ConeBehaviour : MeleeWeapon
         {
             Invoke("DestroyObject", destroyDelay);
             destroyScheduled = true;
-        }
+        }*/
     }
 
     protected override void OnSpawn()
     {
         FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Secondary Weapons/Spray_Weapon"); 
-    }
-
-    void DestroyObject()
-    {
-        Destroy(gameObject);
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D other)

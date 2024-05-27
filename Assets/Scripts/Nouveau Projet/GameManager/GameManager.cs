@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Pause Screen")]
     public GameObject pauseScreen;
+    public TextMeshProUGUI currentHealthDisp;
+    public TextMeshProUGUI currentRecoveryDisp;
+    public TextMeshProUGUI currentArmorDisp;
+    public TextMeshProUGUI currentAttackDisp;
+    public TextMeshProUGUI currentCriRateDisp;
+    public TextMeshProUGUI currentCritDmgDisp;
+    public TextMeshProUGUI currentPickUpDisp;
+    public TextMeshProUGUI currentMovSpeedDisp;
 
     [Header("Results Screen")]
     public GameObject resultScreen;
@@ -51,7 +59,10 @@ public class GameManager : MonoBehaviour
     {
         DisableScreens();
         playerObj = FindObjectOfType<CharacterStats>().gameObject;
-        instance = this;
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
     void Update()

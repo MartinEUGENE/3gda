@@ -7,7 +7,6 @@ public class MeleeBehav : MeleeWeapon
     WeaponSystem wetNoodle;
     Animator animate;
 
-
     protected override void Start()
     {
         base.Start();

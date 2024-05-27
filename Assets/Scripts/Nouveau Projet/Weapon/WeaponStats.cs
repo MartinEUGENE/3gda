@@ -42,8 +42,8 @@ public class WeaponStats : ScriptableObject
     public float Speedrange { get => speedrange; protected set => speedrange = value; } 
 
     [SerializeField]
-    int quantity;    
-    public int Quantity { get => quantity; protected set => quantity = value; } 
+    float quantity;    
+    public float Quantity { get => quantity; protected set => quantity = value; } 
 
     [SerializeField]
     float weaponReload; 

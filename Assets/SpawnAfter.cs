@@ -10,17 +10,25 @@ public class SpawnAfter : MonoBehaviour
     bool eliteSpawned; 
     void Start()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(""); 
-    }
-
-    IEnumerator SpawnTheEnemy()
-    {
-        new WaitForSeconds(seconds);
-        Instantiate(eliteSpawn);
         FMODUnity.RuntimeManager.PlayOneShot("");
-        Destroy(gameObject);
-
-        yield return eliteSpawned = true; 
     }
+
+    private void Update()
+    {
+        seconds -= Time.deltaTime; 
+        if(seconds <= 0f)
+        {
+            SpawnTheEnemy(); 
+
+        }
+    }
+
+    void SpawnTheEnemy()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("");
+        Instantiate(eliteSpawn, transform.position, Quaternion.identity);
+        Destroy(gameObject); 
+    }
+
 }
 
