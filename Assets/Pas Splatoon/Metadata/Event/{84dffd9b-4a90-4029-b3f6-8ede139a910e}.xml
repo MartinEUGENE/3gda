@@ -208,6 +208,7 @@
 		</property>
 		<relationship name="automationCurves">
 			<destination>{2e3f8c53-d886-4d18-9cc3-aadd84e4bad2}</destination>
+			<destination>{a787358c-0c57-4b89-a2ee-2971f181be3f}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{4d199599-f4ed-48b2-8cce-84f5e96139c6}">
@@ -239,6 +240,15 @@
 		<relationship name="automationPoints">
 			<destination>{5a1fb1ee-fd43-4bad-81ff-9764e64b829b}</destination>
 			<destination>{3c8fe71a-351a-4470-87d7-62e0145943c6}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{a787358c-0c57-4b89-a2ee-2971f181be3f}">
+		<relationship name="parameter">
+			<destination>{fa6747b0-c57c-4d3f-83c9-ccd1426c6345}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{3f439c27-d148-4791-918e-32d0127b29fb}</destination>
+			<destination>{40344afc-3cba-4e57-a680-d421bdd17381}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{01ea4ad9-d67c-4b03-9593-e7a51f4d940d}" />
@@ -273,10 +283,29 @@
 			<value>0</value>
 		</property>
 		<property name="value">
-			<value>-9</value>
+			<value>0</value>
 		</property>
 		<property name="curveShape">
 			<value>1</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{3f439c27-d148-4791-918e-32d0127b29fb}">
+		<property name="position">
+			<value>0</value>
+		</property>
+		<property name="value">
+			<value>-19</value>
+		</property>
+		<property name="curveShape">
+			<value>0.453500241</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{40344afc-3cba-4e57-a680-d421bdd17381}">
+		<property name="position">
+			<value>15</value>
+		</property>
+		<property name="value">
+			<value>-13</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{58e3d49b-7ad8-45b7-adc7-a045dc046a90}">
@@ -295,7 +324,7 @@
 			<value>1</value>
 		</property>
 		<property name="value">
-			<value>-9</value>
+			<value>-11.5</value>
 		</property>
 	</object>
 </objects>
