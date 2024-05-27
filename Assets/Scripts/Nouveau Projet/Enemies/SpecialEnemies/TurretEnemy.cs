@@ -52,11 +52,11 @@ public class TurretEnemy : EnemiesSystem
 
     IEnumerator TrueShot()
     {
-        yield return new WaitForSeconds(.1f);
-
+        yield return new WaitForSeconds(.5f);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/Turret Enemy/Turret_Shoot");
         Vector2 direction = playerVector - transform.position;
         Instantiate(bullet, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(.1f);         
+        yield return new WaitForSeconds(.5f);         
     }
 
     public override void EnemyMove()
