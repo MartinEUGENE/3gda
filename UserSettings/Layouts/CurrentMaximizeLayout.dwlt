@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 7862
+  controlID: 6972
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 7863
+  controlID: 6973
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 7864
+  controlID: 6974
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +228,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: d6faffff
+      m_ExpandedIDs: 1653ffff8853ffff189fffff4ed0ffffb0f6ffffbaf6ffffc4f8ffffd6faffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -530,9 +530,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 432.61932, y: 108.679886, z: 21.94492}
+    m_Target: {x: -5, y: -2.5, z: 0}
     speed: 2
-    m_Value: {x: 432.61932, y: 108.679886, z: 21.94492}
+    m_Value: {x: -5, y: -2.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,9 +583,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 133.80373
+    m_Target: 10
     speed: 2
-    m_Value: 133.80373
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -792,8 +792,8 @@ MonoBehaviour:
     m_SaveData: []
   m_ShowAlpha: 0
   m_MipLevel: 0
-  m_Zoom: 1.165
-  m_ScrollPosition: {x: -4.382236, y: 2.4821858}
+  m_Zoom: -1
+  m_ScrollPosition: {x: 0, y: 0}
   m_SelectedObject: {fileID: 0}
   m_SelectedSpriteRectGUID: 00000000000000000000000000000000
   m_LastUsedModuleTypeName: 
@@ -828,7 +828,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 33468
+  m_LastSelectedObjectID: 41088
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -921,7 +921,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 7808
+  controlID: 6929
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -990,22 +990,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab/NewProject/Enemies/Normal Enemies
+    - Assets/Prefab/NewProject/Enemies
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Prefab/NewProject/Enemies/Normal Enemies
+  - Assets/Prefab/NewProject/Enemies
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\yannb\OneDrive\Documents\Projet-Annuel_Peinture\3gda
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 152.6}
-    m_SelectedIDs: 16970000
-    m_LastClickedID: 38678
-    m_ExpandedIDs: 00000000e8700000ec700000007100000e7100002c710000447200006e82000080820000
+    scrollPos: {x: 0, y: 92.600006}
+    m_SelectedIDs: 56710000
+    m_LastClickedID: 29014
+    m_ExpandedIDs: 00000000227100002471000026710000287100002a7100003c710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1033,7 +1033,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e8700000ea700000ec7000000e7100004472000080820000
+    m_ExpandedIDs: 00000000227100002471000026710000287100002a710000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1058,24 +1058,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: d6faffff
+    m_LastClickedInstanceID: -1322
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: 88720000b26f00004a7b0000a27d000000000000be7e0000e47e00001a7f0000a87f00009a7900006c7a000088730000f27700009e7200006ca400007c9200007cec0000dc830000
+    m_ExpandedInstanceIDs: 88720000b26f00004a7b0000a27d000000000000be7e0000e47e00001a7f0000a87f00009a7900006c7a000088730000f27700009e7200006ca400007c9200007cec0000dc8300008e770000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Enemy
-      m_OriginalName: Enemy
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 34696
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 15}
     m_CreateAssetUtility:
