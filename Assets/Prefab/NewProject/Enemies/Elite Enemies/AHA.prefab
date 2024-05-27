@@ -108,7 +108,7 @@ MonoBehaviour:
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
-    dropRate: 15
+    dropRate: 10
   LaunchForce: 100
   Drag: 5
 --- !u!50 &5424853228338653660

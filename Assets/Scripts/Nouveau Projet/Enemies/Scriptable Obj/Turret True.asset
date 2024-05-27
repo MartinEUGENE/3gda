@@ -15,11 +15,12 @@ MonoBehaviour:
   enemy: {fileID: 21300000, guid: f2ac1b29626088b46af2acd0d21b2c6e, type: 3}
   eliteMember: 1
   enemySpeed: 0
-  enemyHP: 150
+  enemyHP: 25
   enemyDmg: 35
   enemyTiming: 5
-  damageIncreaseByLevel: 5
+  enemyType: 0
+  damageIncreaseByLevel: 2
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 10
+  healthIncreaseByLevel: 2
   currentEnemyObj: {fileID: 0}
   replacement: {fileID: 0}

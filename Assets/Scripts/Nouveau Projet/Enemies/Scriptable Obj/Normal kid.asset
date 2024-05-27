@@ -18,8 +18,9 @@ MonoBehaviour:
   enemyHP: 50
   enemyDmg: 25
   enemyTiming: 0
+  enemyType: 0
   damageIncreaseByLevel: 1
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 7
+  healthIncreaseByLevel: 5
   currentEnemyObj: {fileID: 0}
   replacement: {fileID: 0}
