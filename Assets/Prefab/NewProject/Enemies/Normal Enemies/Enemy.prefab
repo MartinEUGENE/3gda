@@ -173,11 +173,11 @@ MonoBehaviour:
   - name: Exp
     itemPrefab: {fileID: 7616842400326546156, guid: 86736abda389c274485c29eda158e523,
       type: 3}
-    dropRate: 100
+    dropRate: 90
   - name: Coin
     itemPrefab: {fileID: 2962246345631492783, guid: 001c598496a897745867021df71efbf4,
       type: 3}
-    dropRate: 0.1
+    dropRate: 0
   - name: Heart
     itemPrefab: {fileID: 8882508597679462283, guid: 412391c3df6b11a49a2411b44253af45,
       type: 3}
@@ -185,11 +185,11 @@ MonoBehaviour:
   - name: RedExp
     itemPrefab: {fileID: 7616842400326546156, guid: 1fb99eb9812d4904c916a69d7f3e3434,
       type: 3}
-    dropRate: 0.5
+    dropRate: 0
   - name: YellowExp
     itemPrefab: {fileID: 7616842400326546156, guid: 8813e7eccdf4ca848972cc1658884019,
       type: 3}
-    dropRate: 1
+    dropRate: 3
   LaunchForce: 10
   Drag: 5
 --- !u!50 &5424853228338653660
