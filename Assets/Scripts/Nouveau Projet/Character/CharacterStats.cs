@@ -58,7 +58,7 @@ public class CharacterStats : MonoBehaviour
     public class LevelRange
     {
         public int startLevel;
-        public int endLevel;
+        public int endLevelPlus1;
         public int expCapIncrease; 
     }
 
@@ -288,7 +288,7 @@ public class CharacterStats : MonoBehaviour
             int experienceCapIncrease = 0;
             foreach(LevelRange range in levelRanges)
             {
-                if(level >= range.startLevel && level <= range.endLevel)
+                if(level >= range.startLevel && level <= range.endLevelPlus1)
                 {
                     experienceCapIncrease = range.expCapIncrease;
                     break;

@@ -23,7 +23,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
+<<<<<<< HEAD
   controlID: 12910
+=======
+  controlID: 112
+>>>>>>> LD
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +145,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
+<<<<<<< HEAD
   controlID: 12911
+=======
+  controlID: 113
+>>>>>>> LD
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -167,7 +175,11 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
+<<<<<<< HEAD
   controlID: 12891
+=======
+  controlID: 49
+>>>>>>> LD
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,7 +240,11 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: c43cffffd47bffff448fffff8ed7ffffdef8ffff02f9ffff62faffffaa860000
+=======
+      m_ExpandedIDs: fef2ffff6ef3fffff2f5ffff0af6ffff48f6ffff04faffff
+>>>>>>> LD
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -530,9 +546,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: -2.472429, y: 1.4161373, z: -0.06020371}
     speed: 2
     m_Value: {x: -2.472429, y: 1.4161373, z: -0.06020371}
+=======
+    m_Target: {x: -5.720503, y: 1.3706567, z: -0.07839593}
+    speed: 2
+    m_Value: {x: -5.720503, y: 1.3706567, z: -0.07839593}
+>>>>>>> LD
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -583,9 +605,15 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
+<<<<<<< HEAD
     m_Target: 8.637564
     speed: 2
     m_Value: 8.637564
+=======
+    m_Target: 10.456788
+    speed: 2
+    m_Value: 10.456788
+>>>>>>> LD
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -921,7 +949,11 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
+<<<<<<< HEAD
   controlID: 12912
+=======
+  controlID: 114
+>>>>>>> LD
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -990,22 +1022,37 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Scripts/Nouveau Projet/Weapon/Scriptable Obj/Melee
+=======
+    - Assets/Prefab/NewProject/Enemies
+>>>>>>> LD
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
+<<<<<<< HEAD
   - Assets/Scripts/Nouveau Projet/Weapon/Scriptable Obj/Melee
+=======
+  - Assets/Prefab/NewProject/Enemies
+>>>>>>> LD
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\yannb\OneDrive\Documents\Projet-Annuel_Peinture\3gda
   m_LockTracker:
     m_IsLocked: 1
   m_FolderTreeState:
+<<<<<<< HEAD
     scrollPos: {x: 0, y: 708.6}
     m_SelectedIDs: 487f0000
     m_LastClickedID: 32584
     m_ExpandedIDs: 0000000036720000387200003a7200003c7200003e720000407200004272000048720000807200008e720000c07c0000287f0000
+=======
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: d2730000
+    m_LastClickedID: 29650
+    m_ExpandedIDs: 000000009473000096730000987300009c7300009e730000a2730000a6730000a8730000b8730000fc730000
+>>>>>>> LD
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1033,7 +1080,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000036720000387200003a7200003c7200003e7200004072000042720000807200008e720000c07c0000287f0000
+=======
+    m_ExpandedIDs: 000000009473000096730000987300009a7300009c7300009e730000a0730000a2730000a4730000a6730000a8730000
+>>>>>>> LD
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1058,8 +1109,13 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
+<<<<<<< HEAD
     m_SelectedInstanceIDs: 58700000
     m_LastClickedInstanceID: 28760
+=======
+    m_SelectedInstanceIDs: 04faffff
+    m_LastClickedInstanceID: -1532
+>>>>>>> LD
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 88720000b26f00004a7b0000a27d000000000000be7e0000e47e00001a7f0000a87f00009a7900006c7a000088730000f27700009e7200006ca400007c9200007cec0000dc8300008e770000
     m_RenameOverlay:
