@@ -15,17 +15,17 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
+  - Level
+  - Player
   - terrain
   - 
-  - Level
-  - Enemy
   - Usable
   - Interactable
   - IgnorePlayer
-  - Player
+  - 
   - Cameras
   - LitSprites
   - Destructable
