@@ -14,14 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   named: Bat Lv5
   descrip: Strikes stronger.
-  nextNamed: "\u3042"
-  nextDescrip: Strikes stronger.
   level: 5
   damage: 75
   speedrange: 0
   quantity: 0
   weaponReload: 1.2
-  cooldown: 0.45905977
+  cooldown: 0.9039847
   knockback: 3
   knockbackDuration: 0.2
   pierceEffect: 0

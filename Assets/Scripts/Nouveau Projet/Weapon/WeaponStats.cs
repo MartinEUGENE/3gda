@@ -18,16 +18,6 @@ public class WeaponStats : ScriptableObject
     string descrip; //Pas de modifs pendant le gameplay 
     public string Descrip { get => descrip; protected set => descrip = value; }
 
-    [Header(" ")]
-    [SerializeField]
-    string nextNamed; //Pas de modifs pendant le gameplay 
-    public string NextNamed { get => nextNamed; protected set => nextNamed = value; }
-
-    [SerializeField]
-    string nextDescrip; //Pas de modifs pendant le gameplay 
-    public string NextDescrip { get => nextDescrip; protected set => nextDescrip = value; }
-
-
     [Header("Stats de l'arme")]
 
     [SerializeField]

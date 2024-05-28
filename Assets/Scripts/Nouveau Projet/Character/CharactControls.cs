@@ -58,11 +58,11 @@ public class CharactControls : MonoBehaviour
     {  
         Movement();
 
-        if(Input.GetButtonDown("Fire1") && CanDash == true)
+        /*if(Input.GetButtonDown("Fire1") && CanDash == true)
         {
             Debug.Log("I dash");
             StartCoroutine(Dash());
-        }
+        }*/
     }
 
     public void Movement()

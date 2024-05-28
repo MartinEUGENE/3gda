@@ -620,7 +620,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  weaponLvls: 000000000000000000000000
+  - {fileID: 0}
+  weaponLvls: 00000000000000000000000000000000
   weaponUiSlots:
   - {fileID: 0}
   - {fileID: 0}
@@ -632,7 +633,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  passiveLvls: 000000000000000000000000
+  - {fileID: 0}
+  passiveLvls: 00000000000000000000000000000000000000000000000000000000
   passiveUiSlots:
   - {fileID: 0}
   - {fileID: 0}

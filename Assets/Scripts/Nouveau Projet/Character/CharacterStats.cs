@@ -235,6 +235,12 @@ public class CharacterStats : MonoBehaviour
 
     public void SpawnedWeapon(GameObject weapon)
     {
+        if(weaponIndex >= inventory.weaponSlots.Count -1)
+        {
+            Debug.LogError("No more Weapons to be added"); 
+            return; 
+        }
+
         GameObject spawnedWeapon = Instantiate(weapon, transform.position, Quaternion.identity);
         spawnedWeapon.transform.SetParent(transform);
         inventory.AddWeapon(weaponIndex, spawnedWeapon.GetComponentInChildren<WeaponSystem>());
@@ -244,6 +250,12 @@ public class CharacterStats : MonoBehaviour
 
      public void SpawnedPassive(GameObject passive)
      {
+        if (passiveIndex >= inventory.passiveSlots.Count - 1)
+        {
+            Debug.LogError("No more Passive Items to be added");
+            return;
+        }
+
          GameObject spawnedPassive = Instantiate(passive, transform.position, Quaternion.identity);
          spawnedPassive.transform.SetParent(transform);
          inventory.AddPassive(passiveIndex, spawnedPassive.GetComponent<PassiveItem>());
