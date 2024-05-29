@@ -122,10 +122,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +141,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_1
       rect:
         serializedVersion: 2
-        x: 90
+        x: 93
         y: 0
-        width: 90
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +162,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_2
       rect:
         serializedVersion: 2
-        x: 180
+        x: 186
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +183,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_3
       rect:
         serializedVersion: 2
-        x: 270
+        x: 279
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +204,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_4
       rect:
         serializedVersion: 2
-        x: 360
+        x: 372
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +225,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_5
       rect:
         serializedVersion: 2
-        x: 450
+        x: 465
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +246,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_6
       rect:
         serializedVersion: 2
-        x: 540
+        x: 558
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +267,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_7
       rect:
         serializedVersion: 2
-        x: 630
+        x: 651
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_8
       rect:
         serializedVersion: 2
-        x: 720
+        x: 744
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +309,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_9
       rect:
         serializedVersion: 2
-        x: 810
+        x: 837
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,12 +330,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_10
       rect:
         serializedVersion: 2
-        x: 900
+        x: 930
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -351,12 +351,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_11
       rect:
         serializedVersion: 2
-        x: 990
+        x: 1023
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -372,12 +372,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_12
       rect:
         serializedVersion: 2
-        x: 1080
+        x: 1116
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -393,12 +393,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_13
       rect:
         serializedVersion: 2
-        x: 1170
+        x: 1209
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_14
       rect:
         serializedVersion: 2
-        x: 1260
+        x: 1302
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_15
       rect:
         serializedVersion: 2
-        x: 1350
+        x: 1395
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_16
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 1488
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_17
       rect:
         serializedVersion: 2
-        x: 1530
+        x: 1581
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_18
       rect:
         serializedVersion: 2
-        x: 1620
+        x: 1674
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_19
       rect:
         serializedVersion: 2
-        x: 1710
+        x: 1767
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_20
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 1860
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_21
       rect:
         serializedVersion: 2
-        x: 1890
+        x: 1953
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_22
       rect:
         serializedVersion: 2
-        x: 1980
+        x: 2046
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_23
       rect:
         serializedVersion: 2
-        x: 2070
+        x: 2139
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -624,12 +624,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_24
       rect:
         serializedVersion: 2
-        x: 2160
+        x: 2232
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_25
       rect:
         serializedVersion: 2
-        x: 2250
+        x: 2325
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_26
       rect:
         serializedVersion: 2
-        x: 2340
+        x: 2418
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -687,12 +687,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_27
       rect:
         serializedVersion: 2
-        x: 2430
+        x: 2511
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,12 +708,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_28
       rect:
         serializedVersion: 2
-        x: 2520
+        x: 2604
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -729,12 +729,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_29
       rect:
         serializedVersion: 2
-        x: 2610
+        x: 2697
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -750,12 +750,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_30
       rect:
         serializedVersion: 2
-        x: 2700
+        x: 2790
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,12 +771,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_31
       rect:
         serializedVersion: 2
-        x: 2790
+        x: 2883
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -792,12 +792,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_32
       rect:
         serializedVersion: 2
-        x: 2880
+        x: 2976
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -813,12 +813,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_33
       rect:
         serializedVersion: 2
-        x: 2970
+        x: 3069
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,12 +834,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_34
       rect:
         serializedVersion: 2
-        x: 3060
+        x: 3162
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,12 +855,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_35
       rect:
         serializedVersion: 2
-        x: 3150
+        x: 3255
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,12 +876,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_36
       rect:
         serializedVersion: 2
-        x: 3240
+        x: 3348
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -897,12 +897,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_37
       rect:
         serializedVersion: 2
-        x: 3330
+        x: 3441
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,12 +918,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_38
       rect:
         serializedVersion: 2
-        x: 3420
+        x: 3534
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -939,12 +939,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_39
       rect:
         serializedVersion: 2
-        x: 3510
+        x: 3627
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -960,12 +960,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_40
       rect:
         serializedVersion: 2
-        x: 0
+        x: 3720
         y: 0
-        width: 90
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -981,12 +981,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_41
       rect:
         serializedVersion: 2
-        x: 3690
+        x: 3813
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1002,12 +1002,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_42
       rect:
         serializedVersion: 2
-        x: 3780
+        x: 3906
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1023,12 +1023,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_43
       rect:
         serializedVersion: 2
-        x: 3870
+        x: 3999
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1044,12 +1044,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_44
       rect:
         serializedVersion: 2
-        x: 3960
+        x: 4092
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1065,12 +1065,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_45
       rect:
         serializedVersion: 2
-        x: 4050
+        x: 4185
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1086,12 +1086,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_46
       rect:
         serializedVersion: 2
-        x: 4140
+        x: 4278
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1107,12 +1107,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_47
       rect:
         serializedVersion: 2
-        x: 4230
+        x: 4371
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1128,12 +1128,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_48
       rect:
         serializedVersion: 2
-        x: 4320
+        x: 4464
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1149,12 +1149,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_49
       rect:
         serializedVersion: 2
-        x: 4410
+        x: 4557
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1170,12 +1170,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_50
       rect:
         serializedVersion: 2
-        x: 4500
+        x: 4650
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1191,12 +1191,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_51
       rect:
         serializedVersion: 2
-        x: 4590
+        x: 4743
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1212,12 +1212,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_52
       rect:
         serializedVersion: 2
-        x: 4680
+        x: 4836
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1233,12 +1233,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_53
       rect:
         serializedVersion: 2
-        x: 4770
+        x: 4929
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1254,12 +1254,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_54
       rect:
         serializedVersion: 2
-        x: 4860
+        x: 5022
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1275,12 +1275,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_55
       rect:
         serializedVersion: 2
-        x: 4950
+        x: 5115
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1296,12 +1296,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_56
       rect:
         serializedVersion: 2
-        x: 5040
+        x: 5208
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1317,12 +1317,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_57
       rect:
         serializedVersion: 2
-        x: 5130
+        x: 5301
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1338,12 +1338,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_58
       rect:
         serializedVersion: 2
-        x: 5220
+        x: 5394
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1359,12 +1359,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_59
       rect:
         serializedVersion: 2
-        x: 5310
+        x: 5487
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1380,12 +1380,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_60
       rect:
         serializedVersion: 2
-        x: 5400
+        x: 5580
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1401,12 +1401,12 @@ TextureImporter:
       name: Explosion_Default_Orange-sheet_61
       rect:
         serializedVersion: 2
-        x: 5490
+        x: 5673
         y: 0
-        width: 90.09375
+        width: 93
         height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1414,48 +1414,6 @@ TextureImporter:
       bones: []
       spriteID: 4bcc8bfdf66fcdf4c9b222a2818156f0
       internalID: -1320790737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosion_Default_Orange-sheet_62
-      rect:
-        serializedVersion: 2
-        x: 5580
-        y: 0
-        width: 90.09375
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ae85a58c44065c4dbcfbd914dd13575
-      internalID: 1997258389
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Explosion_Default_Orange-sheet_63
-      rect:
-        serializedVersion: 2
-        x: 5670
-        y: 0
-        width: 90.09375
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: be8310e873fca924f92f6f971abafc48
-      internalID: 1714564250
       vertices: []
       indices: 
       edges: []
@@ -1475,6 +1433,7 @@ TextureImporter:
       Explosion_Default_Orange-sheet_8: 1513375780
       Explosion_Default_Orange-sheet_24: -689937821
       Explosion_Default_Orange-sheet_49: -473944934
+      Explosion_Default_Orange-sheet_47: 448307424
       Explosion_Default_Orange-sheet_41: -1336441608
       Explosion_Default_Orange-sheet_23: -225988082
       Explosion_Default_Orange-sheet_35: 1515307159
@@ -1490,11 +1449,10 @@ TextureImporter:
       Explosion_Default_Orange-sheet_59: 1580711753
       Explosion_Default_Orange-sheet_43: 43784879
       Explosion_Default_Orange-sheet_48: 1616505970
+      Explosion_Default_Orange-sheet_46: -433839420
       Explosion_Default_Orange-sheet_58: 1455767709
       Explosion_Default_Orange-sheet_39: -538964623
-      Explosion_Default_Orange-sheet_46: -433839420
       Explosion_Default_Orange-sheet_38: -1698340314
-      Explosion_Default_Orange-sheet_63: 1714564250
       Explosion_Default_Orange-sheet_19: -1638464316
       Explosion_Default_Orange-sheet_52: -466830418
       Explosion_Default_Orange-sheet_60: -240903564
@@ -1504,7 +1462,6 @@ TextureImporter:
       Explosion_Default_Orange-sheet_50: 173075629
       Explosion_Default_Orange-sheet_57: 1302465771
       Explosion_Default_Orange-sheet_31: 586300991
-      Explosion_Default_Orange-sheet_62: 1997258389
       Explosion_Default_Orange-sheet_5: -1866009816
       Explosion_Default_Orange-sheet_6: 1996964435
       Explosion_Default_Orange-sheet_4: -1626050662
@@ -1515,16 +1472,15 @@ TextureImporter:
       Explosion_Default_Orange-sheet_36: -1135822789
       Explosion_Default_Orange-sheet_54: -679373937
       Explosion_Default_Orange-sheet_40: 16577055
-      Explosion_Default_Orange-sheet_47: 448307424
       Explosion_Default_Orange-sheet_33: -281359992
       Explosion_Default_Orange-sheet_20: 1267581728
-      Explosion_Default_Orange-sheet_2: 1943377715
       Explosion_Default_Orange-sheet_26: -567705085
+      Explosion_Default_Orange-sheet_2: 1943377715
+      Explosion_Default_Orange-sheet_12: 856590028
       Explosion_Default_Orange-sheet_0: -793333636
       Explosion_Default_Orange-sheet_10: -953998704
-      Explosion_Default_Orange-sheet_12: 856590028
-      Explosion_Default_Orange-sheet_27: 1441984295
       Explosion_Default_Orange-sheet_22: -1228778893
+      Explosion_Default_Orange-sheet_27: 1441984295
       Explosion_Default_Orange-sheet_1: -1958509787
       Explosion_Default_Orange-sheet_37: 1832897279
       Explosion_Default_Orange-sheet_29: 1029255393
