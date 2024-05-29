@@ -3,10 +3,14 @@ using UnityEngine;
 public class BeamWeapon : WeaponSystem
 {
     public GameObject beamPrefab;
+    private Camera cam;
+
     private Transform playerTransform;
+    public Transform rightLaunch;
+    public Transform leftLaunch;
+
     private Vector3 lastPosition;
     private int choice;
-    private Camera cam;
     public bool LvlMax;
 
     protected override void Start()
@@ -20,17 +24,17 @@ public class BeamWeapon : WeaponSystem
     protected override void Update()
     {
         base.Update();
-        Vector3 WorldPos = cam.ScreenToWorldPoint (new Vector3(Input.mousePosition.x, Input.mousePosition.y,10f));
+        Vector3 WorldPos = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10f));
 
         Vector3 currentPosition = playerTransform.position;
 
-        if (WorldPos.x < currentPosition.x )
+        if (WorldPos.x < currentPosition.x)
         {
             choice = -1;
             //Blast(-1); 
-           // Debug.Log("gauche");
+            //Debug.Log("gauche");
         }
-        else if (WorldPos.x  > currentPosition.x )
+        else if (WorldPos.x > currentPosition.x)
         {
             choice = 1;
             //Blast(1); 
@@ -47,28 +51,29 @@ public class BeamWeapon : WeaponSystem
 
     private void Blast(int direction)
     {
-        if(!LvlMax)
+        if (!LvlMax)
         {
-            Vector3 beamPosition = transform.position + Vector3.right * direction;
-            GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, playerTransform);
-
-            if (direction < 0)
+            if(direction>0)
             {
-                beamPosition = transform.position + Vector3.right * direction;
-                beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, playerTransform);
-            }
+                Vector3 beamPosition = rightLaunch.position + Vector3.right * direction;
+                GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, rightLaunch);
+            }            
 
+            else if (direction < 0)
+            {
+                Vector3 beamPosition = leftLaunch.position + Vector3.right * direction;
+                GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, leftLaunch);
+            }
         }
 
         else
         {
-            Vector3 beamPosition2 = playerTransform.position + Vector3.right * 1;
-            Vector3 beamPosition3 = playerTransform.position + Vector3.right * -1;
-            GameObject beam2 = Instantiate(beamPrefab, beamPosition2, Quaternion.identity, playerTransform);
-            GameObject beam3 = Instantiate(beamPrefab, beamPosition3, Quaternion.identity, playerTransform);
-            beam3.transform.localScale = new Vector3(-1, 1, 1);
+            Vector3 beamPosition2 = rightLaunch.position + Vector3.right * 1;
+            Vector3 beamPosition3 = leftLaunch.position + Vector3.right * 1;
+            GameObject beam2 = Instantiate(beamPrefab, beamPosition2, Quaternion.identity, rightLaunch);
+            GameObject beam3 = Instantiate(beamPrefab, beamPosition3, Quaternion.identity, leftLaunch);
+            //beam3.transform.localScale = new Vector3(-1, 1, 1);
         }
-
 
     }
 }
