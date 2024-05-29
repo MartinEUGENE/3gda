@@ -1107,7 +1107,7 @@ PrefabInstance:
     - target: {fileID: 1524819409853562581, guid: bb91824ef04561e45be65e0716af3ffc,
         type: 3}
       propertyPath: propSpawn.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1524819409853562581, guid: bb91824ef04561e45be65e0716af3ffc,
         type: 3}
@@ -4410,7 +4410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[8].endLevelPlus1
-      value: 44
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[0].expCapIncrease
