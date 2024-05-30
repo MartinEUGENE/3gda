@@ -323,7 +323,6 @@ public class CharacterStats : MonoBehaviour
         float experiencePercentage = (float)experience / experienceCap;
         XPBAR.fillAmount = experiencePercentage;
     }
-
     public void HealthCheck()
     {
         float HPPercentage = CurrentHealth / playerStats.MaxHP;
@@ -340,30 +339,27 @@ public class CharacterStats : MonoBehaviour
     {
         //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
         healthContainer.SetActive(true);
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Hit/PlayerHit");
-        dmgHasBeenTaken = true; 
-        part.Play(); 
+        dmgHasBeenTaken = true;
+        part.Play();
     }
     public void Death()
-    {       
-            if(!GameManager.instance.isGameOver)
-            {
-                GameManager.instance.GameOver();
-            }
+    {
+        if (!GameManager.instance.isGameOver)
+        {
+            GameManager.instance.GameOver();
+        }
     }
 
     public void Healing(float amount)
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Heal/HealCollect3");
-
         if (CurrentHealth < playerStats.MaxHP)
         {
             CurrentHealth += amount;
             GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
 
-            if (CurrentHealth > currentNewHP)
+            if (CurrentHealth > playerStats.MaxHP)
             {
-                CurrentHealth = currentNewHP;
+                CurrentHealth = playerStats.MaxHP;
             }
         }
     }
@@ -382,14 +378,14 @@ public class CharacterStats : MonoBehaviour
 
     void Recover()
     {
-        if(CurrentHealth < currentNewHP)
+        if (CurrentHealth < playerStats.MaxHP)
         {
             CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
 
-        if (CurrentHealth > currentNewHP)
+        if (CurrentHealth > playerStats.MaxHP)
         {
-            CurrentHealth = currentNewHP;
+            CurrentHealth = playerStats.MaxHP;
         }
     }
 
@@ -399,19 +395,15 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
 
         coolIt -= Time.deltaTime;
-        if(coolIt <= 0f && CurrentHealth == currentNewHP)
+        if (coolIt <= 0f && CurrentHealth == playerStats.maxHP)
         {
-            healthContainer.SetActive(false); 
-        }
-        else if(coolIt <= 0f && CurrentHealth < currentMaxHP)
-        {
-            healthContainer.SetActive(true);
+            healthContainer.SetActive(false);
         }
 
         if (invincible == true)
         {
             invincibleTimer -= Time.deltaTime;
-            
+
             if (invincibleTimer <= 0f)
             {
                 invincible = false;
@@ -423,3 +415,4 @@ public class CharacterStats : MonoBehaviour
     }
 
 }
+

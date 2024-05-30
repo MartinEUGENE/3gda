@@ -10,7 +10,8 @@ public class HordeEnemies : EnemiesSystem
     public Vector2 goThere; 
     public float mov;
     public float startingTime;
-    public float dist; 
+    public float dist;
+    Transform horde; 
 
     public override void OnSpawn()
     {
@@ -38,6 +39,10 @@ public class HordeEnemies : EnemiesSystem
     {
         yield return new WaitForSeconds(startingTime);
         rb2d.velocity = new Vector2(goThere.x, goThere.y).normalized * mov;
+        if(goThere.x<0)
+        {
+            horde.localScale = new Vector3(-1f, 1f, 1f);  
+        }
         yield return new WaitForSeconds(dist);
 
         dead = true;
