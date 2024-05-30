@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1866819565926410994}
+  - component: {fileID: -8391663589656532457}
   m_Layer: 0
   m_Name: MaxHealth LV 4
   m_TagString: Untagged
@@ -31,3 +32,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8391663589656532457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540014120101324325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e278163b0ec247e4380b8cea987e95e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  passiveItem: {fileID: 11400000, guid: f34aa21fed17caa4aab520c0cb4b33a1, type: 2}
+  currentLevel: 4

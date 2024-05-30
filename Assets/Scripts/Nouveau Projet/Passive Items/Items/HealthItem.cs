@@ -6,10 +6,13 @@ public class HealthItem : PassiveItem
 {
     protected override void ApplyStats()
     {
-        player.currentMaxHP += passiveItem.Multiplier;
-        if (player.CurrentHealth < player.currentMaxHP && passiveItem.Level == 5)
+        player.currentNewHP += passiveItem.Multiplier;
+        player.HealthCheck(); 
+
+        if (passiveItem.Level == 5)
         {
-            player.CurrentAttack += passiveItem.Multiplier/2;
+            player.CurrentAttack += passiveItem.Multiplier/4;
         }
     }
+
 }

@@ -17,4 +17,4 @@ MonoBehaviour:
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: 023e7f506cb51f2419b790b909916475, type: 3}
   named: Health Tonic Lv5
-  descrip: You gain half of your bonus max Health as Attack if you're injured
+  descrip: You gain a fourth of your bonus max Health as Attack.

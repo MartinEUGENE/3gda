@@ -226,10 +226,10 @@ public class CharacterStats : MonoBehaviour
         gold = 0;
         XPBAR.fillAmount = 0;
 
-        currentMaxHP = playerStats.MaxHP; 
+        currentMaxHP = playerStats.MaxHP;
         CurrentHealth = playerStats.MaxHP;        
         CurrentAttack = playerStats.Attack;
-        //currentAttackHaste = playerStats.;
+
         CurrentCritRate = playerStats.CritRate;
         CurrentCritDmg = playerStats.CritDmg;
 
@@ -240,7 +240,6 @@ public class CharacterStats : MonoBehaviour
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
 
-        //hpNumbers.text = string.Format("{00}/{00}", currentNewHP, playerStats.maxHP);
         part.Pause();
     }
 
@@ -327,9 +326,9 @@ public class CharacterStats : MonoBehaviour
 
     public void HealthCheck()
     {
-        float HPPercentage = CurrentHealth / currentMaxHP;
-        trueHealthBar.fillAmount = HPPercentage; 
-        
+        float HPPercentage = CurrentHealth / playerStats.MaxHP;
+        trueHealthBar.fillAmount = HPPercentage;
+
         if (CurrentHealth <= 0f)
         {
             Death();
@@ -362,9 +361,9 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth += amount;
             GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
 
-            if (CurrentHealth > currentMaxHP)
+            if (CurrentHealth > currentNewHP)
             {
-                CurrentHealth = currentMaxHP;
+                CurrentHealth = currentNewHP;
             }
         }
     }
@@ -383,14 +382,14 @@ public class CharacterStats : MonoBehaviour
 
     void Recover()
     {
-        if(CurrentHealth < currentMaxHP)
+        if(CurrentHealth < currentNewHP)
         {
             CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
 
-        if (CurrentHealth > currentMaxHP)
+        if (CurrentHealth > currentNewHP)
         {
-            CurrentHealth = currentMaxHP;
+            CurrentHealth = currentNewHP;
         }
     }
 
@@ -400,9 +399,13 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
 
         coolIt -= Time.deltaTime;
-        if(coolIt <= 0f && CurrentHealth == currentMaxHP)
+        if(coolIt <= 0f && CurrentHealth == currentNewHP)
         {
             healthContainer.SetActive(false); 
+        }
+        else if(coolIt <= 0f && CurrentHealth < currentMaxHP)
+        {
+            healthContainer.SetActive(true);
         }
 
         if (invincible == true)
