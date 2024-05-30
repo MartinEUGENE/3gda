@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7960915666170223271}
   - component: {fileID: 4391207806694647752}
   - component: {fileID: 8458038352009404478}
+  - component: {fileID: 6146907774347580359}
   m_Layer: 9
   m_Name: Turret
   m_TagString: Enemy
@@ -236,3 +237,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d9350d14051bdb44937683b2d88ed35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &6146907774347580359
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7459164955246726320}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d9c0cf9b5cbf4b040876fa33521cd34e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
+  m_Name: Armor LV 1
+  m_EditorClassIdentifier: 
+  multiplier: 5
+  level: 1
+  nextPassive: {fileID: 8777135159156509236, guid: bca32766f0850684bb148a720891bf20,
+    type: 3}
+  icon: {fileID: 21300000, guid: 039742bac73d0a648aba08803110fe2e, type: 3}
+  named: 'Armor '
+  descrip: A Helmet to increase the armor.

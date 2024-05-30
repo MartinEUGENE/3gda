@@ -5,7 +5,7 @@
 			<value>Choosing Character</value>
 		</property>
 		<relationship name="folder">
-			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>
+			<destination>{b35528a5-8810-4d4c-a5ac-2efcf4817c6f}</destination>
 		</relationship>
 		<relationship name="parameter">
 			<destination>{f46c60e1-1311-4946-941e-a07adbd59250}</destination>

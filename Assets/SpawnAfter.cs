@@ -10,7 +10,7 @@ public class SpawnAfter : MonoBehaviour
     bool eliteSpawned; 
     void Start()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/Special_Enemy_Spawn");
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Enemy/Special_Enemy_Spawn", transform.position);
     }
 
     private void Update()

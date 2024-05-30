@@ -11,7 +11,7 @@ public class RushingEnemy : EnemiesSystem
 
     Vector2 playerDir;
 
-    Animator animate;
+    Animator anime;
     CharactControls ch;
     SpriteRenderer sp;
 
@@ -25,9 +25,10 @@ public class RushingEnemy : EnemiesSystem
     {
         base.Awake();
 
-        //animate.SetBool("IsMoving", false);
+        anime = GetComponent<Animator>();
+        anime.SetBool("IsMoving", false);
 
-        animate = GetComponent<Animator>();
+        
         ch = FindObjectOfType<CharactControls>();
         sp = GetComponent<SpriteRenderer>();
     }
@@ -51,12 +52,9 @@ public class RushingEnemy : EnemiesSystem
         playerDir = playerObj.transform.position - transform.position;
         prediction.SetPosition(1, 5 * playerDir);
 
-        if(animate.GetBool("IsMoving") == false)
+        if (ch.moving.x != 0 || ch.moving.y != 0)
         {
-            if(ch.moving.x != 0 || ch.moving.y != 0)
-            {
-                SpriteFlipper(); 
-            }
+            SpriteFlipper();
         }
 
         if (dead == true)
@@ -87,8 +85,7 @@ public class RushingEnemy : EnemiesSystem
         yield return new WaitForSeconds(.1f);*/
         yield return new WaitForSeconds(startingTime - .2f);
         prediction.enabled = false;
-        animate.SetBool("IsMoving", true);
-
+        anime.SetBool("IsMoving", true);
         rb2d.velocity = new Vector2(playerDir.x, playerDir.y).normalized * rushForce;
         yield return new WaitForSeconds(rushDist);
                

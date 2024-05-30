@@ -27,6 +27,7 @@ public class CharacterStats : MonoBehaviour
 
     [Header("Health")]
     public float currentNewHP;
+    public float currentMaxHP;
    // public TextMeshProUGUI hpNumbers; 
     public float currentRecovery;
     public float currentArmor;
@@ -84,7 +85,23 @@ public class CharacterStats : MonoBehaviour
                     GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth; 
                 }
             }
-        }        
+        }
+    }
+    
+    public float CurrentMaxHealth
+    {
+        get { return currentNewHP; }
+        set
+        {
+            if (currentNewHP != value)
+            {
+                currentNewHP = value;
+                if (GameManager.instance != null)
+                {
+                    GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
+                }
+            }
+        }
     }
     public float CurrentRecovery
     {
@@ -209,6 +226,7 @@ public class CharacterStats : MonoBehaviour
         gold = 0;
         XPBAR.fillAmount = 0;
 
+        currentMaxHP = playerStats.MaxHP; 
         CurrentHealth = playerStats.MaxHP;        
         CurrentAttack = playerStats.Attack;
         //currentAttackHaste = playerStats.;
@@ -309,7 +327,7 @@ public class CharacterStats : MonoBehaviour
 
     public void HealthCheck()
     {
-        float HPPercentage = CurrentHealth / playerStats.MaxHP;
+        float HPPercentage = CurrentHealth / currentMaxHP;
         trueHealthBar.fillAmount = HPPercentage; 
         
         if (CurrentHealth <= 0f)
@@ -323,6 +341,7 @@ public class CharacterStats : MonoBehaviour
     {
         //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
         healthContainer.SetActive(true);
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Hit/PlayerHit");
         dmgHasBeenTaken = true; 
         part.Play(); 
     }
@@ -336,14 +355,16 @@ public class CharacterStats : MonoBehaviour
 
     public void Healing(float amount)
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Collectibles/Heal/HealCollect3");
+
         if (CurrentHealth < playerStats.MaxHP)
         {
             CurrentHealth += amount;
             GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
 
-            if (CurrentHealth > playerStats.MaxHP)
+            if (CurrentHealth > currentMaxHP)
             {
-                CurrentHealth = playerStats.MaxHP;
+                CurrentHealth = currentMaxHP;
             }
         }
     }
@@ -362,14 +383,14 @@ public class CharacterStats : MonoBehaviour
 
     void Recover()
     {
-        if(CurrentHealth < playerStats.MaxHP)
+        if(CurrentHealth < currentMaxHP)
         {
             CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
 
-        if (CurrentHealth > playerStats.MaxHP)
+        if (CurrentHealth > currentMaxHP)
         {
-            CurrentHealth = playerStats.MaxHP;
+            CurrentHealth = currentMaxHP;
         }
     }
 
@@ -379,7 +400,7 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
 
         coolIt -= Time.deltaTime;
-        if(coolIt <= 0f && CurrentHealth == playerStats.maxHP)
+        if(coolIt <= 0f && CurrentHealth == currentMaxHP)
         {
             healthContainer.SetActive(false); 
         }

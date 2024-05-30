@@ -34,8 +34,6 @@ public class InventoryManager : MonoBehaviour
         public GameObject initialPassive;
         public PassiveScriptable passiveStats;
     }
-
-
     [System.Serializable]
     public class WeaponUpgrade
     {

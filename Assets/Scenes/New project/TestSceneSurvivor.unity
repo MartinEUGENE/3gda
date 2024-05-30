@@ -4454,6 +4454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
+      propertyPath: passiveUp.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
       propertyPath: weaponUiSlots.Array.data[0]
       value: 
       objectReference: {fileID: 1727860000575270976}
@@ -4542,6 +4547,46 @@ PrefabInstance:
       propertyPath: psyOps.Array.data[2].buttonUpgrade
       value: 
       objectReference: {fileID: 2194205077583331299}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[3].passiveStats
+      value: 
+      objectReference: {fileID: 11400000, guid: d16ba6357f9d3ab40a95020c81b18e8b,
+        type: 2}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[4].passiveStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 22e8f1cfb1862a94aa73f9d483b43366,
+        type: 2}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[2].initialPassive
+      value: 
+      objectReference: {fileID: 8009455447645230295, guid: 2e3c335258b26664ea002fd9264bedeb,
+        type: 3}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[3].initialPassive
+      value: 
+      objectReference: {fileID: 8777135159156509236, guid: d50c58d8a6f389c42b5aeaedc732b4fc,
+        type: 3}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[3].passiveUpIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[4].initialPassive
+      value: 
+      objectReference: {fileID: 8540014120101324325, guid: adad7d75bac43814b85382730c541f26,
+        type: 3}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: passiveUp.Array.data[4].passiveUpIndex
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: psyOps.Array.data[0].upgradeDescrption
