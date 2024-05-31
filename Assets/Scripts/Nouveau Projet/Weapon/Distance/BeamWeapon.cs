@@ -63,6 +63,7 @@ public class BeamWeapon : WeaponSystem
             {
                 Vector3 beamPosition = leftLaunch.position + Vector3.right * direction;
                 GameObject beam = Instantiate(beamPrefab, beamPosition, Quaternion.identity, leftLaunch);
+                beam.transform.localScale = new Vector3(-1, 1, 1);
             }
         }
 

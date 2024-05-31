@@ -87,22 +87,23 @@ public class CharacterStats : MonoBehaviour
             }
         }
     }
-    
+
     public float CurrentMaxHealth
     {
-        get { return currentNewHP; }
+        get { return currentMaxHP; }
         set
         {
-            if (currentNewHP != value)
+            if (currentMaxHP != value)
             {
-                currentNewHP = value;
+                currentMaxHP = value;
                 if (GameManager.instance != null)
                 {
-                    GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
+                    //GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
                 }
             }
         }
     }
+
     public float CurrentRecovery
     {
         get { return currentRecovery; }
@@ -226,8 +227,8 @@ public class CharacterStats : MonoBehaviour
         gold = 0;
         XPBAR.fillAmount = 0;
 
-        currentMaxHP = playerStats.MaxHP;
-        CurrentHealth = playerStats.MaxHP;        
+        CurrentMaxHealth = playerStats.MaxHP; 
+        CurrentHealth = playerStats.MaxHP; 
         CurrentAttack = playerStats.Attack;
 
         CurrentCritRate = playerStats.CritRate;
@@ -325,7 +326,7 @@ public class CharacterStats : MonoBehaviour
     }
     public void HealthCheck()
     {
-        float HPPercentage = CurrentHealth / playerStats.MaxHP;
+        float HPPercentage = CurrentHealth / CurrentMaxHealth;
         trueHealthBar.fillAmount = HPPercentage;
 
         if (CurrentHealth <= 0f)
@@ -352,21 +353,21 @@ public class CharacterStats : MonoBehaviour
 
     public void Healing(float amount)
     {
-        if (CurrentHealth < playerStats.MaxHP)
+        if (CurrentHealth < CurrentMaxHealth)
         {
             CurrentHealth += amount;
             GameManager.GenerateFloatingText(Mathf.FloorToInt(amount).ToString(), transform, 1f, 1f, false, true, false);
 
-            if (CurrentHealth > playerStats.MaxHP)
+            if (CurrentHealth > CurrentMaxHealth)
             {
-                CurrentHealth = playerStats.MaxHP;
+                CurrentHealth = CurrentMaxHealth;
             }
         }
     }
 
     void StatsCheck()
     {
-        GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth;
+        GameManager.instance.currentHealthDisp.text = "Health : " + CurrentHealth + "/"+ CurrentMaxHealth;
         GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
         GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
         GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
@@ -378,14 +379,14 @@ public class CharacterStats : MonoBehaviour
 
     void Recover()
     {
-        if (CurrentHealth < playerStats.MaxHP)
+        if (CurrentHealth < CurrentMaxHealth)
         {
             CurrentHealth += CurrentRecovery * Time.deltaTime;
         }
 
-        if (CurrentHealth > playerStats.MaxHP)
+        if (CurrentHealth > CurrentMaxHealth)
         {
-            CurrentHealth = playerStats.MaxHP;
+            CurrentHealth = CurrentMaxHealth;
         }
     }
 
@@ -395,7 +396,7 @@ public class CharacterStats : MonoBehaviour
         HealthCheck();
 
         coolIt -= Time.deltaTime;
-        if (coolIt <= 0f && CurrentHealth == playerStats.maxHP)
+        if (coolIt <= 0f && CurrentHealth == CurrentMaxHealth)
         {
             healthContainer.SetActive(false);
         }

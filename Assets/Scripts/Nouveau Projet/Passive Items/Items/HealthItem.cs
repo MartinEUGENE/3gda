@@ -6,7 +6,7 @@ public class HealthItem : PassiveItem
 {
     protected override void ApplyStats()
     {
-        player.currentNewHP += passiveItem.Multiplier;
+        player.CurrentMaxHealth += passiveItem.Multiplier;
         player.HealthCheck(); 
 
         if (passiveItem.Level == 5)
