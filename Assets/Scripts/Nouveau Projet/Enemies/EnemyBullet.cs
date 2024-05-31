@@ -18,7 +18,9 @@ public class EnemyBullet : MonoBehaviour
         player = FindObjectOfType<CharacterStats>().gameObject;
         Vector3 dir = (player.transform.position - transform.position).normalized;
 
-        rb.velocity = new Vector2(dir.x, dir.y) * bullSpeed; 
+        rb.velocity = new Vector2(dir.x, dir.y) * bullSpeed;
+        float rot = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, 90 + rot); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

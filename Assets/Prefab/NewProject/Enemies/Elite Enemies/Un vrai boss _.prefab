@@ -190,7 +190,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9063409085522702638}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab1f2dc57883ef144a91f170fe01dfee, type: 3}
   m_Name: 
@@ -208,6 +208,10 @@ MonoBehaviour:
   distanceDespawn: 15
   knockDuration: 0
   knockForce: 3
+  moving: {x: 0, y: 0}
+  lastMovHorizon: 0
+  lastMovVertical: 0
+  lastMovVector: {x: 0, y: 0}
   levelRangesEnemy: []
   dmgText: {fileID: 0}
   patternAttack: 0
@@ -286,3 +290,5 @@ MonoBehaviour:
     itemPrefab: {fileID: 7616842400326546156, guid: 1fb99eb9812d4904c916a69d7f3e3434,
       type: 3}
     dropRate: 99
+  LaunchForce: 100
+  Drag: 5
