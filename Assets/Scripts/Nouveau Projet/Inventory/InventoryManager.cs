@@ -191,7 +191,6 @@ public class InventoryManager : MonoBehaviour
                                     up.upgradeDescrption.text = "You will recover 50% of your Health.";
                                     up.upgradeName.text = "A small treat";
 
-
                                     break;
                                 }
 
