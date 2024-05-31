@@ -212,16 +212,12 @@ public class InventoryManager : MonoBehaviour
                         up.upgradeDescrption.text = chosenWeapon.weaponStats.Descrip;
                         up.upgradeName.text = chosenWeapon.weaponStats.Named;
                     }
-
-                    if(!chosenWeapon.weaponStats.NextWeapon)
+                    
+                    /*if(!chosenWeapon.weaponStats.NextWeapon)
                     {
                         up.upgradeImg.sprite = healingSprite;
-                    }
-
-                    else
-                    {
-                        up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
-                    }
+                    }*/                       
+                    up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
 
                 }
             }
