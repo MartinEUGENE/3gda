@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: StarItem LV 5
   m_EditorClassIdentifier: 
-  multiplier: 200
+  multiplier: 125
   level: 5
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: e89752ee98bbd7548a5f8a7a91be17a0, type: 3}
   named: Luck Lv5
-  descrip: Critical strike chances and damages enhanced.
+  descrip: Increases critical strike chance and damage.
