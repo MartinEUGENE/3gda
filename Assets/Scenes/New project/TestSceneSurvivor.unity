@@ -535,7 +535,7 @@ MonoBehaviour:
   bossTrace:
   - {fileID: 6273229752775388543, guid: 53b33f324886cb249b1764ec9dd6e98d, type: 3}
   playerLvl: 0
-  invocationNumber: 60
+  invocationNumber: 5
 --- !u!4 &898319846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6513021268895284893, guid: b3c42938bdef0b0498216150fb56433a,
@@ -3557,7 +3557,7 @@ PrefabInstance:
     - target: {fileID: 687351312768456444, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 687351312850046934, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
@@ -3567,7 +3567,7 @@ PrefabInstance:
     - target: {fileID: 687351312992037126, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 687351313956593794, guid: af27e4aa9f6819049b0795fe30992b9d,
         type: 3}
@@ -4584,6 +4584,21 @@ PrefabInstance:
       propertyPath: psyOps.Array.data[2].upgradeName
       value: 
       objectReference: {fileID: 2194205078800755889}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: wpnUp.Array.data[1].weaponUpIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: wpnUp.Array.data[2].weaponUpIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
+      propertyPath: wpnUp.Array.data[3].weaponUpIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
       propertyPath: psyOps.Array.data[0].buttonUpgrade

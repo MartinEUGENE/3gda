@@ -212,16 +212,12 @@ public class InventoryManager : MonoBehaviour
                         up.upgradeDescrption.text = chosenWeapon.weaponStats.Descrip;
                         up.upgradeName.text = chosenWeapon.weaponStats.Named;
                     }
-
-                    if(!chosenWeapon.weaponStats.NextWeapon)
+                    
+                    /*if(!chosenWeapon.weaponStats.NextWeapon)
                     {
                         up.upgradeImg.sprite = healingSprite;
-                    }
-
-                    else
-                    {
-                        up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
-                    }
+                    }*/                       
+                    up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
 
                 }
             }
@@ -248,7 +244,7 @@ public class InventoryManager : MonoBehaviour
                                     //DisableUI(up);
                                     up.buttonUpgrade.onClick.AddListener(() => RecoverHealth());
 
-                                    up.upgradeImg.sprite = healingSprite;
+                                    //up.upgradeImg.sprite = healingSprite;
                                     up.upgradeDescrption.text = "You will recover 50% of your Health.";
                                     up.upgradeName.text = "A small treat";
                                     
