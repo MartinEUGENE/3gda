@@ -46,12 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27819d6ee85d7db4e9a8ea1357a8a47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 22b0d5b01aa01f44bbad81496369522b, type: 2}
+  weaponData: {fileID: 11400000, guid: d649d08eac3fc414b9e0267e8eef51ef, type: 2}
   weaponType: 0
   mainCam: {fileID: 0}
   mousPos: {x: 0, y: 0, z: 0}
   currentLevel: 4
-  beamPrefab: {fileID: 8785628014650320031, guid: 25e03be3e63bb0b4990a05ef1014727f,
+  beamPrefab: {fileID: 8785628014650320031, guid: 292dafba1dcc30a44bda4c3f6c9239fc,
     type: 3}
   rightLaunch: {fileID: 4248272613314751935}
   leftLaunch: {fileID: 6809100733967408386}
