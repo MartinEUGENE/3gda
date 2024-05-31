@@ -373,8 +373,8 @@ public class CharacterStats : MonoBehaviour
         GameManager.instance.currentRecoveryDisp.text = "Recovery : " + CurrentRecovery;
         GameManager.instance.currentArmorDisp.text = "Armor : " + CurrentArmor;
         GameManager.instance.currentAttackDisp.text = "Attack : " + CurrentAttack;
-        GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + Mathf.FloorToInt(CurrentCritRate);
-        GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + CurrentCritDmg;
+        GameManager.instance.currentCriRateDisp.text = "Crit Rate : " + Mathf.FloorToInt(CurrentCritRate) + "%";
+        GameManager.instance.currentCritDmgDisp.text = "Crit Damage : " + "x" + CurrentCritDmg;
         GameManager.instance.currentPickUpDisp.text = "Magnet : " + CurrentPickUp;
         GameManager.instance.currentMovSpeedDisp.text = "Speed : " + CurrentMovSpeed;
     }

@@ -5,19 +5,24 @@ using UnityEngine;
 public class BulletBehav : BulletSystem
 {
     List<GameObject> markedEnemies;
+    private FMOD.Studio.EventInstance distHit;
+
 
     protected override void Start()
     {
         base.Start();
         markedEnemies = new List<GameObject>();
-        OnSpawn(); 
+    
         Vector2 dir = moveDir; 
-        rb.velocity = new Vector2(dir.x, dir.y) * weapon.Speedrange; 
+        rb.velocity = new Vector2(dir.x, dir.y) * weapon.Speedrange;
+        distHit = FMODUnity.RuntimeManager.CreateInstance("event:/New Project/Player/Weapon/Main Weapons/Brick_Weapon");
+
+        OnSpawn();
     }
 
     protected override void OnSpawn()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/Brick_Weapon");
+        distHit.start(); 
     }
 
     protected override void Update()
@@ -33,8 +38,7 @@ public class BulletBehav : BulletSystem
 
             en.knockDuration = weapon.KnockbackDuration;
             en.knockForce = weapon.Knockback;
-
-            FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/ContactWith/Brick_Contact"); 
+            distHit.setParameterByNameWithLabel("WasHit", "Yes");
             en.TakeDmg(GetCurrentDamage(), hasCrit);         
         }
     }
