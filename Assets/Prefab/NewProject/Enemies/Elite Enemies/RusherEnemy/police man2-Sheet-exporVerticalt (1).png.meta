@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 668e65749ca552e41bf59229b9252d2e
+guid: 9fd1de771a61c004bb33f1e9cb8cf16c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,169 +117,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_0"
+      name: police man2-Sheet-exporVerticalt (1)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 207.125
-        height: 129
+        y: 1250
+        width: 114
+        height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874ef94c1f33ec14196104a47a8916cd
-      internalID: -67310765
+      spriteID: 4e5706e5bd2adbd4da9c37e155f534c2
+      internalID: 401936643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_1"
+      name: police man2-Sheet-exporVerticalt (1)_1
       rect:
         serializedVersion: 2
-        x: 207
-        y: 0
-        width: 207.125
-        height: 129
+        x: 0
+        y: 1072
+        width: 114
+        height: 132
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d491156c21e67fa49813e1af8013db0c
-      internalID: -1031411274
+      spriteID: c7c6d3e4cd12c8b4b873811f11387b83
+      internalID: 1889432974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_2"
+      name: police man2-Sheet-exporVerticalt (1)_2
       rect:
         serializedVersion: 2
-        x: 414
-        y: 0
-        width: 207.125
-        height: 129
+        x: 1
+        y: 892
+        width: 113
+        height: 134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1e3ebc900706cc4ab3543c42696b46e
-      internalID: 1249288177
+      spriteID: c5882ffb507c88745b1fa09f4674169b
+      internalID: -127498940
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_3"
+      name: police man2-Sheet-exporVerticalt (1)_3
       rect:
         serializedVersion: 2
-        x: 621
-        y: 0
-        width: 207.125
-        height: 129
+        x: 0
+        y: 711
+        width: 114
+        height: 135
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec8b40106a3137f4d82ffb9f352e8e67
-      internalID: 1827635882
+      spriteID: 6ec52da59b9664f4e9c088a01904958d
+      internalID: 1420428960
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_4"
+      name: police man2-Sheet-exporVerticalt (1)_4
       rect:
         serializedVersion: 2
-        x: 828
-        y: 0
-        width: 207.125
-        height: 129
+        x: 3
+        y: 533
+        width: 111
+        height: 135
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9512284f3cd3b540a04514494622a5f
-      internalID: -1110696996
+      spriteID: f142471e64375c046a1b319340e29f89
+      internalID: -1190607473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_5"
+      name: police man2-Sheet-exporVerticalt (1)_5
       rect:
         serializedVersion: 2
-        x: 1035
-        y: 0
-        width: 207.125
-        height: 129
+        x: 0
+        y: 355
+        width: 114
+        height: 134
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c27cfd2c782a50d4fb783694edbdf019
-      internalID: -1006966882
+      spriteID: 8f6a38f187916d8469fd9f97762d0c84
+      internalID: -832393191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_6"
+      name: police man2-Sheet-exporVerticalt (1)_6
       rect:
         serializedVersion: 2
-        x: 1242
-        y: 0
-        width: 207.125
-        height: 129
+        x: 0
+        y: 178
+        width: 114
+        height: 135
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9608d7dbe85ebc4dbfbc48dc8ccee11
-      internalID: -925283980
+      spriteID: c074fa7458f60b44d891cbac0f17a19a
+      internalID: -234175144
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "police man-Sheet-exporecart\xE9t_7"
+      name: police man2-Sheet-exporVerticalt (1)_7
       rect:
         serializedVersion: 2
-        x: 1449
+        x: 46
         y: 0
-        width: 207.125
+        width: 68
         height: 129
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d8351b981d2d394a8cd587b3e3c76f4
-      internalID: -1462163687
+      spriteID: 899c8815d35eb3e4cab38fd99de675d1
+      internalID: 1221770576
       vertices: []
       indices: 
       edges: []
@@ -295,14 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "police man-Sheet-exporecart\xE9t_2": 1249288177
-      "police man-Sheet-exporecart\xE9t_6": -925283980
-      "police man-Sheet-exporecart\xE9t_0": -67310765
-      "police man-Sheet-exporecart\xE9t_1": -1031411274
-      "police man-Sheet-exporecart\xE9t_5": -1006966882
-      "police man-Sheet-exporecart\xE9t_7": -1462163687
-      "police man-Sheet-exporecart\xE9t_4": -1110696996
-      "police man-Sheet-exporecart\xE9t_3": 1827635882
+      police man2-Sheet-exporVerticalt (1)_1: 1889432974
+      police man2-Sheet-exporVerticalt (1)_3: 1420428960
+      police man2-Sheet-exporVerticalt (1)_2: -127498940
+      police man2-Sheet-exporVerticalt (1)_7: 1221770576
+      police man2-Sheet-exporVerticalt (1)_6: -234175144
+      police man2-Sheet-exporVerticalt (1)_5: -832393191
+      police man2-Sheet-exporVerticalt (1)_4: -1190607473
+      police man2-Sheet-exporVerticalt (1)_0: 401936643
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

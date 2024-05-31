@@ -88,7 +88,6 @@ public class RushingEnemy : EnemiesSystem
         rb2d.velocity = new Vector2(playerDir.x, playerDir.y).normalized * rushForce;
         anime.SetBool("IsMoving", true);
         yield return new WaitForSeconds(rushDist);
-               
         dead = true;        
     }
 
