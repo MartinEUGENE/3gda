@@ -4477,6 +4477,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}
+      propertyPath: healingSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f5bc09eb226086647948b90c8460721d,
+        type: 3}
+    - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
+        type: 3}
       propertyPath: passiveUp.Array.size
       value: 7
       objectReference: {fileID: 0}

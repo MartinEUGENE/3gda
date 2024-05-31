@@ -47,6 +47,7 @@ public class InventoryManager : MonoBehaviour
     public List<UpgradeUI> psyOps = new List<UpgradeUI>();
 
     CharacterStats chara;
+    public Sprite healingSprite;
 
     void Start()
     {
@@ -104,7 +105,12 @@ public class InventoryManager : MonoBehaviour
 
     public void RecoverHealth()
     {
+        chara.Healing(chara.CurrentMaxHealth/2);         
 
+        if (GameManager.instance != null && GameManager.instance.isChoosingUpgrade)
+        {
+            GameManager.instance.LevelUpDone();
+        }
     }
 
     public void LevelUpPassive(int slotIndex, int upgradeIndex)
@@ -179,7 +185,13 @@ public class InventoryManager : MonoBehaviour
                             {
                                 if (!chosenWeapon.weaponStats.NextWeapon)
                                 {
-                                    //DisableUI(up);
+                                    up.buttonUpgrade.onClick.AddListener(() => RecoverHealth());
+
+                                    up.upgradeImg.sprite = healingSprite;
+                                    up.upgradeDescrption.text = "You will recover 50% of your Health.";
+                                    up.upgradeName.text = "A small treat";
+
+
                                     break;
                                 }
 
@@ -217,7 +229,7 @@ public class InventoryManager : MonoBehaviour
 
                 if (chosenPassive != null)
                 {
-                    EnableUI(up); 
+                    //EnableUI(up); 
 
                     bool newPass = false;
                     for (int i = 0; i < passiveSlots.Count; i++)
@@ -229,7 +241,14 @@ public class InventoryManager : MonoBehaviour
                             {
                                 if(!chosenPassive.passiveStats.NextPassive)
                                 {
-                                    DisableUI(up);
+                                    //DisableUI(up);
+                                    up.buttonUpgrade.onClick.AddListener(() => RecoverHealth());
+
+                                    up.upgradeImg.sprite = healingSprite;
+                                    up.upgradeDescrption.text = "You will recover 50% of your Health.";
+                                    up.upgradeName.text = "A small treat";
+                                    
+
                                     break;
                                 }
 
