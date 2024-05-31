@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: beam LV2
   m_EditorClassIdentifier: 
   named: Taser Lv2
-  descrip: More damages.
+  descrip: Deals more damages.
   level: 2
   damage: 75
   speedrange: 0

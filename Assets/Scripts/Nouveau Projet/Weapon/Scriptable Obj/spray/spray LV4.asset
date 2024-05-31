@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: spray LV4
   m_EditorClassIdentifier: 
   named: Spray Paint LV4
-  descrip: 'Deals more Damages and push enemies further away '
-  nextNamed: Spray Paint Lv2
-  nextDescrip: Deals more Damages.
+  descrip: Deals more damages.
   level: 4
   damage: 5
   speedrange: 0
