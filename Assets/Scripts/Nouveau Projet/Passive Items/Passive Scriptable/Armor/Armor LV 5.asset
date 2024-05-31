@@ -16,5 +16,5 @@ MonoBehaviour:
   level: 5
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: 039742bac73d0a648aba08803110fe2e, type: 3}
-  named: Armor Lv5
+  named: Helmet Lv5
   descrip: Increases defense.

@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8162706636465797575, guid: 7892b213877d86c49903aee38d4c8f35,
     type: 3}
   icon: {fileID: 21300000, guid: c1960112d1ffa0b4880e5f8ed9d8cc06, type: 3}
-  named: Recovery Lv3
+  named: First aid kit Lv3
   descrip: Increases health regeneration.

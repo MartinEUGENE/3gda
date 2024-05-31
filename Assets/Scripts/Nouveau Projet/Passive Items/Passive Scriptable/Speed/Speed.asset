@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8579314183846126787, guid: 1e026f3d2b51716479e1e9cb492d4a8a,
     type: 3}
   icon: {fileID: 21300000, guid: 5daa9962bf4b89145bf12be63a63145f, type: 3}
-  named: 'Speed '
+  named: Shoes
   descrip: Increases speed.

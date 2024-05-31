@@ -16,5 +16,5 @@ MonoBehaviour:
   level: 5
   nextPassive: {fileID: 0}
   icon: {fileID: 21300000, guid: e89752ee98bbd7548a5f8a7a91be17a0, type: 3}
-  named: Luck Lv5
+  named: Clover Lv5
   descrip: Increases critical strike chance and damage.

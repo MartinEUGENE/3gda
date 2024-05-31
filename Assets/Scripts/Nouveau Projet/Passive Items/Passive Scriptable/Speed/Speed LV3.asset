@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8579314183846126787, guid: bd743f3663da0444d806499fbd29f0fe,
     type: 3}
   icon: {fileID: 21300000, guid: 5daa9962bf4b89145bf12be63a63145f, type: 3}
-  named: Speed Lv3
+  named: Shoes Lv3
   descrip: Increases speed.

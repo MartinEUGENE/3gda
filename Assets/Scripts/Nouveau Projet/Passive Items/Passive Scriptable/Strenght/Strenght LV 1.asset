@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8009455447645230295, guid: 4113007c304aaea4e9a8016d07b45345,
     type: 3}
   icon: {fileID: 21300000, guid: fa10e66a61ed2894b9fc90e6d64a4ee6, type: 3}
-  named: Strenght
+  named: Gym card
   descrip: Increases strenght.
