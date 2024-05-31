@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8517228953195156906, guid: 85aeae69b38911842a6df840aa509442,
     type: 3}
   icon: {fileID: 21300000, guid: e89752ee98bbd7548a5f8a7a91be17a0, type: 3}
-  named: Luck
+  named: Clover
   descrip: Increases critical strike chance and damage.

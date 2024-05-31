@@ -17,5 +17,5 @@ MonoBehaviour:
   nextPassive: {fileID: 8517228953195156906, guid: 1ce08aae1b79b0844be8f2dd066e8665,
     type: 3}
   icon: {fileID: 21300000, guid: e89752ee98bbd7548a5f8a7a91be17a0, type: 3}
-  named: Luck Lv4
+  named: Clover Lv4
   descrip: Increases critical strike chance and damage.

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   eliteMember: 1
-  enemySpeed: 1.8
+  enemySpeed: 1.7
   enemyHP: 50
   enemyDmg: 35
   enemyTiming: 0
