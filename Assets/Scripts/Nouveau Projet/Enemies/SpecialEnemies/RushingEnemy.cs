@@ -78,12 +78,12 @@ public class RushingEnemy : EnemiesSystem
 
     public IEnumerator Rush()
     {
-        /*yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.1f);
         prediction.enabled = false;
         yield return new WaitForSeconds(.1f);
         prediction.enabled = true;
-        yield return new WaitForSeconds(.1f);*/
-        yield return new WaitForSeconds(startingTime - .2f);
+        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(startingTime - .3f);
         prediction.enabled = false;
         rb2d.velocity = new Vector2(playerDir.x, playerDir.y).normalized * rushForce;
         anime.SetBool("IsMoving", true);

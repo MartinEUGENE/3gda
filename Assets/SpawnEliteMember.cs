@@ -8,7 +8,7 @@ public class SpawnEliteMember : MonoBehaviour
     public GameObject[] bossTrace;
 
     public int playerLvl = 0;
-    public float invocationNumber = 10f ;
+    public float invocationNumber = 5f ;
     CharacterStats player;
 
     private void Start()
@@ -23,7 +23,7 @@ public class SpawnEliteMember : MonoBehaviour
         if(invocationNumber<=0f)
         {
             SpawnPlease();
-            invocationNumber += 20f; 
+            invocationNumber += 10f; 
         }
     }
 
