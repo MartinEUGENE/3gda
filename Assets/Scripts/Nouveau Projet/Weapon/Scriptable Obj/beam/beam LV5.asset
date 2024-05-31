@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: beam LV5
   m_EditorClassIdentifier: 
   named: Taser Lv5
-  descrip: Now the Taser works in both ways
+  descrip: Shoots lightning in both directions.
   level: 5
   damage: 75
   speedrange: 0
