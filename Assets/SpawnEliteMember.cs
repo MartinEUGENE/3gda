@@ -8,7 +8,7 @@ public class SpawnEliteMember : MonoBehaviour
     public GameObject[] bossTrace;
 
     public int playerLvl = 0;
-    public float invocationNumber = 60f ;
+    public float invocationNumber = 10f ;
     CharacterStats player;
 
     private void Start()
@@ -23,7 +23,7 @@ public class SpawnEliteMember : MonoBehaviour
         if(invocationNumber<=0f)
         {
             SpawnPlease();
-            invocationNumber += 60f; 
+            invocationNumber += 20f; 
         }
     }
 
@@ -37,7 +37,7 @@ public class SpawnEliteMember : MonoBehaviour
 
         else if (playerLvl == 15 || playerLvl == 30 || playerLvl == 45)
         {
-            Instantiate(bossTrace[Random.Range(0, bossTrace.Length)], transform.position, Quaternion.identity);
+            Instantiate(bossTrace[Random.Range(0, bossTrace.Length)], transform.position + player.transform.position, Quaternion.identity);
         }
     }
 

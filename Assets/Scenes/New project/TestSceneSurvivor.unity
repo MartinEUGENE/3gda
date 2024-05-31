@@ -530,8 +530,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eliteTrace:
-  - {fileID: 6273229752775388543, guid: f8f844c804ad00a4aaa6b5d37034e406, type: 3}
   - {fileID: 6273229752775388543, guid: 526092f6a558783498c8d75dc9087f1d, type: 3}
+  - {fileID: 6273229752775388543, guid: f8f844c804ad00a4aaa6b5d37034e406, type: 3}
   bossTrace:
   - {fileID: 6273229752775388543, guid: 53b33f324886cb249b1764ec9dd6e98d, type: 3}
   playerLvl: 0
@@ -4621,7 +4621,7 @@ PrefabInstance:
         type: 3}
       propertyPath: passiveUp.Array.data[6].passiveStats
       value: 
-      objectReference: {fileID: 11400000, guid: cd7813f3faacb9247b697007de20f36c,
+      objectReference: {fileID: 11400000, guid: 5ae85107a2478d84aac6b13684c48531,
         type: 2}
     - target: {fileID: 3095968198641944391, guid: b3c42938bdef0b0498216150fb56433a,
         type: 3}

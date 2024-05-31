@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
+  m_Name: Magnet LV 3
+  m_EditorClassIdentifier: 
+  multiplier: 0.15
+  level: 3
+  nextPassive: {fileID: 3091512003644378142, guid: f9b7ba7668dd5564c8d5ddc9bf36b180,
+    type: 3}
+  icon: {fileID: 21300000, guid: 9fd6ff0d66a809143af8ad6df76d9d3d, type: 3}
+  named: Pick Up Tool Lv3
+  descrip: 'Increase the Magnet range. '

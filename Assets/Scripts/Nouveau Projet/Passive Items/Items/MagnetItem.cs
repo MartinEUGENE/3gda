@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagnetItem : MonoBehaviour
+public class MagnetItem : PassiveItem
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override void ApplyStats()
     {
-        
-    }
+        player.collect.SetDetection(player.CurrentPickUp += passiveItem.Multiplier) ;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (passiveItem.Level == 5)
+        {
+            player.collect.SetDetection(player.CurrentPickUp = 2) ;
+            player.CurrentArmor += 15; 
+        }
     }
 }

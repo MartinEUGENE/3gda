@@ -20,7 +20,7 @@ public class EnemyBullet : MonoBehaviour
 
         rb.velocity = new Vector2(dir.x, dir.y) * bullSpeed;
         float rot = Mathf.Atan2(-dir.y, -dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, 90 + rot); 
+        transform.rotation = Quaternion.Euler(0, 0, 270 + rot); 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -66,7 +66,7 @@ public class CharacterStats : MonoBehaviour
     public List<LevelRange> levelRanges;
 
     InventoryManager inventory; 
-    PlayerCollect collect;
+    public PlayerCollect collect;
     ParticleSystem part; 
     public int weaponIndex;
     public int passiveIndex;
@@ -238,6 +238,8 @@ public class CharacterStats : MonoBehaviour
         CurrentMovSpeed = playerStats.MovSpeed;
         CurrentArmor = playerStats.Armor;
         CurrentRecovery = playerStats.recovery;
+        collect.SetDetection(CurrentPickUp); 
+
         //Weapon Spawning
         SpawnedWeapon(playerStats.StartingWeapon);
 

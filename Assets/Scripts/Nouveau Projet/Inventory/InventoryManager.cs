@@ -172,9 +172,7 @@ public class InventoryManager : MonoBehaviour
                 avalivableWeaponUpgrades.Remove(chosenWeapon); 
 
                 if (chosenWeapon != null)
-                {
-                    //EnableUI(up);
-
+                {                
                     bool newWeapon = false;
                     for (int i = 0; i < weaponSlots.Count; i++)
                     {
@@ -187,7 +185,6 @@ public class InventoryManager : MonoBehaviour
                                 {
                                     up.buttonUpgrade.onClick.AddListener(() => RecoverHealth());
 
-                                    up.upgradeImg.sprite = healingSprite;
                                     up.upgradeDescrption.text = "You will recover 50% of your Health.";
                                     up.upgradeName.text = "A small treat";
 
@@ -216,7 +213,15 @@ public class InventoryManager : MonoBehaviour
                         up.upgradeName.text = chosenWeapon.weaponStats.Named;
                     }
 
-                    up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
+                    if(!chosenWeapon.weaponStats.NextWeapon)
+                    {
+                        up.upgradeImg.sprite = healingSprite;
+                    }
+
+                    else
+                    {
+                        up.upgradeImg.sprite = chosenWeapon.weaponStats.Icon;
+                    }
 
                 }
             }
@@ -272,8 +277,14 @@ public class InventoryManager : MonoBehaviour
                         up.upgradeDescrption.text = chosenPassive.passiveStats.Descrip;
                         up.upgradeName.text = chosenPassive.passiveStats.Named;
                     }
-
-                    up.upgradeImg.sprite = chosenPassive.passiveStats.Icon;
+                    if (!chosenPassive.passiveStats.NextPassive)
+                    {
+                        up.upgradeImg.sprite = healingSprite;
+                    }
+                    else
+                    {
+                        up.upgradeImg.sprite = chosenPassive.passiveStats.Icon;
+                    }
 
                 }
             }
