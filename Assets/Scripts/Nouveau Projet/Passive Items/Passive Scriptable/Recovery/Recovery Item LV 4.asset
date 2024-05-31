@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: Recovery Item LV 4
   m_EditorClassIdentifier: 
-  multiplier: 0.25
+  multiplier: 0.2
   level: 4
   nextPassive: {fileID: 8162706636465797575, guid: fc855cf4aba13044792e1b95217b895e,
     type: 3}
   icon: {fileID: 21300000, guid: c1960112d1ffa0b4880e5f8ed9d8cc06, type: 3}
   named: Recovery Lv4
-  descrip: 'The natural Recovery increases. '
+  descrip: Increases health regeneration.

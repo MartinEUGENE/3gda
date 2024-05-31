@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: Strenght LV 1
   m_EditorClassIdentifier: 
-  multiplier: 15
+  multiplier: 10
   level: 1
   nextPassive: {fileID: 8009455447645230295, guid: 4113007c304aaea4e9a8016d07b45345,
     type: 3}
   icon: {fileID: 21300000, guid: fa10e66a61ed2894b9fc90e6d64a4ee6, type: 3}
   named: Strenght
-  descrip: Being a gym lover actually helps, you gain strenght.
+  descrip: Increases strenght.

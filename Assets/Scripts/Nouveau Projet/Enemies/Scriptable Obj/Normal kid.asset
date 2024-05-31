@@ -16,11 +16,11 @@ MonoBehaviour:
   eliteMember: 0
   enemySpeed: 0.7
   enemyHP: 50
-  enemyDmg: 25
+  enemyDmg: 30
   enemyTiming: 0
   enemyType: 0
   damageIncreaseByLevel: 1
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 5
+  healthIncreaseByLevel: 10
   currentEnemyObj: {fileID: 0}
   replacement: {fileID: 0}

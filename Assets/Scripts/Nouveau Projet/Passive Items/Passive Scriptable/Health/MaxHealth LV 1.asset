@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: MaxHealth LV 1
   m_EditorClassIdentifier: 
-  multiplier: 15
+  multiplier: 10
   level: 1
   nextPassive: {fileID: 8540014120101324325, guid: c1187376f3be41f4f9aae4bb035558ff,
     type: 3}
   icon: {fileID: 21300000, guid: 023e7f506cb51f2419b790b909916475, type: 3}
   named: Health Tonic
-  descrip: Increases the max Health of the character.
+  descrip: Increases max health.
