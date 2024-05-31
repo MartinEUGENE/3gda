@@ -41,6 +41,14 @@ public class TurretEnemy : EnemiesSystem
         {
             lastMovHorizon = direction.x;
             moving.x = direction.x;
+            if(moving.x <0)
+            {
+                gameObject.transform.localScale = new Vector3(-1, 1, 1); 
+            }
+            else
+            {
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+            }
         }
 
         if (direction.y != 0)
