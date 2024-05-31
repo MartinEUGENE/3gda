@@ -164,7 +164,13 @@
 			<value>true</value>
 		</property>
 		<property name="decayTime">
-			<value>270</value>
+			<value>100</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>10</value>
+		</property>
+		<property name="diffusion">
+			<value>1</value>
 		</property>
 		<property name="density">
 			<value>26</value>

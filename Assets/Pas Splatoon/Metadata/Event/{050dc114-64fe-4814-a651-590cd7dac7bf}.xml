@@ -5,7 +5,7 @@
 			<value>PlayerHit</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{1ce19852-fe18-4a2e-9e9a-ae51d8897aa9}</destination>
@@ -63,11 +63,18 @@
 	</object>
 	<object class="MarkerTrack" id="{ee5d233a-33ae-405f-88fd-1f793fc58b92}" />
 	<object class="GroupTrack" id="{8e849b0c-37bd-45c2-a423-855f92cd4b0d}">
+		<relationship name="modules">
+			<destination>{1c7a9568-5844-461d-8da7-5aa7a33e5ec6}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{8afa71b0-4846-4b6e-9291-6368dec0b5b6}</destination>
 		</relationship>
 	</object>
-	<object class="Timeline" id="{6f0c02d5-cf3e-4ffd-82f6-04f4b2fa8622}" />
+	<object class="Timeline" id="{6f0c02d5-cf3e-4ffd-82f6-04f4b2fa8622}">
+		<relationship name="modules">
+			<destination>{1c7a9568-5844-461d-8da7-5aa7a33e5ec6}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerMaster" id="{e124bd35-c2a0-4f42-9335-b8ee10362100}">
 		<relationship name="effectChain">
 			<destination>{37072ace-f0b0-4af2-a17e-dc54c7aa0347}</destination>
@@ -85,6 +92,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{799c0004-9053-4291-8e45-b1346116cb46}" />
+	<object class="SingleSound" id="{1c7a9568-5844-461d-8da7-5aa7a33e5ec6}">
+		<property name="length">
+			<value>0.80471655328798186</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{8b645764-b49a-4735-a639-a332a7e912c5}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{8afa71b0-4846-4b6e-9291-6368dec0b5b6}">
 		<property name="name">
 			<value>Audio 1</value>
@@ -109,9 +124,18 @@
 	<object class="MixerBusEffectChain" id="{373a911b-36ea-4793-80e8-99d319f06e4e}">
 		<relationship name="effects">
 			<destination>{1a51026b-ad07-4654-921f-86b82a248134}</destination>
+			<destination>{60b3ccd9-53b6-407e-af64-866aca73f753}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{77ab9c16-1209-4585-aa1b-75bef32cb6fc}" />
 	<object class="MixerBusFader" id="{4492465d-4cd9-4bff-9e9f-6bbb79757af7}" />
 	<object class="MixerBusFader" id="{1a51026b-ad07-4654-921f-86b82a248134}" />
+	<object class="ThreeEQEffect" id="{60b3ccd9-53b6-407e-af64-866aca73f753}">
+		<property name="lowGain">
+			<value>3</value>
+		</property>
+		<property name="highGain">
+			<value>-14</value>
+		</property>
+	</object>
 </objects>
