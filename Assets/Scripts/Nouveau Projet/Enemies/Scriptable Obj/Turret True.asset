@@ -21,6 +21,6 @@ MonoBehaviour:
   enemyType: 0
   damageIncreaseByLevel: 2
   speedIncreseByLevel: 0
-  healthIncreaseByLevel: 2
+  healthIncreaseByLevel: 5
   currentEnemyObj: {fileID: 0}
   replacement: {fileID: 0}

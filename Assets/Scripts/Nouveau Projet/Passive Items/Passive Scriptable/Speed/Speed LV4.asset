@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: Speed LV4
   m_EditorClassIdentifier: 
-  multiplier: 1.4
+  multiplier: 1.11
   level: 4
   nextPassive: {fileID: 8579314183846126787, guid: b01a61477d7c9444fb03026c9e123d26,
     type: 3}
   icon: {fileID: 21300000, guid: 5daa9962bf4b89145bf12be63a63145f, type: 3}
   named: Speed Lv4
-  descrip: Character moves faster.
+  descrip: Increases speed.
