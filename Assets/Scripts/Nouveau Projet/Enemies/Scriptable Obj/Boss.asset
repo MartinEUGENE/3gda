@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
   eliteMember: 1
-  enemySpeed: 0.3
+  enemySpeed: 0.35
   enemyHP: 500
   enemyDmg: 50
   enemyTiming: 0
   enemyType: 0
   damageIncreaseByLevel: 5
-  speedIncreseByLevel: 0.005
+  speedIncreseByLevel: 0.007
   healthIncreaseByLevel: 10
   currentEnemyObj: {fileID: 0}
   replacement: {fileID: 0}

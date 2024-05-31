@@ -3328,18 +3328,18 @@ PrefabInstance:
     - target: {fileID: 395070404, guid: af27e4aa9f6819049b0795fe30992b9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 359036378}
     - target: {fileID: 395070404, guid: af27e4aa9f6819049b0795fe30992b9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: CloseScene
       objectReference: {fileID: 0}
     - target: {fileID: 395070404, guid: af27e4aa9f6819049b0795fe30992b9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: 
+      value: SceneController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 395070404, guid: af27e4aa9f6819049b0795fe30992b9d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: 
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 487507886, guid: af27e4aa9f6819049b0795fe30992b9d, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4455,23 +4455,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[1].expCapIncrease
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: levelRanges.Array.data[2].expCapIncrease
       value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: levelRanges.Array.data[3].expCapIncrease
-      value: 250
+      propertyPath: levelRanges.Array.data[2].expCapIncrease
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: levelRanges.Array.data[4].expCapIncrease
+      propertyPath: levelRanges.Array.data[3].expCapIncrease
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
-      propertyPath: levelRanges.Array.data[5].expCapIncrease
+      propertyPath: levelRanges.Array.data[4].expCapIncrease
       value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
+      propertyPath: levelRanges.Array.data[5].expCapIncrease
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2036924085, guid: b3c42938bdef0b0498216150fb56433a, type: 3}
       propertyPath: levelRanges.Array.data[6].expCapIncrease

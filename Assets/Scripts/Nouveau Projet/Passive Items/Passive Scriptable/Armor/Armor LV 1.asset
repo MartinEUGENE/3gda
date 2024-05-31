@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: Armor LV 1
   m_EditorClassIdentifier: 
-  multiplier: 5
+  multiplier: 3
   level: 1
   nextPassive: {fileID: 8777135159156509236, guid: bca32766f0850684bb148a720891bf20,
     type: 3}

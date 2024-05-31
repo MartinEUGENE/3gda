@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac4d4556d8dcbe4f94f58ca1622a59e, type: 3}
   m_Name: StarItem LV 3
   m_EditorClassIdentifier: 
-  multiplier: 115
+  multiplier: 103
   level: 3
   nextPassive: {fileID: 8517228953195156906, guid: b141d8985a85b034ba384a447b12ce5d,
     type: 3}
