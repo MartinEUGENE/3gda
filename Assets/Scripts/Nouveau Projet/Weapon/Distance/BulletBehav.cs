@@ -38,7 +38,7 @@ public class BulletBehav : BulletSystem
 
             en.knockDuration = weapon.KnockbackDuration;
             en.knockForce = weapon.Knockback;
-            distHit.setParameterByNameWithLabel("WasHit", "Yes");
+            FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Weapon/Main Weapons/BrickHit", transform.position); 
             en.TakeDmg(GetCurrentDamage(), hasCrit);         
         }
     }

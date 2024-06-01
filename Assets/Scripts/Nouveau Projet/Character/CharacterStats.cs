@@ -341,6 +341,7 @@ public class CharacterStats : MonoBehaviour
     public void DmgTaken(int dmg)
     {
         //GameManager.GenerateFloatingText(Mathf.FloorToInt(dmg).ToString(), transform, 1f, 1f, false, false, true)
+        FMODUnity.RuntimeManager.PlayOneShot("event:/New Project/Player/Hit/PlayerHit");
         healthContainer.SetActive(true);
         dmgHasBeenTaken = true;
         part.Play();

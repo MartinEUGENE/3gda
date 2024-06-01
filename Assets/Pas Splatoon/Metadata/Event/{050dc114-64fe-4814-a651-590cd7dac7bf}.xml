@@ -101,6 +101,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{8afa71b0-4846-4b6e-9291-6368dec0b5b6}">
+		<property name="volume">
+			<value>-14.5</value>
+		</property>
 		<property name="name">
 			<value>Audio 1</value>
 		</property>
@@ -125,6 +128,7 @@
 		<relationship name="effects">
 			<destination>{1a51026b-ad07-4654-921f-86b82a248134}</destination>
 			<destination>{60b3ccd9-53b6-407e-af64-866aca73f753}</destination>
+			<destination>{1e9d3ccd-725c-49af-8786-16fa21fe103d}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{77ab9c16-1209-4585-aa1b-75bef32cb6fc}" />
@@ -136,6 +140,11 @@
 		</property>
 		<property name="highGain">
 			<value>-14</value>
+		</property>
+	</object>
+	<object class="SFXReverbEffect" id="{1e9d3ccd-725c-49af-8786-16fa21fe103d}">
+		<property name="decayTime">
+			<value>120</value>
 		</property>
 	</object>
 </objects>

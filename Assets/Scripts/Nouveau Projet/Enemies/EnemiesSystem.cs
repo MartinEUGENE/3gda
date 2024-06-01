@@ -54,6 +54,9 @@ public class EnemiesSystem : MonoBehaviour
     public List<LevelRange> levelRangesEnemy;
     public Text dmgText;
 
+    private FMOD.Studio.EventInstance march;
+
+
     public virtual void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -67,6 +70,7 @@ public class EnemiesSystem : MonoBehaviour
         enemyTransform = GetComponent<Transform>(); 
         animate = GetComponent<AnimateEnemy>();
 
+        march = FMODUnity.RuntimeManager.CreateInstance("event:/New Project/Enemy/EnemyIdle");
 
         OnSpawn();
     }
@@ -89,11 +93,19 @@ public class EnemiesSystem : MonoBehaviour
 
     public virtual void Update()
     {
-
         if (Vector2.Distance(transform.position, playerTransform) > distanceDespawn)
         {
             //ReturnTheEnemy();
         }
+
+        //march.setParameterByName("Player-EnemyDistance", Vector2.Distance(transform.position, playerTransform)); 
+
+        if(Time.timeScale==0f)
+        {
+            march.stop(FMOD.Studio.STOP_MODE.IMMEDIATE); 
+        }
+
+
     }
 
     internal void TakeDmg(int v)
@@ -128,6 +140,10 @@ public class EnemiesSystem : MonoBehaviour
     public virtual void OnSpawn()
     {
         isMoving = true; 
+        if(isMoving)
+        {
+            //march.start(); 
+        }
         CalculateStats();
     }
 
