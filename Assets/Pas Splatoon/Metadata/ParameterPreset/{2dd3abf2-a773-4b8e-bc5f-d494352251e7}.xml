@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="ParameterPreset" id="{2dd3abf2-a773-4b8e-bc5f-d494352251e7}">
 		<property name="name">
-			<value>Player-Enemy Distance</value>
+			<value>Player-EnemyDistance</value>
 		</property>
 		<relationship name="folder">
 			<destination>{4e60def8-ec0f-45b4-99cd-2cddae316c20}</destination>
@@ -13,7 +13,10 @@
 	</object>
 	<object class="GameParameter" id="{dec7a2ab-2f99-4926-908e-050a49aa658f}">
 		<property name="parameterType">
-			<value>10</value>
+			<value>3</value>
+		</property>
+		<property name="maximum">
+			<value>20</value>
 		</property>
 		<property name="initialValue">
 			<value>0</value>
